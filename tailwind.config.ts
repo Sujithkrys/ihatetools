@@ -9,8 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#0A0A0C",
+        surface: "#151519",
+        surfaceHover: "#1B1B21",
+        textPrimary: "#F5F5F7",
+        textSecondary: "#9B9BA3",
+        textMuted: "#65656D",
+        accent: "#F5A623",
+        success: "#22C55E",
+        error: "#EF4444",
+      },
+      borderRadius: {
+        card: "12px",
+        button: "8px",
+      },
+      maxWidth: {
+        content: "1200px",
       },
     },
   },
