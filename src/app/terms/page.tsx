@@ -22,9 +22,9 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-textPrimary mb-3">2. "As Is" Service</h2>
+            <h2 className="text-xl font-semibold text-textPrimary mb-3">2. &quot;As Is&quot; Service</h2>
             <p>
-              All tools and services provided on this website are provided strictly on an "AS IS" and "AS AVAILABLE" basis. We make no warranties, expressed or implied, regarding the reliability, accuracy, or suitability of these tools for any particular purpose.
+              All tools and services provided on this website are provided strictly on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis. We make no warranties, expressed or implied, regarding the reliability, accuracy, or suitability of these tools for any particular purpose.
             </p>
           </div>
 

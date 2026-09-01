@@ -19,7 +19,7 @@ export default function AboutPage() {
           </p>
           
           <p>
-            Our core philosophy is simple: tools should be fast, they should be free, and they should respect your privacy. That's why every single tool currently available on our site—from PDF manipulation to image compression—is designed to run <strong>entirely in your web browser</strong>.
+            Our core philosophy is simple: tools should be fast, they should be free, and they should respect your privacy. That&apos;s why every single tool currently available on our site—from PDF manipulation to image compression—is designed to run <strong>entirely in your web browser</strong>.
           </p>
 
           <p>
@@ -27,7 +27,7 @@ export default function AboutPage() {
           </p>
 
           <p>
-            We're just getting started. We currently offer essential PDF and Image utilities, and we plan to expand into many more categories soon. No sign-ups, no hidden paywalls, and no watermarks—just the tools you need, exactly when you need them.
+            We&apos;re just getting started. We currently offer essential PDF and Image utilities, and we plan to expand into many more categories soon. No sign-ups, no hidden paywalls, and no watermarks—just the tools you need, exactly when you need them.
           </p>
         </div>
       </section>

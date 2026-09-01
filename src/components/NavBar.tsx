@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Search } from "lucide-react";
 import { SearchBar } from "./SearchBar";
 
 export function NavBar() {
