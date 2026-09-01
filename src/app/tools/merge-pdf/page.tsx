@@ -4,6 +4,8 @@ import { HowItWorksSteps } from "@/components/HowItWorksSteps";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { RelatedTools } from "@/components/RelatedTools";
 
+import { PdfMergeWidget } from "@/components/PdfMergeWidget";
+
 export const metadata: Metadata = {
   title: "Merge PDF - Free Online PDF Merger | ihatetools",
   description: "Combine multiple PDF files into one instantly. 100% free, private, client-side merging with no watermarks.",
@@ -62,7 +64,9 @@ export default function MergePdfPage() {
       </section>
 
       {/* Main Tool Widget */}
-      <ToolWidgetShell />
+      <ToolWidgetShell>
+        <PdfMergeWidget />
+      </ToolWidgetShell>
 
       {/* How it Works */}
       <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
