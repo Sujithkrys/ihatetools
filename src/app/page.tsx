@@ -1,62 +1,16 @@
 import { Metadata } from "next";
-import { 
-  FileText, 
-  SplitSquareHorizontal, 
-  Minimize2, 
-  Image as ImageIcon, 
-  Maximize, 
-  FileUp 
-} from "lucide-react";
 import { ToolCard } from "@/components/ToolCard";
+import { TOOLS } from "@/lib/tools-data";
 
 export const metadata: Metadata = {
   title: "ihatetools - Free Online Tools",
   description: "Free, fast, client-side tools for developers and creators. No watermark, no sign-up required.",
 };
 
-const PDF_TOOLS = [
-  {
-    name: "Merge PDF",
-    description: "Combine multiple PDFs into a single document instantly.",
-    icon: FileText,
-    href: "/tools/merge-pdf",
-  },
-  {
-    name: "Split PDF",
-    description: "Extract pages or split a PDF into multiple files.",
-    icon: SplitSquareHorizontal,
-    href: "/tools/split-pdf",
-  },
-  {
-    name: "Compress PDF",
-    description: "Reduce file size while maintaining visual quality.",
-    icon: Minimize2,
-    href: "/tools/compress-pdf",
-  },
-];
-
-const IMAGE_TOOLS = [
-  {
-    name: "Image Compressor",
-    description: "Shrink image file size without losing quality.",
-    icon: ImageIcon,
-    href: "/tools/compress-image",
-  },
-  {
-    name: "Image Resizer",
-    description: "Resize images to specific dimensions easily.",
-    icon: Maximize,
-    href: "/tools/resize-image",
-  },
-  {
-    name: "Convert Image Format",
-    description: "Convert between JPG, PNG, WEBP, and more.",
-    icon: FileUp,
-    href: "/tools/convert-image",
-  },
-];
-
 export default function Home() {
+  const pdfTools = TOOLS.filter(t => t.category === "PDF Tools");
+  const imageTools = TOOLS.filter(t => t.category === "Image Tools");
+
   return (
     <div className="flex flex-col items-center pb-24">
       {/* Hero Section */}
@@ -75,8 +29,8 @@ export default function Home() {
         <div>
           <h2 className="text-2xl font-semibold text-textPrimary mb-8">PDF Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PDF_TOOLS.map((tool, i) => (
-              <ToolCard key={i} {...tool} />
+            {pdfTools.map((tool) => (
+              <ToolCard key={tool.id} {...tool} />
             ))}
           </div>
         </div>
@@ -84,8 +38,8 @@ export default function Home() {
         <div>
           <h2 className="text-2xl font-semibold text-textPrimary mb-8">Image Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {IMAGE_TOOLS.map((tool, i) => (
-              <ToolCard key={i} {...tool} />
+            {imageTools.map((tool) => (
+              <ToolCard key={tool.id} {...tool} />
             ))}
           </div>
         </div>

@@ -1,20 +1,33 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
+import { ToolCard } from "@/components/ToolCard";
+import { TOOLS } from "@/lib/tools-data";
 
-export default function ComingSoonPage() {
+export const metadata: Metadata = {
+  title: "PDF Tools | ihatetools",
+  description: "Free, client-side PDF manipulation tools.",
+};
+
+export default function PdfToolsPage() {
+  const pdfTools = TOOLS.filter(t => t.category === "PDF Tools");
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center">
-      <h1 className="text-3xl font-bold text-textPrimary mb-4">Coming Soon</h1>
-      <p className="text-textSecondary mb-8 max-w-md">
-        We are working hard to bring you more free, client-side tools. Check back later!
-      </p>
-      <Link 
-        href="/"
-        className="flex items-center gap-2 px-6 py-3 bg-surface border border-white/10 rounded-button hover:bg-surfaceHover transition-colors text-textPrimary"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        Back to Home
-      </Link>
+    <div className="flex flex-col items-center pt-16 pb-24 px-4 w-full max-w-content mx-auto">
+      <section className="text-center max-w-2xl mx-auto mb-16">
+        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-4">
+          PDF Tools
+        </h1>
+        <p className="text-textSecondary text-lg">
+          Merge, split, and compress PDFs completely in your browser.
+        </p>
+      </section>
+
+      <section className="w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {pdfTools.map((tool) => (
+            <ToolCard key={tool.id} {...tool} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
