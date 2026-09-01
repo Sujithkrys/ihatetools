@@ -71,6 +71,7 @@ export function OrganizePdfWidget() {
           viewport: scaledViewport,
         };
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         await page.render(renderContext as any).promise;
         const dataUrl = canvas.toDataURL("image/jpeg", 0.8);
 

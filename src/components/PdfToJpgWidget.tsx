@@ -52,6 +52,7 @@ export function PdfToJpgWidget() {
           viewport: viewport,
         };
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         await page.render(renderContext as any).promise;
 
         const blob = await new Promise<Blob>((resolve, reject) => {
