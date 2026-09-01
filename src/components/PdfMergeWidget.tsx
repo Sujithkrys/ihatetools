@@ -25,7 +25,7 @@ export function PdfMergeWidget() {
   const [mergedPdfUrl, setMergedPdfUrl] = useState<string | null>(null);
   const [mergedSize, setMergedSize] = useState<string | null>(null);
 
-  const onDrop = useCallback((acceptedFiles: File[], fileRejections: any[]) => {
+  const onDrop = useCallback((acceptedFiles: File[], fileRejections: import("react-dropzone").FileRejection[]) => {
     if (fileRejections.length > 0) {
       setErrorMsg("Only PDF files are supported.");
       return;
@@ -75,20 +75,24 @@ export function PdfMergeWidget() {
           copiedPages.forEach((page) => {
             mergedPdf.addPage(page);
           });
-        } catch (err) {
+        } catch {
           throw new Error(`[${file.name}] appears to be password-protected or corrupted and can't be merged. Remove it and try again.`);
         }
       }
       
       const pdfBytes = await mergedPdf.save();
-      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const blob = new Blob([pdfBytes as unknown as BlobPart], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       
       setMergedPdfUrl(url);
       setMergedSize(formatBytes(blob.size));
       setStatus('success');
-    } catch (err: any) {
-      setErrorMsg(err.message || "An error occurred during merging.");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setErrorMsg(err.message);
+      } else {
+        setErrorMsg("An error occurred during merging.");
+      }
       setStatus('idle');
     }
   };
