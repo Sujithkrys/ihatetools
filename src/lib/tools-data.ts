@@ -11,6 +11,9 @@ import {
   Droplet,
   Crop,
   QrCode,
+  Lock,
+  Unlock,
+  ScanText,
   LucideIcon
 } from "lucide-react";
 
@@ -121,5 +124,29 @@ export const TOOLS: ToolData[] = [
     icon: QrCode,
     href: "/tools/qr-code-generator",
     category: "Image Tools"
+  },
+  {
+    id: "add-password",
+    name: "Protect PDF",
+    description: "Add a password to your PDF file securely.",
+    icon: Lock,
+    href: "/tools/add-password",
+    category: "PDF Tools"
+  },
+  {
+    id: "remove-password",
+    name: "Unlock PDF",
+    description: "Remove the password from a protected PDF.",
+    icon: Unlock,
+    href: "/tools/remove-password",
+    category: "PDF Tools"
+  },
+  {
+    id: "ocr-pdf",
+    name: "OCR PDF",
+    description: "Extract text from scanned PDFs or images using OCR.",
+    icon: ScanText,
+    href: "/tools/ocr-pdf",
+    category: "PDF Tools"
   }
 ];

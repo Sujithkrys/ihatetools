@@ -1,0 +1,212 @@
+"use client";
+
+import { useState, useCallback } from "react";
+import { useDropzone } from "react-dropzone";
+import { Download, Loader2, Unlock, Eye, EyeOff } from "lucide-react";
+import { FileListItem } from "@/components/FileListItem";
+import { cn } from "@/lib/utils";
+import { ToolWidgetShell } from "@/components/ToolWidgetShell";
+
+export function RemovePasswordWidget() {
+  const [file, setFile] = useState<File | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [downloadFilename, setDownloadFilename] = useState("");
+  
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const onDrop = useCallback((acceptedFiles: File[], fileRejections: import("react-dropzone").FileRejection[]) => {
+    if (fileRejections.length > 0) {
+      setErrorMsg("Please upload a valid PDF file.");
+    } else {
+      setErrorMsg("");
+    }
+
+    if (acceptedFiles.length > 0) {
+      const selectedFile = acceptedFiles[0];
+      if (selectedFile.size > 4.2 * 1024 * 1024) {
+        setErrorMsg("Files over 4MB aren't supported yet for this tool.");
+        return;
+      }
+      setFile(selectedFile);
+    }
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: {
+      "application/pdf": [".pdf"],
+    },
+    maxFiles: 1,
+  });
+
+  const handleDecryptPdf = async () => {
+    if (!file) return;
+    if (password.length === 0) {
+      setErrorMsg("Password cannot be empty.");
+      return;
+    }
+    
+    setIsProcessing(true);
+    setErrorMsg("");
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("password", password);
+
+      const response = await fetch("/api/remove-password", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(errorData?.error || `Server error: ${response.status}`);
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      setDownloadUrl(url);
+      setDownloadFilename(`unlocked-${file.name}`);
+    } catch (err: any) {
+      console.error(err);
+      setErrorMsg(err.message || "An error occurred while unlocking the PDF.");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleReset = () => {
+    setFile(null);
+    setDownloadUrl(null);
+    setErrorMsg("");
+    setPassword("");
+    setShowPassword(false);
+  };
+
+  const isReady = file !== null && password !== "";
+
+  return (
+    <ToolWidgetShell>
+      {!downloadUrl && !isProcessing && (
+        <div className="space-y-6">
+          {!file ? (
+            <div
+              {...getRootProps()}
+              className={cn(
+                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
+                isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+                errorMsg ? "border-error/50 bg-error/5" : ""
+              )}
+            >
+              <input {...getInputProps()} />
+              <div className="flex flex-col items-center gap-4">
+                <div className="p-4 rounded-full bg-surface">
+                  <Unlock className="w-8 h-8 text-textSecondary" />
+                </div>
+                <div>
+                  <p className="text-lg font-medium text-textPrimary">Drag & drop a protected PDF here</p>
+                  <p className="text-sm text-textSecondary mt-1">Maximum file size: 4MB</p>
+                </div>
+                <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                  Browse files
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-textPrimary font-medium">Selected PDF</h3>
+                <button
+                  onClick={() => setFile(null)}
+                  className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+                >
+                  Change file
+                </button>
+              </div>
+              <FileListItem
+                file={file}
+                onRemove={() => setFile(null)}
+              />
+
+              <div className="mt-8 space-y-4 max-w-md mx-auto">
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-textSecondary mb-2">Original Password</label>
+                    <div className="relative">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="w-full bg-background border border-white/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-accent/50 pr-10"
+                        placeholder="Enter the password to unlock"
+                      />
+                      <button 
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary hover:text-textPrimary"
+                      >
+                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 flex justify-end">
+                  <button
+                    onClick={handleDecryptPdf}
+                    disabled={!isReady}
+                    className="px-4 py-2 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  >
+                    <Unlock className="w-4 h-4" />
+                    Unlock PDF
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {errorMsg && <p className="text-error text-sm text-center">{errorMsg}</p>}
+        </div>
+      )}
+
+      {isProcessing && (
+        <div className="flex flex-col items-center justify-center p-12">
+          <Loader2 className="w-8 h-8 text-accent animate-spin mb-4" />
+          <p className="text-textPrimary font-medium">Unlocking PDF... (this may take a moment)</p>
+        </div>
+      )}
+
+      {downloadUrl && (
+        <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
+          <div className="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center mb-2">
+            <Unlock className="w-8 h-8 text-success" />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-textPrimary">PDF Unlocked Successfully!</h3>
+            <p className="text-textSecondary mt-2">Your PDF is now freely accessible without a password.</p>
+          </div>
+          
+          <div className="flex gap-4 mt-8">
+            <a
+              href={downloadUrl}
+              download={downloadFilename}
+              className="px-8 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-lg flex items-center gap-2"
+            >
+              <Download className="w-5 h-5" />
+              Download Unlocked PDF
+            </a>
+          </div>
+          <button
+            onClick={handleReset}
+            className="text-textSecondary hover:text-textPrimary underline underline-offset-4 text-sm mt-4"
+          >
+            Unlock another PDF
+          </button>
+        </div>
+      )}
+    </ToolWidgetShell>
+  );
+}

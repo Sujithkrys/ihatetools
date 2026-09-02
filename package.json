@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@pdfsmaller/pdf-decrypt": "^1.0.1",
+    "@pdfsmaller/pdf-encrypt": "^1.2.0",
+    "boxpdf": "^1.13.0",
     "clsx": "^2.1.1",
     "lucide-react": "^1.38.0",
     "next": "14.2.35",
@@ -18,7 +21,8 @@
     "react-dom": "^18",
     "react-dropzone": "^20.1.1",
     "react-image-crop": "^11.1.2",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.6.0",
+    "tesseract.js": "^7.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -32,6 +36,7 @@
     "jsqr": "^1.4.0",
     "jszip": "^3.10.1",
     "pdf-lib": "^1.17.1",
+    "pdf-parse": "^2.4.5",
     "playwright": "^1.62.1",
     "pngjs": "^7.0.0",
     "postcss": "^8",
