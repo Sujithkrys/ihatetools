@@ -89,7 +89,7 @@ export function PdfToJpgWidget() {
       }
     } catch (err) {
       console.error(err);
-      setErrorMsg("Failed to convert PDF. It might be password protected or corrupted.");
+      setErrorMsg("Failed to convert PDF. The file may be password protected/corrupted, or your browser/ad-blocker is blocking the required PDF engine from loading.");
       setFile(null);
     } finally {
       setIsProcessing(false);

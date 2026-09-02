@@ -86,7 +86,7 @@ export function OrganizePdfWidget() {
       setPages(pageItems);
     } catch (err) {
       console.error(err);
-      setErrorMsg("Failed to read PDF. It might be password protected or corrupted.");
+      setErrorMsg("Failed to read PDF. The file may be password protected/corrupted, or your browser/ad-blocker is blocking the required PDF engine from loading.");
       setFile(null);
       setOriginalPdfBytes(null);
       setPages([]);
