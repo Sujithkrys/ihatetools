@@ -21,6 +21,9 @@ export function NavBar() {
           <Link href="/tools" className="text-textSecondary hover:text-textPrimary transition-colors text-sm">
             All Tools
           </Link>
+          <Link href="/tools/text" className="text-textSecondary hover:text-textPrimary transition-colors text-sm">
+            Text Tools
+          </Link>
           <Link href="/about" className="text-textSecondary hover:text-textPrimary transition-colors text-sm">
             About
           </Link>
