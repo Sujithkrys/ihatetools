@@ -4,12 +4,10 @@ import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { PDFDocument, degrees } from "pdf-lib";
 import { Trash2, RotateCw, Download, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
-import * as pdfjsLib from "pdfjs-dist";
+import { generatePdfThumbnails } from "@/lib/pdf-render-utils";
 import { cn } from "@/lib/utils";
 import { ToolWidgetShell } from "@/components/ToolWidgetShell";
 
-// Configure pdfjs worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
 
 interface PageItem {
   id: string; // unique id for rendering keys
@@ -43,45 +41,15 @@ export function OrganizePdfWidget() {
       const arrayBuffer = await uploadedFile.arrayBuffer();
       setOriginalPdfBytes(arrayBuffer);
 
-      // Load with pdfjs to generate thumbnails
-      const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
-      const pdf = await loadingTask.promise;
-      const numPages = pdf.numPages;
+      const rawThumbnails = await generatePdfThumbnails(uploadedFile, {
+        targetWidth: 200,
+        quality: 0.8,
+      });
 
-      const pageItems: PageItem[] = [];
-
-      // Generate thumbnail for each page
-      for (let i = 1; i <= numPages; i++) {
-        const page = await pdf.getPage(i);
-        const viewport = page.getViewport({ scale: 1.0 }); // Use 1.0 for decent thumbnail
-
-        // Calculate a scale to fit thumbnail roughly 200px wide
-        const scale = 200 / viewport.width;
-        const scaledViewport = page.getViewport({ scale });
-
-        const canvas = document.createElement("canvas");
-        const context = canvas.getContext("2d");
-        if (!context) throw new Error("Could not create canvas context");
-
-        canvas.height = scaledViewport.height;
-        canvas.width = scaledViewport.width;
-
-        const renderContext = {
-          canvasContext: context,
-          viewport: scaledViewport,
-        };
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        await page.render(renderContext as any).promise;
-        const dataUrl = canvas.toDataURL("image/jpeg", 0.8);
-
-        pageItems.push({
-          id: `page-${i}-${Date.now()}`,
-          origIndex: i - 1, // 0-based for pdf-lib
-          rotation: 0,
-          thumbnail: dataUrl,
-        });
-      }
+      const pageItems: PageItem[] = rawThumbnails.map((thumb) => ({
+        ...thumb,
+        rotation: 0,
+      }));
 
       setPages(pageItems);
     } catch (err) {

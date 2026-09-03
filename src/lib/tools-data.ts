@@ -14,6 +14,11 @@ import {
   Lock,
   Unlock,
   ScanText,
+  RotateCw,
+  FileMinus,
+  FileDigit,
+  Tags,
+  ImagePlay,
   LucideIcon
 } from "lucide-react";
 
@@ -148,5 +153,45 @@ export const TOOLS: ToolData[] = [
     icon: ScanText,
     href: "/tools/ocr-pdf",
     category: "PDF Tools"
+  },
+  {
+    id: "rotate-pdf",
+    name: "Rotate PDF",
+    description: "Rotate all pages in your PDF instantly.",
+    icon: RotateCw,
+    href: "/tools/rotate-pdf",
+    category: "PDF Tools"
+  },
+  {
+    id: "delete-pdf-pages",
+    name: "Delete PDF Pages",
+    description: "Remove unwanted pages from your document.",
+    icon: FileMinus,
+    href: "/tools/delete-pdf-pages",
+    category: "PDF Tools"
+  },
+  {
+    id: "add-page-numbers",
+    name: "Add Page Numbers",
+    description: "Easily add page numbers to your PDF documents.",
+    icon: FileDigit,
+    href: "/tools/add-page-numbers",
+    category: "PDF Tools"
+  },
+  {
+    id: "pdf-metadata",
+    name: "Edit PDF Metadata",
+    description: "View and edit PDF title, author, and properties.",
+    icon: Tags,
+    href: "/tools/pdf-metadata",
+    category: "PDF Tools"
+  },
+  {
+    id: "heic-to-jpg",
+    name: "HEIC to JPG",
+    description: "Convert Apple HEIC photos to standard JPG images.",
+    icon: ImagePlay,
+    href: "/tools/heic-to-jpg",
+    category: "Image Tools"
   }
 ];
