@@ -71,9 +71,13 @@ export function RemovePasswordWidget() {
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
       setDownloadFilename(`unlocked-${file.name}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setErrorMsg(err.message || "An error occurred while unlocking the PDF.");
+      if (err instanceof Error) {
+        setErrorMsg(err.message || "An error occurred while unlocking the PDF.");
+      } else {
+        setErrorMsg("An error occurred while unlocking the PDF.");
+      }
     } finally {
       setIsProcessing(false);
     }
@@ -129,6 +133,8 @@ export function RemovePasswordWidget() {
               </div>
               <FileListItem
                 file={file}
+                index={0}
+                totalFiles={1}
                 onRemove={() => setFile(null)}
               />
 

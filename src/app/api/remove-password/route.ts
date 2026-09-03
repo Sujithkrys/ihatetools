@@ -27,30 +27,36 @@ export async function POST(req: NextRequest) {
     try {
       const decryptedBytes = await decryptPDF(uint8Array, password);
 
-      return new NextResponse(decryptedBytes, {
+      return new NextResponse(decryptedBytes as unknown as BodyInit, {
         status: 200,
         headers: {
           "Content-Type": "application/pdf",
           "Content-Disposition": `attachment; filename="unlocked-${file.name}"`,
         },
       });
-    } catch (decryptError: any) {
-      if (decryptError.message?.includes("Incorrect password")) {
-        return NextResponse.json(
-          { error: "Incorrect password" },
-          { status: 401 }
-        );
-      }
-      if (decryptError.message?.includes("not encrypted")) {
-        return NextResponse.json(
-          { error: "This PDF is not encrypted." },
-          { status: 400 }
-        );
+    } catch (decryptError: unknown) {
+      if (decryptError instanceof Error) {
+        if (decryptError.message?.includes("Incorrect password")) {
+          return NextResponse.json(
+            { error: "Incorrect password" },
+            { status: 401 }
+          );
+        }
+        if (decryptError.message?.includes("not encrypted")) {
+          return NextResponse.json(
+            { error: "This PDF is not encrypted." },
+            { status: 400 }
+          );
+        }
       }
       throw decryptError; // Let outer catch handle generic errors
     }
-  } catch (error: any) {
-    console.error("[Remove Password API Error]", error.message);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("[Remove Password API Error]", error.message);
+    } else {
+      console.error("[Remove Password API Error]", error);
+    }
     return NextResponse.json(
       { error: "Failed to unlock the PDF. The file may be corrupt or unsupported." },
       { status: 500 }

@@ -28,18 +28,22 @@ export async function POST(req: NextRequest) {
     const encryptedBytes = await encryptPDF(uint8Array, password);
 
     // Return the bytes directly
-    return new NextResponse(encryptedBytes, {
+    return new NextResponse(encryptedBytes as unknown as BodyInit, {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="encrypted-${file.name}"`,
       },
     });
-  } catch (error: any) {
-    console.error("[Add Password API Error]", error.message);
-    return NextResponse.json(
-      { error: "Failed to encrypt the PDF. The file may be corrupt." },
-      { status: 500 }
-    );
-  }
+    } catch (encryptError: unknown) {
+      if (encryptError instanceof Error) {
+        console.error("[Add Password API Error]", encryptError.message);
+      } else {
+        console.error("[Add Password API Error]", encryptError);
+      }
+      return NextResponse.json(
+        { error: "Failed to protect the PDF. The file may be corrupt or unsupported." },
+        { status: 500 }
+      );
+    }
 }

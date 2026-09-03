@@ -77,9 +77,13 @@ export function AddPasswordWidget() {
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
       setDownloadFilename(`encrypted-${file.name}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setErrorMsg(err.message || "An error occurred while encrypting the PDF.");
+      if (err instanceof Error) {
+        setErrorMsg(err.message || "An error occurred while encrypting the PDF.");
+      } else {
+        setErrorMsg("An error occurred while encrypting the PDF.");
+      }
     } finally {
       setIsProcessing(false);
     }
@@ -137,6 +141,8 @@ export function AddPasswordWidget() {
               </div>
               <FileListItem
                 file={file}
+                index={0}
+                totalFiles={1}
                 onRemove={() => setFile(null)}
               />
 

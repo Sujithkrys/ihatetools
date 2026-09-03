@@ -93,7 +93,8 @@ export function CompressPdfWidget() {
           canvas.height = viewport.height;
           canvas.width = viewport.width;
 
-          await page.render({ canvasContext: ctx, viewport }).promise;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          await page.render({ canvasContext: ctx, viewport } as any).promise;
           
           // Aggressive JPEG compression (0.6 quality)
           const dataUrl = canvas.toDataURL("image/jpeg", 0.6);
@@ -230,7 +231,7 @@ export function CompressPdfWidget() {
               <span className="font-medium text-textPrimary">Ready to compress</span>
             </div>
             <ul className="divide-y divide-white/10">
-              <FileListItem file={file} onRemove={() => setFile(null)} />
+              <FileListItem file={file} index={0} totalFiles={1} onRemove={() => setFile(null)} />
             </ul>
           </div>
         )}

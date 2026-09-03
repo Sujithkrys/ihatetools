@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { Download, Loader2, ScanText, Copy, Check } from "lucide-react";
 import * as pdfjsLib from "pdfjs-dist";
@@ -56,7 +56,7 @@ export function OcrPdfWidget() {
     setProgressMsg("Initializing OCR Engine...");
 
     try {
-      let imageSources: string[] = [];
+      const imageSources: string[] = [];
       const arrayBuffer = await file.arrayBuffer();
 
       if (file.type === "application/pdf") {
@@ -77,7 +77,8 @@ export function OcrPdfWidget() {
           canvas.height = viewport.height;
           canvas.width = viewport.width;
 
-          await page.render({ canvasContext: ctx, viewport }).promise;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          await page.render({ canvasContext: ctx, viewport } as any).promise;
           imageSources.push(canvas.toDataURL("image/jpeg", 0.9));
         }
       } else {
@@ -107,7 +108,7 @@ export function OcrPdfWidget() {
       }
 
       setExtractedText(allText.trim());
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setErrorMsg("Failed to extract text. The file might be corrupted, or your network blocked the OCR engine from loading.");
     } finally {
@@ -179,6 +180,8 @@ export function OcrPdfWidget() {
               </div>
               <FileListItem
                 file={file}
+                index={0}
+                totalFiles={1}
                 onRemove={() => setFile(null)}
               />
 
