@@ -66,7 +66,7 @@ export function ExtractPdfImagesWidget() {
               }
               
               if (isJpeg) {
-                const blob = new Blob([obj.contents], { type: "image/jpeg" });
+                const blob = new Blob([new Uint8Array(obj.contents)], { type: "image/jpeg" });
                 const url = URL.createObjectURL(blob);
                 extracted.push({
                   id: `img_${imgCount}`,
