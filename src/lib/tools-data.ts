@@ -19,6 +19,18 @@ import {
   FileDigit,
   Tags,
   ImagePlay,
+  Info,
+  FlipHorizontal,
+  Paintbrush,
+  Type,
+  Code2,
+  Palette,
+  AppWindow,
+  EyeOff,
+  Braces,
+  CaseUpper,
+  AlignLeft,
+  Diff,
   LucideIcon
 } from "lucide-react";
 
@@ -193,5 +205,165 @@ export const TOOLS: ToolData[] = [
     icon: ImagePlay,
     href: "/tools/heic-to-jpg",
     category: "Image Tools"
+  },
+  {
+    id: "pdf-info",
+    name: "PDF Info Viewer",
+    description: "View hidden metadata, page count, and PDF version.",
+    icon: Info,
+    href: "/tools/pdf-info",
+    category: "PDF Tools"
+  },
+  {
+    id: "extract-pdf-text",
+    name: "Extract PDF Text",
+    description: "Extract the embedded text from your PDF documents.",
+    icon: FileText,
+    href: "/tools/extract-pdf-text",
+    category: "PDF Tools"
+  },
+  {
+    id: "extract-pdf-images",
+    name: "Extract PDF Images",
+    description: "Extract embedded raw images directly from your PDFs.",
+    icon: ImagePlay,
+    href: "/tools/extract-pdf-images",
+    category: "PDF Tools"
+  },
+  {
+    id: "pdf-to-png",
+    name: "PDF to PNG",
+    description: "Convert PDF pages to lossless PNG images.",
+    icon: ImagePlay,
+    href: "/tools/pdf-to-png",
+    category: "PDF Tools"
+  },
+  {
+    id: "compress-image-target-size",
+    name: "Target Size Compressor",
+    description: "Compress your image to exactly fit a target file size in KB.",
+    icon: Minimize2,
+    href: "/tools/compress-image-target-size",
+    category: "Image Tools"
+  },
+  {
+    id: "rotate-image",
+    name: "Rotate Image",
+    description: "Rotate images 90 degrees or 180 degrees instantly.",
+    icon: RotateCw,
+    href: "/tools/rotate-image",
+    category: "Image Tools"
+  },
+  {
+    id: "flip-image",
+    name: "Flip Image",
+    description: "Mirror your photos horizontally or vertically.",
+    icon: FlipHorizontal,
+    href: "/tools/flip-image",
+    category: "Image Tools"
+  },
+  {
+    id: "grayscale-image",
+    name: "Grayscale Image",
+    description: "Convert photos to black and white or adjust grayscale intensity.",
+    icon: Paintbrush,
+    href: "/tools/grayscale-image",
+    category: "Image Tools"
+  },
+  {
+    id: "round-image",
+    name: "Round Image",
+    description: "Add rounded corners or circle crop to your images.",
+    icon: Crop,
+    href: "/tools/round-image",
+    category: "Image Tools"
+  },
+  {
+    id: "add-text-to-image",
+    name: "Add Text to Image",
+    description: "Easily add captions, text, and labels to your images.",
+    icon: Type,
+    href: "/tools/add-text-to-image",
+    category: "Image Tools"
+  },
+  {
+    id: "image-to-base64",
+    name: "Image to Base64",
+    description: "Convert any image into a Base64 data URI string.",
+    icon: Code2,
+    href: "/tools/image-to-base64",
+    category: "Image Tools"
+  },
+  {
+    id: "base64-to-image",
+    name: "Base64 to Image",
+    description: "Decode and render Base64 data strings into images.",
+    icon: ImageIcon,
+    href: "/tools/base64-to-image",
+    category: "Image Tools"
+  },
+  {
+    id: "color-palette-extractor",
+    name: "Color Palette Extractor",
+    description: "Extract the dominant colors from any image.",
+    icon: Palette,
+    href: "/tools/color-palette-extractor",
+    category: "Image Tools"
+  },
+  {
+    id: "favicon-generator",
+    name: "Favicon Generator",
+    description: "Generate a complete favicon package from your logo.",
+    icon: AppWindow,
+    href: "/tools/favicon-generator",
+    category: "Image Tools"
+  },
+  {
+    id: "blur-image-region",
+    name: "Blur Image Region",
+    description: "Redact or blur sensitive parts of your images.",
+    icon: EyeOff,
+    href: "/tools/blur-image-region",
+    category: "Image Tools"
+  },
+  {
+    id: "word-counter",
+    name: "Word & Character Counter",
+    description: "Live count of words, characters, and reading time.",
+    icon: FileText,
+    href: "/tools/word-counter",
+    category: "Text Tools"
+  },
+  {
+    id: "json-formatter",
+    name: "JSON Formatter",
+    description: "Format, validate, and minify JSON code securely.",
+    icon: Braces,
+    href: "/tools/json-formatter",
+    category: "Text Tools"
+  },
+  {
+    id: "case-converter",
+    name: "Case Converter",
+    description: "Convert text to UPPERCASE, lowercase, camelCase, etc.",
+    icon: CaseUpper,
+    href: "/tools/case-converter",
+    category: "Text Tools"
+  },
+  {
+    id: "lorem-ipsum-generator",
+    name: "Lorem Ipsum Generator",
+    description: "Generate placeholder text instantly for your designs.",
+    icon: AlignLeft,
+    href: "/tools/lorem-ipsum-generator",
+    category: "Text Tools"
+  },
+  {
+    id: "text-diff",
+    name: "Text Diff Checker",
+    description: "Compare two text documents to spot differences.",
+    icon: Diff,
+    href: "/tools/text-diff",
+    category: "Text Tools"
   }
 ];
