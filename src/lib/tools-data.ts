@@ -34,7 +34,7 @@ import {
   LucideIcon
 } from "lucide-react";
 
-export type ToolCategory = "PDF Tools" | "Image Tools";
+export type ToolCategory = "PDF Tools" | "Image Tools" | "Text Tools";
 
 export interface ToolData {
   id: string;
