@@ -6,7 +6,7 @@ export function Footer() {
       <div className="max-w-content mx-auto px-4 md:px-[34px]">
         <div className="flex gap-[52px] flex-wrap">
           <div className="flex-1 min-w-[250px]">
-            <span className="font-logo text-[20px] font-extrabold tracking-[-0.03em] text-ink">ihatetools</span>
+            <span className="logo font-sans font-semibold text-[18px] tracking-[-0.035em] text-ink">ihatetools</span>
             <p className="text-[13.5px] text-grey max-w-[34ch] leading-[1.6] mt-[9px] tracking-[-0.01em]">
               Fast, private, client-side tools. No tracking, no watermarks, no sign-up.
             </p>

@@ -76,6 +76,68 @@
   .card:hover {
     transform: translateY(-2px);
   }
+
+  /* Push-layout Sidebar & App Shell */
+  .app-shell {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .app-sidebar {
+    width: 0;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #111212; /* dark sidebar in BOTH themes */
+    transition: width .22s ease;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  .app-sidebar[data-open="true"] {
+    width: 272px;
+  }
+
+  .app-main {
+    flex: 1;
+    min-width: 0; /* min-width:0 prevents flex overflow issues */
+  }
+
+  @media (max-width: 1024px) {
+    .app-sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 50;
+      width: 272px;
+      height: 100vh;
+      transform: translateX(-100%);
+      transition: transform .2s ease;
+    }
+    .app-sidebar[data-open="true"] {
+      transform: translateX(0);
+    }
+    .app-main {
+      margin-left: 0 !important; /* never push on small screens */
+    }
+  }
+
+  /* Logo + Nav links Inter Display Treatment */
+  .logo, .nav-links a {
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+
+  .logo {
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    font-size: 18px;
+  }
+
+  /* Soften the border under the nav (8% hairline) */
+  header.site-header {
+    border-bottom: 1px solid rgb(var(--color-ink) / 0.08);
+  }
 }
 
 @keyframes reveal-result {

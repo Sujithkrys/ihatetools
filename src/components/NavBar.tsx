@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import { SearchBar } from "./SearchBar";
 import { ThemeToggle } from "./ThemeToggle";
 import { Ruler } from "./Ruler";
+import { useSidebar } from "./SidebarContext";
 
 export function NavBar() {
   const pathname = usePathname();
+  const { toggleSidebar } = useSidebar();
 
   const links = [
     { href: "/", label: "Home" },
@@ -18,15 +20,21 @@ export function NavBar() {
   return (
     <>
       <Ruler />
-      <header className="border-b-[1.5px] border-ink bg-paper sticky top-0 z-50">
+      <header className="site-header border-b border-ink/[0.08] bg-paper sticky top-0 z-40">
         <div className="max-w-content mx-auto px-4 md:px-[34px] h-[58px] flex items-center gap-[22px]">
-          <Link href="/" className="font-logo text-[20px] font-extrabold tracking-[-0.03em] text-ink shrink-0">
+          <button
+            type="button"
+            onClick={toggleSidebar}
+            className="logo text-ink shrink-0 cursor-pointer text-left hover:opacity-85 transition-opacity"
+            title="Toggle sidebar"
+            aria-label="Toggle sidebar"
+          >
             ihatetools
-          </Link>
+          </button>
 
           <SearchBar />
 
-          <nav className="ml-auto flex items-center gap-[3px]">
+          <nav className="nav-links ml-auto flex items-center gap-[4px]">
             {links.map((link) => {
               const isActive = pathname === link.href || 
                 (link.href === "/tools" && pathname.startsWith("/tools"));
@@ -34,10 +42,10 @@ export function NavBar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-mono text-[10.5px] uppercase tracking-[0.04em] px-[11px] py-[6px] border-[1.5px] rounded-[5px] transition-colors whitespace-nowrap ${
+                  className={`px-[11px] py-[6px] rounded-[5px] text-[13.5px] transition-colors whitespace-nowrap ${
                     isActive
-                      ? "bg-cyan border-ink text-ink"
-                      : "border-transparent text-ink hover:border-ink"
+                      ? "bg-cyan border-[1.5px] border-ink text-ink font-medium"
+                      : "border-transparent text-ink hover:border-ink border-[1.5px]"
                   }`}
                 >
                   {link.label}

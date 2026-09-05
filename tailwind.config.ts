@@ -24,7 +24,6 @@ const config: Config = {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-jetbrains-mono)", "monospace"],
         handwriting: ["var(--font-caveat)", "cursive"],
-        logo: ["var(--font-bricolage)", "sans-serif"],
       },
       boxShadow: {
         hard: "none",
