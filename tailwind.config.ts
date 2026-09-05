@@ -17,6 +17,7 @@ const config: Config = {
         textMuted: "rgb(var(--color-text-muted) / <alpha-value>)",
         accent: "rgb(var(--color-accent) / <alpha-value>)",
         accentSecondary: "rgb(var(--color-accent-secondary) / <alpha-value>)",
+        accentTertiary: "rgb(var(--color-accent-tertiary) / <alpha-value>)",
         success: "rgb(var(--color-success) / <alpha-value>)",
         error: "rgb(var(--color-error) / <alpha-value>)",
         overlay: "rgb(var(--color-overlay) / <alpha-value>)",

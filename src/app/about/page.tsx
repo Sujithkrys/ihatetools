@@ -7,13 +7,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col items-center pt-16 pb-24 px-4 w-full max-w-content mx-auto">
-      <section className="w-full max-w-2xl">
-        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-8 font-display">
+    <div className="flex flex-col items-center pt-24 pb-32 px-4 w-full max-w-content mx-auto">
+      <section className="w-full max-w-3xl">
+        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary mb-12 font-display tracking-tight leading-tight text-center">
           About ihatetools
         </h1>
         
-        <div className="space-y-6 text-textSecondary leading-relaxed">
+        <div className="space-y-8 text-textSecondary text-xl font-light tracking-tight leading-[1.6]">
           <p>
             Welcome to ihatetools! We are building a growing collection of free, no-nonsense utilities designed for developers, creators, and everyday users who just want to get things done without the hassle.
           </p>

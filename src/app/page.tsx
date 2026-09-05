@@ -13,10 +13,10 @@ export default function Home() {
   const textTools = TOOLS.filter(t => t.category === "Text Tools");
 
   return (
-    <div className="flex flex-col items-center pb-24">
+    <div className="flex flex-col items-center pb-32">
       {/* Hero Section */}
-      <section className="w-full max-w-4xl mx-auto px-4 pt-24 pb-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-semibold text-textPrimary leading-[1.1] mb-6 tracking-tight font-display">
+      <section className="w-full max-w-4xl mx-auto px-4 pt-32 pb-28 text-center">
+        <h1 className="text-4xl md:text-6xl font-semibold text-textPrimary leading-[1.1] mb-8 tracking-tight font-display">
           Free Online Tools. <br className="hidden md:block" />
           <span className="text-textSecondary font-medium">No Watermark, No Sign-up Required.</span>
         </h1>
@@ -26,10 +26,10 @@ export default function Home() {
       </section>
 
       {/* Tools Grid */}
-      <section className="w-full max-w-content mx-auto px-4 space-y-16">
+      <section className="w-full max-w-content mx-auto px-4 space-y-24">
         <div>
-          <h2 className="text-2xl font-semibold text-textPrimary mb-8">PDF Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl font-semibold text-textPrimary mb-10">PDF Tools</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pdfTools.map((tool) => (
               <ToolCard key={tool.id} {...tool} />
             ))}
@@ -37,8 +37,8 @@ export default function Home() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-textPrimary mb-8">Image Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl font-semibold text-textPrimary mb-10">Image Tools</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {imageTools.map((tool) => (
               <ToolCard key={tool.id} {...tool} />
             ))}
@@ -46,8 +46,8 @@ export default function Home() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-textPrimary mb-8">Text & Developer Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl font-semibold text-textPrimary mb-10">Text & Developer Tools</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {textTools.map((tool) => (
               <ToolCard key={tool.id} {...tool} />
             ))}

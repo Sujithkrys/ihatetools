@@ -40,7 +40,9 @@ export interface ToolData {
   id: string;
   name: string;
   description: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  beforeIcon?: LucideIcon;
+  afterIcon?: LucideIcon;
   href: string;
   category: ToolCategory;
 }
@@ -50,7 +52,8 @@ export const TOOLS: ToolData[] = [
     id: "merge-pdf",
     name: "Merge PDF",
     description: "Combine multiple PDFs into a single document instantly.",
-    icon: FileText,
+    beforeIcon: FileText,
+    afterIcon: FileText,
     href: "/tools/merge-pdf",
     category: "PDF Tools"
   },
@@ -58,7 +61,8 @@ export const TOOLS: ToolData[] = [
     id: "split-pdf",
     name: "Split PDF",
     description: "Extract pages or split a PDF into multiple files.",
-    icon: SplitSquareHorizontal,
+    beforeIcon: FileText,
+    afterIcon: Files,
     href: "/tools/split-pdf",
     category: "PDF Tools"
   },
@@ -66,7 +70,8 @@ export const TOOLS: ToolData[] = [
     id: "compress-pdf",
     name: "Compress PDF",
     description: "Reduce file size while maintaining visual quality.",
-    icon: Minimize2,
+    beforeIcon: FileText,
+    afterIcon: Minimize2,
     href: "/tools/compress-pdf",
     category: "PDF Tools"
   },
@@ -74,7 +79,8 @@ export const TOOLS: ToolData[] = [
     id: "compress-image",
     name: "Image Compressor",
     description: "Shrink image file size without losing quality.",
-    icon: ImageIcon,
+    beforeIcon: ImageIcon,
+    afterIcon: Minimize2,
     href: "/tools/compress-image",
     category: "Image Tools"
   },
@@ -82,7 +88,8 @@ export const TOOLS: ToolData[] = [
     id: "resize-image",
     name: "Image Resizer",
     description: "Resize images to specific dimensions easily.",
-    icon: Maximize,
+    beforeIcon: ImageIcon,
+    afterIcon: Maximize,
     href: "/tools/resize-image",
     category: "Image Tools"
   },
@@ -90,7 +97,8 @@ export const TOOLS: ToolData[] = [
     id: "convert-image",
     name: "Convert Image Format",
     description: "Convert between JPG, PNG, WEBP, and more.",
-    icon: FileUp,
+    beforeIcon: ImageIcon,
+    afterIcon: FileImage,
     href: "/tools/convert-image",
     category: "Image Tools"
   },
@@ -98,7 +106,8 @@ export const TOOLS: ToolData[] = [
     id: "organize-pdf",
     name: "Organize PDF",
     description: "Reorder, rotate, and delete PDF pages easily.",
-    icon: LayoutGrid,
+    beforeIcon: FileText,
+    afterIcon: LayoutGrid,
     href: "/tools/organize-pdf",
     category: "PDF Tools"
   },
@@ -106,7 +115,8 @@ export const TOOLS: ToolData[] = [
     id: "pdf-to-jpg",
     name: "PDF to JPG",
     description: "Convert each page of a PDF into a JPG image.",
-    icon: FileImage,
+    beforeIcon: FileText,
+    afterIcon: FileImage,
     href: "/tools/pdf-to-jpg",
     category: "PDF Tools"
   },
@@ -114,7 +124,8 @@ export const TOOLS: ToolData[] = [
     id: "images-to-pdf",
     name: "Images to PDF",
     description: "Combine multiple images into a single PDF document.",
-    icon: Files,
+    beforeIcon: Files,
+    afterIcon: FileText,
     href: "/tools/images-to-pdf",
     category: "PDF Tools"
   },
@@ -122,7 +133,8 @@ export const TOOLS: ToolData[] = [
     id: "add-watermark",
     name: "Add Watermark",
     description: "Stamp text onto your PDF pages.",
-    icon: Droplet,
+    beforeIcon: FileText,
+    afterIcon: Droplet,
     href: "/tools/add-watermark",
     category: "PDF Tools"
   },
@@ -130,7 +142,8 @@ export const TOOLS: ToolData[] = [
     id: "crop-image",
     name: "Image Crop",
     description: "Crop and extract a specific region from an image.",
-    icon: Crop,
+    beforeIcon: ImageIcon,
+    afterIcon: Crop,
     href: "/tools/crop-image",
     category: "Image Tools"
   },
@@ -138,7 +151,8 @@ export const TOOLS: ToolData[] = [
     id: "qr-code-generator",
     name: "QR Code Generator",
     description: "Generate a custom QR code from text or URLs.",
-    icon: QrCode,
+    beforeIcon: ScanText,
+    afterIcon: QrCode,
     href: "/tools/qr-code-generator",
     category: "Image Tools"
   },
@@ -146,7 +160,8 @@ export const TOOLS: ToolData[] = [
     id: "add-password",
     name: "Protect PDF",
     description: "Add a password to your PDF file securely.",
-    icon: Lock,
+    beforeIcon: FileText,
+    afterIcon: Lock,
     href: "/tools/add-password",
     category: "PDF Tools"
   },
@@ -154,7 +169,8 @@ export const TOOLS: ToolData[] = [
     id: "remove-password",
     name: "Unlock PDF",
     description: "Remove the password from a protected PDF.",
-    icon: Unlock,
+    beforeIcon: Lock,
+    afterIcon: Unlock,
     href: "/tools/remove-password",
     category: "PDF Tools"
   },
@@ -162,7 +178,8 @@ export const TOOLS: ToolData[] = [
     id: "ocr-pdf",
     name: "OCR PDF",
     description: "Extract text from scanned PDFs or images using OCR.",
-    icon: ScanText,
+    beforeIcon: FileText,
+    afterIcon: ScanText,
     href: "/tools/ocr-pdf",
     category: "PDF Tools"
   },
@@ -170,7 +187,8 @@ export const TOOLS: ToolData[] = [
     id: "rotate-pdf",
     name: "Rotate PDF",
     description: "Rotate all pages in your PDF instantly.",
-    icon: RotateCw,
+    beforeIcon: FileText,
+    afterIcon: RotateCw,
     href: "/tools/rotate-pdf",
     category: "PDF Tools"
   },
@@ -178,7 +196,8 @@ export const TOOLS: ToolData[] = [
     id: "delete-pdf-pages",
     name: "Delete PDF Pages",
     description: "Remove unwanted pages from your document.",
-    icon: FileMinus,
+    beforeIcon: FileText,
+    afterIcon: FileMinus,
     href: "/tools/delete-pdf-pages",
     category: "PDF Tools"
   },
@@ -186,7 +205,8 @@ export const TOOLS: ToolData[] = [
     id: "add-page-numbers",
     name: "Add Page Numbers",
     description: "Easily add page numbers to your PDF documents.",
-    icon: FileDigit,
+    beforeIcon: FileText,
+    afterIcon: FileDigit,
     href: "/tools/add-page-numbers",
     category: "PDF Tools"
   },
@@ -194,7 +214,8 @@ export const TOOLS: ToolData[] = [
     id: "pdf-metadata",
     name: "Edit PDF Metadata",
     description: "View and edit PDF title, author, and properties.",
-    icon: Tags,
+    beforeIcon: FileText,
+    afterIcon: Tags,
     href: "/tools/pdf-metadata",
     category: "PDF Tools"
   },
@@ -202,7 +223,8 @@ export const TOOLS: ToolData[] = [
     id: "heic-to-jpg",
     name: "HEIC to JPG",
     description: "Convert Apple HEIC photos to standard JPG images.",
-    icon: ImagePlay,
+    beforeIcon: ImageIcon,
+    afterIcon: ImagePlay,
     href: "/tools/heic-to-jpg",
     category: "Image Tools"
   },
@@ -210,7 +232,8 @@ export const TOOLS: ToolData[] = [
     id: "pdf-info",
     name: "PDF Info Viewer",
     description: "View hidden metadata, page count, and PDF version.",
-    icon: Info,
+    beforeIcon: FileText,
+    afterIcon: Info,
     href: "/tools/pdf-info",
     category: "PDF Tools"
   },
@@ -218,7 +241,8 @@ export const TOOLS: ToolData[] = [
     id: "extract-pdf-text",
     name: "Extract PDF Text",
     description: "Extract the embedded text from your PDF documents.",
-    icon: FileText,
+    beforeIcon: FileText,
+    afterIcon: Type,
     href: "/tools/extract-pdf-text",
     category: "PDF Tools"
   },
@@ -226,7 +250,8 @@ export const TOOLS: ToolData[] = [
     id: "extract-pdf-images",
     name: "Extract PDF Images",
     description: "Extract embedded raw images directly from your PDFs.",
-    icon: ImagePlay,
+    beforeIcon: FileText,
+    afterIcon: ImageIcon,
     href: "/tools/extract-pdf-images",
     category: "PDF Tools"
   },
@@ -234,7 +259,8 @@ export const TOOLS: ToolData[] = [
     id: "pdf-to-png",
     name: "PDF to PNG",
     description: "Convert PDF pages to lossless PNG images.",
-    icon: ImagePlay,
+    beforeIcon: FileText,
+    afterIcon: ImagePlay,
     href: "/tools/pdf-to-png",
     category: "PDF Tools"
   },
@@ -242,7 +268,8 @@ export const TOOLS: ToolData[] = [
     id: "compress-image-target-size",
     name: "Target Size Compressor",
     description: "Compress your image to exactly fit a target file size in KB.",
-    icon: Minimize2,
+    beforeIcon: ImageIcon,
+    afterIcon: Minimize2,
     href: "/tools/compress-image-target-size",
     category: "Image Tools"
   },
@@ -250,7 +277,8 @@ export const TOOLS: ToolData[] = [
     id: "rotate-image",
     name: "Rotate Image",
     description: "Rotate images 90 degrees or 180 degrees instantly.",
-    icon: RotateCw,
+    beforeIcon: ImageIcon,
+    afterIcon: RotateCw,
     href: "/tools/rotate-image",
     category: "Image Tools"
   },
@@ -258,7 +286,8 @@ export const TOOLS: ToolData[] = [
     id: "flip-image",
     name: "Flip Image",
     description: "Mirror your photos horizontally or vertically.",
-    icon: FlipHorizontal,
+    beforeIcon: ImageIcon,
+    afterIcon: FlipHorizontal,
     href: "/tools/flip-image",
     category: "Image Tools"
   },
@@ -266,7 +295,8 @@ export const TOOLS: ToolData[] = [
     id: "grayscale-image",
     name: "Grayscale Image",
     description: "Convert photos to black and white or adjust grayscale intensity.",
-    icon: Paintbrush,
+    beforeIcon: ImageIcon,
+    afterIcon: Paintbrush,
     href: "/tools/grayscale-image",
     category: "Image Tools"
   },
@@ -274,7 +304,8 @@ export const TOOLS: ToolData[] = [
     id: "round-image",
     name: "Round Image",
     description: "Add rounded corners or circle crop to your images.",
-    icon: Crop,
+    beforeIcon: ImageIcon,
+    afterIcon: Crop,
     href: "/tools/round-image",
     category: "Image Tools"
   },
@@ -282,7 +313,8 @@ export const TOOLS: ToolData[] = [
     id: "add-text-to-image",
     name: "Add Text to Image",
     description: "Easily add captions, text, and labels to your images.",
-    icon: Type,
+    beforeIcon: ImageIcon,
+    afterIcon: Type,
     href: "/tools/add-text-to-image",
     category: "Image Tools"
   },
@@ -290,7 +322,8 @@ export const TOOLS: ToolData[] = [
     id: "image-to-base64",
     name: "Image to Base64",
     description: "Convert any image into a Base64 data URI string.",
-    icon: Code2,
+    beforeIcon: ImageIcon,
+    afterIcon: Code2,
     href: "/tools/image-to-base64",
     category: "Image Tools"
   },
@@ -298,7 +331,8 @@ export const TOOLS: ToolData[] = [
     id: "base64-to-image",
     name: "Base64 to Image",
     description: "Decode and render Base64 data strings into images.",
-    icon: ImageIcon,
+    beforeIcon: Code2,
+    afterIcon: ImageIcon,
     href: "/tools/base64-to-image",
     category: "Image Tools"
   },
@@ -306,7 +340,8 @@ export const TOOLS: ToolData[] = [
     id: "color-palette-extractor",
     name: "Color Palette Extractor",
     description: "Extract the dominant colors from any image.",
-    icon: Palette,
+    beforeIcon: ImageIcon,
+    afterIcon: Palette,
     href: "/tools/color-palette-extractor",
     category: "Image Tools"
   },
@@ -314,7 +349,8 @@ export const TOOLS: ToolData[] = [
     id: "favicon-generator",
     name: "Favicon Generator",
     description: "Generate a complete favicon package from your logo.",
-    icon: AppWindow,
+    beforeIcon: ImageIcon,
+    afterIcon: AppWindow,
     href: "/tools/favicon-generator",
     category: "Image Tools"
   },
@@ -322,7 +358,8 @@ export const TOOLS: ToolData[] = [
     id: "blur-image-region",
     name: "Blur Image Region",
     description: "Redact or blur sensitive parts of your images.",
-    icon: EyeOff,
+    beforeIcon: ImageIcon,
+    afterIcon: EyeOff,
     href: "/tools/blur-image-region",
     category: "Image Tools"
   },
