@@ -120,7 +120,7 @@ export function ConvertImageWidget() {
         </div>
         <h3 className="text-2xl font-semibold text-textPrimary mb-6 text-center">Converted Successfully!</h3>
         
-        <div className="w-full max-w-2xl bg-background rounded-lg border border-white/10 overflow-hidden mb-8">
+        <div className="w-full max-w-2xl bg-background rounded-lg border border-overlay/10 overflow-hidden mb-8">
           <ul className="divide-y divide-white/10">
             {processedFiles.map((res, i) => {
               const url = URL.createObjectURL(res.blob);
@@ -138,7 +138,7 @@ export function ConvertImageWidget() {
                   <a
                     href={url}
                     download={name}
-                    className="shrink-0 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-sm text-textPrimary transition-colors"
+                    className="shrink-0 px-4 py-2 bg-overlay/5 hover:bg-overlay/10 border border-overlay/10 rounded text-sm text-textPrimary transition-colors"
                   >
                     Download
                   </a>
@@ -164,7 +164,7 @@ export function ConvertImageWidget() {
             className={clsx(
               "flex items-center justify-center gap-2 px-6 py-3 border font-medium rounded-button transition-colors",
               processedFiles.length > 1 
-                ? "bg-background border-white/10 text-textPrimary hover:bg-white/5" 
+                ? "bg-background border-overlay/10 text-textPrimary hover:bg-overlay/5" 
                 : "bg-accent border-accent text-background hover:bg-accent/90"
             )}
           >
@@ -180,8 +180,8 @@ export function ConvertImageWidget() {
       <div
         {...getRootProps()}
         className={clsx(
-          "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200",
-          isDragActive ? "border-accent bg-accent/5" : "border-white/20 bg-background/50 hover:border-white/30"
+          "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200 tool-interaction-zone",
+          isDragActive ? "border-accent bg-accent/5" : "border-overlay/20 bg-background/50 hover:border-overlay/30"
         )}
       >
         <input {...getInputProps()} />
@@ -200,7 +200,7 @@ export function ConvertImageWidget() {
               open();
             }
           }}
-          className="px-5 py-2.5 bg-surface border border-white/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
+          className="px-5 py-2.5 bg-surface border border-overlay/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-overlay/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
         >
           Browse files
         </button>
@@ -214,7 +214,7 @@ export function ConvertImageWidget() {
       )}
 
       {files.length > 0 && (
-        <div className="bg-surface border border-white/10 rounded-lg p-6 space-y-6">
+        <div className="animate-reveal-result bg-surface border border-overlay/10 rounded-lg p-6 space-y-6">
           
           <div>
             <label className="block text-sm font-medium text-textPrimary mb-3">Target Format</label>
@@ -231,7 +231,7 @@ export function ConvertImageWidget() {
                     value={fmt.id}
                     checked={targetFormat === fmt.id}
                     onChange={(e) => setTargetFormat(e.target.value)}
-                    className="accent-accent bg-background border-white/20"
+                    className="accent-accent bg-background border-overlay/20"
                   />
                   {fmt.label}
                 </label>
@@ -244,8 +244,8 @@ export function ConvertImageWidget() {
             )}
           </div>
 
-          <div className="bg-background rounded-lg border border-white/10 overflow-hidden">
-            <div className="p-4 border-b border-white/10 bg-surface flex justify-between items-center">
+          <div className="bg-background rounded-lg border border-overlay/10 overflow-hidden">
+            <div className="p-4 border-b border-overlay/10 bg-surface flex justify-between items-center">
               <span className="font-medium text-textPrimary">{files.length} images selected</span>
             </div>
             <ul className="divide-y divide-white/10 max-h-60 overflow-y-auto">
@@ -267,7 +267,7 @@ export function ConvertImageWidget() {
             className={clsx(
               "w-full flex items-center justify-center gap-2 py-4 rounded-button font-medium text-lg transition-all",
               status === 'processing'
-                ? "bg-white/5 text-textMuted cursor-not-allowed"
+                ? "bg-overlay/5 text-textMuted cursor-not-allowed"
                 : "bg-accent text-background hover:bg-accent/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
             )}
           >

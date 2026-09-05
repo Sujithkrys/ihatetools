@@ -150,8 +150,8 @@ export function OrganizePdfWidget() {
         <div
           {...getRootProps()}
           className={cn(
-            "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-            isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+            "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+            isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
             errorMsg ? "border-error/50 bg-error/5" : ""
           )}
         >
@@ -164,7 +164,7 @@ export function OrganizePdfWidget() {
               <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
               <p className="text-sm text-textSecondary mt-1">or select it from your device</p>
             </div>
-            <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+            <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
               Browse files
             </button>
             {errorMsg && <p className="text-error text-sm mt-2">{errorMsg}</p>}
@@ -190,7 +190,7 @@ export function OrganizePdfWidget() {
             <div className="flex gap-3">
               <button
                 onClick={handleReset}
-                className="px-4 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium text-sm"
+                className="px-4 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium text-sm"
               >
                 Cancel
               </button>
@@ -206,18 +206,18 @@ export function OrganizePdfWidget() {
           
           {errorMsg && <p className="text-error text-sm">{errorMsg}</p>}
 
-          <div className="bg-surface p-6 rounded-lg border border-white/5">
+          <div className="bg-surface p-6 rounded-lg border border-overlay/5">
             {pages.length === 0 ? (
               <p className="text-center text-textSecondary py-8">All pages deleted. You must keep at least one page to save.</p>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {pages.map((page, idx) => (
-                  <div key={page.id} className="relative group bg-background border border-white/10 rounded-md p-2 flex flex-col items-center">
+                  <div key={page.id} className="relative group bg-background border border-overlay/10 rounded-md p-2 flex flex-col items-center">
                     <span className="absolute top-2 left-2 bg-surface/80 backdrop-blur-sm text-xs font-medium px-1.5 py-0.5 rounded text-textPrimary z-10">
                       {idx + 1}
                     </span>
                     
-                    <div className="w-full aspect-[1/1.414] mb-3 relative overflow-hidden bg-white/5 flex items-center justify-center">
+                    <div className="w-full aspect-[1/1.414] mb-3 relative overflow-hidden bg-overlay/5 flex items-center justify-center">
                       {/* Using img tag with transform for preview rotation */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 

@@ -125,7 +125,7 @@ export function BlurImageRegionWidget() {
         key={isTemp ? 'temp' : `reg-${region.x}-${region.y}`}
         className={cn(
           "absolute border-2 pointer-events-none",
-          isTemp ? "border-accent border-dashed bg-accent/20" : "border-white bg-black/40 backdrop-blur-sm"
+          isTemp ? "border-accent border-dashed bg-accent/20 tool-interaction-zone" : "border-white bg-black/40 backdrop-blur-sm"
         )}
         style={{
           left: region.x * scaleX,
@@ -233,8 +233,8 @@ export function BlurImageRegionWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -247,7 +247,7 @@ export function BlurImageRegionWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
                 <p className="text-sm text-textSecondary mt-1">to blur or pixelate sensitive regions</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -257,7 +257,7 @@ export function BlurImageRegionWidget() {
       )}
 
       {file && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
             <h3 className="text-textPrimary font-medium">Selected Image</h3>
             <button
@@ -313,7 +313,7 @@ export function BlurImageRegionWidget() {
                     onClick={() => setMode("blur")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-lg transition-colors",
-                      mode === "blur" ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textSecondary hover:bg-white/10 hover:text-textPrimary"
+                      mode === "blur" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
                     )}
                   >
                     <EyeOff className="w-5 h-5" />
@@ -323,7 +323,7 @@ export function BlurImageRegionWidget() {
                     onClick={() => setMode("pixelate")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-lg transition-colors",
-                      mode === "pixelate" ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textSecondary hover:bg-white/10 hover:text-textPrimary"
+                      mode === "pixelate" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
                     )}
                   >
                     <Grid className="w-5 h-5" />
@@ -343,11 +343,11 @@ export function BlurImageRegionWidget() {
                   max="50" 
                   value={intensity} 
                   onChange={(e) => setIntensity(parseInt(e.target.value))}
-                  className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
+                  className="w-full h-2 bg-overlay/10 rounded-lg appearance-none cursor-pointer accent-accent"
                 />
               </div>
 
-              <div className="pt-4 border-t border-white/5 text-sm text-textSecondary">
+              <div className="pt-4 border-t border-overlay/5 text-sm text-textSecondary">
                 Selected regions: <span className="font-medium text-textPrimary">{regions.length}</span>
                 {regions.length === 0 && (
                   <p className="mt-1 text-xs text-accent">Drag on the image to add a region.</p>
@@ -356,7 +356,7 @@ export function BlurImageRegionWidget() {
             </div>
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-white/5">
+          <div className="flex justify-end pt-4 border-t border-overlay/5">
             <button
               onClick={handleDownload}
               disabled={isProcessing || regions.length === 0}

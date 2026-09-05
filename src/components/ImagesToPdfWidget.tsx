@@ -117,8 +117,8 @@ export function ImagesToPdfWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg && files.length === 0 ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -131,7 +131,7 @@ export function ImagesToPdfWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop images here</p>
                 <p className="text-sm text-textSecondary mt-1">JPG or PNG</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -140,7 +140,7 @@ export function ImagesToPdfWidget() {
           {errorMsg && <p className="text-error text-sm text-center">{errorMsg}</p>}
 
           {files.length > 0 && (
-            <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6">
+            <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-textPrimary font-medium">{files.length} image{files.length !== 1 ? 's' : ''} added</h3>
                 <div className="flex gap-3">

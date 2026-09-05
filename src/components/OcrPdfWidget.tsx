@@ -148,8 +148,8 @@ export function OcrPdfWidget() {
             <div
               {...getRootProps()}
               className={cn(
-                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-                isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+                isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
                 errorMsg ? "border-error/50 bg-error/5" : ""
               )}
             >
@@ -162,13 +162,13 @@ export function OcrPdfWidget() {
                   <p className="text-lg font-medium text-textPrimary">Drag & drop a PDF or Image here</p>
                   <p className="text-sm text-textSecondary mt-1">Works best with clear, high-resolution scans (English)</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6">
+            <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-textPrimary font-medium">Selected File</h3>
                 <button
@@ -206,7 +206,7 @@ export function OcrPdfWidget() {
           <Loader2 className="w-12 h-12 text-accent animate-spin" />
           <div className="text-center w-full max-w-sm">
             <p className="text-textPrimary font-medium text-lg">{progressMsg}</p>
-            <div className="w-full bg-background rounded-full h-2 mt-4 overflow-hidden border border-white/10">
+            <div className="w-full bg-background rounded-full h-2 mt-4 overflow-hidden border border-overlay/10">
               <div 
                 className="bg-accent h-2 transition-all duration-300 ease-out"
                 style={{ width: `${progressPercent}%` }}
@@ -227,7 +227,7 @@ export function OcrPdfWidget() {
             <div className="flex items-center gap-3">
               <button
                 onClick={handleCopy}
-                className="px-4 py-2 bg-surface border border-white/10 text-textPrimary hover:bg-surfaceHover rounded-md transition-colors flex items-center gap-2 text-sm font-medium"
+                className="px-4 py-2 bg-surface border border-overlay/10 text-textPrimary hover:bg-surfaceHover rounded-md transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 {isCopied ? <Check className="w-4 h-4 text-success" /> : <Copy className="w-4 h-4" />}
                 {isCopied ? "Copied!" : "Copy"}
@@ -245,7 +245,7 @@ export function OcrPdfWidget() {
           <textarea
             value={extractedText}
             readOnly
-            className="w-full h-96 bg-surface border border-white/10 rounded-lg p-6 text-textPrimary focus:outline-none focus:border-accent/50 resize-y font-mono text-sm"
+            className="w-full h-96 bg-surface border border-overlay/10 rounded-lg p-6 text-textPrimary focus:outline-none focus:border-accent/50 resize-y font-mono text-sm"
           />
 
           <div className="pt-4 flex justify-center">

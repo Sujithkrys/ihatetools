@@ -64,9 +64,9 @@ export function CaseConverterWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-surface rounded-lg border border-white/5 overflow-hidden flex flex-col shadow-lg">
+      <div className="bg-surface rounded-lg border border-overlay/5 overflow-hidden flex flex-col shadow-lg">
         {/* Top toolbar */}
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-3 border-b border-white/5 bg-white/[0.02] gap-4">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-3 border-b border-overlay/5 bg-white/[0.02] gap-4">
           <div className="flex items-center gap-2 text-textSecondary font-medium">
             <CaseUpper className="w-4 h-4 text-accent" />
             <span className="text-sm">Text Editor</span>
@@ -76,47 +76,47 @@ export function CaseConverterWidget() {
             <button
               onClick={() => convertCase("lower")}
               disabled={!text}
-              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               lowercase
             </button>
             <button
               onClick={() => convertCase("upper")}
               disabled={!text}
-              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               UPPERCASE
             </button>
             <button
               onClick={() => convertCase("title")}
               disabled={!text}
-              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               Title Case
             </button>
             <button
               onClick={() => convertCase("camel")}
               disabled={!text}
-              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               camelCase
             </button>
             <button
               onClick={() => convertCase("snake")}
               disabled={!text}
-              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               snake_case
             </button>
             <button
               onClick={() => convertCase("kebab")}
               disabled={!text}
-              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               kebab-case
             </button>
             
-            <div className="w-px h-6 bg-white/10 self-center mx-1 hidden sm:block"></div>
+            <div className="w-px h-6 bg-overlay/10 self-center mx-1 hidden sm:block"></div>
             
             <button
               onClick={handleCopy}
@@ -129,7 +129,7 @@ export function CaseConverterWidget() {
             <button
               onClick={() => setText("")}
               disabled={!text}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               <Eraser className="w-3.5 h-3.5 text-error" />
             </button>

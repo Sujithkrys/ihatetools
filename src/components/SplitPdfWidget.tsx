@@ -164,7 +164,7 @@ export function SplitPdfWidget() {
           </a>
           <button
             onClick={handleReset}
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-background border border-white/10 text-textPrimary font-medium rounded-button hover:bg-white/5 transition-colors"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-background border border-overlay/10 text-textPrimary font-medium rounded-button hover:bg-overlay/5 transition-colors"
           >
             Split another file
           </button>
@@ -179,8 +179,8 @@ export function SplitPdfWidget() {
         <div
           {...getRootProps()}
           className={clsx(
-            "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200",
-            isDragActive ? "border-accent bg-accent/5" : "border-white/20 bg-background/50 hover:border-white/30"
+            "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200 tool-interaction-zone",
+            isDragActive ? "border-accent bg-accent/5" : "border-overlay/20 bg-background/50 hover:border-overlay/30"
           )}
         >
           <input {...getInputProps()} />
@@ -199,14 +199,14 @@ export function SplitPdfWidget() {
                 open();
               }
             }}
-            className="px-5 py-2.5 bg-surface border border-white/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
+            className="px-5 py-2.5 bg-surface border border-overlay/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-overlay/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
           >
             Browse files
           </button>
         </div>
       ) : (
-        <div className="bg-background rounded-lg border border-white/10 overflow-hidden">
-          <div className="p-4 border-b border-white/10 bg-surface flex justify-between items-center">
+        <div className="bg-background rounded-lg border border-overlay/10 overflow-hidden">
+          <div className="p-4 border-b border-overlay/10 bg-surface flex justify-between items-center">
             <span className="font-medium text-textPrimary">1 file selected ({pageCount} pages)</span>
           </div>
           <ul className="divide-y divide-white/10">
@@ -223,7 +223,7 @@ export function SplitPdfWidget() {
       )}
 
       {file && (
-        <div className="bg-surface border border-white/10 rounded-lg p-6 space-y-6">
+        <div className="animate-reveal-result bg-surface border border-overlay/10 rounded-lg p-6 space-y-6">
           <div className="flex gap-4">
             <label className="flex items-center gap-2 text-textPrimary cursor-pointer">
               <input 
@@ -231,7 +231,7 @@ export function SplitPdfWidget() {
                 name="mode" 
                 checked={mode === 'individual'} 
                 onChange={() => setMode('individual')}
-                className="text-accent focus:ring-accent bg-background border-white/20"
+                className="text-accent focus:ring-accent bg-background border-overlay/20"
               />
               Split into individual pages
             </label>
@@ -241,7 +241,7 @@ export function SplitPdfWidget() {
                 name="mode" 
                 checked={mode === 'range'} 
                 onChange={() => setMode('range')}
-                className="text-accent focus:ring-accent bg-background border-white/20"
+                className="text-accent focus:ring-accent bg-background border-overlay/20"
               />
               Extract page range
             </label>
@@ -258,7 +258,7 @@ export function SplitPdfWidget() {
                 value={rangeInput}
                 onChange={(e) => setRangeInput(e.target.value)}
                 placeholder={`1-${pageCount}`}
-                className="w-full px-4 py-2 bg-background border border-white/10 rounded-md text-textPrimary placeholder:text-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
+                className="w-full px-4 py-2 bg-background border border-overlay/10 rounded-md text-textPrimary placeholder:text-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
               />
             </div>
           )}
@@ -269,7 +269,7 @@ export function SplitPdfWidget() {
             className={clsx(
               "w-full flex items-center justify-center gap-2 py-4 rounded-button font-medium text-lg transition-all",
               status === 'processing' || (mode === 'range' && !rangeInput)
-                ? "bg-white/5 text-textMuted cursor-not-allowed"
+                ? "bg-overlay/5 text-textMuted cursor-not-allowed"
                 : "bg-accent text-background hover:bg-accent/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
             )}
           >

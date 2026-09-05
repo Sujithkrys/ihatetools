@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col items-center pt-16 pb-24 px-4 w-full max-w-content mx-auto">
       <section className="w-full max-w-2xl">
-        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-8 font-display">
           About ihatetools
         </h1>
         

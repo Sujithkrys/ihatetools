@@ -10,7 +10,7 @@ export default function AddPasswordPage() {
   return (
     <div className="flex flex-col items-center pt-16 pb-24 px-4">
       <section className="text-center max-w-2xl mx-auto mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-4 font-display">
           Protect PDF
         </h1>
         <p className="text-textSecondary text-lg">

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-background mt-auto">
+    <footer className="border-t border-overlay/5 bg-background mt-auto">
       <div className="max-w-content mx-auto px-4 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2">
@@ -42,7 +42,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between">
+        <div className="mt-12 pt-8 border-t border-overlay/5 flex flex-col md:flex-row items-center justify-between">
           <p className="text-textMuted text-sm">
             © {new Date().getFullYear()} ihatetools. All rights reserved.
           </p>

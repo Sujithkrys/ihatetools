@@ -134,8 +134,8 @@ export function DeletePdfPagesWidget() {
             <div
               {...getRootProps()}
               className={cn(
-                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-                isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+                isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
                 errorMsg ? "border-error/50 bg-error/5" : ""
               )}
             >
@@ -148,13 +148,13 @@ export function DeletePdfPagesWidget() {
                   <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
                   <p className="text-sm text-textSecondary mt-1">to remove pages</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6">
+            <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-textPrimary font-medium">Selected Document</h3>
                 <button
@@ -187,14 +187,14 @@ export function DeletePdfPagesWidget() {
                         onClick={() => toggleDelete(idx)}
                         className={cn(
                           "relative group rounded-md p-2 flex flex-col items-center cursor-pointer transition-all border-2",
-                          isDeleted ? "border-error bg-error/5" : "border-transparent bg-background hover:border-white/10"
+                          isDeleted ? "border-error bg-error/5" : "border-transparent bg-background hover:border-overlay/10"
                         )}
                       >
                         <span className="absolute top-2 left-2 bg-surface/80 backdrop-blur-sm text-xs font-medium px-1.5 py-0.5 rounded text-textPrimary z-10">
                           {idx + 1}
                         </span>
                         
-                        <div className="w-full aspect-[1/1.414] relative overflow-hidden bg-white/5 flex items-center justify-center">
+                        <div className="w-full aspect-[1/1.414] relative overflow-hidden bg-overlay/5 flex items-center justify-center">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img 
                             src={page.thumbnail} 

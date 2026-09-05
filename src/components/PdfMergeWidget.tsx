@@ -126,7 +126,7 @@ export function PdfMergeWidget() {
           </a>
           <button
             onClick={handleReset}
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-background border border-white/10 text-textPrimary font-medium rounded-button hover:bg-white/5 transition-colors"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-background border border-overlay/10 text-textPrimary font-medium rounded-button hover:bg-overlay/5 transition-colors"
           >
             Merge more files
           </button>
@@ -141,8 +141,8 @@ export function PdfMergeWidget() {
       <div
         {...getRootProps()}
         className={clsx(
-          "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200",
-          isDragActive ? "border-accent bg-accent/5" : "border-white/20 bg-background/50 hover:border-white/30"
+          "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200 tool-interaction-zone",
+          isDragActive ? "border-accent bg-accent/5" : "border-overlay/20 bg-background/50 hover:border-overlay/30"
         )}
       >
         <input {...getInputProps()} />
@@ -161,7 +161,7 @@ export function PdfMergeWidget() {
               open();
             }
           }}
-          className="px-5 py-2.5 bg-surface border border-white/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
+          className="px-5 py-2.5 bg-surface border border-overlay/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-overlay/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
           aria-label="Browse files"
         >
           Browse files
@@ -178,8 +178,8 @@ export function PdfMergeWidget() {
 
       {/* File List */}
       {files.length > 0 && (
-        <div className="bg-background rounded-lg border border-white/10 overflow-hidden">
-          <div className="p-4 border-b border-white/10 bg-surface flex justify-between items-center">
+        <div className="bg-background rounded-lg border border-overlay/10 overflow-hidden">
+          <div className="p-4 border-b border-overlay/10 bg-surface flex justify-between items-center">
             <span className="font-medium text-textPrimary">
               {files.length} file{files.length !== 1 ? 's' : ''} selected
             </span>
@@ -231,7 +231,7 @@ export function PdfMergeWidget() {
         className={clsx(
           "w-full flex items-center justify-center gap-2 py-4 rounded-button font-medium text-lg transition-all",
           files.length < 2 || status === 'merging'
-            ? "bg-white/5 text-textMuted cursor-not-allowed"
+            ? "bg-overlay/5 text-textMuted cursor-not-allowed"
             : "bg-accent text-background hover:bg-accent/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
         )}
       >

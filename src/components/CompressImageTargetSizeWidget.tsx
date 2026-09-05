@@ -151,8 +151,8 @@ export function CompressImageTargetSizeWidget() {
             <div
               {...getRootProps()}
               className={cn(
-                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-                isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+                isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
                 errorMsg ? "border-error/50 bg-error/5" : ""
               )}
             >
@@ -165,13 +165,13 @@ export function CompressImageTargetSizeWidget() {
                   <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
                   <p className="text-sm text-textSecondary mt-1">to compress it to a target size</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6">
+            <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-textPrimary font-medium">Selected Image</h3>
                 <button
@@ -197,7 +197,7 @@ export function CompressImageTargetSizeWidget() {
                       type="number" 
                       value={targetKb} 
                       onChange={(e) => setTargetKb(Math.max(1, parseInt(e.target.value) || 100))}
-                      className="flex-1 bg-background border border-white/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent text-lg"
+                      className="flex-1 bg-background border border-overlay/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent text-lg"
                       min="1"
                     />
                     <span className="text-textSecondary font-medium">KB</span>
@@ -245,12 +245,12 @@ export function CompressImageTargetSizeWidget() {
             )}
             
             <div className="flex items-center justify-center gap-6 mt-6">
-              <div className="bg-background rounded-lg border border-white/5 p-4 text-center">
+              <div className="bg-background rounded-lg border border-overlay/5 p-4 text-center">
                 <p className="text-sm text-textSecondary mb-1">Target</p>
                 <p className="font-bold text-textPrimary">{targetKb} KB</p>
               </div>
               <div className="text-textSecondary">→</div>
-              <div className="bg-background rounded-lg border border-white/5 p-4 text-center">
+              <div className="bg-background rounded-lg border border-overlay/5 p-4 text-center">
                 <p className="text-sm text-textSecondary mb-1">Achieved</p>
                 <p className="font-bold text-accent">{resultInfo.kb.toFixed(2)} KB</p>
               </div>

@@ -61,7 +61,7 @@ export function SearchBar() {
       </div>
       <input
         type="text"
-        className="block w-full pl-10 pr-3 py-2 border border-white/10 rounded-md leading-5 bg-surface text-textPrimary placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all"
+        className="block w-full pl-10 pr-3 py-2 border border-overlay/10 rounded-md leading-5 bg-surface text-textPrimary placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all"
         placeholder="Search tools..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
@@ -72,7 +72,7 @@ export function SearchBar() {
       />
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-surface border border-white/10 rounded-md shadow-lg overflow-hidden z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-surface border border-overlay/10 rounded-md shadow-lg overflow-hidden z-50">
           {results.length > 0 ? (
             <ul className="max-h-60 overflow-y-auto">
               {results.map((tool) => {
@@ -85,7 +85,7 @@ export function SearchBar() {
                         setIsOpen(false);
                         setQuery("");
                       }}
-                      className="flex items-start gap-3 px-4 py-3 hover:bg-surfaceHover transition-colors border-b border-white/5 last:border-b-0"
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-surfaceHover transition-colors border-b border-overlay/5 last:border-b-0"
                     >
                       <Icon className="w-5 h-5 text-textMuted shrink-0 mt-0.5" />
                       <div>

@@ -9,7 +9,7 @@ export default function JsonFormatterPage() {
   return (
     <div className="max-w-5xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight font-display">
           JSON Formatter
         </h1>
         <p className="text-lg text-textSecondary max-w-2xl mx-auto">
@@ -20,7 +20,7 @@ export default function JsonFormatterPage() {
       <JsonFormatterWidget />
 
       <div className="mt-24 space-y-12">
-        <section className="bg-surface rounded-2xl p-8 border border-white/5">
+        <section className="bg-surface rounded-2xl p-8 border border-overlay/5">
           <h2 className="text-2xl font-bold text-textPrimary mb-4">Secure & Fast</h2>
           <p className="text-textSecondary leading-relaxed mb-6">
             When you&apos;re dealing with sensitive API payloads, you shouldn&apos;t have to paste them into random online servers just to format them. Our JSON Formatter works entirely in your browser using the native `JSON.parse` and `JSON.stringify` engine. Your data never leaves your computer, ensuring total privacy.

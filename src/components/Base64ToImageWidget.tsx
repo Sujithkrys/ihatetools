@@ -53,9 +53,9 @@ export function Base64ToImageWidget() {
     <ToolWidgetShell>
       {!imgUrl && (
         <div className="space-y-6">
-          <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-4">
+          <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-4">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-full bg-white/5">
+              <div className="p-2 rounded-full bg-overlay/5">
                 <ImageIcon className="w-6 h-6 text-accent" />
               </div>
               <div>
@@ -70,7 +70,7 @@ export function Base64ToImageWidget() {
               placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
               className={cn(
                 "w-full h-48 bg-background border rounded-md p-4 text-textPrimary font-mono text-xs focus:outline-none focus:border-accent resize-none",
-                errorMsg ? "border-error/50" : "border-white/10"
+                errorMsg ? "border-error/50" : "border-overlay/10"
               )}
             />
             {errorMsg && (
@@ -93,7 +93,7 @@ export function Base64ToImageWidget() {
       )}
 
       {imgUrl && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-8">
+        <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
             <h3 className="text-textPrimary font-medium">Rendered Image</h3>
             <button
@@ -104,7 +104,7 @@ export function Base64ToImageWidget() {
             </button>
           </div>
           
-          <div className="flex justify-center bg-black/20 rounded-xl p-4 border border-white/5 overflow-hidden"
+          <div className="flex justify-center bg-black/20 rounded-xl p-4 border border-overlay/5 overflow-hidden"
                style={{ backgroundImage: "linear-gradient(45deg, #222 25%, transparent 25%), linear-gradient(-45deg, #222 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #222 75%), linear-gradient(-45deg, transparent 75%, #222 75%)", backgroundSize: "20px 20px", backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
@@ -114,7 +114,7 @@ export function Base64ToImageWidget() {
             />
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-white/5">
+          <div className="flex justify-end pt-4 border-t border-overlay/5">
             <a
               href={imgUrl}
               download={`decoded-image.${getExt()}`}

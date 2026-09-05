@@ -100,8 +100,8 @@ export function FlipImageWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -114,7 +114,7 @@ export function FlipImageWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
                 <p className="text-sm text-textSecondary mt-1">to flip it horizontally or vertically</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -124,7 +124,7 @@ export function FlipImageWidget() {
       )}
 
       {file && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
             <h3 className="text-textPrimary font-medium">Selected Image</h3>
             <button
@@ -143,7 +143,7 @@ export function FlipImageWidget() {
           />
 
           <div className="flex flex-col items-center space-y-6">
-            <div className="relative w-full max-w-md aspect-square bg-background border border-white/10 rounded-lg flex items-center justify-center overflow-hidden">
+            <div className="relative w-full max-w-md aspect-square bg-background border border-overlay/10 rounded-lg flex items-center justify-center overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={URL.createObjectURL(file)}
@@ -161,7 +161,7 @@ export function FlipImageWidget() {
                 onClick={() => setFlipH(!flipH)}
                 className={cn(
                   "flex items-center gap-2 px-4 py-2 border rounded-md font-medium transition-colors",
-                  flipH ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textPrimary hover:bg-white/10"
+                  flipH ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textPrimary hover:bg-overlay/10"
                 )}
               >
                 <FlipHorizontal className="w-5 h-5" />
@@ -171,7 +171,7 @@ export function FlipImageWidget() {
                 onClick={() => setFlipV(!flipV)}
                 className={cn(
                   "flex items-center gap-2 px-4 py-2 border rounded-md font-medium transition-colors",
-                  flipV ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textPrimary hover:bg-white/10"
+                  flipV ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textPrimary hover:bg-overlay/10"
                 )}
               >
                 <FlipVertical className="w-5 h-5" />
@@ -180,7 +180,7 @@ export function FlipImageWidget() {
             </div>
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-white/5">
+          <div className="flex justify-end pt-4 border-t border-overlay/5">
             <button
               onClick={handleDownload}
               disabled={isProcessing}

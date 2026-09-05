@@ -9,15 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0A0A0C",
-        surface: "#151519",
-        surfaceHover: "#1B1B21",
-        textPrimary: "#F5F5F7",
-        textSecondary: "#9B9BA3",
-        textMuted: "#65656D",
-        accent: "#F5A623",
-        success: "#22C55E",
-        error: "#EF4444",
+        background: "rgb(var(--color-background) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        surfaceHover: "rgb(var(--color-surface-hover) / <alpha-value>)",
+        textPrimary: "rgb(var(--color-text-primary) / <alpha-value>)",
+        textSecondary: "rgb(var(--color-text-secondary) / <alpha-value>)",
+        textMuted: "rgb(var(--color-text-muted) / <alpha-value>)",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        accentSecondary: "rgb(var(--color-accent-secondary) / <alpha-value>)",
+        success: "rgb(var(--color-success) / <alpha-value>)",
+        error: "rgb(var(--color-error) / <alpha-value>)",
+        overlay: "rgb(var(--color-overlay) / <alpha-value>)",
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "sans-serif"],
       },
       borderRadius: {
         card: "12px",

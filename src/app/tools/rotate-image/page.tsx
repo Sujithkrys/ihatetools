@@ -9,7 +9,7 @@ export default function RotateImagePage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight font-display">
           Rotate Image
         </h1>
         <p className="text-lg text-textSecondary max-w-2xl mx-auto">
@@ -20,7 +20,7 @@ export default function RotateImagePage() {
       <RotateImageWidget />
 
       <div className="mt-24 space-y-12">
-        <section className="bg-surface rounded-2xl p-8 border border-white/5">
+        <section className="bg-surface rounded-2xl p-8 border border-overlay/5">
           <h2 className="text-2xl font-bold text-textPrimary mb-4">Fast & Private Rotation</h2>
           <p className="text-textSecondary leading-relaxed mb-6">
             Our rotate tool uses your browser&apos;s native canvas capabilities to rapidly flip and turn your photos without ever uploading them to a server. This means lightning-fast adjustments and 100% total privacy for your personal images.

@@ -118,8 +118,8 @@ export function PdfMetadataWidget() {
             <div
               {...getRootProps()}
               className={cn(
-                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-                isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+                isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
                 errorMsg ? "border-error/50 bg-error/5" : ""
               )}
             >
@@ -132,13 +132,13 @@ export function PdfMetadataWidget() {
                   <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
                   <p className="text-sm text-textSecondary mt-1">to edit its metadata</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6">
+            <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-textPrimary font-medium">Selected Document</h3>
                 <button
@@ -163,7 +163,7 @@ export function PdfMetadataWidget() {
                     type="text" 
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full bg-background border border-white/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
+                    className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
                     placeholder="Document Title"
                   />
                 </div>
@@ -173,7 +173,7 @@ export function PdfMetadataWidget() {
                     type="text" 
                     value={author} 
                     onChange={(e) => setAuthor(e.target.value)}
-                    className="w-full bg-background border border-white/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
+                    className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
                     placeholder="Author Name"
                   />
                 </div>
@@ -183,7 +183,7 @@ export function PdfMetadataWidget() {
                     type="text" 
                     value={subject} 
                     onChange={(e) => setSubject(e.target.value)}
-                    className="w-full bg-background border border-white/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
+                    className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
                     placeholder="Document Subject"
                   />
                 </div>
@@ -193,7 +193,7 @@ export function PdfMetadataWidget() {
                     type="text" 
                     value={keywords} 
                     onChange={(e) => setKeywords(e.target.value)}
-                    className="w-full bg-background border border-white/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
+                    className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
                     placeholder="e.g. invoice, 2024, confidential"
                   />
                 </div>

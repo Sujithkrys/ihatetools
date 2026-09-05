@@ -16,7 +16,7 @@ export default function Home() {
     <div className="flex flex-col items-center pb-24">
       {/* Hero Section */}
       <section className="w-full max-w-4xl mx-auto px-4 pt-24 pb-20 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary leading-tight mb-6 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary leading-tight mb-6 tracking-tight font-display">
           Free Online Tools. <br className="hidden md:block" />
           <span className="text-accent">No Watermark, No Sign-up Required.</span>
         </h1>

@@ -62,9 +62,9 @@ export function JsonFormatterWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-surface rounded-lg border border-white/5 overflow-hidden flex flex-col shadow-lg">
+      <div className="bg-surface rounded-lg border border-overlay/5 overflow-hidden flex flex-col shadow-lg">
         {/* Top toolbar */}
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-3 border-b border-white/5 bg-white/[0.02] gap-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-3 border-b border-overlay/5 bg-white/[0.02] gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto gap-4">
             <div className="flex items-center gap-2 text-textSecondary font-medium">
               <Braces className="w-4 h-4 text-accent" />
@@ -76,7 +76,7 @@ export function JsonFormatterWidget() {
               <select 
                 value={indent}
                 onChange={(e) => setIndent(Number(e.target.value))}
-                className="bg-background border border-white/10 rounded px-2 py-1 text-xs text-textPrimary focus:outline-none focus:border-accent"
+                className="bg-background border border-overlay/10 rounded px-2 py-1 text-xs text-textPrimary focus:outline-none focus:border-accent"
               >
                 <option value={2}>2 Spaces</option>
                 <option value={4}>4 Spaces</option>
@@ -89,7 +89,7 @@ export function JsonFormatterWidget() {
             <button
               onClick={handleMinify}
               disabled={!input}
-              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               Minify
             </button>
@@ -101,11 +101,11 @@ export function JsonFormatterWidget() {
               <FileJson className="w-3.5 h-3.5" />
               Format
             </button>
-            <div className="w-px h-6 bg-white/10 self-center mx-1"></div>
+            <div className="w-px h-6 bg-overlay/10 self-center mx-1"></div>
             <button
               onClick={handleCopy}
               disabled={!input}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               {copied ? <CheckCircle className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5" />}
               Copy
@@ -113,7 +113,7 @@ export function JsonFormatterWidget() {
             <button
               onClick={handleClear}
               disabled={!input}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               <Eraser className="w-3.5 h-3.5 text-error" />
               Clear

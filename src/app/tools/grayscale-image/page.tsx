@@ -9,7 +9,7 @@ export default function GrayscaleImagePage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight font-display">
           Grayscale Image Converter
         </h1>
         <p className="text-lg text-textSecondary max-w-2xl mx-auto">
@@ -20,7 +20,7 @@ export default function GrayscaleImagePage() {
       <GrayscaleImageWidget />
 
       <div className="mt-24 space-y-12">
-        <section className="bg-surface rounded-2xl p-8 border border-white/5">
+        <section className="bg-surface rounded-2xl p-8 border border-overlay/5">
           <h2 className="text-2xl font-bold text-textPrimary mb-4">Black & White Filter</h2>
           <p className="text-textSecondary leading-relaxed mb-6">
             Turn vibrant photos into dramatic black and white images with a simple slider. Whether you want a fully desaturated image or just a subtle muted tone, our client-side filter engine processes the transformation instantly, keeping your files completely private.

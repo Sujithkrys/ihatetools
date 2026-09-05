@@ -109,8 +109,8 @@ export function AddPasswordWidget() {
             <div
               {...getRootProps()}
               className={cn(
-                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-                isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+                isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
                 errorMsg ? "border-error/50 bg-error/5" : ""
               )}
             >
@@ -123,13 +123,13 @@ export function AddPasswordWidget() {
                   <p className="text-lg font-medium text-textPrimary">Drag & drop a PDF here</p>
                   <p className="text-sm text-textSecondary mt-1">Maximum file size: 4MB</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6">
+            <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-textPrimary font-medium">Selected PDF</h3>
                 <button
@@ -155,7 +155,7 @@ export function AddPasswordWidget() {
                         type={showPassword ? "text" : "password"}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full bg-background border border-white/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-accent/50 pr-10"
+                        className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-accent/50 pr-10"
                         placeholder="Enter password"
                       />
                       <button 
@@ -173,7 +173,7 @@ export function AddPasswordWidget() {
                         type={showConfirmPassword ? "text" : "password"}
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="w-full bg-background border border-white/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-accent/50 pr-10"
+                        className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-accent/50 pr-10"
                         placeholder="Confirm password"
                       />
                       <button 

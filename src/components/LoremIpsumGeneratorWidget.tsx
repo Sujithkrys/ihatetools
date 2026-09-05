@@ -98,9 +98,9 @@ export function LoremIpsumGeneratorWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-surface rounded-lg border border-white/5 overflow-hidden flex flex-col shadow-lg">
+      <div className="bg-surface rounded-lg border border-overlay/5 overflow-hidden flex flex-col shadow-lg">
         {/* Top toolbar */}
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-white/5 bg-white/[0.02] gap-4">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-overlay/5 bg-white/[0.02] gap-4">
           <div className="flex items-center gap-2 text-textSecondary font-medium">
             <AlignLeft className="w-4 h-4 text-accent" />
             <span className="text-sm">Lorem Ipsum</span>
@@ -114,12 +114,12 @@ export function LoremIpsumGeneratorWidget() {
                 max={type === "words" ? 5000 : 100}
                 value={count}
                 onChange={(e) => setCount(Math.max(1, parseInt(e.target.value) || 1))}
-                className="w-20 bg-background border border-white/10 rounded px-3 py-1.5 text-sm text-textPrimary focus:outline-none focus:border-accent"
+                className="w-20 bg-background border border-overlay/10 rounded px-3 py-1.5 text-sm text-textPrimary focus:outline-none focus:border-accent"
               />
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value as "paragraphs" | "words")}
-                className="bg-background border border-white/10 rounded px-3 py-1.5 text-sm text-textPrimary focus:outline-none focus:border-accent"
+                className="bg-background border border-overlay/10 rounded px-3 py-1.5 text-sm text-textPrimary focus:outline-none focus:border-accent"
               >
                 <option value="paragraphs">Paragraphs</option>
                 <option value="words">Words</option>
@@ -133,11 +133,11 @@ export function LoremIpsumGeneratorWidget() {
               Generate
             </button>
             
-            <div className="w-px h-6 bg-white/10 hidden sm:block"></div>
+            <div className="w-px h-6 bg-overlay/10 hidden sm:block"></div>
             
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors"
             >
               {copied ? <CheckCircle className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5" />}
               Copy Text

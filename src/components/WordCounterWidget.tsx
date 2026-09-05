@@ -53,9 +53,9 @@ export function WordCounterWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-surface rounded-lg border border-white/5 overflow-hidden flex flex-col shadow-lg">
+      <div className="bg-surface rounded-lg border border-overlay/5 overflow-hidden flex flex-col shadow-lg">
         {/* Top toolbar */}
-        <div className="flex justify-between items-center px-4 py-3 border-b border-white/5 bg-white/[0.02]">
+        <div className="flex justify-between items-center px-4 py-3 border-b border-overlay/5 bg-white/[0.02]">
           <div className="flex items-center gap-2 text-textSecondary font-medium">
             <FileText className="w-4 h-4 text-accent" />
             <span className="text-sm">Text Editor</span>
@@ -64,7 +64,7 @@ export function WordCounterWidget() {
             <button
               onClick={handleCopy}
               disabled={!text}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               {copied ? <CheckCircle className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5" />}
               Copy
@@ -72,7 +72,7 @@ export function WordCounterWidget() {
             <button
               onClick={handleClear}
               disabled={!text}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
             >
               <Eraser className="w-3.5 h-3.5 text-error" />
               Clear
@@ -90,7 +90,7 @@ export function WordCounterWidget() {
         />
 
         {/* Stats Footer */}
-        <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-white/5 border-t border-white/5 bg-white/[0.01]">
+        <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-white/5 border-t border-overlay/5 bg-white/[0.01]">
           <div className="p-4 flex flex-col items-center justify-center">
             <span className="text-2xl font-bold text-textPrimary">{stats.words}</span>
             <span className="text-xs text-textSecondary uppercase tracking-wider font-semibold mt-1">Words</span>

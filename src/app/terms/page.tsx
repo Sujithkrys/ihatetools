@@ -9,7 +9,7 @@ export default function TermsPage() {
   return (
     <div className="flex flex-col items-center pt-16 pb-24 px-4 w-full max-w-content mx-auto">
       <section className="w-full max-w-3xl">
-        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-8 font-display">
           Terms of Service
         </h1>
         
@@ -56,7 +56,7 @@ export default function TermsPage() {
             </p>
           </div>
 
-          <div className="pt-8 border-t border-white/10 text-sm text-textMuted">
+          <div className="pt-8 border-t border-overlay/10 text-sm text-textMuted">
             <p>
               <em>Last updated: September 2026.</em>
             </p>

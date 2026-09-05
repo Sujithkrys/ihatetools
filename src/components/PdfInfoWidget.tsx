@@ -98,8 +98,8 @@ export function PdfInfoWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -112,7 +112,7 @@ export function PdfInfoWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
                 <p className="text-sm text-textSecondary mt-1">to view its hidden properties</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -122,7 +122,7 @@ export function PdfInfoWidget() {
       )}
 
       {metadata && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-8 space-y-8">
+        <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-8 space-y-8">
           <div className="flex justify-between items-start mb-2">
             <div className="flex items-center gap-3">
               <FileText className="w-6 h-6 text-accent" />
@@ -133,13 +133,13 @@ export function PdfInfoWidget() {
             </div>
             <button
               onClick={handleReset}
-              className="text-sm text-textSecondary hover:text-textPrimary transition-colors px-3 py-1 bg-white/5 rounded-md hover:bg-white/10"
+              className="text-sm text-textSecondary hover:text-textPrimary transition-colors px-3 py-1 bg-overlay/5 rounded-md hover:bg-overlay/10"
             >
               Analyze another
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-4 border-t border-white/5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-4 border-t border-overlay/5">
             <div>
               <p className="text-sm font-medium text-textSecondary mb-1">File Size</p>
               <p className="text-base text-textPrimary">{formatSize(metadata.fileSize)}</p>
@@ -154,7 +154,7 @@ export function PdfInfoWidget() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-6 border-t border-white/5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-6 border-t border-overlay/5">
             <div>
               <p className="text-sm font-medium text-textSecondary mb-1">Title</p>
               <p className="text-base text-textPrimary break-words">{metadata.title}</p>

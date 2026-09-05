@@ -78,8 +78,8 @@ export function ImageToBase64Widget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -92,7 +92,7 @@ export function ImageToBase64Widget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
                 <p className="text-sm text-textSecondary mt-1">to encode it as a Base64 data URI</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -102,7 +102,7 @@ export function ImageToBase64Widget() {
       )}
 
       {file && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-6">
+        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-6">
           <div className="flex justify-between items-center">
             <h3 className="text-textPrimary font-medium">Selected Image</h3>
             <button
@@ -140,7 +140,7 @@ export function ImageToBase64Widget() {
               <textarea
                 readOnly
                 value={base64Str}
-                className="w-full h-48 bg-background border border-white/10 rounded-md p-4 text-textSecondary font-mono text-xs focus:outline-none resize-none break-all"
+                className="w-full h-48 bg-background border border-overlay/10 rounded-md p-4 text-textSecondary font-mono text-xs focus:outline-none resize-none break-all"
               />
               <p className="text-xs text-textSecondary">
                 Length: {base64Str.length.toLocaleString()} characters

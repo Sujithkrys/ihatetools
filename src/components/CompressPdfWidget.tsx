@@ -183,7 +183,7 @@ export function CompressPdfWidget() {
             </a>
             <button
               onClick={handleReset}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-background border border-white/10 text-textPrimary font-medium rounded-button hover:bg-white/5 transition-colors"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-background border border-overlay/10 text-textPrimary font-medium rounded-button hover:bg-overlay/5 transition-colors"
             >
               Compress another
             </button>
@@ -200,8 +200,8 @@ export function CompressPdfWidget() {
           <div
             {...getRootProps()}
             className={clsx(
-              "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/20 bg-background/50 hover:border-white/30"
+              "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200 tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/20 bg-background/50 hover:border-overlay/30"
             )}
           >
             <input {...getInputProps()} />
@@ -220,14 +220,14 @@ export function CompressPdfWidget() {
                   open();
                 }
               }}
-              className="px-5 py-2.5 bg-surface border border-white/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
+              className="px-5 py-2.5 bg-surface border border-overlay/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-overlay/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
             >
               Browse files
             </button>
           </div>
         ) : (
-          <div className="bg-background rounded-lg border border-white/10 overflow-hidden">
-            <div className="p-4 border-b border-white/10 bg-surface flex justify-between items-center">
+          <div className="bg-background rounded-lg border border-overlay/10 overflow-hidden">
+            <div className="p-4 border-b border-overlay/10 bg-surface flex justify-between items-center">
               <span className="font-medium text-textPrimary">Ready to compress</span>
             </div>
             <ul className="divide-y divide-white/10">
@@ -237,7 +237,7 @@ export function CompressPdfWidget() {
         )}
 
         {file && !status.includes('processing') && (
-          <div className="bg-surface border border-white/10 rounded-lg p-6">
+          <div className="bg-surface border border-overlay/10 rounded-lg p-6">
             <h3 className="text-textPrimary font-medium flex items-center gap-2 mb-4">
               <Settings2 className="w-5 h-5" />
               Compression Mode
@@ -250,7 +250,7 @@ export function CompressPdfWidget() {
                   "flex flex-col items-start p-4 rounded-lg border-2 transition-all text-left",
                   mode === "standard" 
                     ? "border-accent bg-accent/5" 
-                    : "border-white/5 bg-background hover:border-white/10"
+                    : "border-overlay/5 bg-background hover:border-overlay/10"
                 )}
               >
                 <span className="font-medium text-textPrimary mb-1">Standard</span>
@@ -263,7 +263,7 @@ export function CompressPdfWidget() {
                   "flex flex-col items-start p-4 rounded-lg border-2 transition-all text-left",
                   mode === "aggressive" 
                     ? "border-error/50 bg-error/5" 
-                    : "border-white/5 bg-background hover:border-white/10"
+                    : "border-overlay/5 bg-background hover:border-overlay/10"
                 )}
               >
                 <span className="font-medium text-textPrimary mb-1">Aggressive</span>
@@ -297,7 +297,7 @@ export function CompressPdfWidget() {
             className={clsx(
               "w-full flex flex-col items-center justify-center gap-1 py-4 rounded-button font-medium transition-all",
               status === 'processing'
-                ? "bg-white/5 text-textMuted cursor-not-allowed"
+                ? "bg-overlay/5 text-textMuted cursor-not-allowed"
                 : "bg-accent text-background hover:bg-accent/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
             )}
           >

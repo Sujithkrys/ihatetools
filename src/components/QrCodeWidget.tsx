@@ -59,7 +59,7 @@ export function QrCodeWidget() {
               onChange={(e) => setText(e.target.value)}
               placeholder="https://example.com"
               rows={4}
-              className="block w-full px-3 py-2 border border-white/10 rounded-md leading-5 bg-surface text-textPrimary placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all resize-none"
+              className="block w-full px-3 py-2 border border-overlay/10 rounded-md leading-5 bg-surface text-textPrimary placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all resize-none"
             />
           </label>
 
@@ -68,7 +68,7 @@ export function QrCodeWidget() {
             <select
               value={size}
               onChange={(e) => setSize(Number(e.target.value))}
-              className="block w-full px-3 py-2 border border-white/10 rounded-md leading-5 bg-surface text-textPrimary focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all"
+              className="block w-full px-3 py-2 border border-overlay/10 rounded-md leading-5 bg-surface text-textPrimary focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all"
             >
               <option value={250}>Small (250x250)</option>
               <option value={500}>Medium (500x500)</option>
@@ -78,7 +78,7 @@ export function QrCodeWidget() {
           </label>
         </div>
 
-        <div className="bg-surface rounded-lg border border-white/5 p-8 flex flex-col items-center justify-center min-h-[300px]">
+        <div className="bg-surface rounded-lg border border-overlay/5 p-8 flex flex-col items-center justify-center min-h-[300px]">
           {qrDataUrl ? (
             <div className="flex flex-col items-center gap-6">
               <div className="bg-white p-2 rounded-md shadow-sm">

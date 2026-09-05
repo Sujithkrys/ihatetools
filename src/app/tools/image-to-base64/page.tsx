@@ -9,7 +9,7 @@ export default function ImageToBase64Page() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight font-display">
           Image to Base64 Converter
         </h1>
         <p className="text-lg text-textSecondary max-w-2xl mx-auto">
@@ -20,7 +20,7 @@ export default function ImageToBase64Page() {
       <ImageToBase64Widget />
 
       <div className="mt-24 space-y-12">
-        <section className="bg-surface rounded-2xl p-8 border border-white/5">
+        <section className="bg-surface rounded-2xl p-8 border border-overlay/5">
           <h2 className="text-2xl font-bold text-textPrimary mb-4">Fast & Private Encoding</h2>
           <p className="text-textSecondary leading-relaxed mb-6">
             Easily convert SVG, PNG, JPG, or WebP files into Base64 strings to inline them directly into your HTML documents or CSS stylesheets. The conversion happens instantly in your browser using the native FileReader API, so your images are never uploaded to our servers.

@@ -51,18 +51,18 @@ export function ExtractPdfImagesWidget() {
             const dict = obj.dict;
             const subtype = dict.lookup(PDFName.of('Subtype'));
             
-            // @ts-expect-error PDFName has name property
-            if (subtype && subtype.name === 'Image') {
+            // @ts-expect-error PDFName has decodeText method
+            if (subtype && subtype.decodeText() === 'Image') {
               const filter = dict.lookup(PDFName.of('Filter'));
               
               // We support DCTDecode (JPEG) natively as it maps 1:1 to a JPEG file stream.
               let isJpeg = false;
               // @ts-expect-error handling different dict lookups
-              if (filter && filter.name === 'DCTDecode') {
+              if (filter && filter.decodeText && filter.decodeText() === 'DCTDecode') {
                 isJpeg = true;
               } else if (Array.isArray(filter)) {
                 // handling different dict lookups
-                isJpeg = filter.some(f => f.name === 'DCTDecode');
+                isJpeg = filter.some(f => f.decodeText && f.decodeText() === 'DCTDecode');
               }
               
               if (isJpeg) {
@@ -133,8 +133,8 @@ export function ExtractPdfImagesWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -147,7 +147,7 @@ export function ExtractPdfImagesWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
                 <p className="text-sm text-textSecondary mt-1">to extract embedded images</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -171,7 +171,7 @@ export function ExtractPdfImagesWidget() {
           <h3 className="text-xl font-bold text-textPrimary">No Images Found</h3>
           <p className="text-textSecondary max-w-md mx-auto">{warningMsg}</p>
           <div className="pt-4 flex justify-center">
-            <button onClick={handleReset} className="px-6 py-2 bg-surface border border-white/10 text-textPrimary rounded-md">
+            <button onClick={handleReset} className="px-6 py-2 bg-surface border border-overlay/10 text-textPrimary rounded-md">
               Try another file
             </button>
           </div>
@@ -179,7 +179,7 @@ export function ExtractPdfImagesWidget() {
       )}
 
       {images.length > 0 && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-6">
+        <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
             <div>
               <h3 className="text-textPrimary font-medium">Found {images.length} Image{images.length > 1 ? 's' : ''}</h3>
@@ -199,7 +199,7 @@ export function ExtractPdfImagesWidget() {
               )}
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-textPrimary rounded-md text-sm font-medium transition-colors ml-2"
+                className="flex items-center gap-2 px-4 py-2 bg-overlay/5 hover:bg-overlay/10 text-textPrimary rounded-md text-sm font-medium transition-colors ml-2"
               >
                 Start Over
               </button>
@@ -208,7 +208,7 @@ export function ExtractPdfImagesWidget() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-h-[500px] overflow-y-auto pr-2">
             {images.map((img) => (
-              <div key={img.id} className="relative group rounded-md p-2 flex flex-col items-center bg-background border border-white/5 hover:border-white/10 transition-colors">
+              <div key={img.id} className="relative group rounded-md p-2 flex flex-col items-center bg-background border border-overlay/5 hover:border-overlay/10 transition-colors">
                 <div className="w-full aspect-square relative overflow-hidden flex items-center justify-center bg-black/20 rounded">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 

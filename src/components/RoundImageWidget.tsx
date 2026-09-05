@@ -143,8 +143,8 @@ export function RoundImageWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -157,7 +157,7 @@ export function RoundImageWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
                 <p className="text-sm text-textSecondary mt-1">to add rounded corners or circle crop</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -167,7 +167,7 @@ export function RoundImageWidget() {
       )}
 
       {file && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
             <h3 className="text-textPrimary font-medium">Selected Image</h3>
             <button
@@ -207,7 +207,7 @@ export function RoundImageWidget() {
                     onClick={() => setShape("rounded")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-lg transition-colors",
-                      shape === "rounded" ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textSecondary hover:bg-white/10 hover:text-textPrimary"
+                      shape === "rounded" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
                     )}
                   >
                     <Square className="w-6 h-6" rx={10} />
@@ -217,7 +217,7 @@ export function RoundImageWidget() {
                     onClick={() => setShape("circle")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-lg transition-colors",
-                      shape === "circle" ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textSecondary hover:bg-white/10 hover:text-textPrimary"
+                      shape === "circle" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
                     )}
                   >
                     <Circle className="w-6 h-6" />
@@ -238,18 +238,18 @@ export function RoundImageWidget() {
                     max="150" 
                     value={radius} 
                     onChange={(e) => setRadius(parseInt(e.target.value))}
-                    className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
+                    className="w-full h-2 bg-overlay/10 rounded-lg appearance-none cursor-pointer accent-accent"
                   />
                 </div>
               )}
               
-              <div className="pt-4 text-sm text-textSecondary border-t border-white/5">
+              <div className="pt-4 text-sm text-textSecondary border-t border-overlay/5">
                 Output will be exported as a transparent PNG file to preserve the cropped corners.
               </div>
             </div>
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-white/5">
+          <div className="flex justify-end pt-4 border-t border-overlay/5">
             <button
               onClick={handleDownload}
               disabled={isProcessing}

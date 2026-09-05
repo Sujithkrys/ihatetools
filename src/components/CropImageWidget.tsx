@@ -126,8 +126,8 @@ export function CropImageWidget() {
         <div
           {...getRootProps()}
           className={cn(
-            "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-            isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+            "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+            isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
             errorMsg ? "border-error/50 bg-error/5" : ""
           )}
         >
@@ -140,7 +140,7 @@ export function CropImageWidget() {
               <p className="text-lg font-medium text-textPrimary">Drag & drop your image here</p>
               <p className="text-sm text-textSecondary mt-1">JPG, PNG, or WEBP</p>
             </div>
-            <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+            <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
               Browse files
             </button>
             {errorMsg && <p className="text-error text-sm mt-2">{errorMsg}</p>}
@@ -157,7 +157,7 @@ export function CropImageWidget() {
 
       {file && imageSrc && !isProcessing && !downloadUrl && (
         <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/5 pb-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-overlay/5 pb-6">
             <div>
               <h3 className="text-lg font-medium text-textPrimary">{file.name}</h3>
               <p className="text-sm text-textSecondary">Draw a rectangle to crop.</p>
@@ -165,7 +165,7 @@ export function CropImageWidget() {
             <div className="flex gap-3">
               <button
                 onClick={handleReset}
-                className="px-4 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium text-sm"
+                className="px-4 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium text-sm"
               >
                 Cancel
               </button>
@@ -181,7 +181,7 @@ export function CropImageWidget() {
           
           {errorMsg && <p className="text-error text-sm">{errorMsg}</p>}
 
-          <div className="bg-surface rounded-lg border border-white/5 p-4 flex justify-center max-h-[60vh] overflow-hidden">
+          <div className="bg-surface rounded-lg border border-overlay/5 p-4 flex justify-center max-h-[60vh] overflow-hidden">
             <ReactCrop crop={crop} onChange={(c) => setCrop(c)}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 

@@ -197,8 +197,8 @@ export function AddTextToImageWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -211,7 +211,7 @@ export function AddTextToImageWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
                 <p className="text-sm text-textSecondary mt-1">to add text and captions</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -221,7 +221,7 @@ export function AddTextToImageWidget() {
       )}
 
       {file && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
             <h3 className="text-textPrimary font-medium">Selected Image</h3>
             <button
@@ -248,7 +248,7 @@ export function AddTextToImageWidget() {
                   value={text} 
                   onChange={(e) => setText(e.target.value)}
                   placeholder="Enter your text here..."
-                  className="w-full bg-background border border-white/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent min-h-[100px] resize-none"
+                  className="w-full bg-background border border-overlay/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent min-h-[100px] resize-none"
                 />
               </div>
 
@@ -258,7 +258,7 @@ export function AddTextToImageWidget() {
                   type="number" 
                   value={fontSize} 
                   onChange={(e) => setFontSize(Math.max(1, parseInt(e.target.value) || 12))}
-                  className="w-full bg-background border border-white/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent"
+                  className="w-full bg-background border border-overlay/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent"
                   min="1"
                 />
               </div>
@@ -276,7 +276,7 @@ export function AddTextToImageWidget() {
                     type="text" 
                     value={color} 
                     onChange={(e) => setColor(e.target.value)}
-                    className="flex-1 bg-background border border-white/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent font-mono uppercase"
+                    className="flex-1 bg-background border border-overlay/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent font-mono uppercase"
                   />
                 </div>
               </div>
@@ -288,7 +288,7 @@ export function AddTextToImageWidget() {
                     onClick={() => setVPos("top")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "top" ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textSecondary hover:bg-white/10 hover:text-textPrimary"
+                      vPos === "top" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
                     )}
                   >
                     <AlignLeft className="w-5 h-5 rotate-90" />
@@ -298,7 +298,7 @@ export function AddTextToImageWidget() {
                     onClick={() => setVPos("center")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "center" ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textSecondary hover:bg-white/10 hover:text-textPrimary"
+                      vPos === "center" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
                     )}
                   >
                     <AlignCenter className="w-5 h-5 rotate-90" />
@@ -308,7 +308,7 @@ export function AddTextToImageWidget() {
                     onClick={() => setVPos("bottom")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "bottom" ? "bg-accent/20 border-accent text-accent" : "bg-white/5 border-white/10 text-textSecondary hover:bg-white/10 hover:text-textPrimary"
+                      vPos === "bottom" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
                     )}
                   >
                     <AlignRight className="w-5 h-5 rotate-90" />
@@ -320,7 +320,7 @@ export function AddTextToImageWidget() {
 
             {/* Preview Area */}
             <div className="w-full lg:w-2/3 flex flex-col items-center">
-              <div className="relative w-full max-w-full bg-black/20 rounded-xl p-2 border border-white/5 flex justify-center overflow-hidden">
+              <div className="relative w-full max-w-full bg-black/20 rounded-xl p-2 border border-overlay/5 flex justify-center overflow-hidden">
                 <canvas 
                   ref={canvasRef} 
                   className="max-w-full max-h-[600px] object-contain shadow-2xl rounded"
@@ -330,7 +330,7 @@ export function AddTextToImageWidget() {
             </div>
           </div>
 
-          <div className="flex justify-end pt-6 border-t border-white/5">
+          <div className="flex justify-end pt-6 border-t border-overlay/5">
             <button
               onClick={handleDownload}
               disabled={isProcessing}

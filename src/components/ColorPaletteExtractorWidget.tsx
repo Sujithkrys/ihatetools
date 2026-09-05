@@ -170,8 +170,8 @@ export function ColorPaletteExtractorWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -184,7 +184,7 @@ export function ColorPaletteExtractorWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
                 <p className="text-sm text-textSecondary mt-1">to extract its color palette</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -194,7 +194,7 @@ export function ColorPaletteExtractorWidget() {
       )}
 
       {file && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
             <h3 className="text-textPrimary font-medium">Selected Image</h3>
             <button
@@ -218,7 +218,7 @@ export function ColorPaletteExtractorWidget() {
               <img
                 src={URL.createObjectURL(file)}
                 alt="Source preview"
-                className="w-full max-w-xs rounded-lg shadow-lg border border-white/10 object-contain"
+                className="w-full max-w-xs rounded-lg shadow-lg border border-overlay/10 object-contain"
               />
             </div>
 
@@ -235,7 +235,7 @@ export function ColorPaletteExtractorWidget() {
                     {colors.map((color, index) => (
                       <div 
                         key={index} 
-                        className="group flex flex-col items-center justify-center p-4 bg-background border border-white/5 rounded-lg hover:border-white/20 transition-colors"
+                        className="group flex flex-col items-center justify-center p-4 bg-background border border-overlay/5 rounded-lg hover:border-overlay/20 transition-colors"
                       >
                         <div 
                           className="w-16 h-16 rounded-full shadow-inner mb-3 border border-black/20"
@@ -243,7 +243,7 @@ export function ColorPaletteExtractorWidget() {
                         />
                         <button
                           onClick={() => handleCopy(color.hex, index)}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded text-xs font-mono text-textPrimary transition-colors"
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-mono text-textPrimary transition-colors"
                         >
                           {copiedIndex === index ? <CheckCircle className="w-3 h-3 text-success" /> : <Copy className="w-3 h-3" />}
                           {color.hex.toUpperCase()}

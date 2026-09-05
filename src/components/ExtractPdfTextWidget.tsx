@@ -116,8 +116,8 @@ export function ExtractPdfTextWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-accent bg-accent/5" : "border-white/10 hover:border-white/20 hover:bg-surfaceHover",
+              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
+              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
@@ -130,7 +130,7 @@ export function ExtractPdfTextWidget() {
                 <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
                 <p className="text-sm text-textSecondary mt-1">to extract embedded text</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-white/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -157,7 +157,7 @@ export function ExtractPdfTextWidget() {
             <a href="/tools/ocr-pdf" className="px-6 py-2 bg-accent text-background rounded-md font-medium">
               Use OCR Tool
             </a>
-            <button onClick={handleReset} className="px-6 py-2 bg-surface border border-white/10 text-textPrimary rounded-md">
+            <button onClick={handleReset} className="px-6 py-2 bg-surface border border-overlay/10 text-textPrimary rounded-md">
               Try another file
             </button>
           </div>
@@ -165,7 +165,7 @@ export function ExtractPdfTextWidget() {
       )}
 
       {extractedText && (
-        <div className="bg-surface rounded-lg border border-white/5 p-4 sm:p-6 space-y-4">
+        <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
             <div>
               <h3 className="text-textPrimary font-medium">Extracted Text</h3>
@@ -175,7 +175,7 @@ export function ExtractPdfTextWidget() {
             <div className="flex gap-2">
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-2 px-3 py-1.5 bg-white/5 hover:bg-white/10 text-textPrimary rounded-md text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 text-textPrimary rounded-md text-sm font-medium transition-colors"
               >
                 {copied ? <CheckCircle className="w-4 h-4 text-success" /> : <Copy className="w-4 h-4" />}
                 {copied ? "Copied!" : "Copy"}
@@ -189,7 +189,7 @@ export function ExtractPdfTextWidget() {
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-3 py-1.5 bg-white/5 hover:bg-white/10 text-textPrimary rounded-md text-sm font-medium transition-colors ml-2"
+                className="flex items-center gap-2 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 text-textPrimary rounded-md text-sm font-medium transition-colors ml-2"
               >
                 Reset
               </button>
@@ -199,7 +199,7 @@ export function ExtractPdfTextWidget() {
           <textarea
             readOnly
             value={extractedText}
-            className="w-full h-[400px] bg-background border border-white/10 rounded-md p-4 text-textPrimary font-mono text-sm focus:outline-none resize-none"
+            className="w-full h-[400px] bg-background border border-overlay/10 rounded-md p-4 text-textPrimary font-mono text-sm focus:outline-none resize-none"
           />
         </div>
       )}

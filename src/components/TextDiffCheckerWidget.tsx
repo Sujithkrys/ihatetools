@@ -28,9 +28,9 @@ export function TextDiffCheckerWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-surface rounded-lg border border-white/5 overflow-hidden flex flex-col shadow-lg">
+      <div className="bg-surface rounded-lg border border-overlay/5 overflow-hidden flex flex-col shadow-lg">
         {/* Top toolbar */}
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-white/5 bg-white/[0.02] gap-4">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-overlay/5 bg-white/[0.02] gap-4">
           <div className="flex items-center gap-2 text-textSecondary font-medium">
             <SplitSquareHorizontal className="w-4 h-4 text-accent" />
             <span className="text-sm">Diff Checker</span>
@@ -39,7 +39,7 @@ export function TextDiffCheckerWidget() {
           <div className="flex items-center gap-2">
             <button
               onClick={handleClear}
-              className="px-4 py-1.5 bg-white/5 hover:bg-white/10 text-textPrimary rounded font-medium text-sm transition-colors"
+              className="px-4 py-1.5 bg-overlay/5 hover:bg-overlay/10 text-textPrimary rounded font-medium text-sm transition-colors"
             >
               Clear
             </button>
@@ -57,7 +57,7 @@ export function TextDiffCheckerWidget() {
         {!hasCompared ? (
           <div className="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-white/5">
             <div className="flex-1 flex flex-col">
-              <div className="px-4 py-2 bg-black/10 border-b border-white/5 text-xs font-medium text-textSecondary uppercase tracking-wider">
+              <div className="px-4 py-2 bg-black/10 border-b border-overlay/5 text-xs font-medium text-textSecondary uppercase tracking-wider">
                 Original Text
               </div>
               <textarea
@@ -69,7 +69,7 @@ export function TextDiffCheckerWidget() {
               />
             </div>
             <div className="flex-1 flex flex-col">
-              <div className="px-4 py-2 bg-black/10 border-b border-white/5 text-xs font-medium text-textSecondary uppercase tracking-wider">
+              <div className="px-4 py-2 bg-black/10 border-b border-overlay/5 text-xs font-medium text-textSecondary uppercase tracking-wider">
                 Changed Text
               </div>
               <textarea
@@ -83,7 +83,7 @@ export function TextDiffCheckerWidget() {
           </div>
         ) : (
           <div className="flex flex-col min-h-[400px]">
-            <div className="flex items-center justify-between px-4 py-2 bg-black/10 border-b border-white/5">
+            <div className="flex items-center justify-between px-4 py-2 bg-black/10 border-b border-overlay/5">
               <span className="text-xs font-medium text-textSecondary uppercase tracking-wider">
                 Diff Result (Inline)
               </span>
