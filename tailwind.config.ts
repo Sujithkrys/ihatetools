@@ -22,8 +22,8 @@ const config: Config = {
         overlay: "rgb(var(--color-overlay) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "sans-serif"],
+        sans: ["var(--font-figma-sans)", "sans-serif"],
+        display: ["var(--font-figma-sans)", "sans-serif"],
       },
       borderRadius: {
         card: "12px",
