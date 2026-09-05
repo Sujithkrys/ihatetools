@@ -1,10 +1,8 @@
 import { 
   FileText, 
-  SplitSquareHorizontal, 
   Minimize2, 
   Image as ImageIcon, 
   Maximize, 
-  FileUp,
   LayoutGrid,
   FileImage,
   Files,
