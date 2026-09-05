@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const plusJakarta = Plus_Jakarta_Sans({ 
+  subsets: ["latin"], 
+  variable: "--font-plus-jakarta",
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "ihatetools - Free Online Tools",
@@ -20,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${inter.variable} min-h-screen flex flex-col bg-background text-textPrimary`}>
+      <body className={`${plusJakarta.className} ${plusJakarta.variable} min-h-screen flex flex-col bg-background text-textPrimary`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
