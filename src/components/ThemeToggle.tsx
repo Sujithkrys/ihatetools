@@ -13,7 +13,7 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-9 h-9" />; // Placeholder
+    return <div className="w-9 h-9" />;
   }
 
   const toggleTheme = () => {
@@ -23,7 +23,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-md hover:bg-overlay/5 transition-colors text-textSecondary hover:text-textPrimary flex items-center justify-center"
+      className="p-[6px] border-[1.5px] border-ink rounded-[5px] hover:bg-bg transition-colors text-ink flex items-center justify-center"
       aria-label="Toggle theme"
     >
       {resolvedTheme === "dark" ? (

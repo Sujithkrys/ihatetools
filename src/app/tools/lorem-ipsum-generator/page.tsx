@@ -9,10 +9,10 @@ export default function LoremIpsumGeneratorPage() {
   return (
     <div className="max-w-5xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight font-display">
+        <h1 className="text-4xl md:text-5xl font-bold text-ink tracking-tight font-sans">
           Lorem Ipsum Generator
         </h1>
-        <p className="text-lg text-textSecondary max-w-2xl mx-auto">
+        <p className="text-lg text-grey max-w-2xl mx-auto">
           Generate random placeholder text instantly for your UI mockups and web designs.
         </p>
       </div>
@@ -20,9 +20,9 @@ export default function LoremIpsumGeneratorPage() {
       <LoremIpsumGeneratorWidget />
 
       <div className="mt-24 space-y-12">
-        <section className="bg-surface rounded-2xl p-8 border border-overlay/5">
-          <h2 className="text-2xl font-bold text-textPrimary mb-4">Designer&apos;s Best Friend</h2>
-          <p className="text-textSecondary leading-relaxed mb-6">
+        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
+          <h2 className="text-2xl font-bold text-ink mb-4">Designer&apos;s Best Friend</h2>
+          <p className="text-grey leading-relaxed mb-6">
             Skip the bloated websites full of ads just to get some dummy text. Our generator instantly produces standard, randomized Latin placeholder text directly in your browser. Choose between words or full paragraphs, and copy it to your clipboard with a single click.
           </p>
         </section>

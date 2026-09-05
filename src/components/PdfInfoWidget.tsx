@@ -99,20 +99,20 @@ export function PdfInfoWidget() {
             {...getRootProps()}
             className={cn(
               "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-surface">
-                <Info className="w-8 h-8 text-textSecondary" />
+              <div className="p-4 rounded-full bg-paper">
+                <Info className="w-8 h-8 text-grey" />
               </div>
               <div>
-                <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
-                <p className="text-sm text-textSecondary mt-1">to view its hidden properties</p>
+                <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
+                <p className="text-sm text-grey mt-1">to view its hidden properties</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -122,62 +122,62 @@ export function PdfInfoWidget() {
       )}
 
       {metadata && (
-        <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-8 space-y-8">
+        <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-8 space-y-8">
           <div className="flex justify-between items-start mb-2">
             <div className="flex items-center gap-3">
-              <FileText className="w-6 h-6 text-accent" />
+              <FileText className="w-6 h-6 text-yellow" />
               <div>
-                <h3 className="text-xl font-medium text-textPrimary">{fileName}</h3>
-                <p className="text-sm text-textSecondary">Document Properties</p>
+                <h3 className="text-xl font-medium text-ink">{fileName}</h3>
+                <p className="text-sm text-grey">Document Properties</p>
               </div>
             </div>
             <button
               onClick={handleReset}
-              className="text-sm text-textSecondary hover:text-textPrimary transition-colors px-3 py-1 bg-overlay/5 rounded-md hover:bg-overlay/10"
+              className="text-sm text-grey hover:text-ink transition-colors px-3 py-1 bg-ink/5 rounded-md hover:bg-overlay/10"
             >
               Analyze another
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-4 border-t border-overlay/5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-4 border-t border-ink/10">
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">File Size</p>
-              <p className="text-base text-textPrimary">{formatSize(metadata.fileSize)}</p>
+              <p className="text-sm font-medium text-grey mb-1">File Size</p>
+              <p className="text-base text-ink">{formatSize(metadata.fileSize)}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">Page Count</p>
-              <p className="text-base text-textPrimary">{metadata.pageCount} Pages</p>
+              <p className="text-sm font-medium text-grey mb-1">Page Count</p>
+              <p className="text-base text-ink">{metadata.pageCount} Pages</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">PDF Version</p>
-              <p className="text-base text-textPrimary">{metadata.pdfVersion}</p>
+              <p className="text-sm font-medium text-grey mb-1">PDF Version</p>
+              <p className="text-base text-ink">{metadata.pdfVersion}</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-6 border-t border-overlay/5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-6 border-t border-ink/10">
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">Title</p>
-              <p className="text-base text-textPrimary break-words">{metadata.title}</p>
+              <p className="text-sm font-medium text-grey mb-1">Title</p>
+              <p className="text-base text-ink break-words">{metadata.title}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">Author</p>
-              <p className="text-base text-textPrimary break-words">{metadata.author}</p>
+              <p className="text-sm font-medium text-grey mb-1">Author</p>
+              <p className="text-base text-ink break-words">{metadata.author}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">Subject</p>
-              <p className="text-base text-textPrimary break-words">{metadata.subject}</p>
+              <p className="text-sm font-medium text-grey mb-1">Subject</p>
+              <p className="text-base text-ink break-words">{metadata.subject}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">Keywords</p>
-              <p className="text-base text-textPrimary break-words">{metadata.keywords}</p>
+              <p className="text-sm font-medium text-grey mb-1">Keywords</p>
+              <p className="text-base text-ink break-words">{metadata.keywords}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">Created</p>
-              <p className="text-base text-textPrimary">{metadata.creationDate}</p>
+              <p className="text-sm font-medium text-grey mb-1">Created</p>
+              <p className="text-base text-ink">{metadata.creationDate}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-textSecondary mb-1">Modified</p>
-              <p className="text-base text-textPrimary">{metadata.modificationDate}</p>
+              <p className="text-sm font-medium text-grey mb-1">Modified</p>
+              <p className="text-base text-ink">{metadata.modificationDate}</p>
             </div>
           </div>
         </div>

@@ -137,21 +137,21 @@ export function FaviconGeneratorWidget() {
             {...getRootProps()}
             className={cn(
               "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-surface">
-                <ImageIcon className="w-8 h-8 text-textSecondary" />
+              <div className="p-4 rounded-full bg-paper">
+                <ImageIcon className="w-8 h-8 text-grey" />
               </div>
               <div>
-                <p className="text-lg font-medium text-textPrimary">Drag & drop your Logo here</p>
-                <p className="text-sm text-textSecondary mt-1">to generate a complete favicon package</p>
-                <p className="text-xs text-textSecondary/70 mt-2">A square, transparent PNG or SVG works best.</p>
+                <p className="text-lg font-medium text-ink">Drag & drop your Logo here</p>
+                <p className="text-sm text-grey mt-1">to generate a complete favicon package</p>
+                <p className="text-xs text-grey/70 mt-2">A square, transparent PNG or SVG works best.</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -161,12 +161,12 @@ export function FaviconGeneratorWidget() {
       )}
 
       {file && (
-        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
-            <h3 className="text-textPrimary font-medium">Selected Logo</h3>
+            <h3 className="text-ink font-medium">Selected Logo</h3>
             <button
               onClick={() => { setFile(null); }}
-              className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+              className="text-sm text-grey hover:text-ink transition-colors"
             >
               Change file
             </button>
@@ -180,25 +180,25 @@ export function FaviconGeneratorWidget() {
           />
 
           <div className="flex justify-center">
-            <div className="relative w-full max-w-[200px] aspect-square flex items-center justify-center bg-black/20 rounded-xl p-8 border border-overlay/5 shadow-inner">
+            <div className="relative w-full max-w-[200px] aspect-square flex items-center justify-center bg-black/20 rounded-xl p-8 border border-ink/10 shadow-inner">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={URL.createObjectURL(file)}
                 alt="Favicon Preview"
-                className="max-w-full max-h-full object-contain drop-shadow-lg"
+                className="max-w-full max-h-full object-contain drop-shadow-hard"
               />
             </div>
           </div>
           
-          <div className="text-center text-sm text-textSecondary">
+          <div className="text-center text-sm text-grey">
             We will generate 16x16, 32x32, 180x180 (Apple), and 192/512 (Android) icons, plus a webmanifest.
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-overlay/5">
+          <div className="flex justify-end pt-4 border-t border-ink/10">
             <button
               onClick={handleDownload}
               disabled={isProcessing}
-              className="px-6 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
               {isProcessing ? "Generating..." : "Download Zip Package"}

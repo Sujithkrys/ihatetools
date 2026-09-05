@@ -62,21 +62,21 @@ export function JsonFormatterWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-surface rounded-lg border border-overlay/5 overflow-hidden flex flex-col shadow-lg">
+      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col shadow-hard">
         {/* Top toolbar */}
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-3 border-b border-overlay/5 bg-white/[0.02] gap-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-3 border-b border-ink/10 bg-white/[0.02] gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto gap-4">
-            <div className="flex items-center gap-2 text-textSecondary font-medium">
-              <Braces className="w-4 h-4 text-accent" />
+            <div className="flex items-center gap-2 text-grey font-medium">
+              <Braces className="w-4 h-4 text-yellow" />
               <span className="text-sm">JSON Editor</span>
             </div>
             
             <div className="flex items-center gap-2">
-              <span className="text-xs text-textSecondary">Indent:</span>
+              <span className="text-xs text-grey">Indent:</span>
               <select 
                 value={indent}
                 onChange={(e) => setIndent(Number(e.target.value))}
-                className="bg-background border border-overlay/10 rounded px-2 py-1 text-xs text-textPrimary focus:outline-none focus:border-accent"
+                className="bg-bg border border-ink/15 rounded px-2 py-1 text-xs text-ink focus:outline-none focus:border-sel"
               >
                 <option value={2}>2 Spaces</option>
                 <option value={4}>4 Spaces</option>
@@ -89,14 +89,14 @@ export function JsonFormatterWidget() {
             <button
               onClick={handleMinify}
               disabled={!input}
-              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               Minify
             </button>
             <button
               onClick={handleFormat}
               disabled={!input}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-accent/20 hover:bg-accent/30 border border-accent/30 text-accent rounded text-xs font-medium transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-yellow/20 hover:bg-yellow/30 border border-accent/30 text-yellow rounded text-xs font-medium transition-colors disabled:opacity-50"
             >
               <FileJson className="w-3.5 h-3.5" />
               Format
@@ -105,7 +105,7 @@ export function JsonFormatterWidget() {
             <button
               onClick={handleCopy}
               disabled={!input}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               {copied ? <CheckCircle className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5" />}
               Copy
@@ -113,7 +113,7 @@ export function JsonFormatterWidget() {
             <button
               onClick={handleClear}
               disabled={!input}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               <Eraser className="w-3.5 h-3.5 text-error" />
               Clear
@@ -128,7 +128,7 @@ export function JsonFormatterWidget() {
             onChange={(e) => { setInput(e.target.value); setErrorMsg(""); }}
             placeholder='Paste your JSON here...&#10;&#10;{&#10;  "hello": "world"&#10;}'
             className={cn(
-              "w-full min-h-[400px] p-4 sm:p-6 bg-transparent text-textPrimary focus:outline-none resize-y font-mono text-sm leading-relaxed whitespace-pre",
+              "w-full min-h-[400px] p-4 sm:p-6 bg-transparent text-ink focus:outline-none resize-y font-mono text-sm leading-relaxed whitespace-pre",
               errorMsg ? "border-error/30 bg-error/5" : ""
             )}
             spellCheck={false}

@@ -114,20 +114,20 @@ export function RotateImageWidget() {
             {...getRootProps()}
             className={cn(
               "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-surface">
-                <RotateCw className="w-8 h-8 text-textSecondary" />
+              <div className="p-4 rounded-full bg-paper">
+                <RotateCw className="w-8 h-8 text-grey" />
               </div>
               <div>
-                <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
-                <p className="text-sm text-textSecondary mt-1">to rotate it quickly</p>
+                <p className="text-lg font-medium text-ink">Drag & drop your Image here</p>
+                <p className="text-sm text-grey mt-1">to rotate it quickly</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -137,12 +137,12 @@ export function RotateImageWidget() {
       )}
 
       {file && (
-        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
-            <h3 className="text-textPrimary font-medium">Selected Image</h3>
+            <h3 className="text-ink font-medium">Selected Image</h3>
             <button
               onClick={() => { setFile(null); setRotation(0); }}
-              className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+              className="text-sm text-grey hover:text-ink transition-colors"
             >
               Change file
             </button>
@@ -156,7 +156,7 @@ export function RotateImageWidget() {
           />
 
           <div className="flex flex-col items-center space-y-6">
-            <div className="relative w-full max-w-md aspect-square bg-background border border-overlay/10 rounded-lg flex items-center justify-center overflow-hidden">
+            <div className="relative w-full max-w-md aspect-square bg-bg border border-ink/15 rounded-lg flex items-center justify-center overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={URL.createObjectURL(file)}
@@ -169,20 +169,20 @@ export function RotateImageWidget() {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => handleRotate(-90)}
-                className="flex items-center gap-2 px-4 py-2 bg-overlay/5 hover:bg-overlay/10 text-textPrimary rounded-md font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-ink/5 hover:bg-overlay/10 text-ink rounded-md font-medium transition-colors"
               >
                 <RotateCcw className="w-5 h-5" />
                 Left 90°
               </button>
               <button
                 onClick={() => handleRotate(180)}
-                className="flex items-center gap-2 px-4 py-2 bg-overlay/5 hover:bg-overlay/10 text-textPrimary rounded-md font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-ink/5 hover:bg-overlay/10 text-ink rounded-md font-medium transition-colors"
               >
                 180°
               </button>
               <button
                 onClick={() => handleRotate(90)}
-                className="flex items-center gap-2 px-4 py-2 bg-overlay/5 hover:bg-overlay/10 text-textPrimary rounded-md font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-ink/5 hover:bg-overlay/10 text-ink rounded-md font-medium transition-colors"
               >
                 <RotateCw className="w-5 h-5" />
                 Right 90°
@@ -190,11 +190,11 @@ export function RotateImageWidget() {
             </div>
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-overlay/5">
+          <div className="flex justify-end pt-4 border-t border-ink/10">
             <button
               onClick={handleDownload}
               disabled={isProcessing}
-              className="px-6 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
               {isProcessing ? "Processing..." : "Download Rotated Image"}

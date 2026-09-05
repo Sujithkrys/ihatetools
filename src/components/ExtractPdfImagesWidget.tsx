@@ -134,20 +134,20 @@ export function ExtractPdfImagesWidget() {
             {...getRootProps()}
             className={cn(
               "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-surface">
-                <ImageIcon className="w-8 h-8 text-textSecondary" />
+              <div className="p-4 rounded-full bg-paper">
+                <ImageIcon className="w-8 h-8 text-grey" />
               </div>
               <div>
-                <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
-                <p className="text-sm text-textSecondary mt-1">to extract embedded images</p>
+                <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
+                <p className="text-sm text-grey mt-1">to extract embedded images</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -158,8 +158,8 @@ export function ExtractPdfImagesWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-accent animate-spin mb-4" />
-          <p className="text-textPrimary font-medium">Scanning PDF for embedded images...</p>
+          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <p className="text-ink font-medium">Scanning PDF for embedded images...</p>
         </div>
       )}
 
@@ -168,10 +168,10 @@ export function ExtractPdfImagesWidget() {
           <div className="flex justify-center">
             <AlertTriangle className="w-12 h-12 text-warning" />
           </div>
-          <h3 className="text-xl font-bold text-textPrimary">No Images Found</h3>
-          <p className="text-textSecondary max-w-md mx-auto">{warningMsg}</p>
+          <h3 className="text-xl font-bold text-ink">No Images Found</h3>
+          <p className="text-grey max-w-md mx-auto">{warningMsg}</p>
           <div className="pt-4 flex justify-center">
-            <button onClick={handleReset} className="px-6 py-2 bg-surface border border-overlay/10 text-textPrimary rounded-md">
+            <button onClick={handleReset} className="px-6 py-2 bg-paper border border-ink/15 text-ink rounded-md">
               Try another file
             </button>
           </div>
@@ -179,11 +179,11 @@ export function ExtractPdfImagesWidget() {
       )}
 
       {images.length > 0 && (
-        <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-6">
+        <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
             <div>
-              <h3 className="text-textPrimary font-medium">Found {images.length} Image{images.length > 1 ? 's' : ''}</h3>
-              <p className="text-sm text-textSecondary">{fileName}</p>
+              <h3 className="text-ink font-medium">Found {images.length} Image{images.length > 1 ? 's' : ''}</h3>
+              <p className="text-sm text-grey">{fileName}</p>
             </div>
             
             <div className="flex gap-2">
@@ -191,7 +191,7 @@ export function ExtractPdfImagesWidget() {
                 <a
                   href={downloadUrl}
                   download={images.length > 1 ? `${fileName.replace(/\.[^/.]+$/, "")}-images.zip` : images[0].name}
-                  className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent/90 text-background rounded-md text-sm font-medium transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-yellow hover:bg-yellow/90 text-background rounded-md text-sm font-medium transition-colors"
                 >
                   <Download className="w-4 h-4" />
                   {images.length > 1 ? "Download All (ZIP)" : "Download JPG"}
@@ -199,7 +199,7 @@ export function ExtractPdfImagesWidget() {
               )}
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-4 py-2 bg-overlay/5 hover:bg-overlay/10 text-textPrimary rounded-md text-sm font-medium transition-colors ml-2"
+                className="flex items-center gap-2 px-4 py-2 bg-ink/5 hover:bg-overlay/10 text-ink rounded-md text-sm font-medium transition-colors ml-2"
               >
                 Start Over
               </button>
@@ -208,7 +208,7 @@ export function ExtractPdfImagesWidget() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-h-[500px] overflow-y-auto pr-2">
             {images.map((img) => (
-              <div key={img.id} className="relative group rounded-md p-2 flex flex-col items-center bg-background border border-overlay/5 hover:border-overlay/10 transition-colors">
+              <div key={img.id} className="relative group rounded-md p-2 flex flex-col items-center bg-bg border border-ink/10 hover:border-ink/15 transition-colors">
                 <div className="w-full aspect-square relative overflow-hidden flex items-center justify-center bg-black/20 rounded">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
@@ -217,7 +217,7 @@ export function ExtractPdfImagesWidget() {
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <p className="text-xs text-textSecondary mt-2 truncate w-full text-center">{img.name}</p>
+                <p className="text-xs text-grey mt-2 truncate w-full text-center">{img.name}</p>
                 <a 
                   href={img.url}
                   download={img.name}

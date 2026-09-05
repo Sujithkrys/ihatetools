@@ -135,31 +135,31 @@ export function DeletePdfPagesWidget() {
               {...getRootProps()}
               className={cn(
                 "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-                isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+                isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
                 errorMsg ? "border-error/50 bg-error/5" : ""
               )}
             >
               <input {...getInputProps()} />
               <div className="flex flex-col items-center gap-4">
-                <div className="p-4 rounded-full bg-surface">
-                  <Trash2 className="w-8 h-8 text-textSecondary" />
+                <div className="p-4 rounded-full bg-paper">
+                  <Trash2 className="w-8 h-8 text-grey" />
                 </div>
                 <div>
-                  <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
-                  <p className="text-sm text-textSecondary mt-1">to remove pages</p>
+                  <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
+                  <p className="text-sm text-grey mt-1">to remove pages</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
+            <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-textPrimary font-medium">Selected Document</h3>
+                <h3 className="text-ink font-medium">Selected Document</h3>
                 <button
                   onClick={() => setFile(null)}
-                  className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+                  className="text-sm text-grey hover:text-ink transition-colors"
                 >
                   Change file
                 </button>
@@ -174,8 +174,8 @@ export function DeletePdfPagesWidget() {
 
               <div className="mt-8">
                 <div className="flex justify-between items-center mb-4">
-                  <label className="block text-sm font-medium text-textSecondary">Select pages to delete</label>
-                  <span className="text-sm text-textSecondary">{deletedIndices.size} selected</span>
+                  <label className="block text-sm font-medium text-grey">Select pages to delete</label>
+                  <span className="text-sm text-grey">{deletedIndices.size} selected</span>
                 </div>
                 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-h-[500px] overflow-y-auto pr-2 pb-4">
@@ -187,14 +187,14 @@ export function DeletePdfPagesWidget() {
                         onClick={() => toggleDelete(idx)}
                         className={cn(
                           "relative group rounded-md p-2 flex flex-col items-center cursor-pointer transition-all border-2",
-                          isDeleted ? "border-error bg-error/5" : "border-transparent bg-background hover:border-overlay/10"
+                          isDeleted ? "border-error bg-error/5" : "border-transparent bg-bg hover:border-ink/15"
                         )}
                       >
-                        <span className="absolute top-2 left-2 bg-surface/80 backdrop-blur-sm text-xs font-medium px-1.5 py-0.5 rounded text-textPrimary z-10">
+                        <span className="absolute top-2 left-2 bg-paper/80 backdrop-blur-sm text-xs font-medium px-1.5 py-0.5 rounded text-ink z-10">
                           {idx + 1}
                         </span>
                         
-                        <div className="w-full aspect-[1/1.414] relative overflow-hidden bg-overlay/5 flex items-center justify-center">
+                        <div className="w-full aspect-[1/1.414] relative overflow-hidden bg-ink/5 flex items-center justify-center">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img 
                             src={page.thumbnail} 
@@ -226,7 +226,7 @@ export function DeletePdfPagesWidget() {
                 <button
                   onClick={handleDelete}
                   disabled={!isReady}
-                  className="px-6 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Trash2 className="w-5 h-5" />
                   Apply Deletion
@@ -241,8 +241,8 @@ export function DeletePdfPagesWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-accent animate-spin mb-4" />
-          <p className="text-textPrimary font-medium">Processing PDF...</p>
+          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <p className="text-ink font-medium">Processing PDF...</p>
         </div>
       )}
 
@@ -252,15 +252,15 @@ export function DeletePdfPagesWidget() {
             <Trash2 className="w-8 h-8 text-success" />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-textPrimary">Deletion Complete!</h3>
-            <p className="text-textSecondary mt-2">The selected pages have been removed.</p>
+            <h3 className="text-2xl font-bold text-ink">Deletion Complete!</h3>
+            <p className="text-grey mt-2">The selected pages have been removed.</p>
           </div>
           
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download Updated PDF
@@ -268,7 +268,7 @@ export function DeletePdfPagesWidget() {
           </div>
           <button
             onClick={handleReset}
-            className="text-textSecondary hover:text-textPrimary underline underline-offset-4 text-sm mt-4"
+            className="text-grey hover:text-ink underline underline-offset-4 text-sm mt-4"
           >
             Edit another PDF
           </button>

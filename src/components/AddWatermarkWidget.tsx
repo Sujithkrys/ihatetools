@@ -106,20 +106,20 @@ export function AddWatermarkWidget() {
           {...getRootProps()}
           className={cn(
             "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-            isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+            isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
             errorMsg ? "border-error/50 bg-error/5" : ""
           )}
         >
           <input {...getInputProps()} />
           <div className="flex flex-col items-center gap-4">
-            <div className="p-4 rounded-full bg-surface">
-              <Download className="w-8 h-8 text-textSecondary" />
+            <div className="p-4 rounded-full bg-paper">
+              <Download className="w-8 h-8 text-grey" />
             </div>
             <div>
-              <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
-              <p className="text-sm text-textSecondary mt-1">or select it from your device</p>
+              <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
+              <p className="text-sm text-grey mt-1">or select it from your device</p>
             </div>
-            <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+            <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
               Browse files
             </button>
             {errorMsg && <p className="text-error text-sm mt-2">{errorMsg}</p>}
@@ -129,29 +129,29 @@ export function AddWatermarkWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-accent animate-spin mb-4" />
-          <p className="text-textPrimary font-medium">Processing...</p>
+          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <p className="text-ink font-medium">Processing...</p>
         </div>
       )}
 
       {file && !isProcessing && !downloadUrl && (
         <div className="space-y-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-overlay/5 pb-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-ink/10 pb-6">
             <div>
-              <h3 className="text-lg font-medium text-textPrimary">{file.name}</h3>
-              <p className="text-sm text-textSecondary">Configure your watermark below.</p>
+              <h3 className="text-lg font-medium text-ink">{file.name}</h3>
+              <p className="text-sm text-grey">Configure your watermark below.</p>
             </div>
             <div className="flex gap-3">
               <button
                 onClick={handleReset}
-                className="px-4 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium text-sm"
+                className="px-4 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium text-sm"
               >
                 Cancel
               </button>
               <button
                 onClick={handleApplyWatermark}
                 disabled={!watermarkText.trim()}
-                className="px-4 py-2 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-2 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Apply Watermark
               </button>
@@ -162,20 +162,20 @@ export function AddWatermarkWidget() {
 
           <div className="space-y-6 max-w-md mx-auto">
             <label className="block">
-              <span className="block text-sm font-medium text-textPrimary mb-2">Watermark Text</span>
+              <span className="block text-sm font-medium text-ink mb-2">Watermark Text</span>
               <input
                 type="text"
                 value={watermarkText}
                 onChange={(e) => setWatermarkText(e.target.value)}
                 placeholder="e.g., CONFIDENTIAL"
-                className="block w-full px-3 py-2 border border-overlay/10 rounded-md leading-5 bg-surface text-textPrimary placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all"
+                className="block w-full px-3 py-2 border border-ink/15 rounded-md leading-5 bg-paper text-ink placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-sel focus:border-sel sm:text-sm transition-all"
               />
             </label>
 
             <label className="block">
               <div className="flex justify-between items-center mb-2">
-                <span className="block text-sm font-medium text-textPrimary">Opacity</span>
-                <span className="text-sm text-textSecondary">{opacity}%</span>
+                <span className="block text-sm font-medium text-ink">Opacity</span>
+                <span className="text-sm text-grey">{opacity}%</span>
               </div>
               <input
                 type="range"
@@ -197,15 +197,15 @@ export function AddWatermarkWidget() {
             <Download className="w-8 h-8 text-success" />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-textPrimary">Watermark Applied!</h3>
-            <p className="text-textSecondary mt-2">Your document has been successfully stamped.</p>
+            <h3 className="text-2xl font-bold text-ink">Watermark Applied!</h3>
+            <p className="text-grey mt-2">Your document has been successfully stamped.</p>
           </div>
           
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download PDF
@@ -213,7 +213,7 @@ export function AddWatermarkWidget() {
           </div>
           <button
             onClick={handleReset}
-            className="text-textSecondary hover:text-textPrimary underline underline-offset-4 text-sm mt-4"
+            className="text-grey hover:text-ink underline underline-offset-4 text-sm mt-4"
           >
             Watermark another PDF
           </button>

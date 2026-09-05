@@ -20,10 +20,10 @@ export function FileListItem({
 }: FileListItemProps) {
   return (
     <li className="p-4 flex items-center gap-4 hover:bg-white/[0.02] transition-colors">
-      <FileIcon className="w-8 h-8 text-textMuted shrink-0" />
+      <FileIcon className="w-8 h-8 text-grey/60 shrink-0" />
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-textPrimary truncate">{file.name}</p>
-        <p className="text-xs text-textSecondary">{formatBytes(file.size)}</p>
+        <p className="text-sm font-medium text-ink truncate">{file.name}</p>
+        <p className="text-xs text-grey">{formatBytes(file.size)}</p>
       </div>
       
       <div className="flex items-center gap-1 shrink-0">
@@ -32,7 +32,7 @@ export function FileListItem({
             <button
               onClick={() => onMove(index, 'up')}
               disabled={index === 0}
-              className="p-2 text-textMuted hover:text-textPrimary disabled:opacity-30 disabled:hover:text-textMuted transition-colors rounded"
+              className="p-2 text-grey/60 hover:text-ink disabled:opacity-30 disabled:hover:text-grey/60 transition-colors rounded"
               aria-label="Move file up"
             >
               <ArrowUp className="w-4 h-4" />
@@ -40,7 +40,7 @@ export function FileListItem({
             <button
               onClick={() => onMove(index, 'down')}
               disabled={index === totalFiles - 1}
-              className="p-2 text-textMuted hover:text-textPrimary disabled:opacity-30 disabled:hover:text-textMuted transition-colors rounded"
+              className="p-2 text-grey/60 hover:text-ink disabled:opacity-30 disabled:hover:text-grey/60 transition-colors rounded"
               aria-label="Move file down"
             >
               <ArrowDown className="w-4 h-4" />
@@ -49,7 +49,7 @@ export function FileListItem({
         )}
         <button
           onClick={() => onRemove(index)}
-          className="p-2 text-textMuted hover:text-error transition-colors rounded ml-2"
+          className="p-2 text-grey/60 hover:text-error transition-colors rounded ml-2"
           aria-label="Remove file"
         >
           <X className="w-5 h-5" />

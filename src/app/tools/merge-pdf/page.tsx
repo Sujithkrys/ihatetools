@@ -52,19 +52,19 @@ const RELATED_TOOLS = [
 
 export default function MergePdfPage() {
   return (
-    <div className="flex flex-col items-center pt-16 pb-24 px-4">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       {/* Tool Header */}
-      <section className="text-center max-w-2xl mx-auto mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-4 font-display">
+      <section className="text-center max-w-2xl mx-auto mb-[24px]">
+        <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
           Merge PDF
         </h1>
-        <p className="text-textSecondary text-lg">
+        <p className="text-grey text-[16px] tracking-[-0.015em]">
           Combine multiple PDF files into one single document instantly. 100% secure and runs locally.
         </p>
       </section>
 
       {/* Main Tool Widget */}
-      <ToolWidgetShell>
+      <ToolWidgetShell breadcrumbs="ihatetools / pdf / merge">
         <PdfMergeWidget />
       </ToolWidgetShell>
 

@@ -35,29 +35,29 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <h2 className="text-2xl font-semibold text-textPrimary mb-6">
+      <h2 className="disp text-2xl text-ink mb-6">
         Frequently Asked Questions
       </h2>
-      <div className="space-y-4">
+      <div className="space-y-3">
         {items.map((item, index) => {
           const isOpen = openIndex === index;
           return (
             <div
               key={index}
-              className="bg-surface border border-overlay/10 rounded-lg overflow-hidden transition-colors hover:border-overlay/20"
+              className="bg-paper border-[1.5px] border-ink rounded-[8px] overflow-hidden shadow-hard-sm"
             >
               <button
                 className="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
                 aria-expanded={isOpen}
               >
-                <span className="font-medium text-textPrimary pr-8">
+                <span className="font-medium text-ink pr-8">
                   {item.question}
                 </span>
                 <ChevronDown
                   className={clsx(
-                    "w-5 h-5 text-textMuted transition-transform duration-200 flex-shrink-0",
-                    isOpen && "rotate-180 text-textPrimary"
+                    "w-5 h-5 text-grey transition-transform duration-200 flex-shrink-0",
+                    isOpen && "rotate-180 text-ink"
                   )}
                 />
               </button>
@@ -67,7 +67,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
                   isOpen ? "max-h-96 pb-4 opacity-100" : "max-h-0 opacity-0"
                 )}
               >
-                <p className="text-textSecondary text-sm leading-relaxed">
+                <p className="text-grey text-sm leading-relaxed">
                   {item.answer}
                 </p>
               </div>

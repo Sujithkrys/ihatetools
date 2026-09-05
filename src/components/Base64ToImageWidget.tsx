@@ -53,14 +53,14 @@ export function Base64ToImageWidget() {
     <ToolWidgetShell>
       {!imgUrl && (
         <div className="space-y-6">
-          <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-4">
+          <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-4">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-full bg-overlay/5">
-                <ImageIcon className="w-6 h-6 text-accent" />
+              <div className="p-2 rounded-full bg-ink/5">
+                <ImageIcon className="w-6 h-6 text-yellow" />
               </div>
               <div>
-                <h3 className="text-lg font-medium text-textPrimary">Paste Base64 String</h3>
-                <p className="text-sm text-textSecondary">Supports raw base64 or complete data URIs</p>
+                <h3 className="text-lg font-medium text-ink">Paste Base64 String</h3>
+                <p className="text-sm text-grey">Supports raw base64 or complete data URIs</p>
               </div>
             </div>
 
@@ -69,8 +69,8 @@ export function Base64ToImageWidget() {
               onChange={(e) => setBase64Input(e.target.value)}
               placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
               className={cn(
-                "w-full h-48 bg-background border rounded-md p-4 text-textPrimary font-mono text-xs focus:outline-none focus:border-accent resize-none",
-                errorMsg ? "border-error/50" : "border-overlay/10"
+                "w-full h-48 bg-bg border rounded-md p-4 text-ink font-mono text-xs focus:outline-none focus:border-sel resize-none",
+                errorMsg ? "border-error/50" : "border-ink/15"
               )}
             />
             {errorMsg && (
@@ -83,7 +83,7 @@ export function Base64ToImageWidget() {
             <div className="flex justify-end pt-4">
               <button
                 onClick={handleProcess}
-                className="px-6 py-2 bg-accent hover:bg-accent/90 text-background font-medium rounded-md transition-colors"
+                className="px-6 py-2 bg-yellow hover:bg-yellow/90 text-background font-medium rounded-md transition-colors"
               >
                 Render Image
               </button>
@@ -93,18 +93,18 @@ export function Base64ToImageWidget() {
       )}
 
       {imgUrl && (
-        <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
+        <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
-            <h3 className="text-textPrimary font-medium">Rendered Image</h3>
+            <h3 className="text-ink font-medium">Rendered Image</h3>
             <button
               onClick={handleReset}
-              className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+              className="text-sm text-grey hover:text-ink transition-colors"
             >
               Convert another string
             </button>
           </div>
           
-          <div className="flex justify-center bg-black/20 rounded-xl p-4 border border-overlay/5 overflow-hidden"
+          <div className="flex justify-center bg-black/20 rounded-xl p-4 border border-ink/10 overflow-hidden"
                style={{ backgroundImage: "linear-gradient(45deg, #222 25%, transparent 25%), linear-gradient(-45deg, #222 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #222 75%), linear-gradient(-45deg, transparent 75%, #222 75%)", backgroundSize: "20px 20px", backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
@@ -114,11 +114,11 @@ export function Base64ToImageWidget() {
             />
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-overlay/5">
+          <div className="flex justify-end pt-4 border-t border-ink/10">
             <a
               href={imgUrl}
               download={`decoded-image.${getExt()}`}
-              className="px-6 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-base flex items-center gap-2"
+              className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download .{getExt()}

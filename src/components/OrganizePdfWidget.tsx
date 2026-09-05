@@ -151,20 +151,20 @@ export function OrganizePdfWidget() {
           {...getRootProps()}
           className={cn(
             "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-            isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+            isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
             errorMsg ? "border-error/50 bg-error/5" : ""
           )}
         >
           <input {...getInputProps()} />
           <div className="flex flex-col items-center gap-4">
-            <div className="p-4 rounded-full bg-surface">
-              <Download className="w-8 h-8 text-textSecondary" />
+            <div className="p-4 rounded-full bg-paper">
+              <Download className="w-8 h-8 text-grey" />
             </div>
             <div>
-              <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
-              <p className="text-sm text-textSecondary mt-1">or select it from your device</p>
+              <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
+              <p className="text-sm text-grey mt-1">or select it from your device</p>
             </div>
-            <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+            <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
               Browse files
             </button>
             {errorMsg && <p className="text-error text-sm mt-2">{errorMsg}</p>}
@@ -174,9 +174,9 @@ export function OrganizePdfWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-accent animate-spin mb-4" />
-          <p className="text-textPrimary font-medium">Processing PDF...</p>
-          <p className="text-sm text-textSecondary mt-2">This may take a moment for large files.</p>
+          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <p className="text-ink font-medium">Processing PDF...</p>
+          <p className="text-sm text-grey mt-2">This may take a moment for large files.</p>
         </div>
       )}
 
@@ -184,20 +184,20 @@ export function OrganizePdfWidget() {
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-lg font-medium text-textPrimary">{file.name}</h3>
-              <p className="text-sm text-textSecondary">{pages.length} pages</p>
+              <h3 className="text-lg font-medium text-ink">{file.name}</h3>
+              <p className="text-sm text-grey">{pages.length} pages</p>
             </div>
             <div className="flex gap-3">
               <button
                 onClick={handleReset}
-                className="px-4 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium text-sm"
+                className="px-4 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium text-sm"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSave}
                 disabled={pages.length === 0}
-                className="px-4 py-2 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-2 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Save Changes
               </button>
@@ -206,18 +206,18 @@ export function OrganizePdfWidget() {
           
           {errorMsg && <p className="text-error text-sm">{errorMsg}</p>}
 
-          <div className="bg-surface p-6 rounded-lg border border-overlay/5">
+          <div className="bg-paper p-6 rounded-lg border border-ink/10">
             {pages.length === 0 ? (
-              <p className="text-center text-textSecondary py-8">All pages deleted. You must keep at least one page to save.</p>
+              <p className="text-center text-grey py-8">All pages deleted. You must keep at least one page to save.</p>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {pages.map((page, idx) => (
-                  <div key={page.id} className="relative group bg-background border border-overlay/10 rounded-md p-2 flex flex-col items-center">
-                    <span className="absolute top-2 left-2 bg-surface/80 backdrop-blur-sm text-xs font-medium px-1.5 py-0.5 rounded text-textPrimary z-10">
+                  <div key={page.id} className="relative group bg-bg border border-ink/15 rounded-md p-2 flex flex-col items-center">
+                    <span className="absolute top-2 left-2 bg-paper/80 backdrop-blur-sm text-xs font-medium px-1.5 py-0.5 rounded text-ink z-10">
                       {idx + 1}
                     </span>
                     
-                    <div className="w-full aspect-[1/1.414] mb-3 relative overflow-hidden bg-overlay/5 flex items-center justify-center">
+                    <div className="w-full aspect-[1/1.414] mb-3 relative overflow-hidden bg-ink/5 flex items-center justify-center">
                       {/* Using img tag with transform for preview rotation */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
@@ -229,16 +229,16 @@ export function OrganizePdfWidget() {
                     </div>
 
                     <div className="flex gap-1 justify-center w-full">
-                      <button onClick={() => handleMoveLeft(idx)} disabled={idx === 0} className="p-1.5 text-textSecondary hover:text-textPrimary hover:bg-surfaceHover rounded disabled:opacity-30 disabled:hover:bg-transparent" title="Move Left">
+                      <button onClick={() => handleMoveLeft(idx)} disabled={idx === 0} className="p-1.5 text-grey hover:text-ink hover:bg-paperHover rounded disabled:opacity-30 disabled:hover:bg-transparent" title="Move Left">
                         <ArrowLeft className="w-4 h-4" />
                       </button>
-                      <button onClick={() => handleRotate(idx)} className="p-1.5 text-textSecondary hover:text-textPrimary hover:bg-surfaceHover rounded" title="Rotate 90°">
+                      <button onClick={() => handleRotate(idx)} className="p-1.5 text-grey hover:text-ink hover:bg-paperHover rounded" title="Rotate 90°">
                         <RotateCw className="w-4 h-4" />
                       </button>
                       <button onClick={() => handleDelete(idx)} className="p-1.5 text-error/80 hover:text-error hover:bg-error/10 rounded" title="Delete Page">
                         <Trash2 className="w-4 h-4" />
                       </button>
-                      <button onClick={() => handleMoveRight(idx)} disabled={idx === pages.length - 1} className="p-1.5 text-textSecondary hover:text-textPrimary hover:bg-surfaceHover rounded disabled:opacity-30 disabled:hover:bg-transparent" title="Move Right">
+                      <button onClick={() => handleMoveRight(idx)} disabled={idx === pages.length - 1} className="p-1.5 text-grey hover:text-ink hover:bg-paperHover rounded disabled:opacity-30 disabled:hover:bg-transparent" title="Move Right">
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
@@ -256,15 +256,15 @@ export function OrganizePdfWidget() {
             <Download className="w-8 h-8 text-success" />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-textPrimary">Your PDF is ready!</h3>
-            <p className="text-textSecondary mt-2">The document has been reorganized successfully.</p>
+            <h3 className="text-2xl font-bold text-ink">Your PDF is ready!</h3>
+            <p className="text-grey mt-2">The document has been reorganized successfully.</p>
           </div>
           
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={`organized-${file?.name || 'document.pdf'}`}
-              className="px-8 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download PDF
@@ -272,7 +272,7 @@ export function OrganizePdfWidget() {
           </div>
           <button
             onClick={handleReset}
-            className="text-textSecondary hover:text-textPrimary underline underline-offset-4 text-sm mt-4"
+            className="text-grey hover:text-ink underline underline-offset-4 text-sm mt-4"
           >
             Organize another PDF
           </button>

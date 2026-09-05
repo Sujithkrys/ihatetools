@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Search } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { TOOLS, ToolData } from "@/lib/tools-data";
@@ -55,14 +54,11 @@ export function SearchBar() {
   };
 
   return (
-    <div className="hidden md:flex flex-1 max-w-md mx-8 relative" ref={wrapperRef}>
-      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <Search className="h-4 w-4 text-textMuted" />
-      </div>
+    <div className="hidden md:flex flex-1 max-w-[310px] relative" ref={wrapperRef}>
       <input
         type="text"
-        className="block w-full pl-10 pr-3 py-2 border border-overlay/10 rounded-md leading-5 bg-surface text-textPrimary placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all"
-        placeholder="Search tools..."
+        className="block w-full border-[1.5px] border-ink rounded-[7px] px-[12px] py-[7px] text-[13px] bg-bg text-grey placeholder:text-grey focus:outline-none focus:ring-1 focus:ring-sel focus:border-sel transition-all"
+        placeholder="Search tools…"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
@@ -72,33 +68,34 @@ export function SearchBar() {
       />
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-surface border border-overlay/10 rounded-md shadow-lg overflow-hidden z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-paper border-[1.5px] border-ink rounded-[7px] shadow-hard overflow-hidden z-50">
           {results.length > 0 ? (
             <ul className="max-h-60 overflow-y-auto">
-              {results.map((tool) => {
-                const Icon = tool.icon;
-                return (
-                  <li key={tool.id}>
-                    <Link
-                      href={tool.href}
-                      onClick={() => {
-                        setIsOpen(false);
-                        setQuery("");
-                      }}
-                      className="flex items-start gap-3 px-4 py-3 hover:bg-surfaceHover transition-colors border-b border-overlay/5 last:border-b-0"
-                    >
-                      <Icon className="w-5 h-5 text-textMuted shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-sm font-medium text-textPrimary">{tool.name}</p>
-                        <p className="text-xs text-textSecondary line-clamp-1">{tool.description}</p>
-                      </div>
-                    </Link>
-                  </li>
-                );
-              })}
+              {results.map((tool) => (
+                <li key={tool.id}>
+                  <Link
+                    href={tool.href}
+                    onClick={() => {
+                      setIsOpen(false);
+                      setQuery("");
+                    }}
+                    className="flex items-start gap-3 px-4 py-3 hover:bg-bg transition-colors border-b border-ink/10 last:border-b-0"
+                  >
+                    {tool.beforeText && (
+                      <span className="font-mono text-[9px] text-grey border-[1.5px] border-ink rounded-[4px] px-1.5 py-1 bg-bg shrink-0 mt-0.5">
+                        {tool.beforeText}
+                      </span>
+                    )}
+                    <div>
+                      <p className="text-sm font-medium text-ink">{tool.name}</p>
+                      <p className="text-xs text-grey line-clamp-1">{tool.description}</p>
+                    </div>
+                  </Link>
+                </li>
+              ))}
             </ul>
           ) : (
-            <div className="px-4 py-6 text-center text-sm text-textSecondary">
+            <div className="px-4 py-6 text-center text-sm text-grey">
               No tools found matching &quot;{query}&quot;
             </div>
           )}

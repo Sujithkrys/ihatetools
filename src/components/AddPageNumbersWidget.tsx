@@ -127,31 +127,31 @@ export function AddPageNumbersWidget() {
               {...getRootProps()}
               className={cn(
                 "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-                isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+                isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
                 errorMsg ? "border-error/50 bg-error/5" : ""
               )}
             >
               <input {...getInputProps()} />
               <div className="flex flex-col items-center gap-4">
-                <div className="p-4 rounded-full bg-surface">
-                  <FileDigit className="w-8 h-8 text-textSecondary" />
+                <div className="p-4 rounded-full bg-paper">
+                  <FileDigit className="w-8 h-8 text-grey" />
                 </div>
                 <div>
-                  <p className="text-lg font-medium text-textPrimary">Drag & drop your PDF here</p>
-                  <p className="text-sm text-textSecondary mt-1">to add page numbers</p>
+                  <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
+                  <p className="text-sm text-grey mt-1">to add page numbers</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
+            <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-textPrimary font-medium">Selected Document</h3>
+                <h3 className="text-ink font-medium">Selected Document</h3>
                 <button
                   onClick={() => setFile(null)}
-                  className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+                  className="text-sm text-grey hover:text-ink transition-colors"
                 >
                   Change file
                 </button>
@@ -166,23 +166,23 @@ export function AddPageNumbersWidget() {
 
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <label className="block text-sm font-medium text-textSecondary mb-2">Starting Number</label>
+                  <label className="block text-sm font-medium text-grey mb-2">Starting Number</label>
                   <input 
                     type="number" 
                     value={startNumber} 
                     onChange={(e) => setStartNumber(parseInt(e.target.value) || 1)}
-                    className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
+                    className="w-full bg-bg border border-ink/15 rounded-md px-4 py-2 text-ink focus:outline-none focus:border-sel"
                     min="1"
                   />
-                  <p className="text-xs text-textSecondary mt-2">The first page of your PDF will be assigned this number.</p>
+                  <p className="text-xs text-grey mt-2">The first page of your PDF will be assigned this number.</p>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-textSecondary mb-2">Position</label>
+                  <label className="block text-sm font-medium text-grey mb-2">Position</label>
                   <select
                     value={position}
                     onChange={(e) => setPosition(e.target.value as Position)}
-                    className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:border-accent"
+                    className="w-full bg-bg border border-ink/15 rounded-md px-4 py-2 text-ink focus:outline-none focus:border-sel"
                   >
                     <option value="Bottom-Center">Bottom Center</option>
                     <option value="Bottom-Left">Bottom Left</option>
@@ -195,7 +195,7 @@ export function AddPageNumbersWidget() {
               <div className="mt-8 flex justify-end">
                 <button
                   onClick={handleApply}
-                  className="px-6 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-base flex items-center gap-2"
+                  className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2"
                 >
                   <FileDigit className="w-5 h-5" />
                   Add Page Numbers
@@ -210,8 +210,8 @@ export function AddPageNumbersWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-accent animate-spin mb-4" />
-          <p className="text-textPrimary font-medium">Adding page numbers...</p>
+          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <p className="text-ink font-medium">Adding page numbers...</p>
         </div>
       )}
 
@@ -221,15 +221,15 @@ export function AddPageNumbersWidget() {
             <FileDigit className="w-8 h-8 text-success" />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-textPrimary">Page Numbers Added!</h3>
-            <p className="text-textSecondary mt-2">Your document has been successfully numbered.</p>
+            <h3 className="text-2xl font-bold text-ink">Page Numbers Added!</h3>
+            <p className="text-grey mt-2">Your document has been successfully numbered.</p>
           </div>
           
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download PDF
@@ -237,7 +237,7 @@ export function AddPageNumbersWidget() {
           </div>
           <button
             onClick={handleReset}
-            className="text-textSecondary hover:text-textPrimary underline underline-offset-4 text-sm mt-4"
+            className="text-grey hover:text-ink underline underline-offset-4 text-sm mt-4"
           >
             Number another PDF
           </button>

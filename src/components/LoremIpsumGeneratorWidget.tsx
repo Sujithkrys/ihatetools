@@ -98,11 +98,11 @@ export function LoremIpsumGeneratorWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-surface rounded-lg border border-overlay/5 overflow-hidden flex flex-col shadow-lg">
+      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col shadow-hard">
         {/* Top toolbar */}
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-overlay/5 bg-white/[0.02] gap-4">
-          <div className="flex items-center gap-2 text-textSecondary font-medium">
-            <AlignLeft className="w-4 h-4 text-accent" />
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-ink/10 bg-white/[0.02] gap-4">
+          <div className="flex items-center gap-2 text-grey font-medium">
+            <AlignLeft className="w-4 h-4 text-yellow" />
             <span className="text-sm">Lorem Ipsum</span>
           </div>
           
@@ -114,12 +114,12 @@ export function LoremIpsumGeneratorWidget() {
                 max={type === "words" ? 5000 : 100}
                 value={count}
                 onChange={(e) => setCount(Math.max(1, parseInt(e.target.value) || 1))}
-                className="w-20 bg-background border border-overlay/10 rounded px-3 py-1.5 text-sm text-textPrimary focus:outline-none focus:border-accent"
+                className="w-20 bg-bg border border-ink/15 rounded px-3 py-1.5 text-sm text-ink focus:outline-none focus:border-sel"
               />
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value as "paragraphs" | "words")}
-                className="bg-background border border-overlay/10 rounded px-3 py-1.5 text-sm text-textPrimary focus:outline-none focus:border-accent"
+                className="bg-bg border border-ink/15 rounded px-3 py-1.5 text-sm text-ink focus:outline-none focus:border-sel"
               >
                 <option value="paragraphs">Paragraphs</option>
                 <option value="words">Words</option>
@@ -128,7 +128,7 @@ export function LoremIpsumGeneratorWidget() {
             
             <button
               onClick={handleGenerate}
-              className="px-4 py-1.5 bg-accent hover:bg-accent/90 text-background rounded font-medium text-sm transition-colors"
+              className="px-4 py-1.5 bg-yellow hover:bg-yellow/90 text-background rounded font-medium text-sm transition-colors"
             >
               Generate
             </button>
@@ -137,7 +137,7 @@ export function LoremIpsumGeneratorWidget() {
             
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors"
             >
               {copied ? <CheckCircle className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5" />}
               Copy Text
@@ -149,7 +149,7 @@ export function LoremIpsumGeneratorWidget() {
         <textarea
           readOnly
           value={generatedText}
-          className="w-full min-h-[400px] p-6 bg-transparent text-textPrimary focus:outline-none resize-y text-base leading-relaxed whitespace-pre-wrap"
+          className="w-full min-h-[400px] p-6 bg-transparent text-ink focus:outline-none resize-y text-base leading-relaxed whitespace-pre-wrap"
         />
       </div>
     </ToolWidgetShell>

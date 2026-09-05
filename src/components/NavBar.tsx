@@ -1,37 +1,55 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { SearchBar } from "./SearchBar";
 import { ThemeToggle } from "./ThemeToggle";
+import { Ruler } from "./Ruler";
 
 export function NavBar() {
+  const pathname = usePathname();
+
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/tools", label: "All Tools" },
+    { href: "/about", label: "About" },
+  ];
+
   return (
-    <header className="border-b border-overlay/5 bg-background sticky top-0 z-50">
-      <div className="max-w-content mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="text-xl font-semibold text-textPrimary">
-          ihatetools
-        </Link>
+    <>
+      <Ruler />
+      <header className="border-b-[1.5px] border-ink bg-paper sticky top-0 z-50">
+        <div className="max-w-content mx-auto px-4 md:px-[34px] h-[58px] flex items-center gap-[22px]">
+          <Link href="/" className="font-logo text-[20px] font-extrabold tracking-[-0.03em] text-ink shrink-0">
+            ihatetools
+          </Link>
 
-        {/* Search */}
-        <SearchBar />
+          <SearchBar />
 
-        {/* Links */}
-        <nav className="flex items-center space-x-6">
-          <Link href="/" className="text-textSecondary hover:text-textPrimary transition-colors text-sm">
-            Home
-          </Link>
-          <Link href="/tools" className="text-textSecondary hover:text-textPrimary transition-colors text-sm">
-            All Tools
-          </Link>
-          <Link href="/tools/text" className="text-textSecondary hover:text-textPrimary transition-colors text-sm">
-            Text Tools
-          </Link>
-          <Link href="/about" className="text-textSecondary hover:text-textPrimary transition-colors text-sm">
-            About
-          </Link>
-          <div className="w-px h-4 bg-overlay/10" />
-          <ThemeToggle />
-        </nav>
-      </div>
-    </header>
+          <nav className="ml-auto flex items-center gap-[3px]">
+            {links.map((link) => {
+              const isActive = pathname === link.href || 
+                (link.href === "/tools" && pathname.startsWith("/tools"));
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-mono text-[10.5px] uppercase tracking-[0.04em] px-[11px] py-[6px] border-[1.5px] rounded-[5px] transition-colors whitespace-nowrap ${
+                    isActive
+                      ? "bg-cyan border-ink text-ink"
+                      : "border-transparent text-ink hover:border-ink"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <div className="ml-2">
+              <ThemeToggle />
+            </div>
+          </nav>
+        </div>
+      </header>
+    </>
   );
 }

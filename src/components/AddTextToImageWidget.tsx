@@ -198,20 +198,20 @@ export function AddTextToImageWidget() {
             {...getRootProps()}
             className={cn(
               "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-surface">
-                <Type className="w-8 h-8 text-textSecondary" />
+              <div className="p-4 rounded-full bg-paper">
+                <Type className="w-8 h-8 text-grey" />
               </div>
               <div>
-                <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
-                <p className="text-sm text-textSecondary mt-1">to add text and captions</p>
+                <p className="text-lg font-medium text-ink">Drag & drop your Image here</p>
+                <p className="text-sm text-grey mt-1">to add text and captions</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -221,12 +221,12 @@ export function AddTextToImageWidget() {
       )}
 
       {file && (
-        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
-            <h3 className="text-textPrimary font-medium">Selected Image</h3>
+            <h3 className="text-ink font-medium">Selected Image</h3>
             <button
               onClick={() => { setFile(null); imgRef.current = null; }}
-              className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+              className="text-sm text-grey hover:text-ink transition-colors"
             >
               Change file
             </button>
@@ -243,28 +243,28 @@ export function AddTextToImageWidget() {
             {/* Controls Area */}
             <div className="w-full lg:w-1/3 space-y-6">
               <div>
-                <label className="block text-sm font-medium text-textSecondary mb-2">Text Content</label>
+                <label className="block text-sm font-medium text-grey mb-2">Text Content</label>
                 <textarea 
                   value={text} 
                   onChange={(e) => setText(e.target.value)}
                   placeholder="Enter your text here..."
-                  className="w-full bg-background border border-overlay/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent min-h-[100px] resize-none"
+                  className="w-full bg-bg border border-ink/15 rounded-md px-4 py-3 text-ink focus:outline-none focus:border-sel min-h-[100px] resize-none"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-textSecondary mb-2">Font Size (px)</label>
+                <label className="block text-sm font-medium text-grey mb-2">Font Size (px)</label>
                 <input 
                   type="number" 
                   value={fontSize} 
                   onChange={(e) => setFontSize(Math.max(1, parseInt(e.target.value) || 12))}
-                  className="w-full bg-background border border-overlay/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent"
+                  className="w-full bg-bg border border-ink/15 rounded-md px-4 py-3 text-ink focus:outline-none focus:border-sel"
                   min="1"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-textSecondary mb-2">Text Color</label>
+                <label className="block text-sm font-medium text-grey mb-2">Text Color</label>
                 <div className="flex items-center gap-3">
                   <input 
                     type="color" 
@@ -276,19 +276,19 @@ export function AddTextToImageWidget() {
                     type="text" 
                     value={color} 
                     onChange={(e) => setColor(e.target.value)}
-                    className="flex-1 bg-background border border-overlay/10 rounded-md px-4 py-3 text-textPrimary focus:outline-none focus:border-accent font-mono uppercase"
+                    className="flex-1 bg-bg border border-ink/15 rounded-md px-4 py-3 text-ink focus:outline-none focus:border-sel font-mono uppercase"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-textSecondary mb-2">Vertical Position</label>
+                <label className="block text-sm font-medium text-grey mb-2">Vertical Position</label>
                 <div className="grid grid-cols-3 gap-2">
                   <button
                     onClick={() => setVPos("top")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "top" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
+                      vPos === "top" ? "bg-yellow/20 border-accent text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <AlignLeft className="w-5 h-5 rotate-90" />
@@ -298,7 +298,7 @@ export function AddTextToImageWidget() {
                     onClick={() => setVPos("center")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "center" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
+                      vPos === "center" ? "bg-yellow/20 border-accent text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <AlignCenter className="w-5 h-5 rotate-90" />
@@ -308,7 +308,7 @@ export function AddTextToImageWidget() {
                     onClick={() => setVPos("bottom")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "bottom" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
+                      vPos === "bottom" ? "bg-yellow/20 border-accent text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <AlignRight className="w-5 h-5 rotate-90" />
@@ -320,21 +320,21 @@ export function AddTextToImageWidget() {
 
             {/* Preview Area */}
             <div className="w-full lg:w-2/3 flex flex-col items-center">
-              <div className="relative w-full max-w-full bg-black/20 rounded-xl p-2 border border-overlay/5 flex justify-center overflow-hidden">
+              <div className="relative w-full max-w-full bg-black/20 rounded-xl p-2 border border-ink/10 flex justify-center overflow-hidden">
                 <canvas 
                   ref={canvasRef} 
                   className="max-w-full max-h-[600px] object-contain shadow-2xl rounded"
                 />
               </div>
-              <p className="text-sm text-textSecondary mt-3 text-center">Live Preview</p>
+              <p className="text-sm text-grey mt-3 text-center">Live Preview</p>
             </div>
           </div>
 
-          <div className="flex justify-end pt-6 border-t border-overlay/5">
+          <div className="flex justify-end pt-6 border-t border-ink/10">
             <button
               onClick={handleDownload}
               disabled={isProcessing}
-              className="px-6 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
               {isProcessing ? "Processing..." : "Download Image"}

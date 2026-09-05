@@ -9,10 +9,10 @@ export default function WordCounterPage() {
   return (
     <div className="max-w-5xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight font-display">
+        <h1 className="text-4xl md:text-5xl font-bold text-ink tracking-tight font-sans">
           Word Counter
         </h1>
-        <p className="text-lg text-textSecondary max-w-2xl mx-auto">
+        <p className="text-lg text-grey max-w-2xl mx-auto">
           Type or paste your text for instant word, character, and paragraph statistics.
         </p>
       </div>
@@ -20,9 +20,9 @@ export default function WordCounterPage() {
       <WordCounterWidget />
 
       <div className="mt-24 space-y-12">
-        <section className="bg-surface rounded-2xl p-8 border border-overlay/5">
-          <h2 className="text-2xl font-bold text-textPrimary mb-4">Fast & Private</h2>
-          <p className="text-textSecondary leading-relaxed mb-6">
+        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
+          <h2 className="text-2xl font-bold text-ink mb-4">Fast & Private</h2>
+          <p className="text-grey leading-relaxed mb-6">
             Perfect for meeting Twitter character limits, writing essays with strict word counts, or estimating the reading time of your blog post. Our live text editor computes statistics locally in real-time as you type, meaning your text is never sent to any server.
           </p>
         </section>

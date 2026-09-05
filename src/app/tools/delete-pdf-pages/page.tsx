@@ -9,10 +9,10 @@ export default function DeletePdfPagesPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-textPrimary tracking-tight font-display">
+        <h1 className="text-4xl md:text-5xl font-bold text-ink tracking-tight font-sans">
           Delete PDF Pages
         </h1>
-        <p className="text-lg text-textSecondary max-w-2xl mx-auto">
+        <p className="text-lg text-grey max-w-2xl mx-auto">
           Remove unwanted pages from your PDF documents securely in your browser.
         </p>
       </div>
@@ -20,9 +20,9 @@ export default function DeletePdfPagesPage() {
       <DeletePdfPagesWidget />
 
       <div className="mt-24 space-y-12">
-        <section className="bg-surface rounded-2xl p-8 border border-overlay/5">
-          <h2 className="text-2xl font-bold text-textPrimary mb-4">Trim Your PDF Documents</h2>
-          <p className="text-textSecondary leading-relaxed mb-6">
+        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
+          <h2 className="text-2xl font-bold text-ink mb-4">Trim Your PDF Documents</h2>
+          <p className="text-grey leading-relaxed mb-6">
             Instantly remove blank pages, extra forms, or unnecessary content from your PDF files. Select the exact pages you want to eliminate using our visual preview grid and download a clean, updated document.
           </p>
         </section>

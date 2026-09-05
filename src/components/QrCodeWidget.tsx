@@ -53,22 +53,22 @@ export function QrCodeWidget() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <div className="space-y-6">
           <label className="block">
-            <span className="block text-sm font-medium text-textPrimary mb-2">Text or URL</span>
+            <span className="block text-sm font-medium text-ink mb-2">Text or URL</span>
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="https://example.com"
               rows={4}
-              className="block w-full px-3 py-2 border border-overlay/10 rounded-md leading-5 bg-surface text-textPrimary placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all resize-none"
+              className="block w-full px-3 py-2 border border-ink/15 rounded-md leading-5 bg-paper text-ink placeholder-textMuted focus:outline-none focus:ring-1 focus:ring-sel focus:border-sel sm:text-sm transition-all resize-none"
             />
           </label>
 
           <label className="block">
-            <span className="block text-sm font-medium text-textPrimary mb-2">Size (pixels)</span>
+            <span className="block text-sm font-medium text-ink mb-2">Size (pixels)</span>
             <select
               value={size}
               onChange={(e) => setSize(Number(e.target.value))}
-              className="block w-full px-3 py-2 border border-overlay/10 rounded-md leading-5 bg-surface text-textPrimary focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent sm:text-sm transition-all"
+              className="block w-full px-3 py-2 border border-ink/15 rounded-md leading-5 bg-paper text-ink focus:outline-none focus:ring-1 focus:ring-sel focus:border-sel sm:text-sm transition-all"
             >
               <option value={250}>Small (250x250)</option>
               <option value={500}>Medium (500x500)</option>
@@ -78,7 +78,7 @@ export function QrCodeWidget() {
           </label>
         </div>
 
-        <div className="bg-surface rounded-lg border border-overlay/5 p-8 flex flex-col items-center justify-center min-h-[300px]">
+        <div className="bg-paper rounded-lg border border-ink/10 p-8 flex flex-col items-center justify-center min-h-[300px]">
           {qrDataUrl ? (
             <div className="flex flex-col items-center gap-6">
               <div className="bg-white p-2 rounded-md shadow-sm">
@@ -91,14 +91,14 @@ export function QrCodeWidget() {
               </div>
               <button
                 onClick={handleDownload}
-                className="px-6 py-2 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-sm flex items-center gap-2"
+                className="px-6 py-2 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-sm flex items-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 Download PNG
               </button>
             </div>
           ) : (
-            <div className="text-center text-textSecondary">
+            <div className="text-center text-grey">
               <QrCodeIcon className="w-16 h-16 mx-auto mb-4 opacity-20" />
               <p>Type something to generate<br/>a QR code.</p>
             </div>

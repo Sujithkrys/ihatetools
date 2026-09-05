@@ -144,20 +144,20 @@ export function RoundImageWidget() {
             {...getRootProps()}
             className={cn(
               "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
               errorMsg ? "border-error/50 bg-error/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-surface">
-                <Circle className="w-8 h-8 text-textSecondary" />
+              <div className="p-4 rounded-full bg-paper">
+                <Circle className="w-8 h-8 text-grey" />
               </div>
               <div>
-                <p className="text-lg font-medium text-textPrimary">Drag & drop your Image here</p>
-                <p className="text-sm text-textSecondary mt-1">to add rounded corners or circle crop</p>
+                <p className="text-lg font-medium text-ink">Drag & drop your Image here</p>
+                <p className="text-sm text-grey mt-1">to add rounded corners or circle crop</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                 Browse files
               </button>
             </div>
@@ -167,12 +167,12 @@ export function RoundImageWidget() {
       )}
 
       {file && (
-        <div className="animate-reveal-result bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
-            <h3 className="text-textPrimary font-medium">Selected Image</h3>
+            <h3 className="text-ink font-medium">Selected Image</h3>
             <button
               onClick={() => { setFile(null); }}
-              className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+              className="text-sm text-grey hover:text-ink transition-colors"
             >
               Change file
             </button>
@@ -201,13 +201,13 @@ export function RoundImageWidget() {
             {/* Controls Area */}
             <div className="w-full max-w-md space-y-6">
               <div className="space-y-3">
-                <label className="text-sm font-medium text-textSecondary">Shape</label>
+                <label className="text-sm font-medium text-grey">Shape</label>
                 <div className="flex gap-4">
                   <button
                     onClick={() => setShape("rounded")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-lg transition-colors",
-                      shape === "rounded" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
+                      shape === "rounded" ? "bg-yellow/20 border-accent text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <Square className="w-6 h-6" rx={10} />
@@ -217,7 +217,7 @@ export function RoundImageWidget() {
                     onClick={() => setShape("circle")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-lg transition-colors",
-                      shape === "circle" ? "bg-accent/20 border-accent text-accent" : "bg-overlay/5 border-overlay/10 text-textSecondary hover:bg-overlay/10 hover:text-textPrimary"
+                      shape === "circle" ? "bg-yellow/20 border-accent text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <Circle className="w-6 h-6" />
@@ -228,7 +228,7 @@ export function RoundImageWidget() {
 
               {shape === "rounded" && (
                 <div className="space-y-4">
-                  <label className="flex justify-between text-sm font-medium text-textSecondary">
+                  <label className="flex justify-between text-sm font-medium text-grey">
                     <span>Corner Radius</span>
                     <span>{radius}px</span>
                   </label>
@@ -243,17 +243,17 @@ export function RoundImageWidget() {
                 </div>
               )}
               
-              <div className="pt-4 text-sm text-textSecondary border-t border-overlay/5">
+              <div className="pt-4 text-sm text-grey border-t border-ink/10">
                 Output will be exported as a transparent PNG file to preserve the cropped corners.
               </div>
             </div>
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-overlay/5">
+          <div className="flex justify-end pt-4 border-t border-ink/10">
             <button
               onClick={handleDownload}
               disabled={isProcessing}
-              className="px-6 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
               {isProcessing ? "Processing..." : "Download Transparent PNG"}

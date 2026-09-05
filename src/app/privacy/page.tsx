@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Frame } from "@/components/Frame";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | ihatetools",
@@ -7,29 +8,29 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="flex flex-col items-center pt-16 pb-24 px-4 w-full max-w-content mx-auto">
-      <section className="w-full max-w-3xl">
-        <h1 className="text-3xl md:text-4xl font-bold text-textPrimary mb-8 font-display">
-          Privacy Policy
-        </h1>
-        
-        <div className="space-y-8 text-textSecondary leading-relaxed">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[60px] pb-[80px]">
+      <section className="text-center max-w-2xl mx-auto mb-[60px]">
+        <h1 className="disp disp-lg text-[clamp(36px,5vw,52px)] text-ink mb-[12px]">Privacy Policy</h1>
+      </section>
+
+      <Frame label="Privacy" labelColor="green">
+        <div className="max-w-3xl mx-auto space-y-8 text-grey leading-relaxed">
           <div>
-            <h2 className="text-xl font-semibold text-textPrimary mb-3">1. Client-Side Processing</h2>
+            <h2 className="disp text-xl text-ink mb-3">1. Client-Side Processing</h2>
             <p>
-              Your privacy and data security are our top priorities. For all the tools currently available on ihatetools, your files are processed entirely within your web browser (client-side). Your files and documents are <strong>never uploaded to, transmitted to, or stored on any of our servers</strong>. 
+              Your privacy and data security are our top priorities. For all the tools currently available on ihatetools, your files are processed entirely within your web browser (client-side). Your files and documents are <strong className="text-ink font-medium">never uploaded to, transmitted to, or stored on any of our servers</strong>. 
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-textPrimary mb-3">2. Personal Data & Accounts</h2>
+            <h2 className="disp text-xl text-ink mb-3">2. Personal Data & Accounts</h2>
             <p>
               ihatetools does not require account creation to use any of our services. We do not collect, store, or sell any personal identifying information (such as names, email addresses, or phone numbers) through the usage of our core tools.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-textPrimary mb-3">3. Analytics and Third-Party Services</h2>
+            <h2 className="disp text-xl text-ink mb-3">3. Analytics and Third-Party Services</h2>
             <p>
               While your files remain strictly on your device, our website may use third-party services (such as Google Analytics or advertising networks like Google AdSense) to help us understand how our site is used and to support the continuous development of free tools. 
             </p>
@@ -39,19 +40,19 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-textPrimary mb-3">4. Changes to This Policy</h2>
+            <h2 className="disp text-xl text-ink mb-3">4. Changes to This Policy</h2>
             <p>
               We reserve the right to update this Privacy Policy as we add new tools or integrate new services. We encourage you to review this page periodically for any changes.
             </p>
           </div>
 
-          <div className="pt-8 border-t border-overlay/10 text-sm text-textMuted">
+          <div className="pt-8 border-t-[1.5px] border-ink/20 text-sm text-grey/80">
             <p>
               <em>This policy is provided as a general disclosure and may not cover every legal requirement in your jurisdiction. Last updated: September 2026.</em>
             </p>
           </div>
         </div>
-      </section>
+      </Frame>
     </div>
   );
 }

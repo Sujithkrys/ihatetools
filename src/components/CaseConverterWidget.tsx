@@ -64,11 +64,11 @@ export function CaseConverterWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-surface rounded-lg border border-overlay/5 overflow-hidden flex flex-col shadow-lg">
+      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col shadow-hard">
         {/* Top toolbar */}
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-3 border-b border-overlay/5 bg-white/[0.02] gap-4">
-          <div className="flex items-center gap-2 text-textSecondary font-medium">
-            <CaseUpper className="w-4 h-4 text-accent" />
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-3 border-b border-ink/10 bg-white/[0.02] gap-4">
+          <div className="flex items-center gap-2 text-grey font-medium">
+            <CaseUpper className="w-4 h-4 text-yellow" />
             <span className="text-sm">Text Editor</span>
           </div>
           
@@ -76,42 +76,42 @@ export function CaseConverterWidget() {
             <button
               onClick={() => convertCase("lower")}
               disabled={!text}
-              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               lowercase
             </button>
             <button
               onClick={() => convertCase("upper")}
               disabled={!text}
-              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               UPPERCASE
             </button>
             <button
               onClick={() => convertCase("title")}
               disabled={!text}
-              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               Title Case
             </button>
             <button
               onClick={() => convertCase("camel")}
               disabled={!text}
-              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               camelCase
             </button>
             <button
               onClick={() => convertCase("snake")}
               disabled={!text}
-              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               snake_case
             </button>
             <button
               onClick={() => convertCase("kebab")}
               disabled={!text}
-              className="px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               kebab-case
             </button>
@@ -121,7 +121,7 @@ export function CaseConverterWidget() {
             <button
               onClick={handleCopy}
               disabled={!text}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-accent/20 hover:bg-accent/30 text-accent rounded text-xs font-medium transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-yellow/20 hover:bg-yellow/30 text-yellow rounded text-xs font-medium transition-colors disabled:opacity-50"
             >
               {copied ? <CheckCircle className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               Copy
@@ -129,7 +129,7 @@ export function CaseConverterWidget() {
             <button
               onClick={() => setText("")}
               disabled={!text}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-overlay/5 hover:bg-overlay/10 rounded text-xs font-medium text-textPrimary transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
               <Eraser className="w-3.5 h-3.5 text-error" />
             </button>
@@ -141,7 +141,7 @@ export function CaseConverterWidget() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste your text here to convert..."
-          className="w-full min-h-[300px] p-6 bg-transparent text-textPrimary focus:outline-none resize-y text-base leading-relaxed"
+          className="w-full min-h-[300px] p-6 bg-transparent text-ink focus:outline-none resize-y text-base leading-relaxed"
           spellCheck={false}
         />
       </div>

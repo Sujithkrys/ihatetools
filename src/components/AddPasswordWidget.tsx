@@ -110,31 +110,31 @@ export function AddPasswordWidget() {
               {...getRootProps()}
               className={cn(
                 "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-                isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+                isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
                 errorMsg ? "border-error/50 bg-error/5" : ""
               )}
             >
               <input {...getInputProps()} />
               <div className="flex flex-col items-center gap-4">
-                <div className="p-4 rounded-full bg-surface">
-                  <Lock className="w-8 h-8 text-textSecondary" />
+                <div className="p-4 rounded-full bg-paper">
+                  <Lock className="w-8 h-8 text-grey" />
                 </div>
                 <div>
-                  <p className="text-lg font-medium text-textPrimary">Drag & drop a PDF here</p>
-                  <p className="text-sm text-textSecondary mt-1">Maximum file size: 4MB</p>
+                  <p className="text-lg font-medium text-ink">Drag & drop a PDF here</p>
+                  <p className="text-sm text-grey mt-1">Maximum file size: 4MB</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+                <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-surface rounded-lg border border-overlay/5 p-4 sm:p-6">
+            <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-textPrimary font-medium">Selected PDF</h3>
+                <h3 className="text-ink font-medium">Selected PDF</h3>
                 <button
                   onClick={() => setFile(null)}
-                  className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
+                  className="text-sm text-grey hover:text-ink transition-colors"
                 >
                   Change file
                 </button>
@@ -149,36 +149,36 @@ export function AddPasswordWidget() {
               <div className="mt-8 space-y-4 max-w-md mx-auto">
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-textSecondary mb-2">Password</label>
+                    <label className="block text-sm font-medium text-grey mb-2">Password</label>
                     <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-accent/50 pr-10"
+                        className="w-full bg-bg border border-ink/15 rounded-md px-4 py-2 text-ink focus:outline-none focus:ring-2 focus:ring-sel/50 pr-10"
                         placeholder="Enter password"
                       />
                       <button 
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary hover:text-textPrimary"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-grey hover:text-ink"
                       >
                         {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                       </button>
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-textSecondary mb-2">Confirm Password</label>
+                    <label className="block text-sm font-medium text-grey mb-2">Confirm Password</label>
                     <div className="relative">
                       <input
                         type={showConfirmPassword ? "text" : "password"}
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="w-full bg-background border border-overlay/10 rounded-md px-4 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-accent/50 pr-10"
+                        className="w-full bg-bg border border-ink/15 rounded-md px-4 py-2 text-ink focus:outline-none focus:ring-2 focus:ring-sel/50 pr-10"
                         placeholder="Confirm password"
                       />
                       <button 
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary hover:text-textPrimary"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-grey hover:text-ink"
                       >
                         {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                       </button>
@@ -190,7 +190,7 @@ export function AddPasswordWidget() {
                   <button
                     onClick={handleEncryptPdf}
                     disabled={!isReady}
-                    className="px-4 py-2 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    className="px-4 py-2 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                   >
                     <Lock className="w-4 h-4" />
                     Protect PDF
@@ -206,8 +206,8 @@ export function AddPasswordWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-accent animate-spin mb-4" />
-          <p className="text-textPrimary font-medium">Encrypting PDF... (this may take a moment)</p>
+          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <p className="text-ink font-medium">Encrypting PDF... (this may take a moment)</p>
         </div>
       )}
 
@@ -217,15 +217,15 @@ export function AddPasswordWidget() {
             <Lock className="w-8 h-8 text-success" />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-textPrimary">PDF Password Protected!</h3>
-            <p className="text-textSecondary mt-2">Your PDF is now securely encrypted with AES-256.</p>
+            <h3 className="text-2xl font-bold text-ink">PDF Password Protected!</h3>
+            <p className="text-grey mt-2">Your PDF is now securely encrypted with AES-256.</p>
           </div>
           
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download Secure PDF
@@ -233,7 +233,7 @@ export function AddPasswordWidget() {
           </div>
           <button
             onClick={handleReset}
-            className="text-textSecondary hover:text-textPrimary underline underline-offset-4 text-sm mt-4"
+            className="text-grey hover:text-ink underline underline-offset-4 text-sm mt-4"
           >
             Protect another PDF
           </button>

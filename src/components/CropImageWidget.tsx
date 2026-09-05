@@ -127,20 +127,20 @@ export function CropImageWidget() {
           {...getRootProps()}
           className={cn(
             "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-            isDragActive ? "border-accent bg-accent/5" : "border-overlay/10 hover:border-overlay/20 hover:bg-surfaceHover",
+            isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
             errorMsg ? "border-error/50 bg-error/5" : ""
           )}
         >
           <input {...getInputProps()} />
           <div className="flex flex-col items-center gap-4">
-            <div className="p-4 rounded-full bg-surface">
-              <Download className="w-8 h-8 text-textSecondary" />
+            <div className="p-4 rounded-full bg-paper">
+              <Download className="w-8 h-8 text-grey" />
             </div>
             <div>
-              <p className="text-lg font-medium text-textPrimary">Drag & drop your image here</p>
-              <p className="text-sm text-textSecondary mt-1">JPG, PNG, or WEBP</p>
+              <p className="text-lg font-medium text-ink">Drag & drop your image here</p>
+              <p className="text-sm text-grey mt-1">JPG, PNG, or WEBP</p>
             </div>
-            <button className="mt-4 px-6 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium">
+            <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
               Browse files
             </button>
             {errorMsg && <p className="text-error text-sm mt-2">{errorMsg}</p>}
@@ -150,29 +150,29 @@ export function CropImageWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-accent animate-spin mb-4" />
-          <p className="text-textPrimary font-medium">Cropping image...</p>
+          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <p className="text-ink font-medium">Cropping image...</p>
         </div>
       )}
 
       {file && imageSrc && !isProcessing && !downloadUrl && (
         <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-overlay/5 pb-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-ink/10 pb-6">
             <div>
-              <h3 className="text-lg font-medium text-textPrimary">{file.name}</h3>
-              <p className="text-sm text-textSecondary">Draw a rectangle to crop.</p>
+              <h3 className="text-lg font-medium text-ink">{file.name}</h3>
+              <p className="text-sm text-grey">Draw a rectangle to crop.</p>
             </div>
             <div className="flex gap-3">
               <button
                 onClick={handleReset}
-                className="px-4 py-2 bg-surface border border-overlay/10 rounded-md text-textPrimary hover:bg-surfaceHover transition-colors font-medium text-sm"
+                className="px-4 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium text-sm"
               >
                 Cancel
               </button>
               <button
                 onClick={handleApplyCrop}
                 disabled={!crop || crop.width === 0 || crop.height === 0}
-                className="px-4 py-2 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-2 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Apply Crop
               </button>
@@ -181,7 +181,7 @@ export function CropImageWidget() {
           
           {errorMsg && <p className="text-error text-sm">{errorMsg}</p>}
 
-          <div className="bg-surface rounded-lg border border-overlay/5 p-4 flex justify-center max-h-[60vh] overflow-hidden">
+          <div className="bg-paper rounded-lg border border-ink/10 p-4 flex justify-center max-h-[60vh] overflow-hidden">
             <ReactCrop crop={crop} onChange={(c) => setCrop(c)}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
@@ -201,15 +201,15 @@ export function CropImageWidget() {
             <Download className="w-8 h-8 text-success" />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-textPrimary">Image Cropped!</h3>
-            <p className="text-textSecondary mt-2">Your image has been cropped successfully at native resolution.</p>
+            <h3 className="text-2xl font-bold text-ink">Image Cropped!</h3>
+            <p className="text-grey mt-2">Your image has been cropped successfully at native resolution.</p>
           </div>
           
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-accent text-background rounded-md hover:bg-accent/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download Image
@@ -217,7 +217,7 @@ export function CropImageWidget() {
           </div>
           <button
             onClick={handleReset}
-            className="text-textSecondary hover:text-textPrimary underline underline-offset-4 text-sm mt-4"
+            className="text-grey hover:text-ink underline underline-offset-4 text-sm mt-4"
           >
             Crop another image
           </button>

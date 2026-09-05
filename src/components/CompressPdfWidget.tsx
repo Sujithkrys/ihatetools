@@ -149,9 +149,9 @@ export function CompressPdfWidget() {
     
     return (
       <ToolWidgetShell>
-        <div className="flex flex-col items-center justify-center p-8 bg-surface border border-success/20 rounded-lg text-center">
+        <div className="flex flex-col items-center justify-center p-8 bg-paper border border-success/20 rounded-lg text-center">
           {isNegligible ? (
-            <div className="w-16 h-16 bg-accent/10 text-accent rounded-full flex items-center justify-center mb-6">
+            <div className="w-16 h-16 bg-yellow/10 text-yellow rounded-full flex items-center justify-center mb-6">
               <Info className="w-8 h-8" />
             </div>
           ) : (
@@ -160,11 +160,11 @@ export function CompressPdfWidget() {
             </div>
           )}
           
-          <h3 className="text-2xl font-semibold text-textPrimary mb-2">
+          <h3 className="text-2xl font-semibold text-ink mb-2">
             {isNegligible ? "Optimization Complete" : "Compressed Successfully!"}
           </h3>
           
-          <div className="text-textSecondary mb-8 max-w-sm">
+          <div className="text-grey mb-8 max-w-sm">
             {isNegligible ? (
               <p>This PDF is already well-optimized — we couldn&apos;t reduce it further without using Aggressive mode.</p>
             ) : (
@@ -176,14 +176,14 @@ export function CompressPdfWidget() {
             <a
               href={downloadUrl!}
               download={file?.name.replace('.pdf', '-compressed.pdf')}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-accent text-background font-medium rounded-button hover:bg-accent/90 transition-colors"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-yellow text-background font-medium rounded-[8px] hover:bg-yellow/90 transition-colors"
             >
               <Download className="w-5 h-5" />
               Download PDF
             </a>
             <button
               onClick={handleReset}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-background border border-overlay/10 text-textPrimary font-medium rounded-button hover:bg-overlay/5 transition-colors"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-bg border border-ink/15 text-ink font-medium rounded-[8px] hover:bg-ink/5 transition-colors"
             >
               Compress another
             </button>
@@ -201,15 +201,15 @@ export function CompressPdfWidget() {
             {...getRootProps()}
             className={clsx(
               "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200 tool-interaction-zone",
-              isDragActive ? "border-accent bg-accent/5" : "border-overlay/20 bg-background/50 hover:border-overlay/30"
+              isDragActive ? "border-accent bg-yellow/5" : "border-ink/25 bg-bg/50 hover:border-ink/30"
             )}
           >
             <input {...getInputProps()} />
-            <UploadCloud className={clsx("w-12 h-12 mb-4", isDragActive ? "text-accent" : "text-textMuted")} />
-            <h3 className="text-lg font-medium text-textPrimary mb-2">
+            <UploadCloud className={clsx("w-12 h-12 mb-4", isDragActive ? "text-yellow" : "text-grey/60")} />
+            <h3 className="text-lg font-medium text-ink mb-2">
               {isDragActive ? "Drop PDF here..." : "Drag & drop your PDF here"}
             </h3>
-            <p className="text-textSecondary text-sm mb-6">or select one from your device</p>
+            <p className="text-grey text-sm mb-6">or select one from your device</p>
             
             <button
               type="button"
@@ -220,15 +220,15 @@ export function CompressPdfWidget() {
                   open();
                 }
               }}
-              className="px-5 py-2.5 bg-surface border border-overlay/10 rounded-button text-textPrimary font-medium hover:bg-surfaceHover hover:border-overlay/20 transition-all focus:outline-none focus:ring-2 focus:ring-accent"
+              className="px-5 py-2.5 bg-paper border border-ink/15 rounded-[8px] text-ink font-medium hover:bg-paperHover hover:border-ink/25 transition-all focus:outline-none focus:ring-2 focus:ring-sel"
             >
               Browse files
             </button>
           </div>
         ) : (
-          <div className="bg-background rounded-lg border border-overlay/10 overflow-hidden">
-            <div className="p-4 border-b border-overlay/10 bg-surface flex justify-between items-center">
-              <span className="font-medium text-textPrimary">Ready to compress</span>
+          <div className="bg-bg rounded-lg border border-ink/15 overflow-hidden">
+            <div className="p-4 border-b border-ink/15 bg-paper flex justify-between items-center">
+              <span className="font-medium text-ink">Ready to compress</span>
             </div>
             <ul className="divide-y divide-white/10">
               <FileListItem file={file} index={0} totalFiles={1} onRemove={() => setFile(null)} />
@@ -237,8 +237,8 @@ export function CompressPdfWidget() {
         )}
 
         {file && !status.includes('processing') && (
-          <div className="bg-surface border border-overlay/10 rounded-lg p-6">
-            <h3 className="text-textPrimary font-medium flex items-center gap-2 mb-4">
+          <div className="bg-paper border border-ink/15 rounded-lg p-6">
+            <h3 className="text-ink font-medium flex items-center gap-2 mb-4">
               <Settings2 className="w-5 h-5" />
               Compression Mode
             </h3>
@@ -249,12 +249,12 @@ export function CompressPdfWidget() {
                 className={clsx(
                   "flex flex-col items-start p-4 rounded-lg border-2 transition-all text-left",
                   mode === "standard" 
-                    ? "border-accent bg-accent/5" 
-                    : "border-overlay/5 bg-background hover:border-overlay/10"
+                    ? "border-accent bg-yellow/5" 
+                    : "border-ink/10 bg-bg hover:border-ink/15"
                 )}
               >
-                <span className="font-medium text-textPrimary mb-1">Standard</span>
-                <span className="text-sm text-textSecondary">Optimizes structure without losing text data.</span>
+                <span className="font-medium text-ink mb-1">Standard</span>
+                <span className="text-sm text-grey">Optimizes structure without losing text data.</span>
               </button>
               
               <button
@@ -263,11 +263,11 @@ export function CompressPdfWidget() {
                   "flex flex-col items-start p-4 rounded-lg border-2 transition-all text-left",
                   mode === "aggressive" 
                     ? "border-error/50 bg-error/5" 
-                    : "border-overlay/5 bg-background hover:border-overlay/10"
+                    : "border-ink/10 bg-bg hover:border-ink/15"
                 )}
               >
-                <span className="font-medium text-textPrimary mb-1">Aggressive</span>
-                <span className="text-sm text-textSecondary">Maximum size reduction by converting pages to images.</span>
+                <span className="font-medium text-ink mb-1">Aggressive</span>
+                <span className="text-sm text-grey">Maximum size reduction by converting pages to images.</span>
               </button>
             </div>
 
@@ -295,10 +295,10 @@ export function CompressPdfWidget() {
             onClick={handleCompress}
             disabled={status === 'processing'}
             className={clsx(
-              "w-full flex flex-col items-center justify-center gap-1 py-4 rounded-button font-medium transition-all",
+              "w-full flex flex-col items-center justify-center gap-1 py-4 rounded-[8px] font-medium transition-all",
               status === 'processing'
-                ? "bg-overlay/5 text-textMuted cursor-not-allowed"
-                : "bg-accent text-background hover:bg-accent/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
+                ? "bg-ink/5 text-grey/60 cursor-not-allowed"
+                : "bg-yellow text-background hover:bg-yellow/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
             )}
           >
             {status === 'processing' ? (
