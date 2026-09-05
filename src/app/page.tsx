@@ -21,10 +21,10 @@ export default function Home() {
       {/* ======== HERO ======== */}
       <Frame label="Hero" labelColor="yellow" showDim dimText="1120 × 420">
         {/* Stickers */}
-        <div className="absolute top-[52px] left-[14px] font-mono text-[10px] font-medium tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] shadow-hard-sm bg-yellow -rotate-[5deg] hidden md:block z-10">
+        <div className="sticker absolute top-[52px] left-[14px] font-mono text-[10px] font-medium tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-yellow -rotate-[5deg] hidden md:block z-10">
           no sign-up
         </div>
-        <div className="absolute top-[96px] right-[16px] font-mono text-[10px] font-medium tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] shadow-hard-sm bg-cyan rotate-[5deg] hidden md:block z-10">
+        <div className="sticker absolute top-[96px] right-[16px] font-mono text-[10px] font-medium tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-cyan rotate-[5deg] hidden md:block z-10">
           no watermark
         </div>
 
@@ -37,7 +37,7 @@ export default function Home() {
           </p>
           <Link
             href="/tools"
-            className="inline-flex gap-[8px] mt-[34px] bg-ink text-paper border-[1.5px] border-ink px-[25px] py-[13px] rounded-[8px] font-medium text-[14.5px] tracking-[-0.02em] shadow-[4px_4px_0_rgb(var(--color-pink))] cursor-pointer hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_rgb(var(--color-pink))] transition-all"
+            className="cta browse inline-flex gap-[8px] mt-[34px] bg-ink text-paper border-[1.5px] border-ink px-[25px] py-[13px] rounded-[8px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer hover:-translate-y-[2px] hover:border-pink transition-all"
           >
             Browse all tools →
           </Link>
@@ -48,19 +48,19 @@ export default function Home() {
       <Frame label="Why it's different" labelColor="pink">
         <div className="grid gap-[20px] max-w-[760px]">
           {/* Block 1 */}
-          <div className="border-[1.5px] border-ink rounded-[10px] p-[26px_28px] shadow-[3px_3px_0_rgb(var(--shadow-color))] relative bg-paper mr-0 md:mr-[22%]">
+          <div className="blk border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper mr-0 md:mr-[22%]">
             <span className="absolute top-[34px] right-[-30%] font-handwriting text-[19px] text-grey whitespace-nowrap -rotate-[4deg] hidden lg:block">→ nothing gets uploaded</span>
             <h3 className="disp text-[23px] mb-[9px]">Your files never leave</h3>
             <SelectedText className="mt-[6px]">Everything runs in your browser. No server, no upload, no copy of your document sitting somewhere.</SelectedText>
           </div>
           {/* Block 2 */}
-          <div className="border-[1.5px] border-ink rounded-[10px] p-[26px_28px] shadow-[3px_3px_0_rgb(var(--shadow-color))] relative bg-paper ml-0 md:ml-[22%]">
+          <div className="blk border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper ml-0 md:ml-[22%]">
             <span className="absolute top-[40px] left-[-28%] font-handwriting text-[19px] text-grey whitespace-nowrap rotate-[3deg] hidden lg:block">no catch here ←</span>
             <h3 className="disp text-[23px] mb-[9px]">Free, with no asterisk</h3>
             <SelectedText className="mt-[6px]">No sign-up wall, no watermark on the output, no &quot;upgrade to download&quot; at the last step.</SelectedText>
           </div>
           {/* Block 3 */}
-          <div className="border-[1.5px] border-ink rounded-[10px] p-[26px_28px] shadow-[3px_3px_0_rgb(var(--shadow-color))] relative bg-paper mr-0 md:mr-[22%]">
+          <div className="blk border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper mr-0 md:mr-[22%]">
             <span className="absolute top-[34px] right-[-30%] font-handwriting text-[19px] text-grey whitespace-nowrap -rotate-[3deg] hidden lg:block">→ 40+ and counting</span>
             <h3 className="disp text-[23px] mb-[9px]">One place for all of it</h3>
             <SelectedText className="mt-[6px]">PDF, image and text tools together, so you&apos;re not hunting for a new site every time.</SelectedText>
@@ -71,7 +71,7 @@ export default function Home() {
       {/* ======== PDF TOOLS ======== */}
       <Frame label="PDF Tools" labelColor="yellow">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] shadow-hard-sm bg-yellow">PDF</span>
+          <span className="tag font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-yellow">PDF</span>
           <h2 className="disp text-[36px]">PDF, sorted.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
@@ -84,7 +84,7 @@ export default function Home() {
       {/* ======== IMAGE TOOLS ======== */}
       <Frame label="Image Tools" labelColor="cyan">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] shadow-hard-sm bg-cyan">Image</span>
+          <span className="tag font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-cyan">Image</span>
           <h2 className="disp text-[36px]">Images, handled.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
@@ -97,7 +97,7 @@ export default function Home() {
       {/* ======== TEXT TOOLS ======== */}
       <Frame label="Text & Dev" labelColor="violet">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] shadow-hard-sm bg-violet">Text</span>
+          <span className="tag font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-violet">Text</span>
           <h2 className="disp text-[36px]">Text utilities.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">

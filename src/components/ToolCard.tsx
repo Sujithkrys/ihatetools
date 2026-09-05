@@ -14,10 +14,14 @@ interface ToolCardProps {
 }
 
 export function ToolCard({ beforeText, afterText, arrowText, isStacked, name, description, href, category }: ToolCardProps) {
+  let hoverBorderClass = "hover:border-yellow";
+  if (category === "Image Tools") hoverBorderClass = "hover:border-cyan";
+  else if (category === "Text Tools") hoverBorderClass = "hover:border-violet";
+
   return (
     <Link 
       href={href}
-      className="block bg-paper border-[1.5px] border-ink rounded-[11px] p-6 shadow-hard cursor-pointer transition-all duration-150 hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover"
+      className={`card block bg-paper border-[1.5px] border-ink rounded-[11px] p-6 cursor-pointer transition-all duration-150 hover:-translate-y-[2px] ${hoverBorderClass}`}
     >
       <TransformChip 
         beforeText={beforeText} 

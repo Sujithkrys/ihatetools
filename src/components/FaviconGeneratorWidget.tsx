@@ -185,7 +185,7 @@ export function FaviconGeneratorWidget() {
               <img
                 src={URL.createObjectURL(file)}
                 alt="Favicon Preview"
-                className="max-w-full max-h-full object-contain drop-shadow-hard"
+                className="max-w-full max-h-full object-contain"
               />
             </div>
           </div>

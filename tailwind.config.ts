@@ -27,10 +27,10 @@ const config: Config = {
         logo: ["var(--font-bricolage)", "sans-serif"],
       },
       boxShadow: {
-        hard: "4px 4px 0 rgb(var(--shadow-color, var(--color-ink)))",
-        'hard-hover': "7px 7px 0 rgb(var(--shadow-color, var(--color-ink)))",
-        'hard-sm': "2px 2px 0 rgb(var(--shadow-color, var(--color-ink)))",
-        'hard-lg': "6px 6px 0 rgb(var(--shadow-color, var(--color-ink)))",
+        hard: "none",
+        'hard-hover': "none",
+        'hard-sm': "none",
+        'hard-lg': "none",
       },
       maxWidth: {
         content: "1120px",

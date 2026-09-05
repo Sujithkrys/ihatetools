@@ -28,7 +28,7 @@ export function TextDiffCheckerWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col shadow-hard">
+      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col">
         {/* Top toolbar */}
         <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-ink/10 bg-white/[0.02] gap-4">
           <div className="flex items-center gap-2 text-grey font-medium">

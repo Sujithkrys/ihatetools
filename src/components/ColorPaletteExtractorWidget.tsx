@@ -218,7 +218,7 @@ export function ColorPaletteExtractorWidget() {
               <img
                 src={URL.createObjectURL(file)}
                 alt="Source preview"
-                className="w-full max-w-xs rounded-lg shadow-hard border border-ink/15 object-contain"
+                className="w-full max-w-xs rounded-lg border border-ink/15 object-contain"
               />
             </div>
 

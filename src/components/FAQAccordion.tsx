@@ -44,7 +44,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
           return (
             <div
               key={index}
-              className="bg-paper border-[1.5px] border-ink rounded-[8px] overflow-hidden shadow-hard-sm"
+              className="bg-paper border-[1.5px] border-ink rounded-[8px] overflow-hidden"
             >
               <button
                 className="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none"

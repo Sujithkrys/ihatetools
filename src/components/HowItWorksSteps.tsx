@@ -17,7 +17,7 @@ export function HowItWorksSteps({ steps }: HowItWorksStepsProps) {
         {steps.map((step, index) => (
           <div 
             key={index} 
-            className="flex flex-col items-center text-center p-6 bg-paper border-[1.5px] border-ink rounded-[11px] shadow-hard-sm"
+            className="flex flex-col items-center text-center p-6 bg-paper border-[1.5px] border-ink rounded-[11px]"
           >
             <div className="w-12 h-12 flex items-center justify-center rounded-full border-[1.5px] border-ink bg-bg font-mono text-[14px] font-medium text-ink mb-6">
               {String(index + 1).padStart(2, '0')}

@@ -68,7 +68,7 @@ export function SearchBar() {
       />
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-paper border-[1.5px] border-ink rounded-[7px] shadow-hard overflow-hidden z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-paper border-[1.5px] border-ink rounded-[7px] overflow-hidden z-50">
           {results.length > 0 ? (
             <ul className="max-h-60 overflow-y-auto">
               {results.map((tool) => (

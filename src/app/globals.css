@@ -14,7 +14,6 @@
     --color-violet: 155 138 230;
     --color-grey: 110 107 102;
     --color-sel: 13 153 255;
-    --shadow-color: 17 18 18; /* Solid ink */
   }
 
   .dark {
@@ -28,7 +27,6 @@
     --color-violet: 183 171 237;
     --color-grey: 161 158 152;
     --color-sel: 75 178 255;
-    --shadow-color: 230 228 221 / 0.15; /* Off-white for shadows with opacity */
   }
 
   body {
@@ -64,6 +62,19 @@
     font-size: 15px;
     line-height: 1.65;
     color: rgb(var(--color-ink));
+  }
+
+  /* Remove hard offset box-shadow from bordered box elements sitewide */
+  .card, .blk, .cta, .browse, .sticker, .tag, .frame-label {
+    box-shadow: none !important;
+  }
+
+  .card {
+    transition: transform 150ms ease, border-color 150ms ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
   }
 }
 

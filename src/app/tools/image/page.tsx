@@ -22,7 +22,7 @@ export default function ImageToolsPage() {
 
       <Frame label="Image Tools" labelColor="cyan">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] shadow-hard-sm bg-cyan">Image</span>
+          <span className="tag font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-cyan">Image</span>
           <h2 className="disp text-[36px]">Images, handled.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">

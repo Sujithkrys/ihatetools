@@ -9,7 +9,7 @@ interface ToolWidgetShellProps {
 
 export function ToolWidgetShell({ children, title, breadcrumbs }: ToolWidgetShellProps) {
   return (
-    <div className="border-[1.5px] border-ink rounded-[12px] bg-paper shadow-hard-lg overflow-hidden w-full max-w-4xl mx-auto my-8">
+    <div className="border-[1.5px] border-ink rounded-[12px] bg-paper overflow-hidden w-full max-w-4xl mx-auto my-8">
       {breadcrumbs && <ToolPageChrome breadcrumbs={breadcrumbs} />}
       
       <div className="p-6 md:p-8">

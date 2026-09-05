@@ -62,7 +62,7 @@ export function JsonFormatterWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col shadow-hard">
+      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col">
         {/* Top toolbar */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-3 border-b border-ink/10 bg-white/[0.02] gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto gap-4">

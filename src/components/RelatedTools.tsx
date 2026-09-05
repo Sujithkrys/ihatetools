@@ -23,7 +23,7 @@ export function RelatedTools({ tools }: RelatedToolsProps) {
           <Link
             key={index}
             href={tool.href}
-            className="px-5 py-3 bg-paper border-[1.5px] border-ink rounded-[7px] text-sm font-medium text-ink hover:-translate-y-[1px] hover:shadow-hard-sm transition-all"
+            className="px-5 py-3 bg-paper border-[1.5px] border-ink rounded-[7px] text-sm font-medium text-ink hover:-translate-y-[2px] hover:border-pink transition-all"
           >
             {tool.name}
           </Link>

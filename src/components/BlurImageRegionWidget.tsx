@@ -136,7 +136,7 @@ export function BlurImageRegionWidget() {
       >
         {!isTemp && (
           <button 
-            className="absolute -top-3 -right-3 w-6 h-6 bg-error rounded-full text-white flex items-center justify-center pointer-events-auto shadow-hard hover:scale-110 transition-transform"
+            className="absolute -top-3 -right-3 w-6 h-6 bg-error rounded-full text-white flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform"
             onClick={(e) => {
               e.stopPropagation();
               setRegions(regions.filter(r => r !== region));

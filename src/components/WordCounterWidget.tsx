@@ -53,7 +53,7 @@ export function WordCounterWidget() {
 
   return (
     <ToolWidgetShell>
-      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col shadow-hard">
+      <div className="bg-paper rounded-lg border border-ink/10 overflow-hidden flex flex-col">
         {/* Top toolbar */}
         <div className="flex justify-between items-center px-4 py-3 border-b border-ink/10 bg-white/[0.02]">
           <div className="flex items-center gap-2 text-grey font-medium">
