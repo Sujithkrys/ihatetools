@@ -80,6 +80,7 @@ export function AppSidebar() {
                 <div className="space-y-0.5">
                   {toolsInCat.map((tool) => {
                     const isActive = pathname === tool.href;
+                    const IconComponent = tool.icon;
 
                     return (
                       <Link
@@ -90,20 +91,10 @@ export function AppSidebar() {
                             closeSidebar();
                           }
                         }}
-                        className={`group flex items-center gap-2.5 px-2.5 py-1.5 rounded-[6px] text-[13px] transition-colors ${
-                          isActive
-                            ? "bg-white/15 text-white font-medium border-l-2 border-sel"
-                            : "text-[#A19E98] hover:text-white hover:bg-white/5"
-                        }`}
+                        className={`sb-item ${isActive ? "active" : ""}`}
                       >
-                        <span
-                          className={`w-[22px] h-[22px] rounded flex items-center justify-center font-mono text-[8px] font-medium shrink-0 border ${
-                            isActive
-                              ? "border-white/30 text-white bg-white/10"
-                              : "border-white/10 text-[#A19E98] bg-white/[0.03] group-hover:border-white/20 group-hover:text-white"
-                          }`}
-                        >
-                          {tool.beforeText ? tool.beforeText.slice(0, 3) : "•"}
+                        <span className="sb-icon">
+                          {IconComponent && <IconComponent size={16} />}
                         </span>
                         <span className="truncate">{tool.name}</span>
                       </Link>

@@ -21,7 +21,7 @@ export function NavBar() {
     <>
       <Ruler />
       <header className="site-header border-b border-ink/[0.08] bg-paper sticky top-0 z-40">
-        <div className="max-w-content mx-auto px-4 md:px-[34px] h-[58px] flex items-center gap-[22px]">
+        <div className="nav-in w-full px-[24px] h-[58px] flex items-center gap-[22px]">
           <button
             type="button"
             onClick={toggleSidebar}

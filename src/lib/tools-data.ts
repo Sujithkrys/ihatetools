@@ -1,3 +1,42 @@
+import {
+  Layers,
+  SplitSquareHorizontal,
+  Minimize2,
+  Image as ImageIcon,
+  Maximize,
+  LayoutGrid,
+  FileImage,
+  Files,
+  Droplet,
+  Crop,
+  QrCode,
+  Lock,
+  Unlock,
+  ScanText,
+  RotateCw,
+  FileMinus,
+  FileDigit,
+  Tags,
+  ImagePlay,
+  Info,
+  FlipHorizontal,
+  Paintbrush,
+  Type,
+  Code2,
+  Palette,
+  AppWindow,
+  EyeOff,
+  Braces,
+  CaseUpper,
+  AlignLeft,
+  Diff,
+  CircleDashed,
+  Target,
+  Binary,
+  FileText,
+  LucideIcon
+} from "lucide-react";
+
 export type ToolCategory = "PDF Tools" | "Image Tools" | "Text Tools";
 
 export interface ToolData {
@@ -8,6 +47,7 @@ export interface ToolData {
   afterText?: string | string[];
   isStacked?: boolean;
   arrowText?: string;
+  icon: LucideIcon;
   href: string;
   category: ToolCategory;
 }
@@ -21,6 +61,7 @@ export const TOOLS: ToolData[] = [
     afterText: "PDF",
     isStacked: true,
     arrowText: "→",
+    icon: Layers,
     href: "/tools/merge-pdf",
     category: "PDF Tools"
   },
@@ -31,6 +72,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: ["1", "2"],
     arrowText: "→",
+    icon: SplitSquareHorizontal,
     href: "/tools/split-pdf",
     category: "PDF Tools"
   },
@@ -41,6 +83,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: Minimize2,
     href: "/tools/compress-pdf",
     category: "PDF Tools"
   },
@@ -51,6 +94,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "JPG",
     afterText: "JPG",
     arrowText: "→",
+    icon: Minimize2,
     href: "/tools/compress-image",
     category: "Image Tools"
   },
@@ -61,6 +105,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "IMG",
     arrowText: "→",
+    icon: Maximize,
     href: "/tools/resize-image",
     category: "Image Tools"
   },
@@ -71,6 +116,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PNG",
     afterText: "WEBP",
     arrowText: "→",
+    icon: FileImage,
     href: "/tools/convert-image",
     category: "Image Tools"
   },
@@ -81,6 +127,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: LayoutGrid,
     href: "/tools/organize-pdf",
     category: "PDF Tools"
   },
@@ -91,6 +138,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "JPG",
     arrowText: "→",
+    icon: FileImage,
     href: "/tools/pdf-to-jpg",
     category: "PDF Tools"
   },
@@ -102,6 +150,7 @@ export const TOOLS: ToolData[] = [
     afterText: "PDF",
     isStacked: true,
     arrowText: "→",
+    icon: Files,
     href: "/tools/images-to-pdf",
     category: "PDF Tools"
   },
@@ -112,6 +161,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: Droplet,
     href: "/tools/add-watermark",
     category: "PDF Tools"
   },
@@ -122,6 +172,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "IMG",
     arrowText: "→",
+    icon: Crop,
     href: "/tools/crop-image",
     category: "Image Tools"
   },
@@ -132,6 +183,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "URL",
     afterText: "QR",
     arrowText: "→",
+    icon: QrCode,
     href: "/tools/qr-code-generator",
     category: "Image Tools"
   },
@@ -142,6 +194,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: Lock,
     href: "/tools/add-password",
     category: "PDF Tools"
   },
@@ -152,6 +205,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: Unlock,
     href: "/tools/remove-password",
     category: "PDF Tools"
   },
@@ -162,6 +216,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "TXT",
     arrowText: "→",
+    icon: ScanText,
     href: "/tools/ocr-pdf",
     category: "PDF Tools"
   },
@@ -172,6 +227,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: RotateCw,
     href: "/tools/rotate-pdf",
     category: "PDF Tools"
   },
@@ -182,6 +238,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: FileMinus,
     href: "/tools/delete-pdf-pages",
     category: "PDF Tools"
   },
@@ -192,6 +249,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: FileDigit,
     href: "/tools/add-page-numbers",
     category: "PDF Tools"
   },
@@ -202,6 +260,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: Tags,
     href: "/tools/pdf-metadata",
     category: "PDF Tools"
   },
@@ -212,6 +271,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "HEIC",
     afterText: "JPG",
     arrowText: "→",
+    icon: ImagePlay,
     href: "/tools/heic-to-jpg",
     category: "Image Tools"
   },
@@ -222,6 +282,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PDF",
     arrowText: "→",
+    icon: Info,
     href: "/tools/pdf-info",
     category: "PDF Tools"
   },
@@ -232,6 +293,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "TXT",
     arrowText: "→",
+    icon: Type,
     href: "/tools/extract-pdf-text",
     category: "PDF Tools"
   },
@@ -242,6 +304,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "IMG",
     arrowText: "→",
+    icon: ImageIcon,
     href: "/tools/extract-pdf-images",
     category: "PDF Tools"
   },
@@ -252,6 +315,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "PDF",
     afterText: "PNG",
     arrowText: "→",
+    icon: ImagePlay,
     href: "/tools/pdf-to-png",
     category: "PDF Tools"
   },
@@ -262,6 +326,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "IMG",
     arrowText: "→",
+    icon: Target,
     href: "/tools/compress-image-target-size",
     category: "Image Tools"
   },
@@ -272,6 +337,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "IMG",
     arrowText: "→",
+    icon: RotateCw,
     href: "/tools/rotate-image",
     category: "Image Tools"
   },
@@ -282,6 +348,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "IMG",
     arrowText: "→",
+    icon: FlipHorizontal,
     href: "/tools/flip-image",
     category: "Image Tools"
   },
@@ -292,6 +359,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "B&W",
     arrowText: "→",
+    icon: Paintbrush,
     href: "/tools/grayscale-image",
     category: "Image Tools"
   },
@@ -302,6 +370,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "IMG",
     arrowText: "→",
+    icon: CircleDashed,
     href: "/tools/round-image",
     category: "Image Tools"
   },
@@ -312,6 +381,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "IMG",
     arrowText: "→",
+    icon: Type,
     href: "/tools/add-text-to-image",
     category: "Image Tools"
   },
@@ -322,6 +392,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "B64",
     arrowText: "→",
+    icon: Code2,
     href: "/tools/image-to-base64",
     category: "Image Tools"
   },
@@ -332,6 +403,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "B64",
     afterText: "IMG",
     arrowText: "→",
+    icon: Binary,
     href: "/tools/base64-to-image",
     category: "Image Tools"
   },
@@ -342,6 +414,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "PAL",
     arrowText: "→",
+    icon: Palette,
     href: "/tools/color-palette-extractor",
     category: "Image Tools"
   },
@@ -352,6 +425,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "ICO",
     arrowText: "→",
+    icon: AppWindow,
     href: "/tools/favicon-generator",
     category: "Image Tools"
   },
@@ -362,6 +436,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "IMG",
     afterText: "IMG",
     arrowText: "→",
+    icon: EyeOff,
     href: "/tools/blur-image-region",
     category: "Image Tools"
   },
@@ -370,6 +445,7 @@ export const TOOLS: ToolData[] = [
     name: "Word & Character Counter",
     description: "Live count of words, characters, and reading time.",
     beforeText: "Aa",
+    icon: FileText,
     href: "/tools/word-counter",
     category: "Text Tools"
   },
@@ -378,6 +454,7 @@ export const TOOLS: ToolData[] = [
     name: "JSON Formatter",
     description: "Format, validate, and minify JSON code securely.",
     beforeText: "{ }",
+    icon: Braces,
     href: "/tools/json-formatter",
     category: "Text Tools"
   },
@@ -386,6 +463,7 @@ export const TOOLS: ToolData[] = [
     name: "Case Converter",
     description: "Convert text to UPPERCASE, lowercase, camelCase, etc.",
     beforeText: "Aa",
+    icon: CaseUpper,
     href: "/tools/case-converter",
     category: "Text Tools"
   },
@@ -394,6 +472,7 @@ export const TOOLS: ToolData[] = [
     name: "Lorem Ipsum Generator",
     description: "Generate placeholder text instantly for your designs.",
     beforeText: "Ab",
+    icon: AlignLeft,
     href: "/tools/lorem-ipsum-generator",
     category: "Text Tools"
   },
@@ -402,6 +481,7 @@ export const TOOLS: ToolData[] = [
     name: "Text Diff Checker",
     description: "Compare two text documents to spot differences.",
     beforeText: "±",
+    icon: Diff,
     href: "/tools/text-diff",
     category: "Text Tools"
   }
