@@ -52,10 +52,19 @@
     line-height: 1.02;
   }
   
-  /* Feature block dark mode overrides since they use hardcoded hex in tailwind classes */
-  .dark .feat-b1 { background-color: #153342 !important; }
-  .dark .feat-b2 { background-color: #3b2c05 !important; }
-  .dark .feat-b3 { background-color: #173729 !important; }
+  .text-selected {
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    border: 1.5px solid rgb(var(--color-sel));
+    border-radius: 2px;
+    padding: 10px 16px;
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgb(var(--color-ink));
+  }
 }
 
 @keyframes reveal-result {

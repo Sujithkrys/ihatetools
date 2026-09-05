@@ -1,4 +1,5 @@
 import React from 'react';
+import { CornerHandles } from './CornerHandles';
 
 interface FrameProps {
   label: string;
@@ -25,10 +26,7 @@ export function Frame({ label, labelColor = "yellow", showDim, dimText, children
         {label}
       </span>
       
-      <i className="absolute w-[8px] h-[8px] bg-paper border-[1.5px] border-sel top-[-4px] left-[-4px]" />
-      <i className="absolute w-[8px] h-[8px] bg-paper border-[1.5px] border-sel top-[-4px] right-[-4px]" />
-      <i className="absolute w-[8px] h-[8px] bg-paper border-[1.5px] border-sel bottom-[-4px] left-[-4px]" />
-      <i className="absolute w-[8px] h-[8px] bg-paper border-[1.5px] border-sel bottom-[-4px] right-[-4px]" />
+      <CornerHandles size={8} />
       
       {showDim && (
         <span className="hidden md:inline-block absolute bottom-[-11px] left-1/2 -translate-x-1/2 bg-sel text-paper font-mono text-[9px] px-[7px] py-[2px] rounded-[3px] whitespace-nowrap">

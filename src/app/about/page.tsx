@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Frame } from "@/components/Frame";
+import { SelectedText } from "@/components/SelectedText";
 
 export const metadata: Metadata = {
   title: "About | ihatetools",
@@ -15,10 +16,10 @@ export default function AboutPage() {
 
       <Frame label="About" labelColor="cyan">
         <div className="max-w-3xl mx-auto space-y-8 text-[16px] text-grey leading-[1.7] tracking-[-0.005em]">
-          <p>
+          <SelectedText className="w-full">
             Welcome to ihatetools! We are building a growing collection of free, no-nonsense utilities designed for developers, creators, and everyday users who just want to get things done without the hassle.
-          </p>
-          
+          </SelectedText>
+
           <p>
             Our core philosophy is simple: tools should be fast, they should be free, and they should respect your privacy. That&apos;s why every single tool currently available on our site—from PDF manipulation to image compression—is designed to run <strong className="text-ink font-medium">entirely in your web browser</strong>.
           </p>
