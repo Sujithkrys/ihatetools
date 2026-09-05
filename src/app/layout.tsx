@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 
-const plusJakarta = Plus_Jakarta_Sans({ 
+const inter = Inter({ 
   subsets: ["latin"], 
-  variable: "--font-plus-jakarta",
+  variable: "--font-inter",
   display: 'swap',
 });
 
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${plusJakarta.className} ${plusJakarta.variable} min-h-screen flex flex-col bg-background text-textPrimary`}>
+      <body className={`${inter.className} ${inter.variable} ${GeistSans.variable} min-h-screen flex flex-col bg-background text-textPrimary`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
