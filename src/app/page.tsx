@@ -21,16 +21,16 @@ export default function Home() {
       {/* ======== HERO ======== */}
       <Frame label="Hero" labelColor="yellow" showDim dimText="1120 × 420">
         {/* Stickers */}
-        <div className="sticker absolute top-[52px] left-[14px] font-sans font-semibold text-[10px] tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-yellow -rotate-[5deg] hidden md:block z-10">
+        <div className="sticker absolute top-[52px] left-[14px] font-sans font-semibold text-[10px] tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-yellow text-[#111212] -rotate-[5deg] hidden md:block z-10">
           no sign-up
         </div>
-        <div className="sticker absolute top-[96px] right-[16px] font-sans font-semibold text-[10px] tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-cyan rotate-[5deg] hidden md:block z-10">
+        <div className="sticker absolute top-[96px] right-[16px] font-sans font-semibold text-[10px] tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-cyan text-[#111212] rotate-[5deg] hidden md:block z-10">
           no watermark
         </div>
 
         <div className="text-center py-[26px]">
           <h1 className="disp disp-lg text-[clamp(42px,6.6vw,74px)] max-w-[16ch] mx-auto text-ink">
-            Tools that <span className="bg-yellow px-[0.09em]">don&apos;t</span> waste your time.
+            Tools that <span className="bg-yellow text-[#111212] px-[0.09em]">don&apos;t</span> waste your time.
           </h1>
           <p className="disp text-[clamp(18px,2.5vw,25px)] max-w-[24ch] mx-auto mt-[28px] text-ink/80">
             Merge<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-yellow translate-y-[0.02em] mx-[0.08em]" />split, compress and convert<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-pink translate-y-[0.02em] mx-[0.08em]" />— all of it running locally in your browser<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-cyan translate-y-[0.02em] mx-[0.08em]" />.
@@ -71,7 +71,7 @@ export default function Home() {
       {/* ======== PDF TOOLS ======== */}
       <Frame label="PDF Tools" labelColor="yellow">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-yellow">PDF</span>
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-yellow text-[#111212]">PDF</span>
           <h2 className="disp text-[36px]">PDF, sorted.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
@@ -84,7 +84,7 @@ export default function Home() {
       {/* ======== IMAGE TOOLS ======== */}
       <Frame label="Image Tools" labelColor="cyan">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-cyan">Image</span>
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-cyan text-[#111212]">Image</span>
           <h2 className="disp text-[36px]">Images, handled.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
@@ -97,7 +97,7 @@ export default function Home() {
       {/* ======== TEXT TOOLS ======== */}
       <Frame label="Text & Dev" labelColor="violet">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-violet">Text</span>
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-violet text-[#111212]">Text</span>
           <h2 className="disp text-[36px]">Text utilities.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">

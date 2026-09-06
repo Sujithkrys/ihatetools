@@ -46,7 +46,7 @@ export function NavBar({ onLogoClick }: NavBarProps) {
                   href={link.href}
                   className={`px-[11px] py-[6px] rounded-[5px] text-[13.5px] transition-colors whitespace-nowrap ${
                     isActive
-                      ? "bg-cyan border-[1.5px] border-ink text-ink font-medium"
+                      ? "bg-cyan border-[1.5px] border-ink text-[#111212] font-medium"
                       : "border-transparent text-ink hover:border-ink border-[1.5px]"
                   }`}
                 >

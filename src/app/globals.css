@@ -160,6 +160,19 @@
     box-shadow: none;
   }
 
+  /* Ensure all pastel color boxes have black text in both light and dark modes */
+  .tag,
+  .sticker,
+  .frame-label {
+    color: #111212 !important;
+  }
+
+  button.bg-yellow,
+  a.bg-yellow,
+  h1 span.bg-yellow {
+    color: #111212 !important;
+  }
+
   .priv {
     display: inline-flex;
     align-items: center;
@@ -171,7 +184,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     background: rgb(var(--color-green));
-    color: #fff;
+    color: #111212;
     border: 1.5px solid rgb(var(--color-ink));
     border-radius: 5px;
     padding: 6px 12px;

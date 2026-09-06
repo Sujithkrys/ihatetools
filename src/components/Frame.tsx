@@ -11,11 +11,11 @@ interface FrameProps {
 
 export function Frame({ label, labelColor = "yellow", showDim, dimText, children }: FrameProps) {
   const colorMap: Record<string, string> = {
-    yellow: "bg-yellow text-ink",
-    cyan: "bg-cyan text-ink",
-    violet: "bg-violet text-ink",
-    pink: "bg-pink text-paper",
-    green: "bg-green text-paper",
+    yellow: "bg-yellow text-[#111212]",
+    cyan: "bg-cyan text-[#111212]",
+    violet: "bg-violet text-[#111212]",
+    pink: "bg-pink text-[#111212]",
+    green: "bg-green text-[#111212]",
   };
 
   return (

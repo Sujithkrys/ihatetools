@@ -12,9 +12,9 @@ interface TransformChipProps {
 export function TransformChip({ beforeText, afterText, arrowText, isStacked, category }: TransformChipProps) {
   if (!beforeText) return null;
 
-  let bgClass = "bg-yellow text-ink";
-  if (category === "Image Tools") bgClass = "bg-cyan text-ink";
-  else if (category === "Text Tools") bgClass = "bg-violet text-ink";
+  let bgClass = "bg-yellow text-[#111212]";
+  if (category === "Image Tools") bgClass = "bg-cyan text-[#111212]";
+  else if (category === "Text Tools") bgClass = "bg-violet text-[#111212]";
 
   // For text tools with only one icon
   if (!afterText) {

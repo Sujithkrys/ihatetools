@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: "#111212",
         ink: "rgb(var(--color-ink) / <alpha-value>)",
         paper: "rgb(var(--color-paper) / <alpha-value>)",
         bg: "rgb(var(--color-bg) / <alpha-value>)",
