@@ -243,7 +243,7 @@ export function ColorPaletteExtractorWidget() {
                         />
                         <button
                           onClick={() => handleCopy(color.hex, index)}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-mono text-ink transition-colors"
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-sans font-semibold text-ink transition-colors"
                         >
                           {copiedIndex === index ? <CheckCircle className="w-3 h-3 text-success" /> : <Copy className="w-3 h-3" />}
                           {color.hex.toUpperCase()}

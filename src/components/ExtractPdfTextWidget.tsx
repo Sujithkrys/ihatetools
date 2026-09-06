@@ -199,7 +199,7 @@ export function ExtractPdfTextWidget() {
           <textarea
             readOnly
             value={extractedText}
-            className="w-full h-[400px] bg-bg border border-ink/15 rounded-md p-4 text-ink font-mono text-sm focus:outline-none resize-none"
+            className="w-full h-[400px] bg-bg border border-ink/15 rounded-md p-4 text-ink font-sans font-semibold text-sm focus:outline-none resize-none"
           />
         </div>
       )}

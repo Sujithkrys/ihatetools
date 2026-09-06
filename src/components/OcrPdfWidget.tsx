@@ -245,7 +245,7 @@ export function OcrPdfWidget() {
           <textarea
             value={extractedText}
             readOnly
-            className="w-full h-96 bg-paper border border-ink/15 rounded-lg p-6 text-ink focus:outline-none focus:border-sel/50 resize-y font-mono text-sm"
+            className="w-full h-96 bg-paper border border-ink/15 rounded-lg p-6 text-ink focus:outline-none focus:border-sel/50 resize-y font-sans font-semibold text-sm"
           />
 
           <div className="pt-4 flex justify-center">

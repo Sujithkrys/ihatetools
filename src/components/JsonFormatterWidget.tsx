@@ -128,7 +128,7 @@ export function JsonFormatterWidget() {
             onChange={(e) => { setInput(e.target.value); setErrorMsg(""); }}
             placeholder='Paste your JSON here...&#10;&#10;{&#10;  "hello": "world"&#10;}'
             className={cn(
-              "w-full min-h-[400px] p-4 sm:p-6 bg-transparent text-ink focus:outline-none resize-y font-mono text-sm leading-relaxed whitespace-pre",
+              "w-full min-h-[400px] p-4 sm:p-6 bg-transparent text-ink focus:outline-none resize-y font-sans font-semibold text-sm leading-relaxed whitespace-pre",
               errorMsg ? "border-error/30 bg-error/5" : ""
             )}
             spellCheck={false}
@@ -136,7 +136,7 @@ export function JsonFormatterWidget() {
           {errorMsg && (
             <div className="absolute bottom-4 left-4 right-4 bg-error/10 border border-error/50 rounded-md p-3 flex items-start gap-2">
               <AlertTriangle className="w-5 h-5 text-error shrink-0 mt-0.5" />
-              <p className="text-sm text-error font-mono break-words">{errorMsg}</p>
+              <p className="text-sm text-error font-sans font-semibold break-words">{errorMsg}</p>
             </div>
           )}
         </div>

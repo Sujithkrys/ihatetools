@@ -140,7 +140,7 @@ export function ImageToBase64Widget() {
               <textarea
                 readOnly
                 value={base64Str}
-                className="w-full h-48 bg-bg border border-ink/15 rounded-md p-4 text-grey font-mono text-xs focus:outline-none resize-none break-all"
+                className="w-full h-48 bg-bg border border-ink/15 rounded-md p-4 text-grey font-sans font-semibold text-xs focus:outline-none resize-none break-all"
               />
               <p className="text-xs text-grey">
                 Length: {base64Str.length.toLocaleString()} characters
