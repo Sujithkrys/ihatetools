@@ -20,10 +20,9 @@ export function NavBar({ onLogoClick }: NavBarProps) {
   ];
 
   return (
-    <>
+    <header className="site-header border-b border-ink/[0.08] bg-paper sticky top-0 z-40">
       <Ruler />
-      <header className="site-header border-b border-ink/[0.08] bg-paper sticky top-0 z-40">
-        <div className="nav-in">
+      <div className="nav-in">
           <button
             type="button"
             onClick={onLogoClick}
@@ -60,6 +59,5 @@ export function NavBar({ onLogoClick }: NavBarProps) {
           </nav>
         </div>
       </header>
-    </>
   );
 }
