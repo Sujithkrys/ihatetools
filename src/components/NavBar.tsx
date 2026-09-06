@@ -5,11 +5,13 @@ import { usePathname } from "next/navigation";
 import { SearchBar } from "./SearchBar";
 import { ThemeToggle } from "./ThemeToggle";
 import { Ruler } from "./Ruler";
-import { useSidebar } from "./SidebarContext";
 
-export function NavBar() {
+interface NavBarProps {
+  onLogoClick?: () => void;
+}
+
+export function NavBar({ onLogoClick }: NavBarProps) {
   const pathname = usePathname();
-  const { toggleSidebar } = useSidebar();
 
   const links = [
     { href: "/", label: "Home" },
@@ -21,10 +23,10 @@ export function NavBar() {
     <>
       <Ruler />
       <header className="site-header border-b border-ink/[0.08] bg-paper sticky top-0 z-40">
-        <div className="nav-in w-full px-[24px] h-[58px] flex items-center gap-[22px]">
+        <div className="nav-in">
           <button
             type="button"
-            onClick={toggleSidebar}
+            onClick={onLogoClick}
             className="logo text-ink shrink-0 cursor-pointer text-left hover:opacity-85 transition-opacity"
             title="Toggle sidebar"
             aria-label="Toggle sidebar"

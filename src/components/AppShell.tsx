@@ -1,36 +1,60 @@
-"use client";
+'use client';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import Sidebar from './Sidebar';
+import { NavBar } from './NavBar';
 
-import React, { ReactNode } from "react";
-import { AppSidebar } from "./AppSidebar";
-import { SidebarProvider, useSidebar } from "./SidebarContext";
+const STORAGE_KEY = 'ihatetools-sidebar-open';
+const BREAKPOINT = 1024;
 
-function ShellInner({ children }: { children: ReactNode }) {
-  const { sidebarOpen, closeSidebar, isMobile } = useSidebar();
+export default function AppShell({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored !== null) setOpen(stored === 'true');
+
+    function checkWidth() {
+      setIsMobile(window.innerWidth < BREAKPOINT);
+    }
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
+
+  function toggle() {
+    setOpen((prev) => {
+      const next = !prev;
+      localStorage.setItem(STORAGE_KEY, String(next));
+      return next;
+    });
+  }
+
+  function close() {
+    setOpen(false);
+    localStorage.setItem(STORAGE_KEY, 'false');
+  }
+
+  // Render closed until mounted to avoid SSR/localStorage mismatch flash
+  const sidebarOpen = mounted ? open : false;
 
   return (
     <div className="app-shell">
-      <AppSidebar />
-
-      {/* Backdrop rendered ONLY below 1024px when sidebar is open */}
-      {isMobile && sidebarOpen && (
-        <div
-          onClick={closeSidebar}
-          className="fixed inset-0 bg-black/60 z-40 backdrop-blur-[2px] transition-opacity cursor-pointer"
-          aria-label="Close sidebar backdrop"
-        />
+      <Sidebar open={sidebarOpen} onClose={close} currentPath={pathname} />
+      {mounted && isMobile && sidebarOpen && (
+        <div className="backdrop" onClick={close} />
       )}
-
-      <div className="app-main flex flex-col min-h-screen">
+      <div className="app-main">
+        {/* Your existing NavBar goes here — pass toggle as the logo's onClick */}
+        <NavBar onLogoClick={toggle} />
         {children}
       </div>
     </div>
   );
 }
 
-export function AppShell({ children }: { children: ReactNode }) {
-  return (
-    <SidebarProvider>
-      <ShellInner>{children}</ShellInner>
-    </SidebarProvider>
-  );
-}
+export { AppShell };

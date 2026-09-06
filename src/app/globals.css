@@ -77,31 +77,22 @@
     transform: translateY(-2px);
   }
 
-  /* Push-layout Sidebar & App Shell */
-  .app-shell {
-    display: flex;
-    min-height: 100vh;
-  }
-
+  /* shell + sidebar layout */
+  .app-shell { display: flex; min-height: 100vh; }
   .app-sidebar {
     width: 0;
     overflow: hidden;
     flex-shrink: 0;
-    background: #111212; /* dark sidebar in BOTH themes */
-    transition: width .22s ease;
+    background: #111212;
+    transition: width 0.22s ease;
     position: sticky;
     top: 0;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
-
-  .app-sidebar[data-open="true"] {
-    width: 272px;
-  }
-
-  .app-main {
-    flex: 1;
-    min-width: 0; /* min-width:0 prevents flex overflow issues */
-  }
+  .app-sidebar[data-open="true"] { width: 272px; }
+  .app-main { flex: 1; min-width: 0; }
 
   @media (max-width: 1024px) {
     .app-sidebar {
@@ -109,16 +100,85 @@
       inset: 0 auto 0 0;
       z-index: 50;
       width: 272px;
-      height: 100vh;
       transform: translateX(-100%);
-      transition: transform .2s ease;
+      transition: transform 0.2s ease;
     }
-    .app-sidebar[data-open="true"] {
-      transform: translateX(0);
-    }
-    .app-main {
-      margin-left: 0 !important; /* never push on small screens */
-    }
+    .app-sidebar[data-open="true"] { transform: translateX(0); }
+  }
+
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 18, 18, 0.45);
+    z-index: 40;
+  }
+
+  /* sidebar internals — exact values, do not adjust */
+  .sb-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .sb-logo {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    font-size: 17px;
+    color: #F3F1ED;
+  }
+  .sb-close {
+    background: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    color: #F3F1ED;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sb-close:hover { border-color: #ffffff; }
+  .sb-list { flex: 1; overflow-y: auto; padding: 14px 10px; }
+  .sb-cat {
+    font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 4px 9px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 14px 0 8px 8px;
+  }
+  .sb-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #D8D5CF;
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: 1px;
+  }
+  .sb-item:hover { background: rgba(255, 255, 255, 0.06); color: #ffffff; }
+  .sb-item.active { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
+  .sb-icon {
+    width: 16px; height: 16px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* nav alignment fix — full width, fixed padding, NOT centered max-width */
+  .nav-in {
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 58px;
   }
 
   /* Logo + Nav links Inter Display Treatment */
@@ -137,53 +197,6 @@
   /* Soften the border under the nav (8% hairline) */
   header.site-header {
     border-bottom: 1px solid rgb(var(--color-ink) / 0.08);
-  }
-
-  .nav-in {
-    width: 100%;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-  }
-
-  /* Sidebar Item Styles */
-  .sb-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 7px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-    color: #A19E98;
-    text-decoration: none;
-    transition: all 0.15s ease;
-  }
-
-  .sb-item:hover {
-    color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.06);
-  }
-
-  .sb-item.active {
-    color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.12);
-    font-weight: 500;
-    border-left: 2px solid rgb(var(--color-sel));
-  }
-
-  .sb-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    color: #A19E98;
-  }
-
-  .sb-item:hover .sb-icon,
-  .sb-item.active .sb-icon {
-    color: #FFFFFF;
   }
 }
 

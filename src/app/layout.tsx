@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Caveat } from "next/font/google";
 import "./globals.css";
-import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { AppShell } from "@/components/AppShell";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -44,7 +43,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AppShell>
-            <NavBar />
             <main className="flex-1">
               {children}
             </main>
