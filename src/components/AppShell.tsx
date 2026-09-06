@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
 import { NavBar } from './NavBar';
+import { HeadingStyleProvider } from './HeadingStyleContext';
 
 const STORAGE_KEY = 'ihatetools-sidebar-open';
 const BREAKPOINT = 1024;
@@ -43,17 +44,19 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const sidebarOpen = mounted ? open : false;
 
   return (
-    <div className="app-shell">
-      <Sidebar open={sidebarOpen} onClose={close} currentPath={pathname} />
-      {mounted && isMobile && sidebarOpen && (
-        <div className="backdrop" onClick={close} />
-      )}
-      <div className="app-main">
-        {/* Your existing NavBar goes here — pass toggle as the logo's onClick */}
-        <NavBar onLogoClick={toggle} />
-        {children}
+    <HeadingStyleProvider>
+      <div className="app-shell">
+        <Sidebar open={sidebarOpen} onClose={close} currentPath={pathname} />
+        {mounted && isMobile && sidebarOpen && (
+          <div className="backdrop" onClick={close} />
+        )}
+        <div className="app-main">
+          {/* Your existing NavBar goes here — pass toggle as the logo's onClick */}
+          <NavBar onLogoClick={toggle} />
+          {children}
+        </div>
       </div>
-    </div>
+    </HeadingStyleProvider>
   );
 }
 

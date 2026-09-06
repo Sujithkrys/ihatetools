@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { type ToolCategory } from "@/lib/tools-data";
 import { TransformChip } from "./TransformChip";
+import { ToolCardTitle } from "./ToolCardTitle";
 
 interface ToolCardProps {
   beforeText?: string;
@@ -11,12 +12,13 @@ interface ToolCardProps {
   description: string;
   href: string;
   category: ToolCategory;
+  [key: string]: unknown;
 }
 
 export function ToolCard({ beforeText, afterText, arrowText, isStacked, name, description, href, category }: ToolCardProps) {
-  let hoverBorderClass = "hover:border-yellow";
-  if (category === "Image Tools") hoverBorderClass = "hover:border-cyan";
-  else if (category === "Text Tools") hoverBorderClass = "hover:border-violet";
+  let hoverBorderClass = "hover:border-[#8B4E1F]";
+  if (category === "Image Tools") hoverBorderClass = "hover:border-[#1E4E72]";
+  else if (category === "Text Tools") hoverBorderClass = "hover:border-[#533A6B]";
 
   return (
     <Link 
@@ -30,7 +32,7 @@ export function ToolCard({ beforeText, afterText, arrowText, isStacked, name, de
         isStacked={isStacked} 
         category={category} 
       />
-      <h3 className="disp text-[19px] mb-[7px] text-ink">{name}</h3>
+      <ToolCardTitle name={name} />
       <p className="text-[13.5px] leading-[1.55] text-grey tracking-[-0.005em] line-clamp-2">{description}</p>
     </Link>
   );

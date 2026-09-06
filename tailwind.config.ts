@@ -24,6 +24,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         handwriting: ["var(--font-caveat)", "cursive"],
+        kalam: ["var(--font-kalam)", "cursive"],
       },
       boxShadow: {
         hard: "none",

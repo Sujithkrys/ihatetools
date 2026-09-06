@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
 import { Frame } from "@/components/Frame";
 import { SelectedText } from "@/components/SelectedText";
+import { CategorySectionHeader } from "@/components/CategorySectionHeader";
 import { TOOLS } from "@/lib/tools-data";
 
 export const metadata: Metadata = {
@@ -70,10 +71,7 @@ export default function Home() {
 
       {/* ======== PDF TOOLS ======== */}
       <Frame label="PDF Tools" labelColor="yellow">
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-yellow text-[#111212]">PDF</span>
-          <h2 className="disp text-[36px]">PDF, sorted.</h2>
-        </div>
+        <CategorySectionHeader category="pdf" tag="PDF" title="PDF, sorted." />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
           {pdfTools.map((tool) => (
             <ToolCard key={tool.id} {...tool} />
@@ -83,10 +81,7 @@ export default function Home() {
 
       {/* ======== IMAGE TOOLS ======== */}
       <Frame label="Image Tools" labelColor="cyan">
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-cyan text-[#111212]">Image</span>
-          <h2 className="disp text-[36px]">Images, handled.</h2>
-        </div>
+        <CategorySectionHeader category="image" tag="Image" title="Images, handled." />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
           {imageTools.map((tool) => (
             <ToolCard key={tool.id} {...tool} />
@@ -96,10 +91,7 @@ export default function Home() {
 
       {/* ======== TEXT TOOLS ======== */}
       <Frame label="Text & Dev" labelColor="violet">
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-violet text-[#111212]">Text</span>
-          <h2 className="disp text-[36px]">Text utilities.</h2>
-        </div>
+        <CategorySectionHeader category="text" tag="Text" title="Text utilities." />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
           {textTools.map((tool) => (
             <ToolCard key={tool.id} {...tool} />
