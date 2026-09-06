@@ -64,7 +64,7 @@ export function TextDiffCheckerWidget() {
                 value={text1}
                 onChange={(e) => setText1(e.target.value)}
                 placeholder="Paste original text here..."
-                className="w-full min-h-[400px] p-4 bg-transparent text-ink focus:outline-none resize-y font-sans font-semibold text-sm leading-relaxed"
+                className="w-full min-h-[400px] p-4 bg-transparent text-ink focus:outline-none resize-y code-mono text-sm leading-relaxed"
                 spellCheck={false}
               />
             </div>
@@ -76,7 +76,7 @@ export function TextDiffCheckerWidget() {
                 value={text2}
                 onChange={(e) => setText2(e.target.value)}
                 placeholder="Paste changed text here..."
-                className="w-full min-h-[400px] p-4 bg-transparent text-ink focus:outline-none resize-y font-sans font-semibold text-sm leading-relaxed"
+                className="w-full min-h-[400px] p-4 bg-transparent text-ink focus:outline-none resize-y code-mono text-sm leading-relaxed"
                 spellCheck={false}
               />
             </div>
@@ -94,7 +94,7 @@ export function TextDiffCheckerWidget() {
                 Edit Texts
               </button>
             </div>
-            <div className="p-4 overflow-x-auto whitespace-pre-wrap font-sans font-semibold text-sm leading-relaxed">
+            <div className="p-4 overflow-x-auto whitespace-pre-wrap code-mono text-sm leading-relaxed">
               {diffResult.map((part, index) => {
                 return (
                   <span

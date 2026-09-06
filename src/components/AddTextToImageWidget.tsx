@@ -276,7 +276,7 @@ export function AddTextToImageWidget() {
                     type="text" 
                     value={color} 
                     onChange={(e) => setColor(e.target.value)}
-                    className="flex-1 bg-bg border border-ink/15 rounded-md px-4 py-3 text-ink focus:outline-none focus:border-sel font-sans font-semibold uppercase"
+                    className="flex-1 bg-bg border border-ink/15 rounded-md px-4 py-3 text-ink focus:outline-none focus:border-sel code-mono uppercase"
                   />
                 </div>
               </div>

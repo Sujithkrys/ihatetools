@@ -69,7 +69,7 @@ export function Base64ToImageWidget() {
               onChange={(e) => setBase64Input(e.target.value)}
               placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
               className={cn(
-                "w-full h-48 bg-bg border rounded-md p-4 text-ink font-sans font-semibold text-xs focus:outline-none focus:border-sel resize-none",
+                "w-full h-48 bg-bg border rounded-md p-4 text-ink code-mono text-xs focus:outline-none focus:border-sel resize-none",
                 errorMsg ? "border-error/50" : "border-ink/15"
               )}
             />
