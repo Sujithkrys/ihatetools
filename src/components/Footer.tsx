@@ -12,13 +12,13 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.07em] mb-[10px] text-ink">Tools</h4>
+            <h4 className="font-sans font-semibold text-[10px] uppercase tracking-[0.07em] mb-[10px] text-ink">Tools</h4>
             <Link href="/tools/pdf" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">PDF Tools</Link>
             <Link href="/tools/image" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">Image Tools</Link>
             <Link href="/tools/text" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">Text Tools</Link>
           </div>
           <div>
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.07em] mb-[10px] text-ink">Legal</h4>
+            <h4 className="font-sans font-semibold text-[10px] uppercase tracking-[0.07em] mb-[10px] text-ink">Legal</h4>
             <Link href="/privacy" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">Terms</Link>
             <Link href="/about" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">About</Link>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Caveat } from "next/font/google";
+import { Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { AppShell } from "@/components/AppShell";
@@ -8,12 +8,6 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 const inter = Inter({ 
   subsets: ["latin"], 
   variable: "--font-inter",
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"], 
-  variable: "--font-jetbrains-mono",
   display: 'swap',
 });
 
@@ -35,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} ${caveat.variable} min-h-screen flex flex-col bg-bg text-ink antialiased`}>
+      <body className={`${inter.variable} ${caveat.variable} min-h-screen flex flex-col bg-bg text-ink antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

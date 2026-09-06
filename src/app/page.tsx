@@ -21,10 +21,10 @@ export default function Home() {
       {/* ======== HERO ======== */}
       <Frame label="Hero" labelColor="yellow" showDim dimText="1120 × 420">
         {/* Stickers */}
-        <div className="sticker absolute top-[52px] left-[14px] font-mono text-[10px] font-medium tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-yellow -rotate-[5deg] hidden md:block z-10">
+        <div className="sticker absolute top-[52px] left-[14px] font-sans font-semibold text-[10px] tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-yellow -rotate-[5deg] hidden md:block z-10">
           no sign-up
         </div>
-        <div className="sticker absolute top-[96px] right-[16px] font-mono text-[10px] font-medium tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-cyan rotate-[5deg] hidden md:block z-10">
+        <div className="sticker absolute top-[96px] right-[16px] font-sans font-semibold text-[10px] tracking-[0.05em] uppercase px-[11px] py-[6px] border-[1.5px] border-ink rounded-[5px] bg-cyan rotate-[5deg] hidden md:block z-10">
           no watermark
         </div>
 
@@ -71,7 +71,7 @@ export default function Home() {
       {/* ======== PDF TOOLS ======== */}
       <Frame label="PDF Tools" labelColor="yellow">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-yellow">PDF</span>
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-yellow">PDF</span>
           <h2 className="disp text-[36px]">PDF, sorted.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
@@ -84,7 +84,7 @@ export default function Home() {
       {/* ======== IMAGE TOOLS ======== */}
       <Frame label="Image Tools" labelColor="cyan">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-cyan">Image</span>
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-cyan">Image</span>
           <h2 className="disp text-[36px]">Images, handled.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
@@ -97,7 +97,7 @@ export default function Home() {
       {/* ======== TEXT TOOLS ======== */}
       <Frame label="Text & Dev" labelColor="violet">
         <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-mono text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-violet">Text</span>
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-violet">Text</span>
           <h2 className="disp text-[36px]">Text utilities.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">

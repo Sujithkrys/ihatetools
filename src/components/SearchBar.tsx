@@ -82,7 +82,7 @@ export function SearchBar() {
                     className="flex items-start gap-3 px-4 py-3 hover:bg-bg transition-colors border-b border-ink/10 last:border-b-0"
                   >
                     {tool.beforeText && (
-                      <span className="font-mono text-[9px] text-grey border-[1.5px] border-ink rounded-[4px] px-1.5 py-1 bg-bg shrink-0 mt-0.5">
+                      <span className="font-sans font-semibold text-[9px] text-grey border-[1.5px] border-ink rounded-[4px] px-1.5 py-1 bg-bg shrink-0 mt-0.5">
                         {tool.beforeText}
                       </span>
                     )}

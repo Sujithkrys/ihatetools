@@ -25,7 +25,7 @@ export function Ruler() {
   }, []);
 
   return (
-    <div className="h-[22px] border-b border-[#E2E0DC] dark:border-ink/20 bg-paper relative overflow-hidden font-mono text-[8px] text-[#B9B6B1] dark:text-grey hidden sm:block select-none pointer-events-none">
+    <div className="h-[22px] border-b border-[#E2E0DC] dark:border-ink/20 bg-paper relative overflow-hidden font-sans font-semibold text-[8px] text-[#B9B6B1] dark:text-grey hidden sm:block select-none pointer-events-none">
       <div 
         id="site-ruler" 
         ref={rulerRef} 
