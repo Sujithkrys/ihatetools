@@ -240,6 +240,42 @@
   header.site-header {
     border-bottom: 1px solid rgb(var(--color-ink) / 0.08);
   }
+
+  /* Tool Card Soft-Circle Icon Badges */
+  .badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+  .badge-pdf {
+    background: rgba(139, 78, 31, 0.12);
+    color: #8B4E1F;
+  }
+  .badge-img {
+    background: rgba(30, 78, 114, 0.12);
+    color: #1E4E72;
+  }
+  .badge-txt {
+    background: rgba(83, 58, 107, 0.12);
+    color: #533A6B;
+  }
+
+  .dark .badge-pdf {
+    background: rgba(245, 194, 66, 0.18);
+    color: #F5C242;
+  }
+  .dark .badge-img {
+    background: rgba(91, 200, 232, 0.18);
+    color: #5BC8E8;
+  }
+  .dark .badge-txt {
+    background: rgba(155, 138, 230, 0.18);
+    color: #9B8AE6;
+  }
 }
 
 @keyframes reveal-result {
