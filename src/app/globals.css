@@ -20,13 +20,13 @@
     --color-ink: 230 228 221;
     --color-paper: 26 28 30;
     --color-bg: 13 14 15;
-    --color-pink: 239 105 146;
-    --color-yellow: 248 214 116;
-    --color-cyan: 136 215 240;
-    --color-green: 96 206 167;
-    --color-violet: 183 171 237;
+    --color-pink: 232 51 109;
+    --color-yellow: 245 194 66;
+    --color-cyan: 91 200 232;
+    --color-green: 47 181 132;
+    --color-violet: 155 138 230;
     --color-grey: 161 158 152;
-    --color-sel: 75 178 255;
+    --color-sel: 13 153 255;
   }
 
   body {

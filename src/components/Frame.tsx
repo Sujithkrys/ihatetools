@@ -29,7 +29,7 @@ export function Frame({ label, labelColor = "yellow", showDim, dimText, children
       <CornerHandles size={8} />
       
       {showDim && (
-        <span className="hidden md:inline-block absolute bottom-[-11px] left-1/2 -translate-x-1/2 bg-sel text-paper font-sans font-semibold text-[9px] px-[7px] py-[2px] rounded-[3px] whitespace-nowrap">
+        <span className="hidden md:inline-block absolute bottom-[-11px] left-1/2 -translate-x-1/2 bg-sel text-white font-sans font-semibold text-[9px] px-[7px] py-[2px] rounded-[3px] whitespace-nowrap">
           {dimText || "1120 × 420"}
         </span>
       )}
