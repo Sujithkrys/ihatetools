@@ -154,6 +154,12 @@
     margin: 14px 0 8px 8px;
   }
 
+  .blk {
+    background: rgb(var(--color-paper));
+    border: 1.5px solid rgb(var(--color-ink));
+    box-shadow: none;
+  }
+
   .priv {
     display: inline-flex;
     align-items: center;
@@ -164,7 +170,7 @@
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    background: var(--color-green, #C6EBDA);
+    background: rgb(var(--color-green));
     color: #fff;
     border: 1.5px solid rgb(var(--color-ink));
     border-radius: 5px;
