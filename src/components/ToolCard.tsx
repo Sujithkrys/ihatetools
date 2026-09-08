@@ -21,6 +21,9 @@ export function ToolCard({ name, description, href, category, icon: Icon }: Tool
   } else if (category === "Text Tools") {
     hoverBorderClass = "hover:border-violet";
     badgeClass = "badge-txt";
+  } else if (category === "Audio Tools") {
+    hoverBorderClass = "hover:border-amber-500";
+    badgeClass = "badge-aud";
   }
 
   return (

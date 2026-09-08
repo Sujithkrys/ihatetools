@@ -7,12 +7,14 @@ import { TOOLS } from '@/lib/tools-data';
 const CATEGORY_STYLES: Record<string, { label: string; bg: string; color: string }> = {
   pdf:   { label: 'PDF Tools',   bg: '#F5C242', color: '#2A2200' },
   image: { label: 'Image Tools', bg: '#5BC8E8', color: '#00232B' },
+  audio: { label: 'Audio Tools', bg: '#FF8A65', color: '#3E1500' },
   text:  { label: 'Text & Dev',  bg: '#9B8AE6', color: '#1E1240' },
 };
 
 const CATEGORY_MAP: Record<string, string> = {
   pdf: 'PDF Tools',
   image: 'Image Tools',
+  audio: 'Audio Tools',
   text: 'Text Tools',
 };
 

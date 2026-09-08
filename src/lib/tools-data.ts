@@ -38,10 +38,13 @@ import {
   CheckSquare,
   Receipt,
   Briefcase,
+  Scissors,
+  Repeat,
+  Volume2,
   LucideIcon
 } from "lucide-react";
 
-export type ToolCategory = "PDF Tools" | "Image Tools" | "Text Tools";
+export type ToolCategory = "PDF Tools" | "Image Tools" | "Text Tools" | "Audio Tools";
 
 export interface ToolData {
   id: string;
@@ -528,5 +531,45 @@ export const TOOLS: ToolData[] = [
     icon: Diff,
     href: "/tools/text-diff",
     category: "Text Tools"
+  },
+  {
+    id: "audio-trimmer",
+    name: "Audio Trimmer",
+    description: "Cut and trim audio tracks with interactive waveform precision.",
+    icon: Scissors,
+    href: "/tools/audio-trimmer",
+    category: "Audio Tools"
+  },
+  {
+    id: "audio-converter",
+    name: "Audio Format Converter",
+    description: "Convert audio between MP3, WAV, AAC, and OGG formats client-side.",
+    icon: Repeat,
+    href: "/tools/audio-converter",
+    category: "Audio Tools"
+  },
+  {
+    id: "audio-compressor",
+    name: "Audio Compressor",
+    description: "Reduce audio file sizes with honest before & after metrics.",
+    icon: Minimize2,
+    href: "/tools/audio-compressor",
+    category: "Audio Tools"
+  },
+  {
+    id: "text-to-speech",
+    name: "Text to Speech",
+    description: "Synthesize natural speech from text using native on-device voices.",
+    icon: Volume2,
+    href: "/tools/text-to-speech",
+    category: "Audio Tools"
+  },
+  {
+    id: "merge-audio",
+    name: "Merge Audio Files",
+    description: "Combine multiple audio clips into one continuous track.",
+    icon: Layers,
+    href: "/tools/merge-audio",
+    category: "Audio Tools"
   }
 ];

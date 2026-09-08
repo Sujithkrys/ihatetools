@@ -263,6 +263,10 @@
     background: rgba(83, 58, 107, 0.12);
     color: #533A6B;
   }
+  .badge-aud {
+    background: rgba(194, 73, 20, 0.12);
+    color: #C24914;
+  }
 
   .dark .badge-pdf {
     background: rgba(245, 194, 66, 0.18);
@@ -275,6 +279,10 @@
   .dark .badge-txt {
     background: rgba(155, 138, 230, 0.18);
     color: #9B8AE6;
+  }
+  .dark .badge-aud {
+    background: rgba(255, 138, 101, 0.18);
+    color: #FF8A65;
   }
 }
 
