@@ -12,7 +12,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const pdfTools = TOOLS.filter(t => t.category === "PDF Tools");
+  const audioTools = TOOLS.filter(t => t.category === "Audio Tools");
   const imageTools = TOOLS.filter(t => t.category === "Image Tools");
+  const utilityTools = TOOLS.filter(t => t.category === "Utility Tools");
   const textTools = TOOLS.filter(t => t.category === "Text Tools");
 
   return (
@@ -61,9 +63,9 @@ export default function Home() {
           </div>
           {/* Block 3 */}
           <div className="blk border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper mr-0 md:mr-[22%]">
-            <span className="absolute top-[34px] right-[-30%] font-handwriting text-[19px] text-grey whitespace-nowrap -rotate-[3deg] hidden lg:block">→ 40+ and counting</span>
+            <span className="absolute top-[34px] right-[-30%] font-handwriting text-[19px] text-grey whitespace-nowrap -rotate-[3deg] hidden lg:block">→ 60+ and counting</span>
             <h3 className="disp text-[23px] mb-[9px]">One place for all of it</h3>
-            <SelectedText className="mt-[6px]">PDF, image and text tools together, so you&apos;re not hunting for a new site every time.</SelectedText>
+            <SelectedText className="mt-[6px]">PDF, image, audio, utility, and text tools together, so you&apos;re not hunting for a new site every time.</SelectedText>
           </div>
         </div>
       </Frame>
@@ -81,6 +83,19 @@ export default function Home() {
         </div>
       </Frame>
 
+      {/* ======== AUDIO TOOLS ======== */}
+      <Frame label="Audio Tools" labelColor="yellow" showBorder={false}>
+        <div className="flex items-baseline gap-[14px] mb-[30px]">
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-amber-400 text-[#111212]">Audio</span>
+          <h2 className="disp text-[36px]">Audio, mastered.</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
+          {audioTools.map((tool) => (
+            <ToolCard key={tool.id} {...tool} />
+          ))}
+        </div>
+      </Frame>
+
       {/* ======== IMAGE TOOLS ======== */}
       <Frame label="Image Tools" labelColor="cyan" showBorder={false}>
         <div className="flex items-baseline gap-[14px] mb-[30px]">
@@ -89,6 +104,19 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
           {imageTools.map((tool) => (
+            <ToolCard key={tool.id} {...tool} />
+          ))}
+        </div>
+      </Frame>
+
+      {/* ======== UTILITY TOOLS ======== */}
+      <Frame label="Utility Tools" labelColor="cyan" showBorder={false}>
+        <div className="flex items-baseline gap-[14px] mb-[30px]">
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-emerald-400 text-[#111212]">Utility</span>
+          <h2 className="disp text-[36px]">Everyday utilities.</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
+          {utilityTools.map((tool) => (
             <ToolCard key={tool.id} {...tool} />
           ))}
         </div>

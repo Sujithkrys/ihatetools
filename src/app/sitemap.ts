@@ -15,6 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools',
     '/tools/pdf',
     '/tools/image',
+    '/tools/audio',
+    '/tools/utility',
+    '/tools/text',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

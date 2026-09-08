@@ -14,7 +14,9 @@ export function Footer() {
           <div>
             <h4 className="font-sans font-semibold text-[10px] uppercase tracking-[0.07em] mb-[10px] text-ink">Tools</h4>
             <Link href="/tools/pdf" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">PDF Tools</Link>
+            <Link href="/tools/audio" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">Audio Tools</Link>
             <Link href="/tools/image" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">Image Tools</Link>
+            <Link href="/tools/utility" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">Utility Tools</Link>
             <Link href="/tools/text" className="block text-[13.5px] text-grey no-underline mb-[6px] tracking-[-0.01em] hover:text-ink transition-colors">Text Tools</Link>
           </div>
           <div>
