@@ -34,6 +34,10 @@ import {
   Target,
   Binary,
   FileText,
+  PenTool,
+  CheckSquare,
+  Receipt,
+  Briefcase,
   LucideIcon
 } from "lucide-react";
 
@@ -317,6 +321,46 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: ImagePlay,
     href: "/tools/pdf-to-png",
+    category: "PDF Tools"
+  },
+  {
+    id: "sign-pdf",
+    name: "Sign PDF",
+    description: "Draw or type your signature and position it on any PDF page.",
+    icon: PenTool,
+    href: "/tools/sign-pdf",
+    category: "PDF Tools"
+  },
+  {
+    id: "fill-pdf-form",
+    name: "Fill PDF Form",
+    description: "Inspect and fill interactive PDF AcroForm fields easily.",
+    icon: CheckSquare,
+    href: "/tools/fill-pdf-form",
+    category: "PDF Tools"
+  },
+  {
+    id: "invoice-generator",
+    name: "Invoice Generator",
+    description: "Create and download clean, professional PDF invoices instantly.",
+    icon: Receipt,
+    href: "/tools/invoice-generator",
+    category: "PDF Tools"
+  },
+  {
+    id: "resume-builder",
+    name: "Resume Builder",
+    description: "Build a clean, recruiter-friendly ATS-optimized PDF resume.",
+    icon: Briefcase,
+    href: "/tools/resume-builder",
+    category: "PDF Tools"
+  },
+  {
+    id: "redact-pdf",
+    name: "Redact PDF",
+    description: "Permanently blackout sensitive text and data with zero leakage.",
+    icon: EyeOff,
+    href: "/tools/redact-pdf",
     category: "PDF Tools"
   },
   {
