@@ -46,6 +46,11 @@ import {
   CopyCheck,
   GitCompare,
   KeyRound,
+  Fingerprint,
+  Hash,
+  Link2,
+  FileCode,
+  Clock,
   LucideIcon
 } from "lucide-react";
 
@@ -615,6 +620,46 @@ export const TOOLS: ToolData[] = [
     description: "Generate strong cryptographic passwords with custom entropy rules.",
     icon: KeyRound,
     href: "/tools/password-generator",
+    category: "Utility Tools"
+  },
+  {
+    id: "uuid-generator",
+    name: "UUID Generator",
+    description: "Generate RFC 4122 version 4 UUIDs individually or in bulk with zero latency.",
+    icon: Fingerprint,
+    href: "/tools/uuid-generator",
+    category: "Utility Tools"
+  },
+  {
+    id: "hash-generator",
+    name: "Hash Generator",
+    description: "Generate MD5, SHA-1, SHA-256, and SHA-512 cryptographic hashes for text and files.",
+    icon: Hash,
+    href: "/tools/hash-generator",
+    category: "Utility Tools"
+  },
+  {
+    id: "url-encoder-decoder",
+    name: "URL Encoder / Decoder",
+    description: "Encode and decode URLs, query strings, and URI components with parameter breakdown.",
+    icon: Link2,
+    href: "/tools/url-encoder-decoder",
+    category: "Utility Tools"
+  },
+  {
+    id: "markdown-previewer",
+    name: "Markdown Previewer",
+    description: "Edit Markdown with live synchronized preview, syntax shortcuts, and HTML export.",
+    icon: FileCode,
+    href: "/tools/markdown-previewer",
+    category: "Utility Tools"
+  },
+  {
+    id: "timestamp-converter",
+    name: "Timestamp Converter",
+    description: "Convert Unix epoch timestamps to human dates and parse calendar dates into seconds/ms.",
+    icon: Clock,
+    href: "/tools/timestamp-converter",
     category: "Utility Tools"
   }
 ];
