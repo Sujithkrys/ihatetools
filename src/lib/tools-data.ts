@@ -41,10 +41,15 @@ import {
   Scissors,
   Repeat,
   Volume2,
+  Barcode,
+  FileEdit,
+  CopyCheck,
+  GitCompare,
+  KeyRound,
   LucideIcon
 } from "lucide-react";
 
-export type ToolCategory = "PDF Tools" | "Image Tools" | "Text Tools" | "Audio Tools";
+export type ToolCategory = "PDF Tools" | "Image Tools" | "Text Tools" | "Audio Tools" | "Utility Tools";
 
 export interface ToolData {
   id: string;
@@ -571,5 +576,45 @@ export const TOOLS: ToolData[] = [
     icon: Layers,
     href: "/tools/merge-audio",
     category: "Audio Tools"
+  },
+  {
+    id: "barcode-generator",
+    name: "Barcode Generator",
+    description: "Generate 1D barcodes in Code 128, EAN-13, and UPC formats.",
+    icon: Barcode,
+    href: "/tools/barcode-generator",
+    category: "Utility Tools"
+  },
+  {
+    id: "bulk-file-renamer",
+    name: "Bulk File Renamer",
+    description: "Rename multiple files with sequential numbering and pattern rules.",
+    icon: FileEdit,
+    href: "/tools/bulk-file-renamer",
+    category: "Utility Tools"
+  },
+  {
+    id: "duplicate-file-finder",
+    name: "Duplicate File Finder",
+    description: "Detect identical duplicate files via client-side SHA-256 hashing.",
+    icon: CopyCheck,
+    href: "/tools/duplicate-file-finder",
+    category: "Utility Tools"
+  },
+  {
+    id: "pdf-compare",
+    name: "PDF Compare",
+    description: "Compare text content and editorial revisions between two PDF documents.",
+    icon: GitCompare,
+    href: "/tools/pdf-compare",
+    category: "Utility Tools"
+  },
+  {
+    id: "password-generator",
+    name: "Password Generator",
+    description: "Generate strong cryptographic passwords with custom entropy rules.",
+    icon: KeyRound,
+    href: "/tools/password-generator",
+    category: "Utility Tools"
   }
 ];

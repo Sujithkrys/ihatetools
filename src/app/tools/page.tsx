@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 
 export default function AllToolsPage() {
   const pdfTools = TOOLS.filter(t => t.category === "PDF Tools");
-  const imageTools = TOOLS.filter(t => t.category === "Image Tools");
   const audioTools = TOOLS.filter(t => t.category === "Audio Tools");
+  const imageTools = TOOLS.filter(t => t.category === "Image Tools");
+  const utilityTools = TOOLS.filter(t => t.category === "Utility Tools");
   const textTools = TOOLS.filter(t => t.category === "Text Tools");
 
   return (
@@ -54,6 +55,18 @@ export default function AllToolsPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
           {imageTools.map((tool) => (
+            <ToolCard key={tool.id} {...tool} />
+          ))}
+        </div>
+      </Frame>
+
+      <Frame label="Utility Tools" labelColor="cyan" showBorder={false}>
+        <div className="flex items-baseline gap-[14px] mb-[30px]">
+          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-emerald-400 text-[#111212]">Utility</span>
+          <h2 className="disp text-[36px]">Everyday utilities.</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
+          {utilityTools.map((tool) => (
             <ToolCard key={tool.id} {...tool} />
           ))}
         </div>
