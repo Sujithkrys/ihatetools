@@ -292,6 +292,16 @@
     background: rgba(45, 212, 172, 0.18);
     color: #2DD4AC;
   }
+
+  .sc-pdf { color: #8B4E1F; }
+  .sc-img { color: #1E4E72; }
+  .sc-txt { color: #533A6B; }
+  .sc-aud { color: #9C4A22; }
+
+  .dark .sc-pdf { color: #F5C242; }
+  .dark .sc-img { color: #5BC8E8; }
+  .dark .sc-txt { color: #9B8AE6; }
+  .dark .sc-aud { color: #FF8A65; }
 }
 
 @keyframes reveal-result {
