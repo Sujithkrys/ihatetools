@@ -9,10 +9,10 @@ export default function FaviconGeneratorPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-ink tracking-tight font-sans">
+        <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
           Favicon Generator
         </h1>
-        <p className="text-lg text-grey max-w-2xl mx-auto">
+        <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
           Generate all necessary icon sizes for browsers, Apple Touch, and Android Web Manifests in one click.
         </p>
       </div>

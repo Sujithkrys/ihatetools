@@ -53,7 +53,7 @@ export default function TextToSpeechPage() {
         <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
           Text to Speech
         </h1>
-        <p className="text-grey text-[16px] tracking-[-0.015em]">
+        <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
           Synthesize natural speech from text using your device&apos;s built-in voice engine. 100% on-device and private.
         </p>
       </section>

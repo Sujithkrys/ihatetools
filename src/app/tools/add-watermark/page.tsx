@@ -13,7 +13,7 @@ export default function AddWatermarkPage() {
         <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
           Add Watermark to PDF
         </h1>
-        <p className="text-grey text-[16px] tracking-[-0.015em]">
+        <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
           Stamp custom text across all pages of your document securely and instantly.
         </p>
       </section>

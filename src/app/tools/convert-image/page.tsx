@@ -48,7 +48,7 @@ export default function ConvertImagePage() {
         <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
           Convert Image Format
         </h1>
-        <p className="text-grey text-[16px] tracking-[-0.015em]">
+        <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
           Convert between JPG, PNG, WEBP, and more. 100% secure and local.
         </p>
       </section>

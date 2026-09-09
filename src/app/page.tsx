@@ -11,11 +11,14 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const pdfTools = TOOLS.filter(t => t.category === "PDF Tools");
-  const audioTools = TOOLS.filter(t => t.category === "Audio Tools");
-  const imageTools = TOOLS.filter(t => t.category === "Image Tools");
-  const utilityTools = TOOLS.filter(t => t.category === "Utility Tools");
-  const textTools = TOOLS.filter(t => t.category === "Text Tools");
+  const allPdfTools = TOOLS.filter(t => t.category === "PDF Tools");
+  const featuredPdfTools = allPdfTools.filter(t => t.featured);
+
+  const allImageTools = TOOLS.filter(t => t.category === "Image Tools");
+  const featuredImageTools = allImageTools.filter(t => t.featured);
+
+  const allTextTools = TOOLS.filter(t => t.category === "Text Tools");
+  const featuredTextTools = allTextTools.filter(t => t.featured);
 
   return (
     <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[60px] pb-[80px]">
@@ -77,22 +80,17 @@ export default function Home() {
           <h2 className="disp text-[36px]">PDF, sorted.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {pdfTools.map((tool) => (
+          {featuredPdfTools.map((tool) => (
             <ToolCard key={tool.id} {...tool} />
           ))}
         </div>
-      </Frame>
-
-      {/* ======== AUDIO TOOLS ======== */}
-      <Frame label="Audio Tools" labelColor="yellow" showBorder={false}>
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-amber-400 text-[#111212]">Audio</span>
-          <h2 className="disp text-[36px]">Audio, mastered.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {audioTools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
+        <div className="mt-[32px] text-center">
+          <Link
+            href="/tools/pdf"
+            className="inline-flex items-center gap-[8px] bg-paper text-ink border-[1.5px] border-ink px-[22px] py-[11px] rounded-[8px] font-medium text-[14px] hover:-translate-y-[1px] hover:border-yellow transition-all shadow-xs"
+          >
+            View all {allPdfTools.length} PDF tools →
+          </Link>
         </div>
       </Frame>
 
@@ -103,22 +101,17 @@ export default function Home() {
           <h2 className="disp text-[36px]">Images, handled.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {imageTools.map((tool) => (
+          {featuredImageTools.map((tool) => (
             <ToolCard key={tool.id} {...tool} />
           ))}
         </div>
-      </Frame>
-
-      {/* ======== UTILITY TOOLS ======== */}
-      <Frame label="Utility Tools" labelColor="cyan" showBorder={false}>
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-emerald-400 text-[#111212]">Utility</span>
-          <h2 className="disp text-[36px]">Everyday utilities.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {utilityTools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
+        <div className="mt-[32px] text-center">
+          <Link
+            href="/tools/image"
+            className="inline-flex items-center gap-[8px] bg-paper text-ink border-[1.5px] border-ink px-[22px] py-[11px] rounded-[8px] font-medium text-[14px] hover:-translate-y-[1px] hover:border-cyan transition-all shadow-xs"
+          >
+            View all {allImageTools.length} Image tools →
+          </Link>
         </div>
       </Frame>
 
@@ -129,9 +122,17 @@ export default function Home() {
           <h2 className="disp text-[36px]">Text utilities.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {textTools.map((tool) => (
+          {featuredTextTools.map((tool) => (
             <ToolCard key={tool.id} {...tool} />
           ))}
+        </div>
+        <div className="mt-[32px] text-center">
+          <Link
+            href="/tools/text"
+            className="inline-flex items-center gap-[8px] bg-paper text-ink border-[1.5px] border-ink px-[22px] py-[11px] rounded-[8px] font-medium text-[14px] hover:-translate-y-[1px] hover:border-violet transition-all shadow-xs"
+          >
+            View all {allTextTools.length} Text tools →
+          </Link>
         </div>
       </Frame>
 

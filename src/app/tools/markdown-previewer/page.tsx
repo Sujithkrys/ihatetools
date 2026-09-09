@@ -53,7 +53,7 @@ export default function MarkdownPreviewerPage() {
         <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
           Markdown Previewer
         </h1>
-        <p className="text-grey text-[16px] tracking-[-0.015em]">
+        <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
           Edit Markdown with a synchronized real-time live preview, syntax formatting, and one-click HTML export.
         </p>
       </section>

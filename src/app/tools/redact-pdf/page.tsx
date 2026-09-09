@@ -53,7 +53,7 @@ export default function RedactPdfPage() {
         <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
           Redact PDF
         </h1>
-        <p className="text-grey text-[16px] tracking-[-0.015em]">
+        <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
           Eradicate confidential numbers, identities, and text from PDF pages with true pixel-level sanitization.
         </p>
       </section>

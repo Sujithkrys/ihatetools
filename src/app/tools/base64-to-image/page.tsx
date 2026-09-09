@@ -9,10 +9,10 @@ export default function Base64ToImagePage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-ink tracking-tight font-sans">
+        <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
           Base64 to Image Decoder
         </h1>
-        <p className="text-lg text-grey max-w-2xl mx-auto">
+        <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
           Paste a Base64 string to instantly render and download the image.
         </p>
       </div>

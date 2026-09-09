@@ -67,6 +67,7 @@ export interface ToolData {
   icon: LucideIcon;
   href: string;
   category: ToolCategory;
+  featured: boolean;
 }
 
 export const TOOLS: ToolData[] = [
@@ -80,6 +81,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Layers,
     href: "/tools/merge-pdf",
+    featured: true,
     category: "PDF Tools"
   },
   {
@@ -91,6 +93,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: SplitSquareHorizontal,
     href: "/tools/split-pdf",
+    featured: true,
     category: "PDF Tools"
   },
   {
@@ -102,6 +105,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Minimize2,
     href: "/tools/compress-pdf",
+    featured: true,
     category: "PDF Tools"
   },
   {
@@ -113,6 +117,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Minimize2,
     href: "/tools/compress-image",
+    featured: true,
     category: "Image Tools"
   },
   {
@@ -124,6 +129,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Maximize,
     href: "/tools/resize-image",
+    featured: true,
     category: "Image Tools"
   },
   {
@@ -135,6 +141,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: FileImage,
     href: "/tools/convert-image",
+    featured: true,
     category: "Image Tools"
   },
   {
@@ -146,6 +153,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: LayoutGrid,
     href: "/tools/organize-pdf",
+    featured: true,
     category: "PDF Tools"
   },
   {
@@ -157,6 +165,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: FileImage,
     href: "/tools/pdf-to-jpg",
+    featured: true,
     category: "PDF Tools"
   },
   {
@@ -169,6 +178,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Files,
     href: "/tools/images-to-pdf",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -180,6 +190,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Droplet,
     href: "/tools/add-watermark",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -191,6 +202,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Crop,
     href: "/tools/crop-image",
+    featured: true,
     category: "Image Tools"
   },
   {
@@ -202,6 +214,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: QrCode,
     href: "/tools/qr-code-generator",
+    featured: true,
     category: "Image Tools"
   },
   {
@@ -213,6 +226,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Lock,
     href: "/tools/add-password",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -224,6 +238,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Unlock,
     href: "/tools/remove-password",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -235,6 +250,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: ScanText,
     href: "/tools/ocr-pdf",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -246,6 +262,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: RotateCw,
     href: "/tools/rotate-pdf",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -257,6 +274,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: FileMinus,
     href: "/tools/delete-pdf-pages",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -268,6 +286,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: FileDigit,
     href: "/tools/add-page-numbers",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -279,6 +298,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Tags,
     href: "/tools/pdf-metadata",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -290,6 +310,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: ImagePlay,
     href: "/tools/heic-to-jpg",
+    featured: true,
     category: "Image Tools"
   },
   {
@@ -301,6 +322,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Info,
     href: "/tools/pdf-info",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -312,6 +334,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Type,
     href: "/tools/extract-pdf-text",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -323,6 +346,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: ImageIcon,
     href: "/tools/extract-pdf-images",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -334,6 +358,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: ImagePlay,
     href: "/tools/pdf-to-png",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -342,6 +367,7 @@ export const TOOLS: ToolData[] = [
     description: "Draw or type your signature and position it on any PDF page.",
     icon: PenTool,
     href: "/tools/sign-pdf",
+    featured: true,
     category: "PDF Tools"
   },
   {
@@ -350,6 +376,7 @@ export const TOOLS: ToolData[] = [
     description: "Inspect and fill interactive PDF AcroForm fields easily.",
     icon: CheckSquare,
     href: "/tools/fill-pdf-form",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -358,6 +385,7 @@ export const TOOLS: ToolData[] = [
     description: "Create and download clean, professional PDF invoices instantly.",
     icon: Receipt,
     href: "/tools/invoice-generator",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -366,6 +394,7 @@ export const TOOLS: ToolData[] = [
     description: "Build a clean, recruiter-friendly ATS-optimized PDF resume.",
     icon: Briefcase,
     href: "/tools/resume-builder",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -374,6 +403,7 @@ export const TOOLS: ToolData[] = [
     description: "Permanently blackout sensitive text and data with zero leakage.",
     icon: EyeOff,
     href: "/tools/redact-pdf",
+    featured: false,
     category: "PDF Tools"
   },
   {
@@ -385,6 +415,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Target,
     href: "/tools/compress-image-target-size",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -396,6 +427,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: RotateCw,
     href: "/tools/rotate-image",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -407,6 +439,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: FlipHorizontal,
     href: "/tools/flip-image",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -418,6 +451,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Paintbrush,
     href: "/tools/grayscale-image",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -429,6 +463,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: CircleDashed,
     href: "/tools/round-image",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -440,6 +475,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Type,
     href: "/tools/add-text-to-image",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -451,6 +487,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Code2,
     href: "/tools/image-to-base64",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -462,6 +499,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Binary,
     href: "/tools/base64-to-image",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -473,6 +511,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: Palette,
     href: "/tools/color-palette-extractor",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -484,6 +523,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: AppWindow,
     href: "/tools/favicon-generator",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -495,6 +535,7 @@ export const TOOLS: ToolData[] = [
     arrowText: "→",
     icon: EyeOff,
     href: "/tools/blur-image-region",
+    featured: false,
     category: "Image Tools"
   },
   {
@@ -504,6 +545,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "Aa",
     icon: FileText,
     href: "/tools/word-counter",
+    featured: true,
     category: "Text Tools"
   },
   {
@@ -513,6 +555,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "{ }",
     icon: Braces,
     href: "/tools/json-formatter",
+    featured: true,
     category: "Text Tools"
   },
   {
@@ -522,6 +565,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "Aa",
     icon: CaseUpper,
     href: "/tools/case-converter",
+    featured: true,
     category: "Text Tools"
   },
   {
@@ -531,6 +575,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "Ab",
     icon: AlignLeft,
     href: "/tools/lorem-ipsum-generator",
+    featured: false,
     category: "Text Tools"
   },
   {
@@ -540,6 +585,7 @@ export const TOOLS: ToolData[] = [
     beforeText: "±",
     icon: Diff,
     href: "/tools/text-diff",
+    featured: true,
     category: "Text Tools"
   },
   {
@@ -548,6 +594,7 @@ export const TOOLS: ToolData[] = [
     description: "Cut and trim audio tracks with interactive waveform precision.",
     icon: Scissors,
     href: "/tools/audio-trimmer",
+    featured: true,
     category: "Audio Tools"
   },
   {
@@ -556,6 +603,7 @@ export const TOOLS: ToolData[] = [
     description: "Convert audio between MP3, WAV, AAC, and OGG formats client-side.",
     icon: Repeat,
     href: "/tools/audio-converter",
+    featured: true,
     category: "Audio Tools"
   },
   {
@@ -564,6 +612,7 @@ export const TOOLS: ToolData[] = [
     description: "Reduce audio file sizes with honest before & after metrics.",
     icon: Minimize2,
     href: "/tools/audio-compressor",
+    featured: true,
     category: "Audio Tools"
   },
   {
@@ -572,6 +621,7 @@ export const TOOLS: ToolData[] = [
     description: "Synthesize natural speech from text using native on-device voices.",
     icon: Volume2,
     href: "/tools/text-to-speech",
+    featured: true,
     category: "Audio Tools"
   },
   {
@@ -580,6 +630,7 @@ export const TOOLS: ToolData[] = [
     description: "Combine multiple audio clips into one continuous track.",
     icon: Layers,
     href: "/tools/merge-audio",
+    featured: false,
     category: "Audio Tools"
   },
   {
@@ -588,6 +639,7 @@ export const TOOLS: ToolData[] = [
     description: "Generate 1D barcodes in Code 128, EAN-13, and UPC formats.",
     icon: Barcode,
     href: "/tools/barcode-generator",
+    featured: true,
     category: "Utility Tools"
   },
   {
@@ -596,6 +648,7 @@ export const TOOLS: ToolData[] = [
     description: "Rename multiple files with sequential numbering and pattern rules.",
     icon: FileEdit,
     href: "/tools/bulk-file-renamer",
+    featured: true,
     category: "Utility Tools"
   },
   {
@@ -604,6 +657,7 @@ export const TOOLS: ToolData[] = [
     description: "Detect identical duplicate files via client-side SHA-256 hashing.",
     icon: CopyCheck,
     href: "/tools/duplicate-file-finder",
+    featured: false,
     category: "Utility Tools"
   },
   {
@@ -612,6 +666,7 @@ export const TOOLS: ToolData[] = [
     description: "Compare text content and editorial revisions between two PDF documents.",
     icon: GitCompare,
     href: "/tools/pdf-compare",
+    featured: false,
     category: "Utility Tools"
   },
   {
@@ -620,6 +675,7 @@ export const TOOLS: ToolData[] = [
     description: "Generate strong cryptographic passwords with custom entropy rules.",
     icon: KeyRound,
     href: "/tools/password-generator",
+    featured: true,
     category: "Utility Tools"
   },
   {
@@ -628,6 +684,7 @@ export const TOOLS: ToolData[] = [
     description: "Generate RFC 4122 version 4 UUIDs individually or in bulk with zero latency.",
     icon: Fingerprint,
     href: "/tools/uuid-generator",
+    featured: true,
     category: "Utility Tools"
   },
   {
@@ -636,6 +693,7 @@ export const TOOLS: ToolData[] = [
     description: "Generate MD5, SHA-1, SHA-256, and SHA-512 cryptographic hashes for text and files.",
     icon: Hash,
     href: "/tools/hash-generator",
+    featured: false,
     category: "Utility Tools"
   },
   {
@@ -644,6 +702,7 @@ export const TOOLS: ToolData[] = [
     description: "Encode and decode URLs, query strings, and URI components with parameter breakdown.",
     icon: Link2,
     href: "/tools/url-encoder-decoder",
+    featured: true,
     category: "Utility Tools"
   },
   {
@@ -652,6 +711,7 @@ export const TOOLS: ToolData[] = [
     description: "Edit Markdown with live synchronized preview, syntax shortcuts, and HTML export.",
     icon: FileCode,
     href: "/tools/markdown-previewer",
+    featured: false,
     category: "Utility Tools"
   },
   {
@@ -660,6 +720,7 @@ export const TOOLS: ToolData[] = [
     description: "Convert Unix epoch timestamps to human dates and parse calendar dates into seconds/ms.",
     icon: Clock,
     href: "/tools/timestamp-converter",
+    featured: false,
     category: "Utility Tools"
   }
 ];
