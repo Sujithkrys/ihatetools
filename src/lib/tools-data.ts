@@ -483,7 +483,7 @@ export const TOOLS: ToolData[] = [
     name: "Remove Background",
     description: "Remove the background from your images instantly. 100% private.",
     icon: Scissors,
-    href: "/tools/remove-background",
+    href: "/tools/image/remove-background",
     featured: true,
     category: "Image Tools"
   },
