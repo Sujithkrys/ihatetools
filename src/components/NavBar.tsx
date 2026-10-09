@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SearchBar } from "./SearchBar";
 import { ThemeToggle } from "./ThemeToggle";
 import { Ruler } from "./Ruler";
 
@@ -23,18 +22,6 @@ export function NavBar({ onLogoClick }: NavBarProps) {
     <header className="site-header border-b border-ink/[0.08] bg-paper sticky top-0 z-40">
       <Ruler />
       <div className="nav-in">
-          <button
-            type="button"
-            onClick={onLogoClick}
-            className="logo text-ink shrink-0 cursor-pointer text-left hover:opacity-85 transition-opacity"
-            title="Toggle sidebar"
-            aria-label="Toggle sidebar"
-          >
-            ihatetools
-          </button>
-
-          <SearchBar />
-
           <nav className="nav-links ml-auto flex items-center gap-[4px]">
             {links.map((link) => {
               const isActive = pathname === link.href || 

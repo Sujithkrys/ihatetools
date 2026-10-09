@@ -1,11 +1,15 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function Ruler() {
   const rulerRef = useRef<HTMLDivElement>(null);
   const [viewportWidth, setViewportWidth] = useState(1280);
   const [mounted, setMounted] = useState(false);
+
+  const pathname = usePathname();
+  const isToolsSection = pathname?.startsWith('/tools');
 
   useEffect(() => {
     setMounted(true);
@@ -22,6 +26,12 @@ export function Ruler() {
 
     const handleScroll = () => {
       if (rafId !== null) return;
+      if (isToolsSection) {
+        if (rulerRef.current) {
+          rulerRef.current.style.transform = `translate3d(0px, 0, 0)`;
+        }
+        return;
+      }
       rafId = window.requestAnimationFrame(() => {
         const scrollY = Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
         const drift = scrollY * 0.15;
@@ -43,7 +53,7 @@ export function Ruler() {
         cancelAnimationFrame(rafId);
       }
     };
-  }, []);
+  }, [isToolsSection]);
 
   // Determine tick density based on viewport width
   // Mobile (<640px): Major labeled ticks every 100px, mid ticks every 50px, minor ticks every 10px

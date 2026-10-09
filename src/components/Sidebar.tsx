@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { X } from 'lucide-react';
 import { TOOLS } from '@/lib/tools-data';
+import { SearchBar } from './SearchBar';
 
 const CATEGORY_STYLES: Record<string, { label: string; bg: string; color: string }> = {
   pdf:   { label: 'PDF Tools',   bg: '#F5C242', color: '#2A2200' },
@@ -40,10 +41,10 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
   return (
     <aside className="app-sidebar" data-open={open}>
       <div className="sb-head">
-        <span className="sb-logo">ihatetools</span>
-        <button className="sb-close" onClick={onClose} aria-label="Close sidebar">
-          <X size={14} />
-        </button>
+        <Link href="/" className="sb-logo no-underline">ihatetools</Link>
+      </div>
+      <div className="px-[14px] pt-[14px]">
+        <SearchBar />
       </div>
       <div className="sb-list">
         {categories.map((cat) => {

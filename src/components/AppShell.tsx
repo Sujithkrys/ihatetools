@@ -39,8 +39,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     localStorage.setItem(STORAGE_KEY, 'false');
   }
 
-  // Render closed until mounted to avoid SSR/localStorage mismatch flash
-  const sidebarOpen = mounted ? open : false;
+  // Always keep the sidebar open on desktop
+  const sidebarOpen = mounted ? (isMobile ? open : true) : true;
 
   return (
     <div className="app-shell">
@@ -49,8 +49,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <div className="backdrop" onClick={close} />
       )}
       <div className="app-main">
-        {/* Your existing NavBar goes here — pass toggle as the logo's onClick */}
-        <NavBar onLogoClick={toggle} />
+        {/* Pass toggle if needed for mobile hamburger menu in the future, for now undefined */}
+        <NavBar onLogoClick={isMobile ? toggle : undefined} />
         {children}
       </div>
     </div>
