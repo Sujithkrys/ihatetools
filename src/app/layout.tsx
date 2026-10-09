@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${caveat.variable} min-h-screen flex flex-col bg-bg text-ink antialiased`}>
+      <body className={`${inter.variable} ${caveat.variable} min-h-screen flex flex-col bg-bg text-ink antialiased font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
