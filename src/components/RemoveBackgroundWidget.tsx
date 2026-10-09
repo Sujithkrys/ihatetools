@@ -67,7 +67,7 @@ export function RemoveBackgroundWidget() {
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const config: any = {
-        publicPath: "/bg-removal-models/",
+        publicPath: window.location.origin + "/bg-removal-models/",
         model: "small", 
         progress: (key: string, current: number, total: number) => {
           if (key.includes("fetch")) {
