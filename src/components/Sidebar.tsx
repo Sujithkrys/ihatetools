@@ -112,20 +112,6 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
         </div>
       </div>
 
-      <div className="p-4 border-t border-white/5 space-y-1">
-        <Link href="#" className="flex items-center gap-3 px-3 py-2 rounded-md text-[13px] hover:bg-white/5 hover:text-white">
-          <Download size={15} />
-          Install app
-        </Link>
-        <Link href="#" className="flex items-center gap-3 px-3 py-2 rounded-md text-[13px] hover:bg-white/5 hover:text-white">
-          <Heart size={15} />
-          Sponsor a slot
-        </Link>
-        <Link href="#" className="flex items-center gap-3 px-3 py-2 rounded-md text-[13px] text-red-400 hover:bg-white/5 hover:text-red-300">
-          <Coffee size={15} />
-          Donate
-        </Link>
-      </div>
     </aside>
   );
 }
