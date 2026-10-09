@@ -28,7 +28,7 @@ const HOW_IT_WORKS_STEPS = [
 const FAQ_ITEMS = [
   {
     question: "Why didn't my file shrink very much?",
-    answer: "This tool optimizes the PDF structure. If your PDF is massive because it contains dozens of high-resolution JPEGs, structural compression won't help much — those images need to be re-encoded to see massive savings.",
+    answer: "This tool optimizes the PDF structure. If your PDF is massive because it contains dozens of high-resolution JPEGs, structural compression won't help much; those images need to be re-encoded to see massive savings.",
   },
   {
     question: "Is this tool completely private?",

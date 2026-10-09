@@ -334,7 +334,7 @@ export function RedactPdfWidget() {
               </p>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-              <ShieldCheck className="w-3.5 h-3.5" /> Permanent pixel rasterization — 0% text leakage guarantee
+              <ShieldCheck className="w-3.5 h-3.5" /> Permanent pixel rasterization, 0% text leakage guarantee
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ export default function HeicToJpgPage() {
         </h1>
         <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
           Convert Apple iPhone photos (HEIC) to universally compatible JPG images. 
-          Everything runs securely in your browser—no files are sent to a server.
+          Everything runs securely in your browser, no files are sent to a server.
         </p>
       </div>
 

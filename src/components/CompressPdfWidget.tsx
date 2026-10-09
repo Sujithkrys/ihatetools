@@ -166,7 +166,7 @@ export function CompressPdfWidget() {
           
           <div className="text-grey mb-8 max-w-sm">
             {isNegligible ? (
-              <p>This PDF is already well-optimized — we couldn&apos;t reduce it further without using Aggressive mode.</p>
+              <p>This PDF is already well-optimized; we couldn&apos;t reduce it further without using Aggressive mode.</p>
             ) : (
               <p>We reduced the file size by {percentSaved}%.<br/> From {formatBytes(originalSize)} to {formatBytes(newSize)}.</p>
             )}

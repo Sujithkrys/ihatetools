@@ -23,7 +23,7 @@ export default function TextDiffCheckerPage() {
         <section className="bg-paper rounded-2xl p-8 border border-ink/10">
           <h2 className="text-2xl font-bold text-ink mb-4">Fast & Private Comparison</h2>
           <p className="text-grey leading-relaxed mb-6">
-            Need to compare two versions of a code snippet, an essay, or a legal document? Paste the original text and the changed text to instantly see a color-coded inline diff. The comparison algorithm runs entirely in your browser memory—no data is ever sent over the network, ensuring complete confidentiality.
+            Need to compare two versions of a code snippet, an essay, or a legal document? Paste the original text and the changed text to instantly see a color-coded inline diff. The comparison algorithm runs entirely in your browser memory, no data is ever sent over the network, ensuring complete confidentiality.
           </p>
         </section>
       </div>

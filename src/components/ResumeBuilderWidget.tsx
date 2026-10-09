@@ -285,7 +285,7 @@ export function ResumeBuilderWidget() {
           y -= 13;
 
           // Company & Location
-          const compLoc = [exp.company, exp.location].filter(Boolean).join("  —  ");
+          const compLoc = [exp.company, exp.location].filter(Boolean).join("  |  ");
           page.drawText(compLoc, {
             x: margin,
             y,

@@ -227,7 +227,7 @@ export function TextToSpeechWidget() {
               >
                 {voices.map((v) => (
                   <option key={v.voiceURI} value={v.voiceURI}>
-                    {v.name} ({v.lang}) {v.default ? "— Default" : ""}
+                    {v.name} ({v.lang}) {v.default ? "(Default)" : ""}
                   </option>
                 ))}
               </select>

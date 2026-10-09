@@ -69,9 +69,9 @@ export function UrlEncoderDecoderWidget() {
 
       return {
         protocol: url.protocol || "http:",
-        host: url.host || "—",
+        host: url.host || "N/A",
         pathname: url.pathname || "/",
-        hash: url.hash || "—",
+        hash: url.hash || "N/A",
         params,
       };
     } catch {

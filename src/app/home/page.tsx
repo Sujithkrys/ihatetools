@@ -37,7 +37,7 @@ export default function Home() {
             Tools that <span className="bg-yellow text-[#111212] px-[0.09em]">don&apos;t</span> waste your time.
           </h1>
           <p className="disp text-[clamp(18px,2.5vw,25px)] max-w-[24ch] mx-auto mt-[28px] text-ink/80">
-            Merge<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-yellow translate-y-[0.02em] mx-[0.08em]" />split, compress and convert<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-pink translate-y-[0.02em] mx-[0.08em]" />— all of it running locally in your browser<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-cyan translate-y-[0.02em] mx-[0.08em]" />.
+            Merge<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-yellow translate-y-[0.02em] mx-[0.08em]" />split, compress and convert<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-pink translate-y-[0.02em] mx-[0.08em]" />, all of it running locally in your browser<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-cyan translate-y-[0.02em] mx-[0.08em]" />.
           </p>
           <Link
             href="/tools"
@@ -85,7 +85,7 @@ export default function Home() {
             </span>
             <h3 className="disp text-[23px] mb-[9px] text-ink">PDF Tools</h3>
             <p className="text-[14.5px] leading-[1.55] text-grey">
-              Merge, split, compress, sign, redact, fill forms, and more — everything for working with PDF files.
+              Merge, split, compress, sign, redact, fill forms, and more, everything for working with PDF files.
             </p>
           </Link>
 
@@ -113,7 +113,7 @@ export default function Home() {
             </span>
             <h3 className="disp text-[23px] mb-[9px] text-ink">Text &amp; Dev Tools</h3>
             <p className="text-[14.5px] leading-[1.55] text-grey">
-              JSON formatting, word counts, case conversion, and diff checking — quick text utilities.
+              JSON formatting, word counts, case conversion, and diff checking, quick text utilities.
             </p>
           </Link>
 

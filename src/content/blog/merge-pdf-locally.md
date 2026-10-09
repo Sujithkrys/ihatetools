@@ -32,11 +32,11 @@ At [ihatetools](/home), we've built a [Merge PDF Tool](/tools/merge-pdf) that do
 ## Best Practices for Managing PDFs
 
 - **Keep file names descriptive**: Before merging, ensure your source files are named clearly (e.g., `01-CoverLetter.pdf`, `02-Resume.pdf`). This makes reordering them much easier.
-- **Compress before sharing**: If your newly merged PDF is too large for an email attachment, use a [PDF Compressor](/tools/pdf/compress) to reduce its file size—again, make sure you use a local tool to protect your privacy!
+- **Compress before sharing**: If your newly merged PDF is too large for an email attachment, use a [PDF Compressor](/tools/compress-pdf) to reduce its file size. Again, make sure you use a local tool to protect your privacy!
 - **Flatten if necessary**: If your PDFs contain interactive forms, merging them might preserve the form fields. If you want to lock the data, consider "flattening" the PDF (printing to PDF) before merging.
 
 ### Conclusion
 
 Merging PDFs shouldn't require compromising your privacy, dealing with slow uploads, or paying for premium software. By utilizing modern, local-first web tools, you can manage your documents securely and instantly.
 
-Ready to combine your files safely? Try the **[ihatetools Merge PDF Tool](/tools/merge-pdf)** today—no sign-ups, no uploads, no asterisks.
+Ready to combine your files safely? Try the **[ihatetools Merge PDF Tool](/tools/merge-pdf)** today. No sign-ups, no uploads, no asterisks.
