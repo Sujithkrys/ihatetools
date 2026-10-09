@@ -15,6 +15,7 @@ export function NavBar({}: NavBarProps = {}) {
   const links = [
     { href: "/home", label: "Home" },
     { href: "/tools", label: "All Tools" },
+    { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
   ];
 
