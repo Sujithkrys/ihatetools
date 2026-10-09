@@ -12,33 +12,18 @@ interface ToolCardProps {
 }
 
 export function ToolCard({ name, description, href, category, icon: Icon }: ToolCardProps) {
-  let hoverBorderClass = "hover:border-yellow";
-  let badgeClass = "badge-pdf";
-
-  if (category === "Image Tools") {
-    hoverBorderClass = "hover:border-cyan";
-    badgeClass = "badge-img";
-  } else if (category === "Text Tools") {
-    hoverBorderClass = "hover:border-violet";
-    badgeClass = "badge-txt";
-  } else if (category === "Audio Tools") {
-    hoverBorderClass = "hover:border-amber-500";
-    badgeClass = "badge-aud";
-  } else if (category === "Utility Tools") {
-    hoverBorderClass = "hover:border-emerald-500";
-    badgeClass = "badge-util";
-  }
-
   return (
     <Link 
       href={href}
-      className={`card block bg-paper border-[1.5px] border-ink rounded-[11px] p-6 cursor-pointer transition-all duration-150 hover:-translate-y-[2px] ${hoverBorderClass}`}
+      className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group no-underline"
     >
-      <div className={`badge ${badgeClass}`}>
-        {Icon && <Icon size={19} strokeWidth={1.8} />}
+      <div className="w-10 h-10 flex-shrink-0 bg-white/5 rounded-md flex items-center justify-center text-gray-400 group-hover:text-white transition-colors border border-white/5 group-hover:border-white/10">
+        {Icon && <Icon size={18} strokeWidth={1.5} />}
       </div>
-      <h3 className="disp text-[19px] mb-[7px] text-ink">{name}</h3>
-      <p className="text-[13.5px] leading-[1.55] text-grey tracking-[-0.005em] line-clamp-2">{description}</p>
+      <div className="flex-1 mt-0.5">
+        <h3 className="text-[14px] font-semibold text-gray-200 mb-1 group-hover:text-white transition-colors leading-none">{name}</h3>
+        <p className="text-[12px] leading-[1.4] text-gray-500 line-clamp-2">{description}</p>
+      </div>
     </Link>
   );
 }
