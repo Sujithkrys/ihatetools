@@ -11,7 +11,7 @@ interface ToolCardProps {
   [key: string]: unknown;
 }
 
-export function ToolCard({ name, description, href, category, icon: Icon }: ToolCardProps) {
+export function ToolCard({ name, description, href, icon: Icon }: ToolCardProps) {
   return (
     <Link 
       href={href}

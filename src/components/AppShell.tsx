@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
-import { NavBar } from './NavBar';
 import { Menu } from 'lucide-react';
 
 const STORAGE_KEY = 'ihatetools-sidebar-open';
