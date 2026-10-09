@@ -1,8 +1,7 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { TOOLS } from '@/lib/tools-data';
-import { SearchBar } from './SearchBar';
 
 const CATEGORY_STYLES: Record<string, { label: string; bg: string; color: string }> = {
   pdf:   { label: 'PDF Tools',   bg: '#F5C242', color: '#2A2200' },
@@ -27,15 +26,32 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (query) {
+          setQuery("");
+        } else {
+          onClose();
+        }
+      }
     }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  }, [onClose, query]);
 
   const categories = Object.keys(CATEGORY_STYLES);
+  
+  const lowerQuery = query.toLowerCase();
+  const searchResults = query.trim().length > 0 
+    ? TOOLS.filter(
+        (tool) =>
+          tool.name.toLowerCase().includes(lowerQuery) ||
+          tool.description.toLowerCase().includes(lowerQuery)
+      )
+    : [];
 
   return (
     <aside className="app-sidebar" data-open={open}>
@@ -43,25 +59,29 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
         <Link href="/" className="sb-logo no-underline">ihatetools</Link>
       </div>
       <div className="px-[14px] pt-[14px]">
-        <SearchBar />
+        <input
+          type="text"
+          className="block w-full border-[1.5px] border-ink rounded-[7px] px-[12px] py-[7px] text-[13px] bg-bg text-grey placeholder:text-grey focus:outline-none focus:ring-1 focus:ring-sel focus:border-sel transition-all"
+          placeholder="Search tools…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
       </div>
       <div className="sb-list">
-        {categories.map((cat) => {
-          const style = CATEGORY_STYLES[cat];
-          const tools = TOOLS.filter((t) => t.category === CATEGORY_MAP[cat] || t.category === cat);
-          if (tools.length === 0) return null;
-          return (
-            <div key={cat}>
-              <span className="sb-cat" style={{ background: style.bg, color: style.color }}>
-                {style.label}
-              </span>
-              {tools.map((tool) => {
+        {query.trim().length > 0 ? (
+          <div className="pt-2">
+            <span className="sb-cat" style={{ background: '#333', color: '#FFF' }}>
+              Search Results
+            </span>
+            {searchResults.length > 0 ? (
+              searchResults.map((tool) => {
                 const Icon = tool.icon;
                 const isActive = currentPath === tool.href;
                 return (
                   <Link
                     key={tool.href}
                     href={tool.href}
+                    onClick={() => setQuery("")}
                     className={`sb-item${isActive ? ' active' : ''}`}
                   >
                     <span className="sb-icon">
@@ -70,10 +90,43 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
                     {tool.name}
                   </Link>
                 );
-              })}
-            </div>
-          );
-        })}
+              })
+            ) : (
+              <div className="px-4 py-6 text-center text-[13px] text-grey">
+                No tools found matching &quot;{query}&quot;
+              </div>
+            )}
+          </div>
+        ) : (
+          categories.map((cat) => {
+            const style = CATEGORY_STYLES[cat];
+            const tools = TOOLS.filter((t) => t.category === CATEGORY_MAP[cat] || t.category === cat);
+            if (tools.length === 0) return null;
+            return (
+              <div key={cat}>
+                <span className="sb-cat" style={{ background: style.bg, color: style.color }}>
+                  {style.label}
+                </span>
+                {tools.map((tool) => {
+                  const Icon = tool.icon;
+                  const isActive = currentPath === tool.href;
+                  return (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      className={`sb-item${isActive ? ' active' : ''}`}
+                    >
+                      <span className="sb-icon">
+                        <Icon size={16} strokeWidth={1.6} />
+                      </span>
+                      {tool.name}
+                    </Link>
+                  );
+                })}
+              </div>
+            );
+          })
+        )}
       </div>
     </aside>
   );
