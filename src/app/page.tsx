@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { TOOLS } from "@/lib/tools-data";
 import { ToolCard } from "@/components/ToolCard";
-import { Moon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Dashboard - ihatepdf.cv",
