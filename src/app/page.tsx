@@ -18,13 +18,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-bg dark:bg-black text-ink dark:text-white p-8 pb-16">
-      <header className="flex justify-between items-center mb-12 border-b border-ink/10 dark:border-white/10 pb-6">
-        <h1 className="text-xl font-medium tracking-tight">Dashboard</h1>
-        <button className="text-grey dark:text-gray-400 hover:text-ink dark:hover:text-white transition-colors" aria-label="Toggle Theme">
-          <Moon size={18} />
-        </button>
-      </header>
-
       <div className="space-y-12 max-w-[1400px]">
         {categories.map(cat => {
           const catTools = TOOLS.filter(t => 
