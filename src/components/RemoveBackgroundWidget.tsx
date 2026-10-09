@@ -79,8 +79,8 @@ export function RemoveBackgroundWidget() {
       };
       
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const imglyRemoveBackground: any = (await import("@imgly/background-removal")).default;
-      const blob = await imglyRemoveBackground(file, config);
+      const { removeBackground } = (await import("@imgly/background-removal")) as any;
+      const blob = await removeBackground(file, config);
       
       const originalUrl = URL.createObjectURL(file);
       const resultUrl = URL.createObjectURL(blob);
