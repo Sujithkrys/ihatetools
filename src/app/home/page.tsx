@@ -37,13 +37,13 @@ export default function Home() {
             Tools that <span className="bg-yellow text-[#111212] px-[0.09em]">don&apos;t</span> waste your time.
           </h1>
           <p className="disp text-[clamp(18px,2.5vw,25px)] max-w-[24ch] mx-auto mt-[28px] text-ink/80">
-            Merge<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-yellow translate-y-[0.02em] mx-[0.08em]" />split, compress and convert<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-pink translate-y-[0.02em] mx-[0.08em]" />ΓÇö all of it running locally in your browser<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-cyan translate-y-[0.02em] mx-[0.08em]" />.
+            Merge<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-yellow translate-y-[0.02em] mx-[0.08em]" />split, compress and convert<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-pink translate-y-[0.02em] mx-[0.08em]" />— all of it running locally in your browser<span className="inline-block w-[0.7em] h-[0.7em] rounded-[3px] bg-cyan translate-y-[0.02em] mx-[0.08em]" />.
           </p>
           <Link
             href="/tools"
             className="cta browse inline-flex gap-[8px] mt-[34px] bg-ink text-paper border-[1.5px] border-ink px-[25px] py-[13px] rounded-[8px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer hover:-translate-y-[2px] hover:border-pink transition-all"
           >
-            Browse all tools ΓåÆ
+            Browse all tools →
           </Link>
         </div>
       </Frame>
@@ -53,19 +53,19 @@ export default function Home() {
         <div className="grid gap-[20px] max-w-[760px] mx-auto">
           {/* Block 1 */}
           <div className="blk border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper mr-0 md:mr-[20%]">
-            <span className="absolute top-[34px] right-[-30%] font-handwriting text-[19px] text-grey whitespace-nowrap -rotate-[4deg] hidden lg:block">ΓåÆ nothing gets uploaded</span>
+            <span className="absolute top-[34px] right-[-30%] font-handwriting text-[19px] text-grey whitespace-nowrap -rotate-[4deg] hidden lg:block">→ nothing gets uploaded</span>
             <h3 className="disp text-[23px] mb-[9px]">Your files never leave</h3>
             <SelectedText className="mt-[6px]">Everything runs in your browser. No server, no upload, no copy of your document sitting somewhere.</SelectedText>
           </div>
           {/* Block 2 */}
           <div className="blk border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper ml-0 md:ml-[20%]">
-            <span className="absolute top-[40px] left-[-28%] font-handwriting text-[19px] text-grey whitespace-nowrap rotate-[3deg] hidden lg:block">no catch here ΓåÉ</span>
+            <span className="absolute top-[40px] left-[-28%] font-handwriting text-[19px] text-grey whitespace-nowrap rotate-[3deg] hidden lg:block">no catch here ←</span>
             <h3 className="disp text-[23px] mb-[9px]">Free, with no asterisk</h3>
             <SelectedText className="mt-[6px]">No sign-up wall, no watermark on the output, no &quot;upgrade to download&quot; at the last step.</SelectedText>
           </div>
           {/* Block 3 */}
           <div className="blk border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper mr-0 md:mr-[20%]">
-            <span className="absolute top-[34px] right-[-30%] font-handwriting text-[19px] text-grey whitespace-nowrap -rotate-[3deg] hidden lg:block">ΓåÆ 60+ and counting</span>
+            <span className="absolute top-[34px] right-[-30%] font-handwriting text-[19px] text-grey whitespace-nowrap -rotate-[3deg] hidden lg:block">→ 60+ and counting</span>
             <h3 className="disp text-[23px] mb-[9px]">One place for all of it</h3>
             <SelectedText className="mt-[6px]">PDF, image, audio, utility, and text tools together, so you&apos;re not hunting for a new site every time.</SelectedText>
           </div>
@@ -81,11 +81,11 @@ export default function Home() {
             className="blk block border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper mr-0 md:mr-[20%] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
           >
             <span className="scribble sc1 sc-pdf absolute top-[34px] right-[-30%] font-handwriting text-[19px] whitespace-nowrap -rotate-[4deg] hidden lg:block">
-              ΓåÆ {allPdfTools.length} tools inside
+              → {allPdfTools.length} tools inside
             </span>
             <h3 className="disp text-[23px] mb-[9px] text-ink">PDF Tools</h3>
             <p className="text-[14.5px] leading-[1.55] text-grey">
-              Merge, split, compress, sign, redact, fill forms, and more ΓÇö everything for working with PDF files.
+              Merge, split, compress, sign, redact, fill forms, and more — everything for working with PDF files.
             </p>
           </Link>
 
@@ -95,7 +95,7 @@ export default function Home() {
             className="blk block border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper ml-0 md:ml-[20%] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
           >
             <span className="scribble sc2 sc-img absolute top-[40px] left-[-28%] font-handwriting text-[19px] whitespace-nowrap rotate-[3deg] hidden lg:block">
-              {allImageTools.length} tools inside ΓåÉ
+              {allImageTools.length} tools inside ←
             </span>
             <h3 className="disp text-[23px] mb-[9px] text-ink">Image Tools</h3>
             <p className="text-[14.5px] leading-[1.55] text-grey">
@@ -109,11 +109,11 @@ export default function Home() {
             className="blk block border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper mr-0 md:mr-[20%] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
           >
             <span className="scribble sc3 sc-txt absolute top-[34px] right-[-30%] font-handwriting text-[19px] whitespace-nowrap -rotate-[3deg] hidden lg:block">
-              ΓåÆ {allTextTools.length} tools inside
+              → {allTextTools.length} tools inside
             </span>
             <h3 className="disp text-[23px] mb-[9px] text-ink">Text &amp; Dev Tools</h3>
             <p className="text-[14.5px] leading-[1.55] text-grey">
-              JSON formatting, word counts, case conversion, and diff checking ΓÇö quick text utilities.
+              JSON formatting, word counts, case conversion, and diff checking — quick text utilities.
             </p>
           </Link>
 
@@ -123,7 +123,7 @@ export default function Home() {
             className="blk block border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper ml-0 md:ml-[20%] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
           >
             <span className="scribble sc4 sc-aud absolute top-[40px] left-[-28%] font-handwriting text-[19px] whitespace-nowrap rotate-[4deg] hidden lg:block">
-              {allAudioAndUtilityTools.length} tools inside ΓåÉ
+              {allAudioAndUtilityTools.length} tools inside ←
             </span>
             <h3 className="disp text-[23px] mb-[9px] text-ink">Audio &amp; Utility</h3>
             <p className="text-[14.5px] leading-[1.55] text-grey">
