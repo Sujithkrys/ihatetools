@@ -17,10 +17,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white p-8 pb-16">
-      <header className="flex justify-between items-center mb-12 border-b border-white/10 pb-6">
+    <div className="min-h-screen bg-bg dark:bg-black text-ink dark:text-white p-8 pb-16">
+      <header className="flex justify-between items-center mb-12 border-b border-ink/10 dark:border-white/10 pb-6">
         <h1 className="text-xl font-medium tracking-tight">Dashboard</h1>
-        <button className="text-gray-400 hover:text-white transition-colors" aria-label="Toggle Theme">
+        <button className="text-grey dark:text-gray-400 hover:text-ink dark:hover:text-white transition-colors" aria-label="Toggle Theme">
           <Moon size={18} />
         </button>
       </header>
@@ -33,7 +33,7 @@ export default function Home() {
           if (catTools.length === 0) return null;
           return (
             <section key={cat.title}>
-              <h2 className="text-[13px] font-medium text-gray-500 mb-4 border-b border-white/[0.06] pb-3 px-2 uppercase tracking-widest">{cat.title}</h2>
+              <h2 className="text-[13px] font-medium text-grey dark:text-gray-500 mb-4 border-b border-ink/[0.06] dark:border-white/[0.06] pb-3 px-2 uppercase tracking-widest">{cat.title}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-1">
                 {catTools.map(tool => (
                   <ToolCard key={tool.id} {...tool} />
