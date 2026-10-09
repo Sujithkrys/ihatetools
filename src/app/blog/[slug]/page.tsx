@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: Props) {
       </Link>
 
       <header className="mb-12 border-b border-ink/10 pb-8">
-        <h1 className="disp text-[32px] text-ink mb-3 leading-[1.2]">
+        <h1 className="disp disp-lg text-[clamp(24px,3.4vw,34px)] text-ink mb-3 leading-[1.2]">
           {post.title}
         </h1>
         <div className="text-grey font-mono flex items-center gap-4">
@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
       </header>
 
       <div 
-        className="prose dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h2:text-xl prose-h3:text-lg prose-a:text-pink hover:prose-a:text-ink transition-colors prose-pre:bg-paper prose-pre:border-[1.5px] prose-pre:border-ink max-w-none text-ink/90 prose-p:leading-[1.6] prose-li:leading-[1.6]"
+        className="prose dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-p:leading-[1.65] prose-a:text-pink hover:prose-a:text-ink transition-colors prose-pre:bg-paper prose-pre:border-[1.5px] prose-pre:border-ink max-w-none text-ink/90 text-[15px]"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
     </article>

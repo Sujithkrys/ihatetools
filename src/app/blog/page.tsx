@@ -12,7 +12,7 @@ export default function BlogIndex() {
 
   return (
     <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[60px] pb-[80px]">
-      <h1 className="disp text-[36px] text-ink mb-10">
+      <h1 className="disp disp-lg text-[clamp(28px,4vw,42px)] text-ink mb-8 leading-[1.15]">
         Blog &amp; <span className="bg-yellow text-[#111212] px-[0.09em]">Guides</span>
       </h1>
       
