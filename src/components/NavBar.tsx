@@ -23,9 +23,29 @@ export function NavBar({}: NavBarProps = {}) {
   return (
     <header className="site-header border-b border-ink/[0.08] bg-bg sticky top-0 z-40">
       {!isToolsSection && <Ruler />}
-      <div className="nav-in">
-          <nav className="nav-links ml-auto flex items-center gap-[4px]">
-            {links.map((link) => {
+      <div className="nav-in flex justify-between w-full">
+          <nav className="nav-links flex items-center gap-[4px]">
+            {links.filter(l => l.href === "/tools").map((link) => {
+              const isActive = pathname === link.href || 
+                (link.href === "/tools" && pathname.startsWith("/tools"));
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-[11px] py-[6px] rounded-[5px] text-[13.5px] transition-colors whitespace-nowrap ${
+                    isActive
+                      ? "bg-cyan border-[1.5px] border-ink text-[#111212] font-medium"
+                      : "border-transparent text-ink hover:border-ink border-[1.5px]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+          
+          <nav className="nav-links flex items-center gap-[4px]">
+            {links.filter(l => l.href !== "/tools").map((link) => {
               const isActive = pathname === link.href || 
                 (link.href === "/tools" && pathname.startsWith("/tools"));
               return (
