@@ -18,9 +18,11 @@ export function NavBar({}: NavBarProps = {}) {
     { href: "/about", label: "About" },
   ];
 
+  const isToolsSection = pathname?.startsWith('/tools');
+
   return (
-    <header className="site-header border-b border-ink/[0.08] bg-paper sticky top-0 z-40">
-      <Ruler />
+    <header className="site-header border-b border-ink/[0.08] bg-bg sticky top-0 z-40">
+      {!isToolsSection && <Ruler />}
       <div className="nav-in">
           <nav className="nav-links ml-auto flex items-center gap-[4px]">
             {links.map((link) => {
