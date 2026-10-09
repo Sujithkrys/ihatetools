@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@breezystack/lamejs": "^1.2.7",
-    "@imgly/background-removal": "^1.7.0",
+    "@imgly/background-removal": "^1.4.5",
     "@imgly/background-removal-data": "^1.4.5",
     "@keeratita/heic-converter": "^0.4.1",
     "@pdfsmaller/pdf-decrypt": "^1.0.1",
