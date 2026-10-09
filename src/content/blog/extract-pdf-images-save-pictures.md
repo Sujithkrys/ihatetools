@@ -1,6 +1,6 @@
 ---
 title: "How to Extract Images from a PDF File Instantly"
-date: "2026-10-10"
+date: "2026-09-12"
 description: "Pull every embedded image out of a PDF and save them individually, directly in your browser, with full resolution and no uploads."
 ---
 

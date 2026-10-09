@@ -1,6 +1,6 @@
 ---
 title: "Generate a Free QR Code from Any Link or Text Instantly"
-date: "2026-10-10"
+date: "2026-09-06"
 description: "Generate a custom QR code from text or URLs instantly in your browser, with no sign-up, no expiry, and no tracking redirect."
 ---
 

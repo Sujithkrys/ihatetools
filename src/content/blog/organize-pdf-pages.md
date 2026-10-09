@@ -1,6 +1,6 @@
 ---
 title: "How to Reorder, Rotate, and Delete PDF Pages Easily"
-date: "2026-10-10"
+date: "2026-09-04"
 description: "Rearrange, rotate, or remove pages from a PDF with a simple drag-and-drop editor that runs entirely in your browser."
 ---
 

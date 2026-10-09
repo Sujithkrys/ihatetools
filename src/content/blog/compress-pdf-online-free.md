@@ -1,6 +1,6 @@
 ---
 title: "How to Compress a PDF File Without Losing Quality"
-date: "2026-10-10"
+date: "2026-09-02"
 description: "Shrink oversized PDFs for email or upload limits while keeping text and images sharp, done fully in your browser with no size caps."
 ---
 

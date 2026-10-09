@@ -1,6 +1,6 @@
 ---
 title: "Text Diff Checker: Spot Every Change Between Two Documents"
-date: "2026-10-10"
+date: "2026-09-25"
 description: "Compare two text documents side by side and instantly spot every difference. Free, private text diff checker that works entirely in your browser."
 ---
 

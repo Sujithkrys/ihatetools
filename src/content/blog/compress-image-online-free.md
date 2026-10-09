@@ -1,6 +1,6 @@
 ---
 title: "Compress Images Online Without Losing Quality or Uploading Your Photos"
-date: "2026-10-10"
+date: "2026-09-02"
 description: "Shrink image file size without losing quality, directly in your browser. No uploads, no watermark, no sign-up required."
 ---
 

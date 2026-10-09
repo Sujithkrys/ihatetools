@@ -1,6 +1,6 @@
 ---
 title: "How to Combine Multiple Images Into a Single PDF"
-date: "2026-10-10"
+date: "2026-09-05"
 description: "Turn a batch of photos or scans into one clean PDF document directly in your browser, with no uploads or sign-up required."
 ---
 

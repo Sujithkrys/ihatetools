@@ -1,6 +1,6 @@
 ---
 title: "How to Add a Watermark to a PDF for Free"
-date: "2026-10-10"
+date: "2026-09-05"
 description: "Stamp text watermarks like DRAFT or CONFIDENTIAL onto PDF pages instantly in your browser, with no sign-up and no server upload."
 ---
 

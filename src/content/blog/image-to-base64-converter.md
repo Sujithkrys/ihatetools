@@ -1,6 +1,6 @@
 ---
 title: "How to Convert an Image to a Base64 Data URI String"
-date: "2026-10-10"
+date: "2026-09-19"
 description: "Convert any image into a Base64 data URI instantly in your browser for embedding in CSS, HTML, JSON, or email templates. No uploads required."
 ---
 

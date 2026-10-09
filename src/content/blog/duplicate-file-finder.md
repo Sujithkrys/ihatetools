@@ -1,6 +1,6 @@
 ---
 title: "Duplicate File Finder: Detect Identical Files by Hash in Your Browser"
-date: "2026-10-10"
+date: "2026-10-03"
 description: "Detect identical duplicate files via client-side SHA-256 hashing, right in your browser. Free up storage without uploading your files anywhere."
 ---
 

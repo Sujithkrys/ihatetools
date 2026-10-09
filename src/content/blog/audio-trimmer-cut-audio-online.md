@@ -1,6 +1,6 @@
 ---
 title: "Audio Trimmer: Cut and Trim Audio Clips Online for Free"
-date: "2026-10-10"
+date: "2026-09-26"
 description: "Trim and cut audio tracks with precise waveform control, free and private. No uploads, no sign-up, no watermark on your trimmed audio file."
 ---
 

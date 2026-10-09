@@ -1,6 +1,6 @@
 ---
 title: "PDF Compare: Find the Differences Between Two PDF Documents Online"
-date: "2026-10-10"
+date: "2026-10-04"
 description: "Compare text content and editorial revisions between two PDF documents directly in your browser. Spot changes fast without uploading contracts or drafts."
 ---
 

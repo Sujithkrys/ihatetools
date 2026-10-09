@@ -1,6 +1,6 @@
 ---
 title: "How to Decode a Base64 String Back into an Image"
-date: "2026-10-10"
+date: "2026-09-19"
 description: "Paste any Base64 data URI and instantly decode and render it as a downloadable image, entirely in your browser with no uploads or sign-up."
 ---
 

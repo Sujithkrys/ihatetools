@@ -1,6 +1,6 @@
 ---
 title: "Remove the Background from an Image Without Uploading It"
-date: "2026-10-10"
+date: "2026-09-18"
 description: "Remove the background from any photo instantly in your browser using on-device AI. No uploads to a server, no watermark, completely private."
 ---
 

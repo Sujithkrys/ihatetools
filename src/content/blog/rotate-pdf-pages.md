@@ -1,6 +1,6 @@
 ---
 title: "How to Rotate PDF Pages Instantly in Your Browser"
-date: "2026-10-10"
+date: "2026-09-08"
 description: "Fix sideways or upside-down PDF pages in seconds with a free browser-based tool that needs no upload and no software install."
 ---
 

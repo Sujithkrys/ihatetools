@@ -1,6 +1,6 @@
 ---
 title: "Text to Speech Online: Turn Written Text into Natural Audio"
-date: "2026-10-10"
+date: "2026-09-29"
 description: "Convert text to natural speech instantly using your browser's native voices. Free text-to-speech tool, no uploads, no sign-up, no audio file sent anywhere."
 ---
 

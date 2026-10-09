@@ -1,6 +1,6 @@
 ---
 title: "JSON Formatter & Validator: Fix Broken JSON in Seconds"
-date: "2026-10-10"
+date: "2026-09-22"
 description: "Format, validate, and minify JSON instantly in your browser. Spot syntax errors fast with a free, private JSON formatter that never uploads your data."
 ---
 

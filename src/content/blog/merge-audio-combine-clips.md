@@ -1,6 +1,6 @@
 ---
 title: "Merge Audio Files: Combine Multiple Clips Into One Track"
-date: "2026-10-10"
+date: "2026-09-30"
 description: "Combine multiple audio clips into one continuous track for free, directly in your browser. No uploads, no sign-up, no file size limits."
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Case Converter: Switch Between UPPERCASE, camelCase, and More"
-date: "2026-10-10"
+date: "2026-09-23"
 description: "Instantly convert text to uppercase, lowercase, camelCase, Title Case, or snake_case online. Free, private case converter with no uploads."
 ---
 

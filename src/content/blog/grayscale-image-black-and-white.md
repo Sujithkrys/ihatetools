@@ -1,6 +1,6 @@
 ---
 title: "Convert Photos to Black and White with a Grayscale Image Tool"
-date: "2026-10-10"
+date: "2026-09-17"
 description: "Turn any photo into black and white or adjust grayscale intensity instantly in your browser, with no uploads and no quality loss from compression."
 ---
 

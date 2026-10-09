@@ -1,6 +1,6 @@
 ---
 title: "How to Generate a Complete Favicon Package from Your Logo"
-date: "2026-10-10"
+date: "2026-09-20"
 description: "Turn your logo into a full favicon package with every required size, instantly in your browser. No uploads, no sign-up, no watermark."
 ---
 

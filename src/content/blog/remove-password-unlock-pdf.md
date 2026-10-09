@@ -1,6 +1,6 @@
 ---
 title: "How to Remove a Password From a Protected PDF"
-date: "2026-10-10"
+date: "2026-09-07"
 description: "Unlock a password-protected PDF you have access to, instantly in your browser, with no upload and no sign-up required."
 ---
 

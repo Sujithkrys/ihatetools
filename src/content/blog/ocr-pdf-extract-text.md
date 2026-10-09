@@ -1,6 +1,6 @@
 ---
 title: "How to Extract Text From a Scanned PDF Using OCR"
-date: "2026-10-10"
+date: "2026-09-08"
 description: "Turn scanned PDFs or image-based documents into searchable, selectable text using browser-based OCR with no file uploads."
 ---
 

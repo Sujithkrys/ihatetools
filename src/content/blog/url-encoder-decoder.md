@@ -1,6 +1,6 @@
 ---
 title: "URL Encoder / Decoder: Encode and Decode URLs and Query Strings Online"
-date: "2026-10-10"
+date: "2026-10-08"
 description: "Encode and decode URLs, query strings, and URI components with parameter breakdown, instantly in your browser. No API calls, no logging."
 ---
 

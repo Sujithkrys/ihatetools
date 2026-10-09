@@ -1,6 +1,6 @@
 ---
 title: "Word & Character Counter: Nail Every Length Limit Instantly"
-date: "2026-10-10"
+date: "2026-09-21"
 description: "Count words, characters, and reading time instantly in your browser. A free, private word counter for essays, tweets, meta descriptions, and more."
 ---
 

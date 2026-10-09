@@ -1,6 +1,6 @@
 ---
 title: "How to Fill Out a PDF Form Without Printing It First"
-date: "2026-10-10"
+date: "2026-09-13"
 description: "Inspect and fill interactive PDF form fields directly in your browser, type into text boxes, check boxes, and save, with no printing or uploads."
 ---
 

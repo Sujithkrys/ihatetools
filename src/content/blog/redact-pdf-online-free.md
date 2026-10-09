@@ -1,6 +1,6 @@
 ---
 title: "How to Redact a PDF Without Leaking the Text You're Trying to Hide"
-date: "2026-10-10"
+date: "2026-09-15"
 description: "Permanently blackout sensitive text and data in a PDF with zero leakage, done entirely in your browser with no file upload."
 ---
 

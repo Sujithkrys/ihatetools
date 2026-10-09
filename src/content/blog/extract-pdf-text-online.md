@@ -1,6 +1,6 @@
 ---
 title: "How to Extract Text from a PDF Without Copy-Paste Formatting Issues"
-date: "2026-10-10"
+date: "2026-09-11"
 description: "Pull the embedded text out of any PDF directly in your browser, fast and formatting-clean, with no uploads and no account required."
 ---
 

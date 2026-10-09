@@ -1,6 +1,6 @@
 ---
 title: "Bulk File Renamer: Rename Hundreds of Files at Once in Your Browser"
-date: "2026-10-10"
+date: "2026-10-02"
 description: "Rename multiple files with sequential numbering and pattern rules, instantly in your browser. No install, no upload, no file left behind."
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "How to Extract a Color Palette from Any Image"
-date: "2026-10-10"
+date: "2026-09-20"
 description: "Pull the dominant colors and hex codes out of any photo or design file instantly in your browser, with no uploads and no account required."
 ---
 

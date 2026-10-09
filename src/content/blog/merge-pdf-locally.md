@@ -1,6 +1,6 @@
 ---
 title: "How to Merge PDF Files Locally in Your Browser"
-date: "2026-10-10"
+date: "2026-09-01"
 description: "Learn how to combine multiple PDF files into one document instantly and securely without uploading your sensitive data to any server."
 ---
 

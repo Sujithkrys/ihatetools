@@ -1,6 +1,6 @@
 ---
 title: "Password Generator: Create Strong, Random Passwords in Your Browser"
-date: "2026-10-10"
+date: "2026-10-05"
 description: "Generate strong cryptographic passwords with custom entropy rules, entirely client-side. No password ever touches a server, not even for a second."
 ---
 

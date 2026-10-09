@@ -1,6 +1,6 @@
 ---
 title: "How to Split a PDF Into Multiple Files or Extract Pages"
-date: "2026-10-10"
+date: "2026-09-01"
 description: "Split a PDF into separate files or pull out specific pages instantly in your browser. No uploads, no watermarks, no file size limits."
 ---
 

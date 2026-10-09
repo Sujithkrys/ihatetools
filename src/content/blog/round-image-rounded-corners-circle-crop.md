@@ -1,6 +1,6 @@
 ---
 title: "How to Round Image Corners or Crop a Photo into a Circle"
-date: "2026-10-10"
+date: "2026-09-17"
 description: "Add rounded corners or a perfect circle crop to any photo online, instantly in your browser, with transparent PNG output and no watermark."
 ---
 

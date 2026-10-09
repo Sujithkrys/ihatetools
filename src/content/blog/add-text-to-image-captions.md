@@ -1,6 +1,6 @@
 ---
 title: "How to Add Text, Captions, or Labels to an Image Online"
-date: "2026-10-10"
+date: "2026-09-18"
 description: "Add captions, labels, or watermark text to any photo directly in your browser. No uploads, no watermark on the output, no design software needed."
 ---
 

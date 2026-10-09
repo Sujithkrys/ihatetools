@@ -1,6 +1,6 @@
 ---
 title: "UUID Generator: Generate RFC 4122 v4 UUIDs Instantly"
-date: "2026-10-10"
+date: "2026-10-06"
 description: "Generate RFC 4122 version 4 UUIDs individually or in bulk with zero latency, right in your browser. No API key, no rate limit, no server call."
 ---
 

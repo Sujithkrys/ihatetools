@@ -1,6 +1,6 @@
 ---
 title: "How to Create a Professional PDF Invoice in Minutes, for Free"
-date: "2026-10-10"
+date: "2026-09-14"
 description: "Generate a clean, professional PDF invoice instantly in your browser. No sign-up, no software, no recurring fee per invoice."
 ---
 

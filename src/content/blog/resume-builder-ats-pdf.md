@@ -1,6 +1,6 @@
 ---
 title: "Build an ATS-Friendly Resume PDF Without Uploading Your Data Anywhere"
-date: "2026-10-10"
+date: "2026-09-14"
 description: "Build a clean, recruiter-friendly ATS-optimized PDF resume in your browser, with no account, no upload, and no watermark."
 ---
 

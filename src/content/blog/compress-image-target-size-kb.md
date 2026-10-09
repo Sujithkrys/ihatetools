@@ -1,6 +1,6 @@
 ---
 title: "Compress an Image to an Exact KB Size for Any Upload Form"
-date: "2026-10-10"
+date: "2026-09-15"
 description: "Compress your image to exactly fit a target file size in KB, done privately in your browser with no uploads or watermark."
 ---
 

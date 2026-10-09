@@ -1,6 +1,6 @@
 ---
 title: "How to Add a Password to a PDF File Securely"
-date: "2026-10-10"
+date: "2026-09-07"
 description: "Encrypt a PDF with a password directly in your browser so sensitive documents stay protected without ever being uploaded to a server."
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Audio Compressor: Shrink Audio Files Without Guesswork"
-date: "2026-10-10"
+date: "2026-09-28"
 description: "Reduce audio file sizes with honest before and after metrics, free and private. Compress audio in your browser, no uploads, no watermark."
 ---
 

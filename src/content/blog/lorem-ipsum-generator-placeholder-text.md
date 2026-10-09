@@ -1,6 +1,6 @@
 ---
 title: "Lorem Ipsum Generator: Free Placeholder Text for Mockups"
-date: "2026-10-10"
+date: "2026-09-24"
 description: "Generate Lorem Ipsum placeholder text instantly for your designs, wireframes, and layouts. Free, fast, and works entirely in your browser."
 ---
 

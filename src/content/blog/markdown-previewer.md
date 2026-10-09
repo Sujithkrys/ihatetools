@@ -1,6 +1,6 @@
 ---
 title: "Markdown Previewer: Live Preview and Export Markdown to HTML Online"
-date: "2026-10-10"
+date: "2026-10-09"
 description: "Edit Markdown with live synchronized preview, syntax shortcuts, and HTML export, all in your browser. Write README files and docs without any install."
 ---
 

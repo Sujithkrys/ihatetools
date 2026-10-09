@@ -1,6 +1,6 @@
 ---
 title: "How to Sign a PDF Online Without Uploading It Anywhere"
-date: "2026-10-10"
+date: "2026-09-13"
 description: "Draw or type your signature and place it on any PDF directly in your browser. No account, no upload, and no fee per document."
 ---
 

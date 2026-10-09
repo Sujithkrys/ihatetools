@@ -1,6 +1,6 @@
 ---
 title: "How to Add Page Numbers to a PDF in Your Browser"
-date: "2026-10-10"
+date: "2026-09-09"
 description: "Add clean, customizable page numbers to any PDF instantly in your browser, with no uploads, no sign-up, and no watermark on the output."
 ---
 

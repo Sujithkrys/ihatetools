@@ -1,6 +1,6 @@
 ---
 title: "Resize Images to Exact Dimensions Online, Fast and Private"
-date: "2026-10-10"
+date: "2026-09-03"
 description: "Resize images to specific pixel dimensions easily in your browser, with no upload, no watermark, and no account needed."
 ---
 

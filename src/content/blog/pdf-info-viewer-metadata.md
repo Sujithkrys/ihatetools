@@ -1,6 +1,6 @@
 ---
 title: "How to Check a PDF's Page Count, Version, and Hidden Info"
-date: "2026-10-10"
+date: "2026-09-11"
 description: "Quickly inspect any PDF's page count, PDF version, fonts, and hidden metadata right in your browser, with no upload needed."
 ---
 

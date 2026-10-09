@@ -1,6 +1,6 @@
 ---
 title: "Hash Generator: Generate MD5, SHA-1, SHA-256 & SHA-512 Hashes Online"
-date: "2026-10-10"
+date: "2026-10-07"
 description: "Generate MD5, SHA-1, SHA-256, and SHA-512 cryptographic hashes for text and files directly in your browser. Verify checksums without uploading anything."
 ---
 

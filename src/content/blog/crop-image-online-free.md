@@ -1,6 +1,6 @@
 ---
 title: "Crop an Image Online Without Uploading It to a Random Server"
-date: "2026-10-10"
+date: "2026-09-06"
 description: "Crop and extract a specific region from an image quickly in your browser, with no file upload, watermark, or sign-up."
 ---
 

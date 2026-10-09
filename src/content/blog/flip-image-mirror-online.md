@@ -1,6 +1,6 @@
 ---
 title: "How to Flip an Image Horizontally or Vertically Online"
-date: "2026-10-10"
+date: "2026-09-16"
 description: "Mirror any photo horizontally or vertically in seconds, right in your browser, with no upload, no watermark, and no software to install."
 ---
 

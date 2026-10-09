@@ -1,6 +1,6 @@
 ---
 title: "How to Blur or Redact a Part of an Image Online"
-date: "2026-10-10"
+date: "2026-09-21"
 description: "Blur or redact sensitive parts of any photo, like faces, license plates, or documents, instantly in your browser with no uploads involved."
 ---
 

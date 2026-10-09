@@ -1,6 +1,6 @@
 ---
 title: "Free Barcode Generator: Create Code 128, EAN-13, and UPC Barcodes Online"
-date: "2026-10-10"
+date: "2026-10-01"
 description: "Generate 1D barcodes in Code 128, EAN-13, and UPC formats instantly in your browser. No uploads, no software installs, no per-barcode fees."
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "How to Delete Pages from a PDF Without Losing Formatting"
-date: "2026-10-10"
+date: "2026-09-09"
 description: "Remove unwanted pages from any PDF in seconds, directly in your browser, with no uploads, no watermark, and no risk to your layout or quality."
 ---
 

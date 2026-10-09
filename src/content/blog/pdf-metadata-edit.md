@@ -1,6 +1,6 @@
 ---
 title: "How to View and Edit PDF Metadata (Title, Author, Properties)"
-date: "2026-10-10"
+date: "2026-09-10"
 description: "Edit a PDF's title, author, subject, and keywords directly in your browser. See exactly what hidden metadata your document is carrying."
 ---
 

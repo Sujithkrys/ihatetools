@@ -1,6 +1,6 @@
 ---
 title: "Convert HEIC Photos from Your iPhone to JPG Online"
-date: "2026-10-10"
+date: "2026-09-10"
 description: "Convert Apple HEIC photos to standard JPG images in your browser instantly, with no uploads and no software to install."
 ---
 
