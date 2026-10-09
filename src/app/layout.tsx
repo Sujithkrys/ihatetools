@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Caveat } from "next/font/google";
 import "./globals.css";
-import { Footer } from "@/components/Footer";
 import { AppShell } from "@/components/AppShell";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -37,10 +36,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AppShell>
-            <main className="flex-1">
+            <main className="flex-1 flex flex-col">
               {children}
             </main>
-            <Footer />
           </AppShell>
         </ThemeProvider>
       </body>

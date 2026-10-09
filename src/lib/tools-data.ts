@@ -479,6 +479,15 @@ export const TOOLS: ToolData[] = [
     category: "Image Tools"
   },
   {
+    id: "remove-background",
+    name: "Remove Background",
+    description: "Remove the background from your images instantly. 100% private.",
+    icon: Scissors,
+    href: "/tools/image/remove-background",
+    featured: true,
+    category: "Image Tools"
+  },
+  {
     id: "image-to-base64",
     name: "Image to Base64",
     description: "Convert any image into a Base64 data URI string.",

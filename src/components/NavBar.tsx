@@ -14,7 +14,7 @@ export function NavBar({ onLogoClick }: NavBarProps) {
   const pathname = usePathname();
 
   const links = [
-    { href: "/", label: "Home" },
+    { href: "/home", label: "Home" },
     { href: "/tools", label: "All Tools" },
     { href: "/about", label: "About" },
   ];

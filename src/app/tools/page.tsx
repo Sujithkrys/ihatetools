@@ -1,88 +1,40 @@
 import { Metadata } from "next";
-import { ToolCard } from "@/components/ToolCard";
-import { Frame } from "@/components/Frame";
 import { TOOLS } from "@/lib/tools-data";
+import { ToolCard } from "@/components/ToolCard";
 
 export const metadata: Metadata = {
-  title: "All Tools | ihatetools",
-  description: "Browse all free, fast, and private client-side tools.",
+  title: "All Tools - ihatetools",
+  description: "Free, fast, client-side tools for developers and creators.",
 };
 
-export default function AllToolsPage() {
-  const pdfTools = TOOLS.filter(t => t.category === "PDF Tools");
-  const audioTools = TOOLS.filter(t => t.category === "Audio Tools");
-  const imageTools = TOOLS.filter(t => t.category === "Image Tools");
-  const utilityTools = TOOLS.filter(t => t.category === "Utility Tools");
-  const textTools = TOOLS.filter(t => t.category === "Text Tools");
+export default function ToolsDashboard() {
+  const categories = [
+    { title: "Page Management", filters: ["PDF Tools"] },
+    { title: "Image Editing", filters: ["Image Tools"] },
+    { title: "Edit & Annotate", filters: ["Text Tools"] },
+    { title: "Audio & Utility", filters: ["Audio Tools", "Utility Tools"] }
+  ];
 
   return (
-    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[60px] pb-[80px]">
-      <section className="text-center max-w-2xl mx-auto mb-[60px]">
-        <h1 className="disp disp-lg text-[clamp(36px,5vw,52px)] text-ink mb-[12px]">All Tools</h1>
-        <p className="text-[16px] text-grey tracking-[-0.015em]">
-          Browse our complete collection of fast, local, and private utilities.
-        </p>
-      </section>
-
-      <Frame label="PDF Tools" labelColor="yellow" showBorder={false}>
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-yellow text-[#111212]">PDF</span>
-          <h2 className="disp text-[36px]">PDF, sorted.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {pdfTools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
-        </div>
-      </Frame>
-
-      <Frame label="Audio Tools" labelColor="yellow" showBorder={false}>
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-amber-400 text-[#111212]">Audio</span>
-          <h2 className="disp text-[36px]">Audio, mastered.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {audioTools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
-        </div>
-      </Frame>
-
-      <Frame label="Image Tools" labelColor="cyan" showBorder={false}>
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-cyan text-[#111212]">Image</span>
-          <h2 className="disp text-[36px]">Images, handled.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {imageTools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
-        </div>
-      </Frame>
-
-      <Frame label="Utility Tools" labelColor="cyan" showBorder={false}>
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-emerald-400 text-[#111212]">Utility</span>
-          <h2 className="disp text-[36px]">Everyday utilities.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {utilityTools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
-        </div>
-      </Frame>
-
-      <Frame label="Text & Dev" labelColor="violet" showBorder={false}>
-        <div className="flex items-baseline gap-[14px] mb-[30px]">
-          <span className="tag font-sans font-semibold text-[10px] uppercase tracking-[0.08em] px-[10px] py-[5px] border-[1.5px] border-ink rounded-[4px] bg-violet text-[#111212]">Text</span>
-          <h2 className="disp text-[36px]">Text utilities.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-          {textTools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
-        </div>
-      </Frame>
+    <div className="min-h-screen bg-bg dark:bg-black text-ink dark:text-white p-8 pb-16">
+      <div className="space-y-12 max-w-[1400px]">
+        {categories.map(cat => {
+          const catTools = TOOLS.filter(t => 
+            cat.filters.includes(t.category)
+          );
+          if (catTools.length === 0) return null;
+          return (
+            <section key={cat.title}>
+              <h2 className="text-[13px] font-medium text-grey dark:text-gray-500 mb-4 border-b border-ink/[0.06] dark:border-white/[0.06] pb-3 px-2 uppercase tracking-widest">{cat.title}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-1">
+                {catTools.map(tool => (
+                  <ToolCard key={tool.id} {...tool} />
+                ))}
+              </div>
+            </section>
+          )
+        })}
+      </div>
     </div>
   );
 }
