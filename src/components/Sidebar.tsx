@@ -1,7 +1,6 @@
 'use client';
 import { useEffect } from 'react';
 import Link from 'next/link';
-import { X } from 'lucide-react';
 import { TOOLS } from '@/lib/tools-data';
 import { SearchBar } from './SearchBar';
 

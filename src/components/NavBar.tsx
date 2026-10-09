@@ -9,7 +9,7 @@ interface NavBarProps {
   onLogoClick?: () => void;
 }
 
-export function NavBar({ onLogoClick }: NavBarProps) {
+export function NavBar({}: NavBarProps = {}) {
   const pathname = usePathname();
 
   const links = [
