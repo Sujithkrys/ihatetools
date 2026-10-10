@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   ShieldCheck,
@@ -104,39 +105,89 @@ export default function Home() {
 
       {/* ======== HERO ======== */}
       <Frame showBorder={false}>
-        <div className="relative text-center py-[30px] overflow-hidden">
+        <div className="relative overflow-hidden">
           <div
             aria-hidden
-            className="pointer-events-none absolute -top-[120px] left-1/2 -translate-x-1/2 w-[640px] h-[420px] rounded-full opacity-[0.12] dark:opacity-[0.16] blur-[90px]"
+            className="pointer-events-none absolute -top-[160px] -right-[120px] w-[600px] h-[600px] rounded-full opacity-[0.14] dark:opacity-[0.18] blur-[100px]"
             style={{ background: "radial-gradient(closest-side, var(--primary, #0D99FF), transparent)" }}
           />
-          <div className="relative inline-flex items-center gap-[14px] mb-[22px]">
-            <span className="inline-flex items-center gap-[6px] text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[11px] py-[5px] rounded-full">
-              No sign-up
-            </span>
-            <span className="inline-flex items-center gap-[6px] text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[11px] py-[5px] rounded-full">
-              No watermark
-            </span>
-          </div>
-          <h1 className="relative disp disp-lg text-[clamp(34px,5vw,54px)] max-w-[16ch] mx-auto text-ink">
-            Tools that <span className="bg-yellow/90 text-[#111212] px-[0.1em] rounded-[0.15em]">don&apos;t</span> waste your time.
-          </h1>
-          <p className="relative disp text-[clamp(16px,2vw,20px)] font-normal max-w-[30ch] mx-auto mt-[22px] text-ink/65">
-            Merge, split, compress, and convert, all of it running locally in your browser.
-          </p>
-          <Link
-            href="/"
-            className="relative cta browse inline-flex items-center gap-[8px] mt-[32px] bg-ink text-paper px-[24px] py-[12px] rounded-[10px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer shadow-soft dark:shadow-soft-dark hover:-translate-y-[2px] hover:shadow-soft-hover transition-all"
-          >
-            Browse all tools →
-          </Link>
+          <div className="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-[40px] items-center py-[20px]">
+            {/* Copy */}
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-[10px] mb-[20px]">
+                <span className="inline-flex items-center gap-[6px] text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[11px] py-[5px] rounded-full">
+                  No sign-up
+                </span>
+                <span className="inline-flex items-center gap-[6px] text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[11px] py-[5px] rounded-full">
+                  No watermark
+                </span>
+              </div>
+              <h1 className="disp disp-lg text-[clamp(36px,4.6vw,56px)] lg:max-w-[12ch] text-ink leading-[1.05]">
+                Tools that <span className="bg-yellow/90 text-[#111212] px-[0.1em] rounded-[0.15em]">don&apos;t</span> waste your time.
+              </h1>
+              <p className="disp text-[clamp(16px,1.6vw,19px)] font-normal lg:max-w-[38ch] mx-auto lg:mx-0 mt-[18px] text-ink/65">
+                Merge, split, compress, and convert, all of it running locally in your browser.
+              </p>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-[12px] mt-[28px]">
+                <Link
+                  href="/"
+                  className="cta browse inline-flex items-center gap-[8px] bg-ink text-paper px-[22px] py-[12px] rounded-[10px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer shadow-soft dark:shadow-soft-dark hover:-translate-y-[2px] hover:shadow-soft-hover transition-all"
+                >
+                  Browse all tools →
+                </Link>
+                <Link
+                  href="/tools/resume-ats-checker"
+                  className="inline-flex items-center gap-[8px] border border-ink/12 dark:border-white/15 text-ink px-[22px] py-[12px] rounded-[10px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer hover:bg-ink/[0.03] dark:hover:bg-white/[0.04] transition-colors"
+                >
+                  Try a tool
+                </Link>
+              </div>
+              <p className="max-w-[460px] mx-auto lg:mx-0 mt-[24px] text-[13px] leading-[1.7] text-grey">
+                No uploads. No subscriptions.{" "}
+                <Link href="/" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">Browse every tool</Link>
+                {" "}or read the{" "}
+                <Link href="/blog" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">guides</Link>.
+              </p>
+            </div>
 
-          <p className="relative max-w-[620px] mx-auto mt-[30px] text-[13.5px] leading-[1.7] text-grey">
-            Most online file tools make you upload your document to a server or pay a monthly fee just to merge a couple of PDFs. ihatetools does the same jobs entirely inside your browser, nothing you open is ever sent anywhere. Browse the{" "}
-            <Link href="/" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">full tool directory</Link>
-            {" "}or read how each tool works on the{" "}
-            <Link href="/blog" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">blog</Link>.
-          </p>
+            {/* Product shot */}
+            <div className="relative hidden lg:block">
+              <div className="relative rounded-[16px] border border-ink/10 dark:border-white/10 bg-paper dark:bg-bg shadow-soft-hover overflow-hidden rotate-[1.2deg] hover:rotate-0 transition-transform duration-500">
+                <div className="flex items-center gap-[6px] px-[14px] py-[10px] border-b border-ink/8 dark:border-white/10 bg-ink/[0.015] dark:bg-white/[0.02]">
+                  <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
+                  <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
+                  <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
+                  <span className="ml-[8px] text-[11px] font-mono text-grey">ihatetools.in/tools/resume-ats-checker</span>
+                </div>
+                <Image
+                  src="/images/hero-ats-card.png"
+                  alt="ihatetools resume and job match checker showing a 67% keyword match score"
+                  width={1388}
+                  height={812}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+              <div className="absolute -bottom-[14px] -left-[14px] -z-10 w-full h-full rounded-[16px] bg-sel/10 dark:bg-sel/15" />
+            </div>
+          </div>
+        </div>
+      </Frame>
+
+      {/* ======== STATS STRIP ======== */}
+      <Frame showBorder={false}>
+        <div className="grid grid-cols-2 md:grid-cols-4 max-w-[920px] mx-auto divide-x divide-y md:divide-y-0 divide-ink/8 dark:divide-white/10 border border-ink/8 dark:border-white/10 rounded-[16px] overflow-hidden">
+          {[
+            { value: `${TOOLS.length}+`, label: "Free tools" },
+            { value: "100%", label: "Client-side" },
+            { value: "$0", label: "Forever" },
+            { value: "0", label: "Sign-ups required" },
+          ].map((stat) => (
+            <div key={stat.label} className="p-[20px] text-center bg-paper dark:bg-bg">
+              <div className="stat-num text-[28px] text-ink">{stat.value}</div>
+              <div className="text-[11.5px] text-grey mt-[4px]">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </Frame>
 
