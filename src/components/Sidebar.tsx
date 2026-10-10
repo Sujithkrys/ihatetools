@@ -55,8 +55,20 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
 
   return (
     <aside className="app-sidebar" data-open={open}>
-      <div className="sb-head">
+      <div className="sb-head flex items-center justify-between">
         <Link href="/" className="sb-logo no-underline">ihatetools</Link>
+        <button
+          type="button"
+          onClick={onClose}
+          className="sb-close lg:hidden"
+          aria-label="Close sidebar"
+          title="Close sidebar"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
       <div className="px-[14px] pt-[14px]">
         <input
@@ -81,7 +93,10 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
                   <Link
                     key={tool.href}
                     href={tool.href}
-                    onClick={() => setQuery("")}
+                    onClick={() => {
+                      setQuery("");
+                      onClose();
+                    }}
                     className={`sb-item${isActive ? ' active' : ''}`}
                   >
                     <span className="sb-icon">
@@ -114,6 +129,7 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
                     <Link
                       key={tool.href}
                       href={tool.href}
+                      onClick={onClose}
                       className={`sb-item${isActive ? ' active' : ''}`}
                     >
                       <span className="sb-icon">

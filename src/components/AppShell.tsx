@@ -50,8 +50,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <div className="backdrop" onClick={close} />
       )}
       <div className="app-main">
-        {/* Pass toggle if needed for mobile hamburger menu in the future, for now undefined */}
-        <NavBar onLogoClick={isMobile ? toggle : undefined} />
+        <NavBar onToggleSidebar={toggle} />
         {children}
       </div>
     </div>

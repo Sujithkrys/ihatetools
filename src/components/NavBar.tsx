@@ -6,10 +6,10 @@ import { ThemeToggle } from "./ThemeToggle";
 import { Ruler } from "./Ruler";
 
 interface NavBarProps {
-  onLogoClick?: () => void;
+  onToggleSidebar?: () => void;
 }
 
-export function NavBar({}: NavBarProps = {}) {
+export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
   const pathname = usePathname();
 
   const links = [
@@ -25,7 +25,20 @@ export function NavBar({}: NavBarProps = {}) {
     <header className="site-header border-b border-ink/[0.08] bg-bg sticky top-0 z-40">
       {!isToolsSection && <Ruler />}
       <div className="nav-in flex justify-between w-full">
-          <nav className="nav-links flex items-center gap-[4px]">
+          <nav className="nav-links flex items-center gap-[6px]">
+            {isToolsSection && onToggleSidebar && (
+              <button
+                type="button"
+                onClick={onToggleSidebar}
+                className="lg:hidden flex flex-col justify-center items-center w-[34px] h-[32px] rounded-[5px] border-[1.5px] border-ink bg-paper text-ink hover:bg-cyan transition-colors mr-1 p-1"
+                aria-label="Toggle Tools Sidebar"
+                title="Toggle Tools Sidebar"
+              >
+                <span className="w-[16px] h-[2px] bg-ink rounded-full mb-[3px]"></span>
+                <span className="w-[16px] h-[2px] bg-ink rounded-full mb-[3px]"></span>
+                <span className="w-[16px] h-[2px] bg-ink rounded-full"></span>
+              </button>
+            )}
             {links.filter(l => l.href === "/tools").map((link) => {
               const isActive = pathname === link.href || 
                 (link.href === "/tools" && pathname.startsWith("/tools"));

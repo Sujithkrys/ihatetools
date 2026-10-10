@@ -51,6 +51,7 @@ import {
   Link2,
   FileCode,
   Clock,
+  ClipboardCheck,
   LucideIcon
 } from "lucide-react";
 
@@ -395,6 +396,15 @@ export const TOOLS: ToolData[] = [
     icon: Briefcase,
     href: "/tools/resume-builder",
     featured: false,
+    category: "PDF Tools"
+  },
+  {
+    id: "resume-ats-checker",
+    name: "Resume & Job Match Checker",
+    description: "Check your resume against a job description for keyword gaps and formatting risks before you apply.",
+    icon: ClipboardCheck,
+    href: "/tools/resume-ats-checker",
+    featured: true,
     category: "PDF Tools"
   },
   {
