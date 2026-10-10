@@ -143,7 +143,7 @@ export function ExtractPdfTextWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <Loader2 className="w-8 h-8 text-sel animate-spin mb-4" />
           <p className="text-ink font-medium">Extracting text...</p>
         </div>
       )}
@@ -156,7 +156,7 @@ export function ExtractPdfTextWidget() {
           <h3 className="text-xl font-bold text-ink">No text found</h3>
           <p className="text-grey max-w-md mx-auto">{warningMsg}</p>
           <div className="pt-4 flex justify-center gap-4">
-            <a href="/tools/ocr-pdf" className="px-6 py-2 bg-yellow text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium">
+            <a href="/tools/ocr-pdf" className="px-6 py-2 bg-ink text-paper rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium">
               Use OCR Tool
             </a>
             <button onClick={handleReset} className="px-6 py-2 bg-paper border border-ink/8 dark:border-white/10 text-ink rounded-[9px]">
@@ -179,12 +179,12 @@ export function ExtractPdfTextWidget() {
                 onClick={handleCopy}
                 className="flex items-center gap-2 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 text-ink rounded-[9px] text-sm font-medium transition-colors"
               >
-                {copied ? <CheckCircle className="w-4 h-4 text-green" /> : <Copy className="w-4 h-4" />}
+                {copied ? <CheckCircle className="w-4 h-4 text-sel" /> : <Copy className="w-4 h-4" />}
                 {copied ? "Copied!" : "Copy"}
               </button>
               <button
                 onClick={handleDownload}
-                className="flex items-center gap-2 px-3 py-1.5 bg-yellow hover:bg-yellow/90 text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all text-sm font-medium"
+                className="flex items-center gap-2 px-3 py-1.5 bg-ink hover:bg-ink/90 text-paper rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all text-sm font-medium"
               >
                 <Download className="w-4 h-4" />
                 Download .txt

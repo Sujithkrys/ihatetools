@@ -166,7 +166,7 @@ export function HeicToJpgWidget() {
             {!isProcessing && (
               <div
                 {...getRootProps()}
-                className="text-sm text-yellow hover:text-yellow/80 cursor-pointer"
+                className="text-sm text-sel hover:text-sel/80 cursor-pointer"
               >
                 <input {...getInputProps()} />
                 + Add more
@@ -198,7 +198,7 @@ export function HeicToJpgWidget() {
                       ×
                     </button>
                   )}
-                  {fileObj.status === "done" && <CheckCircle className="w-5 h-5 text-green" />}
+                  {fileObj.status === "done" && <CheckCircle className="w-5 h-5 text-sel" />}
                   {fileObj.status === "error" && <span className="text-pink text-xs font-medium">Failed</span>}
                 </div>
                 
@@ -206,7 +206,7 @@ export function HeicToJpgWidget() {
                 {(fileObj.status === "converting" || fileObj.status === "done") && (
                   <div className="w-full bg-ink/5 rounded-full h-1.5 mt-2">
                     <div 
-                      className="bg-yellow h-1.5 rounded-full transition-all duration-300"
+                      className="bg-sel h-1.5 rounded-full transition-all duration-300"
                       style={{ width: `${fileObj.progress}%` }}
                     />
                   </div>
@@ -219,7 +219,7 @@ export function HeicToJpgWidget() {
             <button
               onClick={handleConvert}
               disabled={isProcessing}
-              className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <ImageIcon className="w-5 h-5" />}
               Convert to JPG
@@ -230,8 +230,8 @@ export function HeicToJpgWidget() {
 
       {downloadUrl && (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
-          <div className="w-16 h-16 bg-green/20 rounded-full flex items-center justify-center mb-2">
-            <CheckCircle className="w-8 h-8 text-green" />
+          <div className="w-16 h-16 bg-sel/20 rounded-full flex items-center justify-center mb-2">
+            <CheckCircle className="w-8 h-8 text-sel" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-ink">Conversion Complete!</h3>
@@ -242,7 +242,7 @@ export function HeicToJpgWidget() {
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download {downloadFilename.endsWith('.zip') ? 'ZIP' : 'JPG'}

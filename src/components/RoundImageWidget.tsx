@@ -209,7 +209,7 @@ export function RoundImageWidget() {
                     onClick={() => setShape("rounded")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-[14px] transition-colors",
-                      shape === "rounded" ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/8 dark:border-white/10 text-grey hover:bg-overlay/10 hover:text-ink"
+                      shape === "rounded" ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/8 dark:border-white/10 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <Square className="w-6 h-6" rx={10} />
@@ -219,7 +219,7 @@ export function RoundImageWidget() {
                     onClick={() => setShape("circle")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-[14px] transition-colors",
-                      shape === "circle" ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/8 dark:border-white/10 text-grey hover:bg-overlay/10 hover:text-ink"
+                      shape === "circle" ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/8 dark:border-white/10 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <Circle className="w-6 h-6" />
@@ -255,7 +255,7 @@ export function RoundImageWidget() {
             <button
               onClick={handleDownload}
               disabled={isProcessing}
-              className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover hover:bg-ink/90 transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
               {isProcessing ? "Processing..." : "Download Transparent PNG"}

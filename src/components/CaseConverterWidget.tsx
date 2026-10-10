@@ -68,7 +68,7 @@ export function CaseConverterWidget() {
         {/* Top toolbar */}
         <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-3 border-b border-ink/10 bg-white/[0.02] gap-4">
           <div className="flex items-center gap-2 text-grey font-medium">
-            <CaseUpper className="w-4 h-4 text-yellow" />
+            <CaseUpper className="w-4 h-4 text-sel" />
             <span className="text-sm">Text Editor</span>
           </div>
           
@@ -121,7 +121,7 @@ export function CaseConverterWidget() {
             <button
               onClick={handleCopy}
               disabled={!text}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-yellow/20 hover:bg-yellow/30 text-yellow rounded text-xs font-medium transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-sel/20 hover:bg-sel/30 text-sel rounded text-xs font-medium transition-colors disabled:opacity-50"
             >
               {copied ? <CheckCircle className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               Copy

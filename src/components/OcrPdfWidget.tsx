@@ -190,7 +190,7 @@ export function OcrPdfWidget() {
               <div className="mt-8 flex justify-end">
                 <button
                   onClick={runOcr}
-                  className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2"
+                  className="px-6 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2"
                 >
                   <ScanText className="w-5 h-5" />
                   Extract Text
@@ -205,12 +205,12 @@ export function OcrPdfWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12 space-y-6">
-          <Loader2 className="w-12 h-12 text-yellow animate-spin" />
+          <Loader2 className="w-12 h-12 text-sel animate-spin" />
           <div className="text-center w-full max-w-sm">
             <p className="text-ink font-medium text-lg">{progressMsg}</p>
             <div className="w-full bg-bg rounded-full h-2 mt-4 overflow-hidden border border-ink/8 dark:border-white/10">
-              <div 
-                className="bg-yellow h-2 transition-all duration-300 ease-out"
+              <div
+                className="bg-sel h-2 transition-all duration-300 ease-out"
                 style={{ width: `${progressPercent}%` }}
               ></div>
             </div>
@@ -223,7 +223,7 @@ export function OcrPdfWidget() {
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <h3 className="text-xl font-medium text-ink flex items-center gap-2">
-              <ScanText className="w-6 h-6 text-yellow" />
+              <ScanText className="w-6 h-6 text-sel" />
               Extracted Text
             </h3>
             <div className="flex items-center gap-3">
@@ -231,12 +231,12 @@ export function OcrPdfWidget() {
                 onClick={handleCopy}
                 className="px-4 py-2 bg-paper border border-ink/8 dark:border-white/10 text-ink hover:bg-ink/5 dark:hover:bg-white/5 rounded-[9px] transition-colors flex items-center gap-2 text-sm font-medium"
               >
-                {isCopied ? <Check className="w-4 h-4 text-green" /> : <Copy className="w-4 h-4" />}
+                {isCopied ? <Check className="w-4 h-4 text-sel" /> : <Copy className="w-4 h-4" />}
                 {isCopied ? "Copied!" : "Copy"}
               </button>
               <button
                 onClick={handleDownloadTxt}
-                className="px-4 py-2 bg-yellow text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all flex items-center gap-2 text-sm font-medium"
+                className="px-4 py-2 bg-ink text-paper rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all flex items-center gap-2 text-sm font-medium"
               >
                 <Download className="w-4 h-4" />
                 Download .txt

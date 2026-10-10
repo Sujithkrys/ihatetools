@@ -213,7 +213,7 @@ export function CompressImageTargetSizeWidget() {
               <div className="mt-8 flex justify-end">
                 <button
                   onClick={handleCompress}
-                  className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2"
+                  className="px-6 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2"
                 >
                   <Minimize2 className="w-5 h-5" />
                   Compress Image
@@ -228,20 +228,20 @@ export function CompressImageTargetSizeWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <Loader2 className="w-8 h-8 text-sel animate-spin mb-4" />
           <p className="text-ink font-medium">Iterating compression levels...</p>
         </div>
       )}
 
       {downloadUrl && resultInfo && (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
-          <div className="w-16 h-16 bg-green/20 rounded-full flex items-center justify-center mb-2">
-            <ImageIcon className="w-8 h-8 text-green" />
+          <div className="w-16 h-16 bg-sel/20 rounded-full flex items-center justify-center mb-2">
+            <ImageIcon className="w-8 h-8 text-sel" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-ink">Compression Complete!</h3>
             {resultInfo.kb <= targetKb ? (
-              <p className="text-green mt-2 font-medium">Success! Target met.</p>
+              <p className="text-sel mt-2 font-medium">Success! Target met.</p>
             ) : (
               <p className="text-warning mt-2 font-medium">Could not reach target size even at minimum quality.</p>
             )}
@@ -254,7 +254,7 @@ export function CompressImageTargetSizeWidget() {
               <div className="text-grey">→</div>
               <div className="bg-bg rounded-[14px] border border-ink/8 dark:border-white/10 p-4 text-center">
                 <p className="text-sm text-grey mb-1">Achieved</p>
-                <p className="font-bold text-yellow">{resultInfo.kb.toFixed(2)} KB</p>
+                <p className="font-bold text-sel">{resultInfo.kb.toFixed(2)} KB</p>
               </div>
             </div>
           </div>
@@ -263,7 +263,7 @@ export function CompressImageTargetSizeWidget() {
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download JPG

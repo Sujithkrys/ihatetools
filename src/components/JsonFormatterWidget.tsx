@@ -67,7 +67,7 @@ export function JsonFormatterWidget() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-3 border-b border-ink/10 bg-white/[0.02] gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto gap-4">
             <div className="flex items-center gap-2 text-grey font-medium">
-              <Braces className="w-4 h-4 text-yellow" />
+              <Braces className="w-4 h-4 text-sel" />
               <span className="text-sm">JSON Editor</span>
             </div>
             
@@ -96,7 +96,7 @@ export function JsonFormatterWidget() {
             <button
               onClick={handleFormat}
               disabled={!input}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-yellow/20 hover:bg-yellow/30 border border-accent/30 text-yellow rounded text-xs font-medium transition-colors disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-ink text-paper hover:bg-ink/90 rounded text-xs font-medium transition-colors disabled:opacity-50"
             >
               <FileJson className="w-3.5 h-3.5" />
               Format
@@ -107,7 +107,7 @@ export function JsonFormatterWidget() {
               disabled={!input}
               className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
-              {copied ? <CheckCircle className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <CheckCircle className="w-3.5 h-3.5 text-sel" /> : <Copy className="w-3.5 h-3.5" />}
               Copy
             </button>
             <button

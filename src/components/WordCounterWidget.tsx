@@ -57,7 +57,7 @@ export function WordCounterWidget() {
         {/* Top toolbar */}
         <div className="flex justify-between items-center px-4 py-3 border-b border-ink/10 bg-white/[0.02]">
           <div className="flex items-center gap-2 text-grey font-medium">
-            <FileText className="w-4 h-4 text-yellow" />
+            <FileText className="w-4 h-4 text-sel" />
             <span className="text-sm">Text Editor</span>
           </div>
           <div className="flex gap-2">
@@ -66,7 +66,7 @@ export function WordCounterWidget() {
               disabled={!text}
               className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors disabled:opacity-50"
             >
-              {copied ? <CheckCircle className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <CheckCircle className="w-3.5 h-3.5 text-sel" /> : <Copy className="w-3.5 h-3.5" />}
               Copy
             </button>
             <button
@@ -107,8 +107,8 @@ export function WordCounterWidget() {
             <span className="text-2xl font-bold text-ink">{stats.paragraphs}</span>
             <span className="text-xs text-grey uppercase tracking-wider font-semibold mt-1">Paragraphs</span>
           </div>
-          <div className="p-4 flex flex-col items-center justify-center col-span-2 md:col-span-1 bg-yellow/5">
-            <span className="text-xl font-bold text-yellow">{stats.readingTime}</span>
+          <div className="p-4 flex flex-col items-center justify-center col-span-2 md:col-span-1 bg-sel/5">
+            <span className="text-xl font-bold text-sel">{stats.readingTime}</span>
             <span className="text-xs text-grey uppercase tracking-wider font-semibold mt-1">Reading Time</span>
           </div>
         </div>

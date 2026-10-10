@@ -228,7 +228,7 @@ export function DeletePdfPagesWidget() {
                 <button
                   onClick={handleDelete}
                   disabled={!isReady}
-                  className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Trash2 className="w-5 h-5" />
                   Apply Deletion
@@ -243,15 +243,15 @@ export function DeletePdfPagesWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <Loader2 className="w-8 h-8 text-sel animate-spin mb-4" />
           <p className="text-ink font-medium">Processing PDF...</p>
         </div>
       )}
 
       {downloadUrl && (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
-          <div className="w-16 h-16 bg-green/20 rounded-full flex items-center justify-center mb-2">
-            <Trash2 className="w-8 h-8 text-green" />
+          <div className="w-16 h-16 bg-sel/20 rounded-full flex items-center justify-center mb-2">
+            <Trash2 className="w-8 h-8 text-sel" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-ink">Deletion Complete!</h3>
@@ -262,7 +262,7 @@ export function DeletePdfPagesWidget() {
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download Updated PDF

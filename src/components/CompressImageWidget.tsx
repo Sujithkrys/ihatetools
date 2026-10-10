@@ -121,8 +121,8 @@ export function CompressImageWidget() {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center p-8 bg-paper border border-green/20 rounded-[16px] shadow-soft dark:shadow-soft-dark">
-        <div className="w-16 h-16 bg-green/10 text-green rounded-full flex items-center justify-center mb-6">
+      <div className="flex flex-col items-center justify-center p-8 bg-paper border border-sel/20 rounded-[16px] shadow-soft dark:shadow-soft-dark">
+        <div className="w-16 h-16 bg-sel/10 text-sel rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-2xl font-semibold text-ink mb-6 text-center">Compressed Successfully!</h3>
@@ -140,7 +140,7 @@ export function CompressImageWidget() {
                     <p className="text-sm font-medium text-ink truncate">{name}</p>
                     <p className="text-xs text-grey">
                       {formatBytes(res.originalFile.size)} → {formatBytes(res.blob.size)} 
-                      <span className="text-green ml-2">({res.percentSaved}% saved)</span>
+                      <span className="text-sel ml-2">({res.percentSaved}% saved)</span>
                     </p>
                   </div>
                   <a
@@ -161,7 +161,7 @@ export function CompressImageWidget() {
             <a
               href={downloadZipUrl}
               download="compressed-images.zip"
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-yellow text-[#111212] font-medium rounded-[10px] hover:bg-yellow/90 shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-ink text-paper font-medium rounded-[10px] hover:bg-ink/90 shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
             >
               <Download className="w-5 h-5" />
               Download all as ZIP
@@ -173,7 +173,7 @@ export function CompressImageWidget() {
               "flex items-center justify-center gap-2 px-6 py-3 border font-medium rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all",
               processedFiles.length > 1
                 ? "bg-bg border-ink/8 dark:border-white/10 text-ink hover:bg-ink/5"
-                : "bg-yellow border-ink/40 dark:border-white/40 text-[#111212] hover:bg-yellow/90"
+                : "bg-ink border-ink/40 dark:border-white/40 text-paper hover:bg-ink/90"
             )}
           >
             Compress more images
@@ -195,7 +195,7 @@ export function CompressImageWidget() {
         )}
       >
         <input {...getInputProps()} />
-        <UploadCloud className={clsx("w-12 h-12 mb-4", isDragActive ? "text-yellow" : "text-grey/60")} />
+        <UploadCloud className={clsx("w-12 h-12 mb-4", isDragActive ? "text-sel" : "text-grey/60")} />
         <h3 className="text-lg font-medium text-ink mb-2">
           {isDragActive ? "Drop images here..." : "Drag & drop your images here"}
         </h3>
@@ -235,7 +235,7 @@ export function CompressImageWidget() {
               max="100" 
               value={quality} 
               onChange={(e) => setQuality(parseInt(e.target.value))}
-              className="w-full accent-accent"
+              className="w-full accent-sel"
             />
             <p className="text-xs text-grey mt-1">Lower quality means smaller file size.</p>
           </div>
@@ -246,7 +246,7 @@ export function CompressImageWidget() {
                 type="checkbox" 
                 checked={convertPng}
                 onChange={(e) => setConvertPng(e.target.checked)}
-                className="mt-1 accent-accent"
+                className="mt-1 accent-sel"
               />
               <div>
                 <span className="block text-sm font-medium text-ink">Convert PNG to WEBP</span>
@@ -279,7 +279,7 @@ export function CompressImageWidget() {
               "w-full flex items-center justify-center gap-2 py-4 rounded-[10px] font-medium text-lg shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all",
               status === 'processing'
                 ? "bg-ink/5 text-grey/60 cursor-not-allowed"
-                : "bg-yellow text-[#111212] hover:bg-yellow/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
+                : "bg-ink text-paper hover:bg-ink/90 shadow-[0_0_20px_rgba(13,153,255,0.2)]"
             )}
           >
             {status === 'processing' ? (

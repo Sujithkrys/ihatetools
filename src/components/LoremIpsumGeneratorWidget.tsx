@@ -102,7 +102,7 @@ export function LoremIpsumGeneratorWidget() {
         {/* Top toolbar */}
         <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-ink/10 bg-white/[0.02] gap-4">
           <div className="flex items-center gap-2 text-grey font-medium">
-            <AlignLeft className="w-4 h-4 text-yellow" />
+            <AlignLeft className="w-4 h-4 text-sel" />
             <span className="text-sm">Lorem Ipsum</span>
           </div>
           
@@ -128,7 +128,7 @@ export function LoremIpsumGeneratorWidget() {
             
             <button
               onClick={handleGenerate}
-              className="px-4 py-1.5 bg-yellow hover:bg-yellow/90 text-background rounded font-medium text-sm transition-colors"
+              className="px-4 py-1.5 bg-ink hover:bg-ink/90 text-paper rounded font-medium text-sm transition-colors"
             >
               Generate
             </button>
@@ -139,7 +139,7 @@ export function LoremIpsumGeneratorWidget() {
               onClick={handleCopy}
               className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs font-medium text-ink transition-colors"
             >
-              {copied ? <CheckCircle className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <CheckCircle className="w-3.5 h-3.5 text-sel" /> : <Copy className="w-3.5 h-3.5" />}
               Copy Text
             </button>
           </div>

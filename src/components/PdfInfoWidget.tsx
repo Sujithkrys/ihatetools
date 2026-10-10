@@ -127,7 +127,7 @@ export function PdfInfoWidget() {
         <div className="bg-paper rounded-[16px] border border-ink/8 dark:border-white/10 shadow-soft dark:shadow-soft-dark p-4 sm:p-8 space-y-8">
           <div className="flex justify-between items-start mb-2">
             <div className="flex items-center gap-3">
-              <FileText className="w-6 h-6 text-yellow" />
+              <FileText className="w-6 h-6 text-sel" />
               <div>
                 <h3 className="text-xl font-medium text-ink">{fileName}</h3>
                 <p className="text-sm text-grey">Document Properties</p>

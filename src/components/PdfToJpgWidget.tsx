@@ -155,7 +155,7 @@ export function PdfToJpgWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <Loader2 className="w-8 h-8 text-sel animate-spin mb-4" />
           <p className="text-ink font-medium">{progressMsg}</p>
           <p className="text-sm text-grey mt-2">This may take a moment for large files.</p>
         </div>
@@ -163,8 +163,8 @@ export function PdfToJpgWidget() {
 
       {downloadUrl && (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
-          <div className="w-16 h-16 bg-green/20 rounded-full flex items-center justify-center mb-2">
-            <Download className="w-8 h-8 text-green" />
+          <div className="w-16 h-16 bg-sel/20 rounded-full flex items-center justify-center mb-2">
+            <Download className="w-8 h-8 text-sel" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-ink">Conversion Complete!</h3>
@@ -175,7 +175,7 @@ export function PdfToJpgWidget() {
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download {downloadFilename.endsWith('.zip') ? 'ZIP' : 'JPG'}

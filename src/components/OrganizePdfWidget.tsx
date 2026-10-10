@@ -176,7 +176,7 @@ export function OrganizePdfWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <Loader2 className="w-8 h-8 text-sel animate-spin mb-4" />
           <p className="text-ink font-medium">Processing PDF...</p>
           <p className="text-sm text-grey mt-2">This may take a moment for large files.</p>
         </div>
@@ -199,7 +199,7 @@ export function OrganizePdfWidget() {
               <button
                 onClick={handleSave}
                 disabled={pages.length === 0}
-                className="px-4 py-2 bg-yellow text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-2 bg-ink text-paper rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Save Changes
               </button>
@@ -254,8 +254,8 @@ export function OrganizePdfWidget() {
 
       {downloadUrl && (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
-          <div className="w-16 h-16 bg-green/20 rounded-full flex items-center justify-center mb-2">
-            <Download className="w-8 h-8 text-green" />
+          <div className="w-16 h-16 bg-sel/20 rounded-full flex items-center justify-center mb-2">
+            <Download className="w-8 h-8 text-sel" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-ink">Your PDF is ready!</h3>
@@ -266,7 +266,7 @@ export function OrganizePdfWidget() {
             <a
               href={downloadUrl}
               download={`organized-${file?.name || 'document.pdf'}`}
-              className="px-8 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download PDF

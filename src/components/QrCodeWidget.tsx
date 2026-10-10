@@ -91,7 +91,7 @@ export function QrCodeWidget() {
               </div>
               <button
                 onClick={handleDownload}
-                className="px-6 py-2 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-sm flex items-center gap-2"
+                className="px-6 py-2 bg-ink text-paper rounded-md hover:bg-ink/90 transition-colors font-medium text-sm flex items-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 Download PNG

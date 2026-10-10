@@ -156,8 +156,8 @@ export function ResizeImageWidget() {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center p-8 bg-paper border border-green/20 rounded-[16px] shadow-soft dark:shadow-soft-dark">
-        <div className="w-16 h-16 bg-green/10 text-green rounded-full flex items-center justify-center mb-6">
+      <div className="flex flex-col items-center justify-center p-8 bg-paper border border-sel/20 rounded-[16px] shadow-soft dark:shadow-soft-dark">
+        <div className="w-16 h-16 bg-sel/10 text-sel rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-2xl font-semibold text-ink mb-6 text-center">Resized Successfully!</h3>
@@ -193,7 +193,7 @@ export function ResizeImageWidget() {
             <a
               href={downloadZipUrl}
               download="resized-images.zip"
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-yellow text-[#111212] font-medium rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-ink text-paper font-medium rounded-[10px] hover:bg-ink/90 shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
             >
               <Download className="w-5 h-5" />
               Download all as ZIP
@@ -205,7 +205,7 @@ export function ResizeImageWidget() {
               "flex items-center justify-center gap-2 px-6 py-3 border font-medium transition-all",
               processedFiles.length > 1
                 ? "rounded-[9px] bg-bg border-ink/8 dark:border-white/10 text-ink hover:bg-ink/5 dark:hover:bg-white/5"
-                : "rounded-[10px] bg-yellow border-ink/40 dark:border-white/40 text-[#111212] hover:bg-yellow/90 shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover"
+                : "rounded-[10px] bg-ink border-ink/40 dark:border-white/40 text-paper hover:bg-ink/90 shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover"
             )}
           >
             Resize more images
@@ -227,7 +227,7 @@ export function ResizeImageWidget() {
         )}
       >
         <input {...getInputProps()} />
-        <UploadCloud className={clsx("w-12 h-12 mb-4", isDragActive ? "text-yellow" : "text-grey/60")} />
+        <UploadCloud className={clsx("w-12 h-12 mb-4", isDragActive ? "text-sel" : "text-grey/60")} />
         <h3 className="text-lg font-medium text-ink mb-2">
           {isDragActive ? "Drop images here..." : "Drag & drop your images here"}
         </h3>
@@ -311,7 +311,7 @@ export function ResizeImageWidget() {
               "w-full flex items-center justify-center gap-2 py-4 rounded-[10px] font-medium text-lg transition-all",
               status === 'processing'
                 ? "bg-ink/5 text-grey/60 cursor-not-allowed"
-                : "bg-yellow text-[#111212] hover:bg-yellow/90 shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover"
+                : "bg-ink text-paper hover:bg-ink/90 shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover"
             )}
           >
             {status === 'processing' ? (

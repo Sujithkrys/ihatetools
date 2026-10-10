@@ -290,7 +290,7 @@ export function AddTextToImageWidget() {
                     onClick={() => setVPos("top")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "top" ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
+                      vPos === "top" ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <AlignLeft className="w-5 h-5 rotate-90" />
@@ -300,7 +300,7 @@ export function AddTextToImageWidget() {
                     onClick={() => setVPos("center")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "center" ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
+                      vPos === "center" ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <AlignCenter className="w-5 h-5 rotate-90" />
@@ -310,7 +310,7 @@ export function AddTextToImageWidget() {
                     onClick={() => setVPos("bottom")}
                     className={cn(
                       "flex flex-col items-center justify-center gap-2 py-3 border rounded-md transition-colors",
-                      vPos === "bottom" ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
+                      vPos === "bottom" ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <AlignRight className="w-5 h-5 rotate-90" />
@@ -336,7 +336,7 @@ export function AddTextToImageWidget() {
             <button
               onClick={handleDownload}
               disabled={isProcessing}
-              className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover hover:bg-ink/90 transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
               {isProcessing ? "Processing..." : "Download Image"}

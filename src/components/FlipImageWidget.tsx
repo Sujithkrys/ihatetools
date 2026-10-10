@@ -163,7 +163,7 @@ export function FlipImageWidget() {
                 onClick={() => setFlipH(!flipH)}
                 className={cn(
                   "flex items-center gap-2 px-4 py-2 border rounded-[9px] font-medium transition-colors",
-                  flipH ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/8 dark:border-white/10 text-ink hover:bg-overlay/10"
+                  flipH ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/8 dark:border-white/10 text-ink hover:bg-overlay/10"
                 )}
               >
                 <FlipHorizontal className="w-5 h-5" />
@@ -173,7 +173,7 @@ export function FlipImageWidget() {
                 onClick={() => setFlipV(!flipV)}
                 className={cn(
                   "flex items-center gap-2 px-4 py-2 border rounded-[9px] font-medium transition-colors",
-                  flipV ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/8 dark:border-white/10 text-ink hover:bg-overlay/10"
+                  flipV ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/8 dark:border-white/10 text-ink hover:bg-overlay/10"
                 )}
               >
                 <FlipVertical className="w-5 h-5" />
@@ -186,7 +186,7 @@ export function FlipImageWidget() {
             <button
               onClick={handleDownload}
               disabled={isProcessing}
-              className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover hover:bg-ink/90 transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
               {isProcessing ? "Processing..." : "Download Flipped Image"}

@@ -56,7 +56,7 @@ export function Base64ToImageWidget() {
           <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-4">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-full bg-ink/5">
-                <ImageIcon className="w-6 h-6 text-yellow" />
+                <ImageIcon className="w-6 h-6 text-sel" />
               </div>
               <div>
                 <h3 className="text-lg font-medium text-ink">Paste Base64 String</h3>
@@ -83,7 +83,7 @@ export function Base64ToImageWidget() {
             <div className="flex justify-end pt-4">
               <button
                 onClick={handleProcess}
-                className="px-6 py-2 bg-yellow hover:bg-yellow/90 text-background font-medium rounded-md transition-colors"
+                className="px-6 py-2 bg-ink hover:bg-ink/90 text-paper font-medium rounded-md transition-colors"
               >
                 Render Image
               </button>
@@ -118,7 +118,7 @@ export function Base64ToImageWidget() {
             <a
               href={imgUrl}
               download={`decoded-image.${getExt()}`}
-              className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2"
+              className="px-6 py-3 bg-ink text-paper rounded-md hover:bg-ink/90 transition-colors font-medium text-base flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download .{getExt()}

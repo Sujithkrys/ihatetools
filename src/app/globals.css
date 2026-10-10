@@ -25,7 +25,15 @@
     --surface: #F6F5F2;
     --surface-hover: #EFEDE9;
     --border: rgba(17, 18, 18, 0.08);
-    --primary: #E8336D;
+    --primary: #0D99FF;
+
+    /* Third token family used by a few widgets (markdown previewer, timestamp
+       converter, url encoder/decoder), shadcn-style naming, also previously undefined. */
+    --background: #FBFAF8;
+    --card: #FFFFFF;
+    --foreground: #111212;
+    --muted: #6E6B66;
+    --accent: #0D99FF;
   }
 
   .dark {
@@ -47,7 +55,13 @@
     --surface: rgba(255, 255, 255, 0.04);
     --surface-hover: rgba(255, 255, 255, 0.07);
     --border: rgba(255, 255, 255, 0.10);
-    --primary: #E8336D;
+    --primary: #0D99FF;
+
+    --background: #0D0E0F;
+    --card: #1A1C1E;
+    --foreground: #E6E4DD;
+    --muted: #A19E98;
+    --accent: #0D99FF;
   }
 
   body {

@@ -320,12 +320,12 @@ export function SignPdfWidget() {
         >
           <input {...getInputProps()} />
           <div className="flex flex-col items-center justify-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-yellow/10 flex items-center justify-center text-ink">
+            <div className="w-12 h-12 rounded-full bg-sel/10 flex items-center justify-center text-ink">
               <Pen size={24} />
             </div>
             <div>
               <p className="text-[15px] font-medium text-ink">
-                Drop your PDF here, or <span className="text-pink underline">browse</span>
+                Drop your PDF here, or <span className="text-sel underline">browse</span>
               </p>
               <p className="text-[13px] text-grey mt-1">Files never leave your device. Sign securely in your browser.</p>
             </div>
@@ -547,7 +547,7 @@ export function SignPdfWidget() {
                       height: `${sigPlacement.height * 100}%`,
                       cursor: isDragging ? "grabbing" : "grab",
                     }}
-                    className="border-2 border-dashed border-ink bg-yellow/15 flex items-center justify-center select-none"
+                    className="border-2 border-dashed border-ink bg-sel/15 flex items-center justify-center select-none"
                     title="Drag to reposition"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -606,7 +606,7 @@ export function SignPdfWidget() {
           {/* Success Download Card */}
           {downloadUrl && (
             <div className="p-6 bg-paper border-2 border-ink rounded-[16px] shadow-soft dark:shadow-soft-dark text-center space-y-4">
-              <div className="w-12 h-12 bg-yellow/20 text-ink rounded-full flex items-center justify-center mx-auto">
+              <div className="w-12 h-12 bg-sel/20 text-ink rounded-full flex items-center justify-center mx-auto">
                 <Check size={24} />
               </div>
               <div>

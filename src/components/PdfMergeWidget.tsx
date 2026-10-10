@@ -108,8 +108,8 @@ export function PdfMergeWidget() {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center p-8 bg-paper border border-green/20 rounded-[16px] shadow-soft dark:shadow-soft-dark text-center">
-        <div className="w-16 h-16 bg-green/10 text-green rounded-full flex items-center justify-center mb-6">
+      <div className="flex flex-col items-center justify-center p-8 bg-paper border border-sel/20 rounded-[16px] shadow-soft dark:shadow-soft-dark text-center">
+        <div className="w-16 h-16 bg-sel/10 text-sel rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-2xl font-semibold text-ink mb-2">Merged Successfully!</h3>
@@ -119,7 +119,7 @@ export function PdfMergeWidget() {
           <a
             href={mergedPdfUrl!}
             download="merged.pdf"
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-yellow text-[#111212] font-medium rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-ink text-paper font-medium rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
           >
             <Download className="w-5 h-5" />
             Download merged PDF
@@ -148,7 +148,7 @@ export function PdfMergeWidget() {
         )}
       >
         <input {...getInputProps()} />
-        <UploadCloud className={clsx("w-12 h-12 mb-4", isDragActive ? "text-yellow" : "text-grey/60")} />
+        <UploadCloud className={clsx("w-12 h-12 mb-4", isDragActive ? "text-sel" : "text-grey/60")} />
         <h3 className="text-lg font-medium text-ink mb-2">
           {isDragActive ? "Drop PDFs here..." : "Drag & drop your PDFs here"}
         </h3>
@@ -234,7 +234,7 @@ export function PdfMergeWidget() {
           "w-full flex items-center justify-center gap-2 py-4 rounded-[10px] font-medium text-lg transition-all",
           files.length < 2 || status === 'merging'
             ? "bg-ink/5 text-grey/60 cursor-not-allowed"
-            : "bg-yellow text-[#111212] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover"
+            : "bg-ink text-paper shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover"
         )}
       >
         {status === 'merging' ? (

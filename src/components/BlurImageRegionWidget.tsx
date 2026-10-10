@@ -125,7 +125,7 @@ export function BlurImageRegionWidget() {
         key={isTemp ? 'temp' : `reg-${region.x}-${region.y}`}
         className={cn(
           "absolute border-2 pointer-events-none",
-          isTemp ? "border-ink/40 dark:border-white/40 border-dashed bg-yellow/20 tool-interaction-zone" : "border-white bg-black/40 backdrop-blur-sm"
+          isTemp ? "border-ink/40 dark:border-white/40 border-dashed bg-sel/20 tool-interaction-zone" : "border-white bg-black/40 backdrop-blur-sm"
         )}
         style={{
           left: region.x * scaleX,
@@ -315,7 +315,7 @@ export function BlurImageRegionWidget() {
                     onClick={() => setMode("blur")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-lg transition-colors",
-                      mode === "blur" ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
+                      mode === "blur" ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <EyeOff className="w-5 h-5" />
@@ -325,7 +325,7 @@ export function BlurImageRegionWidget() {
                     onClick={() => setMode("pixelate")}
                     className={cn(
                       "flex-1 flex flex-col items-center justify-center gap-2 py-4 border rounded-lg transition-colors",
-                      mode === "pixelate" ? "bg-yellow/20 border-ink/40 dark:border-white/40 text-yellow" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
+                      mode === "pixelate" ? "bg-sel/20 border-ink/40 dark:border-white/40 text-sel" : "bg-ink/5 border-ink/15 text-grey hover:bg-overlay/10 hover:text-ink"
                     )}
                   >
                     <Grid className="w-5 h-5" />
@@ -352,7 +352,7 @@ export function BlurImageRegionWidget() {
               <div className="pt-4 border-t border-ink/10 text-sm text-grey">
                 Selected regions: <span className="font-medium text-ink">{regions.length}</span>
                 {regions.length === 0 && (
-                  <p className="mt-1 text-xs text-yellow">Drag on the image to add a region.</p>
+                  <p className="mt-1 text-xs text-sel">Drag on the image to add a region.</p>
                 )}
               </div>
             </div>
@@ -362,7 +362,7 @@ export function BlurImageRegionWidget() {
             <button
               onClick={handleDownload}
               disabled={isProcessing || regions.length === 0}
-              className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-ink text-paper rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover hover:bg-ink/90 transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50"
             >
               {isProcessing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
               {isProcessing ? "Processing..." : "Download Redacted Image"}

@@ -160,7 +160,7 @@ export function ExtractPdfImagesWidget() {
 
       {isProcessing && (
         <div className="flex flex-col items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 text-yellow animate-spin mb-4" />
+          <Loader2 className="w-8 h-8 text-sel animate-spin mb-4" />
           <p className="text-ink font-medium">Scanning PDF for embedded images...</p>
         </div>
       )}
@@ -193,7 +193,7 @@ export function ExtractPdfImagesWidget() {
                 <a
                   href={downloadUrl}
                   download={images.length > 1 ? `${fileName.replace(/\.[^/.]+$/, "")}-images.zip` : images[0].name}
-                  className="flex items-center gap-2 px-4 py-2 bg-yellow hover:bg-yellow/90 text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover text-sm font-medium transition-all"
+                  className="flex items-center gap-2 px-4 py-2 bg-ink hover:bg-ink/90 text-paper rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover text-sm font-medium transition-all"
                 >
                   <Download className="w-4 h-4" />
                   {images.length > 1 ? "Download All (ZIP)" : "Download JPG"}

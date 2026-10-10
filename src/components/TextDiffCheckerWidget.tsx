@@ -32,7 +32,7 @@ export function TextDiffCheckerWidget() {
         {/* Top toolbar */}
         <div className="flex flex-col sm:flex-row justify-between sm:items-center px-4 py-4 border-b border-ink/10 bg-white/[0.02] gap-4">
           <div className="flex items-center gap-2 text-grey font-medium">
-            <SplitSquareHorizontal className="w-4 h-4 text-yellow" />
+            <SplitSquareHorizontal className="w-4 h-4 text-sel" />
             <span className="text-sm">Diff Checker</span>
           </div>
           
@@ -46,7 +46,7 @@ export function TextDiffCheckerWidget() {
             <button
               onClick={handleCompare}
               disabled={!text1 && !text2}
-              className="flex items-center gap-2 px-4 py-1.5 bg-yellow hover:bg-yellow/90 text-background rounded font-medium text-sm transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-4 py-1.5 bg-ink hover:bg-ink/90 text-paper rounded font-medium text-sm transition-colors disabled:opacity-50"
             >
               <Diff className="w-4 h-4" />
               Compare
@@ -89,7 +89,7 @@ export function TextDiffCheckerWidget() {
               </span>
               <button 
                 onClick={() => setHasCompared(false)}
-                className="text-xs text-yellow hover:underline"
+                className="text-xs text-sel hover:underline"
               >
                 Edit Texts
               </button>
@@ -100,8 +100,8 @@ export function TextDiffCheckerWidget() {
                   <span
                     key={index}
                     className={cn(
-                      part.added && "bg-success/20 text-success line-through decoration-transparent",
-                      part.removed && "bg-error/20 text-error line-through",
+                      part.added && "bg-sel/20 text-sel line-through decoration-transparent",
+                      part.removed && "bg-ink/[0.06] dark:bg-white/[0.08] text-ink/40 line-through",
                       !part.added && !part.removed && "text-grey"
                     )}
                   >

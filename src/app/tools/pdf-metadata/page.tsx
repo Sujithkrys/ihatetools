@@ -1,3 +1,4 @@
+import { Tags } from "lucide-react";
 import { PdfMetadataWidget } from "@/components/PdfMetadataWidget";
 
 export const metadata = {
@@ -8,14 +9,20 @@ export const metadata = {
 export default function PdfMetadataPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
-      <div className="text-center space-y-4">
-        <h1 className="disp disp-lg text-[clamp(30px,4vw,46px)] text-ink mb-[12px]">
+      <section className="max-w-2xl mb-[32px]">
+        <div className="flex items-center gap-2.5 mb-4">
+          <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
+            <Tags className="w-[18px] h-[18px] text-sel" strokeWidth={1.75} />
+          </div>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-grey">PDF Tools</span>
+        </div>
+        <h1 className="disp text-[28px] sm:text-[32px] text-ink leading-[1.25] mb-3.5">
           Edit PDF Metadata
         </h1>
-        <p className="disp text-[clamp(18px,2.5vw,25px)] text-ink/80">
+        <p className="text-[15px] leading-[1.65] text-grey max-w-[52ch]">
           View and edit PDF properties like title, author, subject, and keywords securely in your browser.
         </p>
-      </div>
+      </section>
 
       <PdfMetadataWidget />
 

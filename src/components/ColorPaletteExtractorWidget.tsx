@@ -227,7 +227,7 @@ export function ColorPaletteExtractorWidget() {
             <div className="w-full md:w-2/3">
               {isProcessing ? (
                 <div className="flex flex-col items-center justify-center h-full p-8 space-y-4">
-                  <Loader2 className="w-8 h-8 animate-spin text-yellow" />
+                  <Loader2 className="w-8 h-8 animate-spin text-sel" />
                   <p className="text-grey text-sm">Sampling pixels...</p>
                 </div>
               ) : colors.length > 0 ? (
@@ -247,7 +247,7 @@ export function ColorPaletteExtractorWidget() {
                           onClick={() => handleCopy(color.hex, index)}
                           className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs code-mono text-ink transition-colors"
                         >
-                          {copiedIndex === index ? <CheckCircle className="w-3 h-3 text-green" /> : <Copy className="w-3 h-3" />}
+                          {copiedIndex === index ? <CheckCircle className="w-3 h-3 text-sel" /> : <Copy className="w-3 h-3" />}
                           {color.hex.toUpperCase()}
                         </button>
                       </div>

@@ -124,7 +124,7 @@ export function ImageToBase64Widget() {
 
           {isProcessing ? (
             <div className="flex justify-center p-8">
-              <Loader2 className="w-8 h-8 animate-spin text-yellow" />
+              <Loader2 className="w-8 h-8 animate-spin text-sel" />
             </div>
           ) : base64Str ? (
             <div className="space-y-4">
@@ -132,7 +132,7 @@ export function ImageToBase64Widget() {
                 <h4 className="text-sm font-medium text-grey">Base64 Output</h4>
                 <button
                   onClick={handleCopy}
-                  className="flex items-center gap-2 px-4 py-2 bg-yellow text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all text-sm font-medium"
+                  className="flex items-center gap-2 px-4 py-2 bg-ink text-paper rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover hover:bg-ink/90 transition-all text-sm font-medium"
                 >
                   {copied ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                   {copied ? "Copied!" : "Copy to Clipboard"}
