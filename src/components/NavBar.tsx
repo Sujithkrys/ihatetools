@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { Ruler } from "./Ruler";
-import { Logo } from "./Logo";
 
 interface NavBarProps {
   onToggleSidebar?: () => void;
@@ -26,8 +25,6 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
     <header className="site-header border-b border-ink/[0.08] bg-bg sticky top-0 z-40">
       {!isToolsSection && <Ruler />}
       <div className="nav-in flex justify-between w-full">
-          <div className="flex items-center gap-4">
-          <Logo size={22} className="text-ink" />
           <nav className="nav-links flex items-center gap-[6px]">
             {isToolsSection && onToggleSidebar && (
               <button
@@ -60,7 +57,6 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
               );
             })}
           </nav>
-          </div>
 
           <nav className="nav-links flex items-center gap-[4px]">
             {links.filter(l => l.href !== "/tools").map((link) => {
