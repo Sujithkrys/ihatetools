@@ -178,7 +178,7 @@ export default function Home() {
                   <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
                   <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
                   <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
-                  <span className="ml-[8px] text-[11px] font-mono text-grey">ihatetools.in/tools/resume-ats-checker</span>
+                  <span className="ml-[8px] text-[11px] font-mono text-grey">www.ihatetools.in/tools/resume-ats-checker</span>
                 </div>
                 <Image
                   src="/images/hero-ats-card.png"

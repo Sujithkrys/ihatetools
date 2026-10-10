@@ -1,9 +1,9 @@
 /**
  * Canonical production site domain.
- * Always resolves to https://ihatetools.in in production to avoid leaking
+ * Always resolves to https://www.ihatetools.in in production to avoid leaking
  * ephemeral preview URLs (e.g. *.vercel.app) to search engine crawlers.
  */
-export const SITE_URL = 'https://ihatetools.in';
+export const SITE_URL = 'https://www.ihatetools.in';
 
 export function getBaseUrl(): string {
   // 1. If explicit env var is set and valid, prefer it (e.g. local overrides or custom staging)
