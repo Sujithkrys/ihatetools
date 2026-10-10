@@ -314,7 +314,7 @@ export function RedactPdfWidget() {
       {!file ? (
         <div
           {...getRootProps()}
-          className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all ${
+          className={`border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all ${
             isDragActive
               ? "border-[var(--primary)] bg-[var(--surface-hover)]"
               : "border-[var(--border)] hover:border-[var(--ink)] bg-[var(--surface)]"
@@ -341,7 +341,7 @@ export function RedactPdfWidget() {
       ) : (
         <div className="space-y-6">
           {/* Top Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-[16px] bg-[var(--surface)] border border-[var(--border)]">
             <div className="flex items-center space-x-3 truncate">
               <EyeOff className="w-5 h-5 text-[var(--primary)] shrink-0" />
               <div className="truncate">
@@ -355,7 +355,7 @@ export function RedactPdfWidget() {
             <div className="flex items-center gap-2">
               <button
                 onClick={resetAll}
-                className="px-3 py-1.5 text-xs font-medium text-[var(--ink-muted)] hover:text-[var(--ink)] border border-[var(--border)] rounded-lg hover:bg-[var(--surface-hover)] transition-colors inline-flex items-center gap-1.5"
+                className="px-3 py-1.5 text-xs font-medium text-[var(--ink-muted)] hover:text-[var(--ink)] border border-[var(--border)] rounded-[9px] hover:bg-[var(--surface-hover)] transition-colors inline-flex items-center gap-1.5"
               >
                 <RefreshCw className="w-3.5 h-3.5" /> Change PDF
               </button>
@@ -363,14 +363,14 @@ export function RedactPdfWidget() {
           </div>
 
           {errorMsg && (
-            <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 flex items-start gap-3 text-red-600 dark:text-red-400 text-sm">
+            <div className="p-4 rounded-[14px] bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 flex items-start gap-3 text-red-600 dark:text-red-400 text-sm">
               <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           {verificationReport && (
-            <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 flex items-start gap-3 text-emerald-700 dark:text-emerald-300 text-sm">
+            <div className="p-4 rounded-[14px] bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 flex items-start gap-3 text-emerald-700 dark:text-emerald-300 text-sm">
               <ShieldCheck className="w-5 h-5 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold">Security Verification Passed</p>
@@ -383,7 +383,7 @@ export function RedactPdfWidget() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             {/* Left Controls / Redactions List */}
             <div className="lg:col-span-1 space-y-4">
-              <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] space-y-3">
+              <div className="p-4 rounded-[14px] bg-[var(--surface)] border border-[var(--border)] space-y-3">
                 <h4 className="font-bold text-sm text-[var(--ink)]">How to Redact</h4>
                 <p className="text-xs text-[var(--ink-muted)] leading-relaxed">
                   Click and drag your mouse over the page on the right to mark any area for permanent blackout.
@@ -391,7 +391,7 @@ export function RedactPdfWidget() {
               </div>
 
               {/* Page Navigator */}
-              <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] space-y-3">
+              <div className="p-4 rounded-[14px] bg-[var(--surface)] border border-[var(--border)] space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-[var(--ink)]">Page Navigator</span>
                   <span className="text-xs text-[var(--ink-muted)]">
@@ -402,14 +402,14 @@ export function RedactPdfWidget() {
                   <button
                     disabled={currentPage <= 1}
                     onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                    className="flex-1 py-1.5 px-2 rounded-lg border border-[var(--border)] text-xs font-medium hover:bg-[var(--surface-hover)] disabled:opacity-30 inline-flex items-center justify-center gap-1"
+                    className="flex-1 py-1.5 px-2 rounded-[9px] border border-[var(--border)] text-xs font-medium hover:bg-[var(--surface-hover)] disabled:opacity-30 inline-flex items-center justify-center gap-1"
                   >
                     <ChevronLeft className="w-3.5 h-3.5" /> Prev
                   </button>
                   <button
                     disabled={currentPage >= numPages}
                     onClick={() => setCurrentPage((p) => Math.min(numPages, p + 1))}
-                    className="flex-1 py-1.5 px-2 rounded-lg border border-[var(--border)] text-xs font-medium hover:bg-[var(--surface-hover)] disabled:opacity-30 inline-flex items-center justify-center gap-1"
+                    className="flex-1 py-1.5 px-2 rounded-[9px] border border-[var(--border)] text-xs font-medium hover:bg-[var(--surface-hover)] disabled:opacity-30 inline-flex items-center justify-center gap-1"
                   >
                     Next <ChevronRight className="w-3.5 h-3.5" />
                   </button>
@@ -417,7 +417,7 @@ export function RedactPdfWidget() {
               </div>
 
               {/* Redaction list for this page */}
-              <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] space-y-3">
+              <div className="p-4 rounded-[14px] bg-[var(--surface)] border border-[var(--border)] space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-[var(--ink)]">
                     Page {currentPage} Redactions ({currentPageRedactions.length})
@@ -441,7 +441,7 @@ export function RedactPdfWidget() {
                     {currentPageRedactions.map((box, index) => (
                       <div
                         key={box.id}
-                        className="flex items-center justify-between p-2 rounded-lg bg-[var(--paper)] border border-[var(--border)] text-xs"
+                        className="flex items-center justify-between p-2 rounded-[9px] bg-[var(--paper)] border border-[var(--border)] text-xs"
                       >
                         <span className="font-mono text-[var(--ink)]">
                           Box #{index + 1} ({Math.round(box.wPercent * 100)}% × {Math.round(box.hPercent * 100)}%)
@@ -464,7 +464,7 @@ export function RedactPdfWidget() {
                 <button
                   onClick={handleApplyRedactions}
                   disabled={isExporting || redactions.length === 0}
-                  className="w-full py-3 bg-[var(--ink)] text-[var(--paper)] font-semibold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-40 inline-flex items-center justify-center gap-2 text-sm shadow-sm"
+                  className="w-full py-3 bg-[var(--ink)] text-[var(--paper)] font-semibold rounded-[10px] hover:opacity-90 hover:-translate-y-[1px] transition-all disabled:opacity-40 inline-flex items-center justify-center gap-2 text-sm shadow-soft dark:shadow-soft-dark"
                 >
                   {isExporting ? (
                     <>
@@ -483,7 +483,7 @@ export function RedactPdfWidget() {
                   <a
                     href={downloadUrl}
                     download={`redacted_${file.name}`}
-                    className="w-full py-3 bg-[var(--primary)] text-white font-semibold rounded-xl hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2 text-sm shadow-sm"
+                    className="w-full py-3 bg-[var(--primary)] text-white font-semibold rounded-[10px] hover:opacity-90 hover:-translate-y-[1px] transition-all inline-flex items-center justify-center gap-2 text-sm shadow-soft dark:shadow-soft-dark"
                   >
                     <Download className="w-4 h-4" /> Download Redacted PDF
                   </a>
@@ -498,7 +498,7 @@ export function RedactPdfWidget() {
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
-                className="relative bg-[var(--surface)] border border-[var(--border)] rounded-xl p-4 flex justify-center items-center overflow-auto select-none cursor-crosshair min-h-[500px]"
+                className="relative bg-[var(--surface)] border border-[var(--border)] rounded-[16px] p-4 flex justify-center items-center overflow-auto select-none cursor-crosshair min-h-[500px]"
               >
                 <div className="relative inline-block shadow-lg border border-[var(--border)] rounded overflow-hidden">
                   <canvas ref={canvasRef} className="block max-w-full h-auto bg-white" />

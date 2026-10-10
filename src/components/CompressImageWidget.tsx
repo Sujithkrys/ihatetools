@@ -121,13 +121,13 @@ export function CompressImageWidget() {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center p-8 bg-paper border border-success/20 rounded-lg">
-        <div className="w-16 h-16 bg-success/10 text-success rounded-full flex items-center justify-center mb-6">
+      <div className="flex flex-col items-center justify-center p-8 bg-paper border border-green/20 rounded-[16px] shadow-soft dark:shadow-soft-dark">
+        <div className="w-16 h-16 bg-green/10 text-green rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-2xl font-semibold text-ink mb-6 text-center">Compressed Successfully!</h3>
-        
-        <div className="w-full max-w-2xl bg-bg rounded-lg border border-ink/15 overflow-hidden mb-8">
+
+        <div className="w-full max-w-2xl bg-bg rounded-[16px] border border-ink/8 dark:border-white/10 overflow-hidden mb-8">
           <ul className="divide-y divide-white/10">
             {processedFiles.map((res, i) => {
               const url = URL.createObjectURL(res.blob);
@@ -140,13 +140,13 @@ export function CompressImageWidget() {
                     <p className="text-sm font-medium text-ink truncate">{name}</p>
                     <p className="text-xs text-grey">
                       {formatBytes(res.originalFile.size)} → {formatBytes(res.blob.size)} 
-                      <span className="text-success ml-2">({res.percentSaved}% saved)</span>
+                      <span className="text-green ml-2">({res.percentSaved}% saved)</span>
                     </p>
                   </div>
                   <a
                     href={url}
                     download={name}
-                    className="shrink-0 px-4 py-2 bg-ink/5 hover:bg-overlay/10 border border-ink/15 rounded text-sm text-ink transition-colors"
+                    className="shrink-0 px-4 py-2 bg-ink/5 hover:bg-overlay/10 border border-ink/8 dark:border-white/10 rounded-[9px] text-sm text-ink transition-colors"
                   >
                     Download
                   </a>
@@ -161,7 +161,7 @@ export function CompressImageWidget() {
             <a
               href={downloadZipUrl}
               download="compressed-images.zip"
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-yellow text-background font-medium rounded-[8px] hover:bg-yellow/90 transition-colors"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-yellow text-[#111212] font-medium rounded-[10px] hover:bg-yellow/90 shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
             >
               <Download className="w-5 h-5" />
               Download all as ZIP
@@ -170,10 +170,10 @@ export function CompressImageWidget() {
           <button
             onClick={handleReset}
             className={clsx(
-              "flex items-center justify-center gap-2 px-6 py-3 border font-medium rounded-[8px] transition-colors",
-              processedFiles.length > 1 
-                ? "bg-bg border-ink/15 text-ink hover:bg-ink/5" 
-                : "bg-yellow border-accent text-background hover:bg-yellow/90"
+              "flex items-center justify-center gap-2 px-6 py-3 border font-medium rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all",
+              processedFiles.length > 1
+                ? "bg-bg border-ink/8 dark:border-white/10 text-ink hover:bg-ink/5"
+                : "bg-yellow border-ink/40 dark:border-white/40 text-[#111212] hover:bg-yellow/90"
             )}
           >
             Compress more images
@@ -188,8 +188,10 @@ export function CompressImageWidget() {
       <div
         {...getRootProps()}
         className={clsx(
-          "border-2 border-dashed rounded-lg p-10 flex flex-col items-center justify-center text-center transition-colors duration-200 tool-interaction-zone",
-          isDragActive ? "border-accent bg-yellow/5" : "border-ink/25 bg-bg/50 hover:border-ink/30"
+          "border-2 border-dashed rounded-[14px] p-10 flex flex-col items-center justify-center text-center transition-all tool-interaction-zone",
+          isDragActive
+            ? "border-ink/40 dark:border-white/40 bg-ink/[0.03] dark:bg-white/[0.03]"
+            : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]"
         )}
       >
         <input {...getInputProps()} />
@@ -198,7 +200,7 @@ export function CompressImageWidget() {
           {isDragActive ? "Drop images here..." : "Drag & drop your images here"}
         </h3>
         <p className="text-grey text-sm mb-6">Supports JPG, PNG, and WEBP</p>
-        
+
         <button
           type="button"
           onClick={open}
@@ -208,21 +210,21 @@ export function CompressImageWidget() {
               open();
             }
           }}
-          className="px-5 py-2.5 bg-paper border border-ink/15 rounded-[8px] text-ink font-medium hover:bg-paperHover hover:border-ink/25 transition-all focus:outline-none focus:ring-2 focus:ring-sel"
+          className="mt-2 px-5 py-2.5 bg-ink text-paper rounded-[9px] text-[13.5px] font-medium shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
         >
           Browse files
         </button>
       </div>
 
       {errorMsg && (
-        <div className="flex items-start gap-3 p-4 bg-error/10 border border-error/20 rounded-lg text-error">
+        <div className="flex items-start gap-3 p-4 bg-pink/10 border border-pink/20 rounded-[14px] text-pink">
           <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
           <p className="text-sm font-medium">{errorMsg}</p>
         </div>
       )}
 
       {files.length > 0 && (
-        <div className="animate-reveal-result bg-paper border border-ink/15 rounded-lg p-6 space-y-6">
+        <div className="animate-reveal-result bg-paper border border-ink/8 dark:border-white/10 rounded-[16px] shadow-soft dark:shadow-soft-dark p-6 space-y-6">
           <div>
             <label className="block text-sm font-medium text-ink mb-2">
               Quality: {quality}%
@@ -253,8 +255,8 @@ export function CompressImageWidget() {
             </label>
           </div>
 
-          <div className="bg-bg rounded-lg border border-ink/15 overflow-hidden">
-            <div className="p-4 border-b border-ink/15 bg-paper flex justify-between items-center">
+          <div className="bg-bg rounded-[16px] border border-ink/8 dark:border-white/10 overflow-hidden">
+            <div className="p-4 border-b border-ink/8 dark:border-white/10 bg-paper flex justify-between items-center">
               <span className="font-medium text-ink">{files.length} images selected</span>
             </div>
             <ul className="divide-y divide-white/10 max-h-60 overflow-y-auto">
@@ -274,10 +276,10 @@ export function CompressImageWidget() {
             onClick={handleCompress}
             disabled={status === 'processing'}
             className={clsx(
-              "w-full flex items-center justify-center gap-2 py-4 rounded-[8px] font-medium text-lg transition-all",
+              "w-full flex items-center justify-center gap-2 py-4 rounded-[10px] font-medium text-lg shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all",
               status === 'processing'
                 ? "bg-ink/5 text-grey/60 cursor-not-allowed"
-                : "bg-yellow text-background hover:bg-yellow/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
+                : "bg-yellow text-[#111212] hover:bg-yellow/90 shadow-[0_0_20px_rgba(245,166,35,0.2)]"
             )}
           >
             {status === 'processing' ? (

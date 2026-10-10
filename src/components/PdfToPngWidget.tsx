@@ -130,24 +130,26 @@ export function PdfToPngWidget() {
         <div
           {...getRootProps()}
           className={cn(
-            "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-            isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
-            errorMsg ? "border-error/50 bg-error/5" : ""
+            "border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all tool-interaction-zone",
+            isDragActive
+              ? "border-ink/40 dark:border-white/40 bg-ink/[0.03] dark:bg-white/[0.03]"
+              : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]",
+            errorMsg ? "border-pink/40 bg-pink/5" : ""
           )}
         >
           <input {...getInputProps()} />
           <div className="flex flex-col items-center gap-4">
-            <div className="p-4 rounded-full bg-paper">
-              <Download className="w-8 h-8 text-grey" />
+            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-ink/5 dark:bg-white/5">
+              <Download className="w-6 h-6 text-grey" />
             </div>
             <div>
               <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
               <p className="text-sm text-grey mt-1">or select it from your device to extract PNGs</p>
             </div>
-            <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
+            <button className="mt-2 px-5 py-2.5 bg-ink text-paper rounded-[9px] text-[13.5px] font-medium shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all">
               Browse files
             </button>
-            {errorMsg && <p className="text-error text-sm mt-2">{errorMsg}</p>}
+            {errorMsg && <p className="text-pink text-sm mt-2">{errorMsg}</p>}
           </div>
         </div>
       )}
@@ -162,19 +164,19 @@ export function PdfToPngWidget() {
 
       {downloadUrl && (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
-          <div className="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center mb-2">
-            <Download className="w-8 h-8 text-success" />
+          <div className="w-16 h-16 bg-green/20 rounded-full flex items-center justify-center mb-2">
+            <Download className="w-8 h-8 text-green" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-ink">Conversion Complete!</h3>
             <p className="text-grey mt-2">Your PDF pages have been converted to high-quality PNGs.</p>
           </div>
-          
+
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download {downloadFilename.endsWith('.zip') ? 'ZIP' : 'PNG'}

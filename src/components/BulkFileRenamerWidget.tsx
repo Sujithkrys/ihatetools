@@ -158,7 +158,7 @@ export function BulkFileRenamerWidget() {
       {files.length === 0 ? (
         <div
           {...getRootProps()}
-          className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all ${
+          className={`border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all ${
             isDragActive
               ? "border-[var(--primary)] bg-[var(--surface-hover)]"
               : "border-[var(--border)] hover:border-[var(--ink)] bg-[var(--surface)]"

@@ -134,27 +134,29 @@ export function DeletePdfPagesWidget() {
             <div
               {...getRootProps()}
               className={cn(
-                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-                isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
-                errorMsg ? "border-error/50 bg-error/5" : ""
+                "border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all tool-interaction-zone",
+                isDragActive
+                  ? "border-ink/40 dark:border-white/40 bg-ink/[0.03] dark:bg-white/[0.03]"
+                  : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]",
+                errorMsg ? "border-pink/40 bg-pink/5" : ""
               )}
             >
               <input {...getInputProps()} />
               <div className="flex flex-col items-center gap-4">
-                <div className="p-4 rounded-full bg-paper">
-                  <Trash2 className="w-8 h-8 text-grey" />
+                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-ink/5 dark:bg-white/5">
+                  <Trash2 className="w-6 h-6 text-grey" />
                 </div>
                 <div>
                   <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
                   <p className="text-sm text-grey mt-1">to remove pages</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
+                <button className="mt-2 px-5 py-2.5 bg-ink text-paper rounded-[9px] text-[13.5px] font-medium shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6">
+            <div className="bg-paper rounded-[16px] border border-ink/8 dark:border-white/10 shadow-soft dark:shadow-soft-dark p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-ink font-medium">Selected Document</h3>
                 <button
@@ -186,8 +188,8 @@ export function DeletePdfPagesWidget() {
                         key={page.id} 
                         onClick={() => toggleDelete(idx)}
                         className={cn(
-                          "relative group rounded-md p-2 flex flex-col items-center cursor-pointer transition-all border-2",
-                          isDeleted ? "border-error bg-error/5" : "border-transparent bg-bg hover:border-ink/15"
+                          "relative group rounded-[9px] p-2 flex flex-col items-center cursor-pointer transition-all border-2",
+                          isDeleted ? "border-pink bg-pink/5" : "border-transparent bg-bg hover:border-ink/15"
                         )}
                       >
                         <span className="absolute top-2 left-2 bg-paper/80 backdrop-blur-sm text-xs font-medium px-1.5 py-0.5 rounded text-ink z-10">
@@ -206,8 +208,8 @@ export function DeletePdfPagesWidget() {
                           />
                           {isDeleted && (
                             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                              <div className="bg-error/20 p-3 rounded-full">
-                                <Trash2 className="w-8 h-8 text-error" />
+                              <div className="bg-pink/20 p-3 rounded-full">
+                                <Trash2 className="w-8 h-8 text-pink" />
                               </div>
                             </div>
                           )}
@@ -226,7 +228,7 @@ export function DeletePdfPagesWidget() {
                 <button
                   onClick={handleDelete}
                   disabled={!isReady}
-                  className="px-6 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-base flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-base flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Trash2 className="w-5 h-5" />
                   Apply Deletion
@@ -235,7 +237,7 @@ export function DeletePdfPagesWidget() {
             </div>
           )}
 
-          {errorMsg && <p className="text-error text-sm text-center">{errorMsg}</p>}
+          {errorMsg && <p className="text-pink text-sm text-center">{errorMsg}</p>}
         </div>
       )}
 
@@ -248,19 +250,19 @@ export function DeletePdfPagesWidget() {
 
       {downloadUrl && (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
-          <div className="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center mb-2">
-            <Trash2 className="w-8 h-8 text-success" />
+          <div className="w-16 h-16 bg-green/20 rounded-full flex items-center justify-center mb-2">
+            <Trash2 className="w-8 h-8 text-green" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-ink">Deletion Complete!</h3>
             <p className="text-grey mt-2">The selected pages have been removed.</p>
           </div>
-          
+
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download Updated PDF

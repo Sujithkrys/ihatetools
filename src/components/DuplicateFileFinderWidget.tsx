@@ -126,7 +126,7 @@ export function DuplicateFileFinderWidget() {
       {files.length === 0 ? (
         <div
           {...getRootProps()}
-          className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all ${
+          className={`border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all ${
             isDragActive
               ? "border-[var(--primary)] bg-[var(--surface-hover)]"
               : "border-[var(--border)] hover:border-[var(--ink)] bg-[var(--surface)]"
@@ -153,7 +153,7 @@ export function DuplicateFileFinderWidget() {
       ) : (
         <div className="space-y-6">
           {/* Top Header */}
-          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-[16px] bg-[var(--surface)] border border-[var(--border)]">
             <div className="flex items-center space-x-3">
               <FileCheck className="w-5 h-5 text-[var(--primary)]" />
               <div>
@@ -171,7 +171,7 @@ export function DuplicateFileFinderWidget() {
                 <input {...getInputProps()} />
                 <button
                   type="button"
-                  className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-[var(--paper)] border border-[var(--border)] text-[var(--ink)] hover:bg-[var(--surface-hover)] transition-colors"
+                  className="px-3 py-1.5 text-xs font-semibold rounded-[9px] bg-[var(--paper)] border border-[var(--border)] text-[var(--ink)] hover:bg-[var(--surface-hover)] transition-colors"
                 >
                   + Add More Files
                 </button>
@@ -179,7 +179,7 @@ export function DuplicateFileFinderWidget() {
 
               <button
                 onClick={clearAll}
-                className="px-3 py-1.5 text-xs font-medium text-[var(--ink-muted)] hover:text-red-500 border border-[var(--border)] rounded-lg hover:bg-[var(--surface-hover)] transition-colors inline-flex items-center gap-1"
+                className="px-3 py-1.5 text-xs font-medium text-[var(--ink-muted)] hover:text-red-500 border border-[var(--border)] rounded-[9px] hover:bg-[var(--surface-hover)] transition-colors inline-flex items-center gap-1"
               >
                 <RefreshCw className="w-3 h-3" /> Clear
               </button>
@@ -188,7 +188,7 @@ export function DuplicateFileFinderWidget() {
 
           {/* Hashing progress */}
           {isHashing && (
-            <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] space-y-2">
+            <div className="p-4 rounded-[16px] bg-[var(--surface)] border border-[var(--border)] space-y-2">
               <div className="flex justify-between text-xs text-[var(--ink)] font-semibold">
                 <span className="flex items-center gap-2">
                   <Loader2 className="w-3.5 h-3.5 animate-spin text-[var(--primary)]" />
@@ -207,21 +207,21 @@ export function DuplicateFileFinderWidget() {
 
           {/* Duplicate Summary Banner */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+            <div className="p-4 rounded-[14px] bg-[var(--surface)] border border-[var(--border)]">
               <div className="text-xs text-[var(--ink-muted)]">Total Duplicates Found</div>
               <div className="text-xl font-bold text-[var(--ink)] mt-1">
                 {totalDuplicatesCount} files
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+            <div className="p-4 rounded-[14px] bg-[var(--surface)] border border-[var(--border)]">
               <div className="text-xs text-[var(--ink-muted)]">Duplicate Groups</div>
               <div className="text-xl font-bold text-[var(--ink)] mt-1">
                 {duplicateGroups.length}
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+            <div className="p-4 rounded-[14px] bg-[var(--surface)] border border-[var(--border)]">
               <div className="text-xs text-[var(--ink-muted)]">Wasted Storage Space</div>
               <div className="text-xl font-bold text-red-500 mt-1">
                 {formatBytes(totalWastedBytes)}
@@ -239,7 +239,7 @@ export function DuplicateFileFinderWidget() {
               {duplicateGroups.map((group, groupIdx) => (
                 <div
                   key={group.hash}
-                  className="p-5 rounded-xl bg-[var(--surface)] border border-amber-500/30 dark:border-amber-500/20 space-y-3"
+                  className="p-5 rounded-[16px] bg-[var(--surface)] border border-amber-500/30 dark:border-amber-500/20 space-y-3"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] pb-2.5">
                     <div className="flex items-center gap-2">
@@ -263,7 +263,7 @@ export function DuplicateFileFinderWidget() {
                     {group.files.map((fileItem, fIdx) => (
                       <div
                         key={fileItem.id}
-                        className={`flex items-center justify-between p-3 rounded-lg border text-xs ${
+                        className={`flex items-center justify-between p-3 rounded-[9px] border text-xs ${
                           fIdx === 0
                             ? "bg-[var(--paper)] border-[var(--border)]"
                             : "bg-red-50/50 dark:bg-red-950/20 border-red-200/60 dark:border-red-900/40"
@@ -307,7 +307,7 @@ export function DuplicateFileFinderWidget() {
               ))}
             </div>
           ) : (
-            <div className="p-8 text-center bg-[var(--surface)] rounded-xl border border-[var(--border)] space-y-2">
+            <div className="p-8 text-center bg-[var(--surface)] rounded-[16px] border border-[var(--border)] space-y-2">
               <CheckCircle2 className="w-8 h-8 text-emerald-500 mx-auto" />
               <h4 className="font-bold text-[var(--ink)] text-base">No Duplicates Found</h4>
               <p className="text-xs text-[var(--ink-muted)]">
@@ -318,7 +318,7 @@ export function DuplicateFileFinderWidget() {
 
           {/* Unique files list */}
           {uniqueFiles.length > 0 && duplicateGroups.length > 0 && (
-            <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] space-y-2">
+            <div className="p-4 rounded-[14px] bg-[var(--surface)] border border-[var(--border)] space-y-2">
               <span className="text-xs font-semibold text-[var(--ink-muted)]">
                 Unique Files ({uniqueFiles.length}):
               </span>
@@ -326,7 +326,7 @@ export function DuplicateFileFinderWidget() {
                 {uniqueFiles.map((uf) => (
                   <span
                     key={uf.id}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--paper)] border border-[var(--border)] text-xs text-[var(--ink)]"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[9px] bg-[var(--paper)] border border-[var(--border)] text-xs text-[var(--ink)]"
                   >
                     {uf.name} ({formatBytes(uf.size)})
                   </span>

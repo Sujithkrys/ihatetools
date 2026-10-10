@@ -101,27 +101,29 @@ export function RemovePasswordWidget() {
             <div
               {...getRootProps()}
               className={cn(
-                "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-                isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
-                errorMsg ? "border-error/50 bg-error/5" : ""
+                "border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all tool-interaction-zone",
+                isDragActive
+                  ? "border-ink/40 dark:border-white/40 bg-ink/[0.03] dark:bg-white/[0.03]"
+                  : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]",
+                errorMsg ? "border-pink/40 bg-pink/5" : ""
               )}
             >
               <input {...getInputProps()} />
               <div className="flex flex-col items-center gap-4">
-                <div className="p-4 rounded-full bg-paper">
-                  <Unlock className="w-8 h-8 text-grey" />
+                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-ink/5 dark:bg-white/5">
+                  <Unlock className="w-6 h-6 text-grey" />
                 </div>
                 <div>
                   <p className="text-lg font-medium text-ink">Drag & drop a protected PDF here</p>
                   <p className="text-sm text-grey mt-1">Maximum file size: 4MB</p>
                 </div>
-                <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
+                <button className="mt-2 px-5 py-2.5 bg-ink text-paper rounded-[9px] text-[13.5px] font-medium shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all">
                   Browse files
                 </button>
               </div>
             </div>
           ) : (
-            <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6">
+            <div className="bg-paper rounded-[16px] border border-ink/8 dark:border-white/10 shadow-soft dark:shadow-soft-dark p-4 sm:p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-ink font-medium">Selected PDF</h3>
                 <button
@@ -147,7 +149,7 @@ export function RemovePasswordWidget() {
                         type={showPassword ? "text" : "password"}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full bg-bg border border-ink/15 rounded-md px-4 py-2 text-ink focus:outline-none focus:ring-2 focus:ring-sel/50 pr-10"
+                        className="w-full bg-bg border border-ink/8 dark:border-white/10 rounded-[14px] px-4 py-2 text-ink focus:outline-none focus:ring-2 focus:ring-sel/50 pr-10"
                         placeholder="Enter the password to unlock"
                       />
                       <button 
@@ -164,7 +166,7 @@ export function RemovePasswordWidget() {
                   <button
                     onClick={handleDecryptPdf}
                     disabled={!isReady}
-                    className="px-4 py-2 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    className="px-4 py-2 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                   >
                     <Unlock className="w-4 h-4" />
                     Unlock PDF
@@ -174,7 +176,7 @@ export function RemovePasswordWidget() {
             </div>
           )}
 
-          {errorMsg && <p className="text-error text-sm text-center">{errorMsg}</p>}
+          {errorMsg && <p className="text-pink text-sm text-center">{errorMsg}</p>}
         </div>
       )}
 
@@ -187,19 +189,19 @@ export function RemovePasswordWidget() {
 
       {downloadUrl && (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-6">
-          <div className="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center mb-2">
-            <Unlock className="w-8 h-8 text-success" />
+          <div className="w-16 h-16 bg-green/20 rounded-full flex items-center justify-center mb-2">
+            <Unlock className="w-8 h-8 text-green" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-ink">PDF Unlocked Successfully!</h3>
             <p className="text-grey mt-2">Your PDF is now freely accessible without a password.</p>
           </div>
-          
+
           <div className="flex gap-4 mt-8">
             <a
               href={downloadUrl}
               download={downloadFilename}
-              className="px-8 py-3 bg-yellow text-background rounded-md hover:bg-yellow/90 transition-colors font-medium text-lg flex items-center gap-2"
+              className="px-8 py-3 bg-yellow text-[#111212] rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium text-lg flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download Unlocked PDF

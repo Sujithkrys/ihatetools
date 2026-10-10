@@ -21,6 +21,11 @@ const config: Config = {
         violet: "rgb(var(--color-violet) / <alpha-value>)",
         grey: "rgb(var(--color-grey) / <alpha-value>)",
         sel: "rgb(var(--color-sel) / <alpha-value>)",
+        paperHover: "rgb(var(--color-paper-hover) / <alpha-value>)",
+        error: "rgb(var(--color-pink) / <alpha-value>)",
+        success: "rgb(var(--color-green) / <alpha-value>)",
+        warning: "rgb(var(--color-yellow) / <alpha-value>)",
+        accent: "rgb(var(--color-pink) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

@@ -170,31 +170,33 @@ export function ColorPaletteExtractorWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
-              errorMsg ? "border-error/50 bg-error/5" : ""
+              "border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all tool-interaction-zone",
+              isDragActive
+                ? "border-ink/40 dark:border-white/40 bg-ink/[0.03] dark:bg-white/[0.03]"
+                : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]",
+              errorMsg ? "border-pink/40 bg-pink/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-paper">
-                <Palette className="w-8 h-8 text-grey" />
+              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-ink/5 dark:bg-white/5">
+                <Palette className="w-6 h-6 text-grey" />
               </div>
               <div>
                 <p className="text-lg font-medium text-ink">Drag & drop your Image here</p>
                 <p className="text-sm text-grey mt-1">to extract its color palette</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
+              <button className="mt-2 px-5 py-2.5 bg-ink text-paper rounded-[9px] text-[13.5px] font-medium shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all">
                 Browse files
               </button>
             </div>
           </div>
-          {errorMsg && <p className="text-error text-sm text-center">{errorMsg}</p>}
+          {errorMsg && <p className="text-pink text-sm text-center">{errorMsg}</p>}
         </div>
       )}
 
       {file && (
-        <div className="animate-reveal-result bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-8">
+        <div className="animate-reveal-result bg-paper rounded-[16px] border border-ink/8 dark:border-white/10 shadow-soft dark:shadow-soft-dark p-4 sm:p-6 space-y-8">
           <div className="flex justify-between items-center">
             <h3 className="text-ink font-medium">Selected Image</h3>
             <button
@@ -218,7 +220,7 @@ export function ColorPaletteExtractorWidget() {
               <img
                 src={URL.createObjectURL(file)}
                 alt="Source preview"
-                className="w-full max-w-xs rounded-lg border border-ink/15 object-contain"
+                className="w-full max-w-xs rounded-[14px] border border-ink/8 dark:border-white/10 object-contain"
               />
             </div>
 
@@ -235,7 +237,7 @@ export function ColorPaletteExtractorWidget() {
                     {colors.map((color, index) => (
                       <div 
                         key={index} 
-                        className="group flex flex-col items-center justify-center p-4 bg-bg border border-ink/10 rounded-lg hover:border-ink/25 transition-colors"
+                        className="group flex flex-col items-center justify-center p-4 bg-bg border border-ink/8 dark:border-white/10 rounded-[14px] hover:border-ink/25 transition-colors"
                       >
                         <div 
                           className="w-16 h-16 rounded-full shadow-inner mb-3 border border-black/20"
@@ -245,7 +247,7 @@ export function ColorPaletteExtractorWidget() {
                           onClick={() => handleCopy(color.hex, index)}
                           className="flex items-center gap-1.5 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 rounded text-xs code-mono text-ink transition-colors"
                         >
-                          {copiedIndex === index ? <CheckCircle className="w-3 h-3 text-success" /> : <Copy className="w-3 h-3" />}
+                          {copiedIndex === index ? <CheckCircle className="w-3 h-3 text-green" /> : <Copy className="w-3 h-3" />}
                           {color.hex.toUpperCase()}
                         </button>
                       </div>

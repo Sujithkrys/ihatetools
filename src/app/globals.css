@@ -14,6 +14,18 @@
     --color-violet: 155 138 230;
     --color-grey: 110 107 102;
     --color-sel: 13 153 255;
+    --color-paper-hover: 246 245 242;
+
+    /* Second token family used by a subset of widgets (password/hash/uuid generators,
+       invoice/resume builders, audio tools, etc). Previously referenced but never
+       defined anywhere, so these widgets rendered with broken/invisible styling. */
+    --ink: #111212;
+    --ink-muted: #6E6B66;
+    --paper: #FFFFFF;
+    --surface: #F6F5F2;
+    --surface-hover: #EFEDE9;
+    --border: rgba(17, 18, 18, 0.08);
+    --primary: #E8336D;
   }
 
   .dark {
@@ -27,6 +39,15 @@
     --color-violet: 155 138 230;
     --color-grey: 161 158 152;
     --color-sel: 13 153 255;
+    --color-paper-hover: 34 36 39;
+
+    --ink: #E6E4DD;
+    --ink-muted: #A19E98;
+    --paper: #1A1C1E;
+    --surface: rgba(255, 255, 255, 0.04);
+    --surface-hover: rgba(255, 255, 255, 0.07);
+    --border: rgba(255, 255, 255, 0.10);
+    --primary: #E8336D;
   }
 
   body {

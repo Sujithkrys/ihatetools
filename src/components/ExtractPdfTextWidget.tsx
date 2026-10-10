@@ -116,26 +116,28 @@ export function ExtractPdfTextWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
-              errorMsg ? "border-error/50 bg-error/5" : ""
+              "border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all tool-interaction-zone",
+              isDragActive
+                ? "border-ink/40 dark:border-white/40 bg-ink/[0.03] dark:bg-white/[0.03]"
+                : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]",
+              errorMsg ? "border-pink/40 bg-pink/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-paper">
-                <FileText className="w-8 h-8 text-grey" />
+              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-ink/5 dark:bg-white/5">
+                <FileText className="w-6 h-6 text-grey" />
               </div>
               <div>
                 <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
                 <p className="text-sm text-grey mt-1">to extract embedded text</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
+              <button className="mt-2 px-5 py-2.5 bg-ink text-paper rounded-[9px] text-[13.5px] font-medium shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all">
                 Browse files
               </button>
             </div>
           </div>
-          {errorMsg && <p className="text-error text-sm text-center">{errorMsg}</p>}
+          {errorMsg && <p className="text-pink text-sm text-center">{errorMsg}</p>}
         </div>
       )}
 
@@ -154,10 +156,10 @@ export function ExtractPdfTextWidget() {
           <h3 className="text-xl font-bold text-ink">No text found</h3>
           <p className="text-grey max-w-md mx-auto">{warningMsg}</p>
           <div className="pt-4 flex justify-center gap-4">
-            <a href="/tools/ocr-pdf" className="px-6 py-2 bg-yellow text-background rounded-md font-medium">
+            <a href="/tools/ocr-pdf" className="px-6 py-2 bg-yellow text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all font-medium">
               Use OCR Tool
             </a>
-            <button onClick={handleReset} className="px-6 py-2 bg-paper border border-ink/15 text-ink rounded-md">
+            <button onClick={handleReset} className="px-6 py-2 bg-paper border border-ink/8 dark:border-white/10 text-ink rounded-[9px]">
               Try another file
             </button>
           </div>
@@ -165,7 +167,7 @@ export function ExtractPdfTextWidget() {
       )}
 
       {extractedText && (
-        <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-4">
+        <div className="bg-paper rounded-[16px] border border-ink/8 dark:border-white/10 shadow-soft dark:shadow-soft-dark p-4 sm:p-6 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
             <div>
               <h3 className="text-ink font-medium">Extracted Text</h3>
@@ -175,21 +177,21 @@ export function ExtractPdfTextWidget() {
             <div className="flex gap-2">
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-2 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 text-ink rounded-md text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 text-ink rounded-[9px] text-sm font-medium transition-colors"
               >
-                {copied ? <CheckCircle className="w-4 h-4 text-success" /> : <Copy className="w-4 h-4" />}
+                {copied ? <CheckCircle className="w-4 h-4 text-green" /> : <Copy className="w-4 h-4" />}
                 {copied ? "Copied!" : "Copy"}
               </button>
               <button
                 onClick={handleDownload}
-                className="flex items-center gap-2 px-3 py-1.5 bg-yellow hover:bg-yellow/90 text-background rounded-md text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-3 py-1.5 bg-yellow hover:bg-yellow/90 text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all text-sm font-medium"
               >
                 <Download className="w-4 h-4" />
                 Download .txt
               </button>
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 text-ink rounded-md text-sm font-medium transition-colors ml-2"
+                className="flex items-center gap-2 px-3 py-1.5 bg-ink/5 hover:bg-overlay/10 text-ink rounded-[9px] text-sm font-medium transition-colors ml-2"
               >
                 Reset
               </button>
@@ -199,7 +201,7 @@ export function ExtractPdfTextWidget() {
           <textarea
             readOnly
             value={extractedText}
-            className="w-full h-[400px] bg-bg border border-ink/15 rounded-md p-4 text-ink font-sans font-semibold text-sm focus:outline-none resize-none"
+            className="w-full h-[400px] bg-bg border border-ink/8 dark:border-white/10 rounded-[14px] p-4 text-ink font-sans font-semibold text-sm focus:outline-none resize-none"
           />
         </div>
       )}

@@ -312,8 +312,10 @@ export function SignPdfWidget() {
       {!file ? (
         <div
           {...getRootProps()}
-          className={`dropzone border-2 border-dashed rounded-[10px] p-8 text-center cursor-pointer transition-colors ${
-            isDragActive ? "border-yellow bg-yellow/5" : "border-ink/20 hover:border-ink/40 bg-paper"
+          className={`dropzone border-2 border-dashed rounded-[14px] p-8 text-center cursor-pointer transition-all ${
+            isDragActive
+              ? "border-ink/40 dark:border-white/40 bg-ink/[0.03] dark:bg-white/[0.03]"
+              : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]"
           }`}
         >
           <input {...getInputProps()} />
@@ -332,14 +334,14 @@ export function SignPdfWidget() {
       ) : (
         <div className="space-y-6">
           {/* Top file indicator and reset */}
-          <div className="flex items-center justify-between p-4 bg-bg border border-ink/10 rounded-[8px]">
+          <div className="flex items-center justify-between p-4 bg-bg border border-ink/8 dark:border-white/10 rounded-[14px]">
             <div>
               <p className="text-[14px] font-medium text-ink truncate max-w-sm">{file.name}</p>
               <p className="text-[12px] text-grey">{numPages} {numPages === 1 ? "page" : "pages"}</p>
             </div>
             <button
               onClick={handleReset}
-              className="text-[13px] text-grey hover:text-ink flex items-center gap-1.5 px-3 py-1.5 border border-ink/15 rounded-[6px] hover:border-ink/30 transition-all"
+              className="text-[13px] text-grey hover:text-ink flex items-center gap-1.5 px-3 py-1.5 border border-ink/8 dark:border-white/10 rounded-[9px] hover:border-ink/30 transition-all"
             >
               <RefreshCw size={13} /> Change file
             </button>
@@ -347,13 +349,13 @@ export function SignPdfWidget() {
 
           {/* Signature Creation Card */}
           {!signatureDataUrl ? (
-            <div className="bg-paper border border-ink/15 rounded-[10px] p-5 space-y-4">
-              <div className="flex items-center justify-between border-b border-ink/10 pb-3">
+            <div className="bg-paper border border-ink/8 dark:border-white/10 shadow-soft dark:shadow-soft-dark rounded-[16px] p-5 space-y-4">
+              <div className="flex items-center justify-between border-b border-ink/8 dark:border-white/10 pb-3">
                 <h3 className="disp text-[18px] text-ink font-semibold">Create Your Signature</h3>
                 <div className="flex gap-2">
                   <button
                     onClick={() => setSigTab("draw")}
-                    className={`flex items-center gap-1.5 px-3 py-1 text-[13px] rounded-[6px] font-medium transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-1 text-[13px] rounded-[9px] font-medium transition-colors ${
                       sigTab === "draw" ? "bg-ink text-paper" : "bg-bg text-grey hover:text-ink"
                     }`}
                   >
@@ -361,7 +363,7 @@ export function SignPdfWidget() {
                   </button>
                   <button
                     onClick={() => setSigTab("type")}
-                    className={`flex items-center gap-1.5 px-3 py-1 text-[13px] rounded-[6px] font-medium transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-1 text-[13px] rounded-[9px] font-medium transition-colors ${
                       sigTab === "type" ? "bg-ink text-paper" : "bg-bg text-grey hover:text-ink"
                     }`}
                   >
@@ -399,8 +401,8 @@ export function SignPdfWidget() {
                         <button
                           key={w}
                           onClick={() => setPenWidth(w)}
-                          className={`px-2 py-0.5 rounded text-[12px] border ${
-                            penWidth === w ? "bg-ink text-paper border-ink" : "bg-bg text-grey border-ink/15"
+                          className={`px-2 py-0.5 rounded-[9px] text-[12px] border ${
+                            penWidth === w ? "bg-ink text-paper border-ink" : "bg-bg text-grey border-ink/8 dark:border-white/10"
                           }`}
                         >
                           {w === 2 ? "Fine" : w === 3 ? "Medium" : "Bold"}
@@ -414,7 +416,7 @@ export function SignPdfWidget() {
               {/* Pad Area */}
               {sigTab === "draw" ? (
                 <div className="space-y-2">
-                  <div className="relative border-2 border-dashed border-ink/20 rounded-[8px] bg-bg overflow-hidden">
+                  <div className="relative border-2 border-dashed border-ink/20 rounded-[14px] bg-bg overflow-hidden">
                     <canvas
                       ref={drawCanvasRef}
                       width={520}
@@ -441,7 +443,7 @@ export function SignPdfWidget() {
                     </button>
                     <button
                       onClick={handleAdoptSignature}
-                      className="bg-ink text-paper px-4 py-2 rounded-[6px] text-[13px] font-medium hover:bg-ink/90 transition-colors flex items-center gap-1.5"
+                      className="bg-ink text-paper px-4 py-2 rounded-[9px] text-[13px] font-medium hover:bg-ink/90 transition-colors flex items-center gap-1.5"
                     >
                       <Check size={14} /> Place Signature
                     </button>
@@ -454,10 +456,10 @@ export function SignPdfWidget() {
                     value={typedName}
                     onChange={(e) => setTypedName(e.target.value)}
                     placeholder="Type your full name..."
-                    className="w-full px-3 py-2 border border-ink/20 rounded-[6px] bg-bg text-ink text-[15px] focus:outline-none focus:border-ink"
+                    className="w-full px-3 py-2 border border-ink/20 rounded-[14px] bg-bg text-ink text-[15px] focus:outline-none focus:border-ink"
                   />
                   {typedName && (
-                    <div className="p-4 border border-ink/10 rounded-[8px] bg-bg flex items-center justify-center">
+                    <div className="p-4 border border-ink/8 dark:border-white/10 rounded-[14px] bg-bg flex items-center justify-center">
                       <p
                         className="text-[34px] italic"
                         style={{ color: penColor, fontFamily: "'Caveat', cursive, sans-serif" }}
@@ -470,7 +472,7 @@ export function SignPdfWidget() {
                     <button
                       onClick={handleAdoptSignature}
                       disabled={!typedName.trim()}
-                      className="bg-ink text-paper disabled:opacity-40 px-4 py-2 rounded-[6px] text-[13px] font-medium hover:bg-ink/90 transition-colors flex items-center gap-1.5"
+                      className="bg-ink text-paper disabled:opacity-40 px-4 py-2 rounded-[9px] text-[13px] font-medium hover:bg-ink/90 transition-colors flex items-center gap-1.5"
                     >
                       <Check size={14} /> Place Signature
                     </button>
@@ -479,10 +481,10 @@ export function SignPdfWidget() {
               )}
             </div>
           ) : (
-            <div className="bg-paper border border-ink/15 rounded-[10px] p-4 flex items-center justify-between">
+            <div className="bg-paper border border-ink/8 dark:border-white/10 shadow-soft dark:shadow-soft-dark rounded-[16px] p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={signatureDataUrl} alt="Signature preview" className="h-10 border border-ink/10 rounded bg-bg px-2" />
+                <img src={signatureDataUrl} alt="Signature preview" className="h-10 border border-ink/8 dark:border-white/10 rounded-[9px] bg-bg px-2" />
                 <span className="text-[13px] text-ink font-medium">Signature ready! Drag to place on page {currentPage}.</span>
               </div>
               <button
@@ -497,7 +499,7 @@ export function SignPdfWidget() {
           {/* PDF Page View and Interactive Overlay */}
           <div className="space-y-3">
             {numPages > 1 && (
-              <div className="flex items-center justify-between bg-paper border border-ink/10 rounded-[6px] px-3 py-2">
+              <div className="flex items-center justify-between bg-paper border border-ink/8 dark:border-white/10 rounded-[9px] px-3 py-2">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => {
@@ -506,7 +508,7 @@ export function SignPdfWidget() {
                       if (sigPlacement) setSigPlacement({ ...sigPlacement, page: prev });
                     }}
                     disabled={currentPage <= 1}
-                    className="p-1 rounded hover:bg-bg disabled:opacity-30"
+                    className="p-1 rounded-[9px] hover:bg-bg disabled:opacity-30"
                   >
                     <ChevronLeft size={16} />
                   </button>
@@ -520,7 +522,7 @@ export function SignPdfWidget() {
                       if (sigPlacement) setSigPlacement({ ...sigPlacement, page: next });
                     }}
                     disabled={currentPage >= numPages}
-                    className="p-1 rounded hover:bg-bg disabled:opacity-30"
+                    className="p-1 rounded-[9px] hover:bg-bg disabled:opacity-30"
                   >
                     <ChevronRight size={16} />
                   </button>
@@ -529,9 +531,9 @@ export function SignPdfWidget() {
               </div>
             )}
 
-            <div className="relative border border-ink/20 rounded-[8px] bg-bg overflow-hidden flex justify-center p-4">
+            <div className="relative border border-ink/20 rounded-[16px] bg-bg overflow-hidden flex justify-center p-4">
               <div className="relative inline-block shadow-sm">
-                <canvas ref={pdfCanvasRef} className="block max-w-full h-auto bg-paper border border-ink/10" />
+                <canvas ref={pdfCanvasRef} className="block max-w-full h-auto bg-paper border border-ink/8 dark:border-white/10" />
 
                 {/* Draggable Signature Overlay on current page */}
                 {signatureDataUrl && sigPlacement && sigPlacement.page === currentPage && (
@@ -564,7 +566,7 @@ export function SignPdfWidget() {
 
             {/* Resize Slider */}
             {signatureDataUrl && sigPlacement && (
-              <div className="flex items-center gap-4 bg-paper border border-ink/10 rounded-[8px] px-4 py-3 text-[13px]">
+              <div className="flex items-center gap-4 bg-paper border border-ink/8 dark:border-white/10 rounded-[14px] px-4 py-3 text-[13px]">
                 <span className="text-grey font-medium">Signature Size:</span>
                 <input
                   type="range"
@@ -588,7 +590,7 @@ export function SignPdfWidget() {
               <button
                 onClick={handleApplySignature}
                 disabled={isProcessing}
-                className="bg-ink text-paper px-6 py-3 rounded-[8px] text-[14.5px] font-medium hover:bg-ink/90 transition-all flex items-center gap-2 shadow-sm"
+                className="bg-ink text-paper px-6 py-3 rounded-[10px] text-[14.5px] font-medium hover:bg-ink/90 hover:-translate-y-[1px] hover:shadow-soft-hover transition-all flex items-center gap-2 shadow-soft dark:shadow-soft-dark"
               >
                 {isProcessing ? (
                   <>
@@ -603,7 +605,7 @@ export function SignPdfWidget() {
 
           {/* Success Download Card */}
           {downloadUrl && (
-            <div className="p-6 bg-paper border-2 border-ink rounded-[10px] text-center space-y-4">
+            <div className="p-6 bg-paper border-2 border-ink rounded-[16px] shadow-soft dark:shadow-soft-dark text-center space-y-4">
               <div className="w-12 h-12 bg-yellow/20 text-ink rounded-full flex items-center justify-center mx-auto">
                 <Check size={24} />
               </div>
@@ -615,13 +617,13 @@ export function SignPdfWidget() {
                 <a
                   href={downloadUrl}
                   download={downloadFilename}
-                  className="bg-ink text-paper px-6 py-2.5 rounded-[8px] text-[14px] font-medium hover:bg-ink/90 transition-all flex items-center gap-2"
+                  className="bg-ink text-paper px-6 py-2.5 rounded-[10px] text-[14px] font-medium hover:bg-ink/90 hover:-translate-y-[1px] hover:shadow-soft-hover transition-all flex items-center gap-2 shadow-soft dark:shadow-soft-dark"
                 >
                   <Download size={15} /> Download Signed PDF
                 </a>
                 <button
                   onClick={handleReset}
-                  className="border border-ink/20 px-4 py-2.5 rounded-[8px] text-[14px] text-grey hover:text-ink transition-colors"
+                  className="border border-ink/20 px-4 py-2.5 rounded-[9px] text-[14px] text-grey hover:text-ink transition-colors"
                 >
                   Sign Another Document
                 </button>
@@ -632,7 +634,7 @@ export function SignPdfWidget() {
       )}
 
       {errorMsg && (
-        <div className="p-3.5 bg-pink/10 border border-pink/30 rounded-[8px] text-pink text-[13.5px]">
+        <div className="p-3.5 bg-pink/10 border border-pink/30 rounded-[14px] text-pink text-[13.5px]">
           {errorMsg}
         </div>
       )}

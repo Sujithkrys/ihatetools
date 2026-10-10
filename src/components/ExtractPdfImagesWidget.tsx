@@ -133,26 +133,28 @@ export function ExtractPdfImagesWidget() {
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors tool-interaction-zone",
-              isDragActive ? "border-accent bg-yellow/5" : "border-ink/15 hover:border-ink/25 hover:bg-paperHover",
-              errorMsg ? "border-error/50 bg-error/5" : ""
+              "border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all tool-interaction-zone",
+              isDragActive
+                ? "border-ink/40 dark:border-white/40 bg-ink/[0.03] dark:bg-white/[0.03]"
+                : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]",
+              errorMsg ? "border-pink/40 bg-pink/5" : ""
             )}
           >
             <input {...getInputProps()} />
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-paper">
-                <ImageIcon className="w-8 h-8 text-grey" />
+              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-ink/5 dark:bg-white/5">
+                <ImageIcon className="w-6 h-6 text-grey" />
               </div>
               <div>
                 <p className="text-lg font-medium text-ink">Drag & drop your PDF here</p>
                 <p className="text-sm text-grey mt-1">to extract embedded images</p>
               </div>
-              <button className="mt-4 px-6 py-2 bg-paper border border-ink/15 rounded-md text-ink hover:bg-paperHover transition-colors font-medium">
+              <button className="mt-2 px-5 py-2.5 bg-ink text-paper rounded-[9px] text-[13.5px] font-medium shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all">
                 Browse files
               </button>
             </div>
           </div>
-          {errorMsg && <p className="text-error text-sm text-center">{errorMsg}</p>}
+          {errorMsg && <p className="text-pink text-sm text-center">{errorMsg}</p>}
         </div>
       )}
 
@@ -171,7 +173,7 @@ export function ExtractPdfImagesWidget() {
           <h3 className="text-xl font-bold text-ink">No Images Found</h3>
           <p className="text-grey max-w-md mx-auto">{warningMsg}</p>
           <div className="pt-4 flex justify-center">
-            <button onClick={handleReset} className="px-6 py-2 bg-paper border border-ink/15 text-ink rounded-md">
+            <button onClick={handleReset} className="px-6 py-2 bg-paper border border-ink/8 dark:border-white/10 text-ink rounded-[9px]">
               Try another file
             </button>
           </div>
@@ -179,7 +181,7 @@ export function ExtractPdfImagesWidget() {
       )}
 
       {images.length > 0 && (
-        <div className="bg-paper rounded-lg border border-ink/10 p-4 sm:p-6 space-y-6">
+        <div className="bg-paper rounded-[16px] border border-ink/8 dark:border-white/10 shadow-soft dark:shadow-soft-dark p-4 sm:p-6 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
             <div>
               <h3 className="text-ink font-medium">Found {images.length} Image{images.length > 1 ? 's' : ''}</h3>
@@ -191,7 +193,7 @@ export function ExtractPdfImagesWidget() {
                 <a
                   href={downloadUrl}
                   download={images.length > 1 ? `${fileName.replace(/\.[^/.]+$/, "")}-images.zip` : images[0].name}
-                  className="flex items-center gap-2 px-4 py-2 bg-yellow hover:bg-yellow/90 text-background rounded-md text-sm font-medium transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-yellow hover:bg-yellow/90 text-[#111212] rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover text-sm font-medium transition-all"
                 >
                   <Download className="w-4 h-4" />
                   {images.length > 1 ? "Download All (ZIP)" : "Download JPG"}
@@ -199,7 +201,7 @@ export function ExtractPdfImagesWidget() {
               )}
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-4 py-2 bg-ink/5 hover:bg-overlay/10 text-ink rounded-md text-sm font-medium transition-colors ml-2"
+                className="flex items-center gap-2 px-4 py-2 bg-ink/5 hover:bg-overlay/10 text-ink rounded-[9px] text-sm font-medium transition-colors ml-2"
               >
                 Start Over
               </button>
@@ -208,7 +210,7 @@ export function ExtractPdfImagesWidget() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-h-[500px] overflow-y-auto pr-2">
             {images.map((img) => (
-              <div key={img.id} className="relative group rounded-md p-2 flex flex-col items-center bg-bg border border-ink/10 hover:border-ink/15 transition-colors">
+              <div key={img.id} className="relative group rounded-[9px] p-2 flex flex-col items-center bg-bg border border-ink/8 dark:border-white/10 hover:border-ink/15 transition-colors">
                 <div className="w-full aspect-square relative overflow-hidden flex items-center justify-center bg-black/20 rounded">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
@@ -221,7 +223,7 @@ export function ExtractPdfImagesWidget() {
                 <a 
                   href={img.url}
                   download={img.name}
-                  className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-md"
+                  className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-[9px]"
                 >
                   <Download className="w-6 h-6 text-white" />
                 </a>

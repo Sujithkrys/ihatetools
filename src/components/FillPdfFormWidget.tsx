@@ -195,7 +195,7 @@ export function FillPdfFormWidget() {
       {!file ? (
         <div
           {...getRootProps()}
-          className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all ${
+          className={`border-2 border-dashed rounded-[16px] p-12 text-center cursor-pointer transition-all ${
             isDragActive
               ? "border-[var(--primary)] bg-[var(--surface-hover)]"
               : "border-[var(--border)] hover:border-[var(--ink)] bg-[var(--surface)]"
@@ -222,7 +222,7 @@ export function FillPdfFormWidget() {
       ) : (
         <div className="space-y-6">
           {/* Top Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-[16px] bg-[var(--surface)] border border-[var(--border)]">
             <div className="flex items-center space-x-3 truncate">
               <FileText className="w-5 h-5 text-[var(--primary)] shrink-0" />
               <div className="truncate">
@@ -236,7 +236,7 @@ export function FillPdfFormWidget() {
             <div className="flex items-center gap-3">
               <button
                 onClick={resetAll}
-                className="px-3 py-1.5 text-sm font-medium text-[var(--ink-muted)] hover:text-[var(--ink)] border border-[var(--border)] rounded-lg hover:bg-[var(--surface-hover)] transition-colors inline-flex items-center gap-1.5"
+                className="px-3 py-1.5 text-sm font-medium text-[var(--ink-muted)] hover:text-[var(--ink)] border border-[var(--border)] rounded-[9px] hover:bg-[var(--surface-hover)] transition-colors inline-flex items-center gap-1.5"
               >
                 <RefreshCw className="w-4 h-4" /> Change PDF
               </button>
@@ -244,19 +244,19 @@ export function FillPdfFormWidget() {
           </div>
 
           {errorMsg && (
-            <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 flex items-start gap-3 text-red-600 dark:text-red-400 text-sm">
+            <div className="p-4 rounded-[14px] bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 flex items-start gap-3 text-red-600 dark:text-red-400 text-sm">
               <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           {isProcessing ? (
-            <div className="p-12 text-center bg-[var(--surface)] rounded-xl border border-[var(--border)]">
+            <div className="p-12 text-center bg-[var(--surface)] rounded-[16px] border border-[var(--border)]">
               <Loader2 className="w-8 h-8 animate-spin mx-auto text-[var(--primary)]" />
               <p className="mt-3 text-sm text-[var(--ink-muted)]">Scanning PDF form fields...</p>
             </div>
           ) : hasNoFields ? (
-            <div className="p-8 text-center bg-[var(--surface)] rounded-xl border border-[var(--border)] space-y-4">
+            <div className="p-8 text-center bg-[var(--surface)] rounded-[16px] border border-[var(--border)] space-y-4">
               <div className="w-12 h-12 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 mx-auto flex items-center justify-center">
                 <ShieldAlert className="w-6 h-6" />
               </div>
@@ -268,13 +268,13 @@ export function FillPdfFormWidget() {
               </div>
               <button
                 onClick={resetAll}
-                className="px-4 py-2 bg-[var(--ink)] text-[var(--paper)] text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                className="px-4 py-2 bg-[var(--ink)] text-[var(--paper)] text-sm font-semibold rounded-[9px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all"
               >
                 Try Another PDF
               </button>
             </div>
           ) : (
-            <div className="bg-[var(--surface)] border border-[var(--border)] rounded-xl p-6 space-y-6">
+            <div className="bg-[var(--surface)] border border-[var(--border)] rounded-[16px] p-6 space-y-6">
               <div className="flex items-center justify-between border-b border-[var(--border)] pb-4">
                 <h3 className="font-bold text-lg text-[var(--ink)]">Form Fields</h3>
                 <span className="text-xs text-[var(--ink-muted)]">
@@ -287,7 +287,7 @@ export function FillPdfFormWidget() {
                 {fields.map((field) => (
                   <div
                     key={field.id}
-                    className={`p-3.5 rounded-lg border border-[var(--border)] bg-[var(--paper)] space-y-1.5 ${
+                    className={`p-3.5 rounded-[9px] border border-[var(--border)] bg-[var(--paper)] space-y-1.5 ${
                       field.isMultiline ? "md:col-span-2" : ""
                     }`}
                   >
@@ -390,7 +390,7 @@ export function FillPdfFormWidget() {
                   <button
                     onClick={handleSaveAndDownload}
                     disabled={isSaving}
-                    className="px-6 py-2.5 bg-[var(--ink)] text-[var(--paper)] font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 inline-flex items-center gap-2"
+                    className="px-6 py-2.5 bg-[var(--ink)] text-[var(--paper)] font-semibold rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all disabled:opacity-50 inline-flex items-center gap-2"
                   >
                     {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <CheckCircle2 className="w-4 h-4" />}
                     Save & Fill PDF
@@ -400,7 +400,7 @@ export function FillPdfFormWidget() {
                     <a
                       href={downloadUrl}
                       download={`filled_${file.name}`}
-                      className="px-6 py-2.5 bg-[var(--primary)] text-white font-semibold rounded-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2 shadow-sm"
+                      className="px-6 py-2.5 bg-[var(--primary)] text-white font-semibold rounded-[10px] shadow-soft dark:shadow-soft-dark hover:-translate-y-[1px] hover:shadow-soft-hover transition-all inline-flex items-center gap-2"
                     >
                       <Download className="w-4 h-4" /> Download Filled PDF
                     </a>
@@ -409,7 +409,7 @@ export function FillPdfFormWidget() {
               </div>
 
               {/* Note / Disclaimer */}
-              <div className="p-3 bg-[var(--paper)] border border-[var(--border)] rounded-lg text-xs text-[var(--ink-muted)]">
+              <div className="p-3 bg-[var(--paper)] border border-[var(--border)] rounded-[9px] text-xs text-[var(--ink-muted)]">
                 <strong>Technical Notice:</strong> PDF form support relies on standard AcroForm structures via pdf-lib. Complex dynamic XFA forms (proprietary Adobe XML forms) or heavily obfuscated field encodings may have limitations.
               </div>
             </div>
