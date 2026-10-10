@@ -15,11 +15,11 @@ export function HowItWorksSteps({ steps }: HowItWorksStepsProps) {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-[22px]">
         {steps.map((step, index) => (
-          <div 
-            key={index} 
-            className="flex flex-col items-center text-center p-6 bg-paper border-[1.5px] border-ink rounded-[11px]"
+          <div
+            key={index}
+            className="flex flex-col items-center text-center p-6 bg-paper border border-ink/8 dark:border-white/10 rounded-[14px] shadow-soft dark:shadow-soft-dark"
           >
-            <div className="w-12 h-12 flex items-center justify-center rounded-full border-[1.5px] border-ink bg-bg font-sans font-semibold text-[14px] text-ink mb-6">
+            <div className="w-11 h-11 flex items-center justify-center rounded-full bg-ink/5 dark:bg-white/5 font-sans font-semibold text-[13px] text-ink mb-6">
               {String(index + 1).padStart(2, '0')}
             </div>
             <h3 className="disp text-lg mb-3 text-ink">

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
-import { Ruler } from "./Ruler";
 
 interface NavBarProps {
   onToggleSidebar?: () => void;
@@ -22,15 +21,14 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
   const isToolsSection = pathname?.startsWith('/tools');
 
   return (
-    <header className="site-header border-b border-ink/[0.08] bg-bg sticky top-0 z-40">
-      {!isToolsSection && <Ruler />}
+    <header className="site-header border-b border-ink/[0.08] bg-bg/80 backdrop-blur-sm sticky top-0 z-40">
       <div className="nav-in flex justify-between w-full">
-          <nav className="nav-links flex items-center gap-[6px]">
+          <nav className="nav-links flex items-center gap-[4px]">
             {isToolsSection && onToggleSidebar && (
               <button
                 type="button"
                 onClick={onToggleSidebar}
-                className="lg:hidden flex flex-col justify-center items-center w-[34px] h-[32px] rounded-[5px] border-[1.5px] border-ink bg-paper text-ink hover:bg-cyan transition-colors mr-1 p-1"
+                className="lg:hidden flex flex-col justify-center items-center w-[34px] h-[32px] rounded-[8px] bg-ink/5 dark:bg-white/5 text-ink hover:bg-ink/10 dark:hover:bg-white/10 transition-colors mr-1 p-1"
                 aria-label="Toggle Tools Sidebar"
                 title="Toggle Tools Sidebar"
               >
@@ -40,16 +38,16 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
               </button>
             )}
             {links.filter(l => l.href === "/tools").map((link) => {
-              const isActive = pathname === link.href || 
+              const isActive = pathname === link.href ||
                 (link.href === "/tools" && pathname.startsWith("/tools"));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-[11px] py-[6px] rounded-[5px] text-[13.5px] transition-colors whitespace-nowrap ${
+                  className={`px-[12px] py-[7px] rounded-[8px] text-[13.5px] transition-colors whitespace-nowrap ${
                     isActive
-                      ? "bg-cyan border-[1.5px] border-ink text-[#111212] font-medium"
-                      : "border-transparent text-ink hover:border-ink border-[1.5px]"
+                      ? "bg-ink/[0.06] dark:bg-white/[0.08] text-ink font-medium"
+                      : "text-grey hover:text-ink hover:bg-ink/[0.04] dark:hover:bg-white/[0.05]"
                   }`}
                 >
                   {link.label}
@@ -58,18 +56,18 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
             })}
           </nav>
 
-          <nav className="nav-links flex items-center gap-[4px]">
+          <nav className="nav-links flex items-center gap-[2px]">
             {links.filter(l => l.href !== "/tools").map((link) => {
-              const isActive = pathname === link.href || 
+              const isActive = pathname === link.href ||
                 (link.href === "/tools" && pathname.startsWith("/tools"));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-[11px] py-[6px] rounded-[5px] text-[13.5px] transition-colors whitespace-nowrap ${
+                  className={`px-[12px] py-[7px] rounded-[8px] text-[13.5px] transition-colors whitespace-nowrap ${
                     isActive
-                      ? "bg-cyan border-[1.5px] border-ink text-[#111212] font-medium"
-                      : "border-transparent text-ink hover:border-ink border-[1.5px]"
+                      ? "bg-ink/[0.06] dark:bg-white/[0.08] text-ink font-medium"
+                      : "text-grey hover:text-ink hover:bg-ink/[0.04] dark:hover:bg-white/[0.05]"
                   }`}
                 >
                   {link.label}

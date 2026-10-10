@@ -30,10 +30,10 @@ export function ScoreReportCard({ scoreLabel, scoreValue, segments, findings }: 
   const total = segments.reduce((sum, s) => sum + s.value, 0) || 1;
 
   return (
-    <div className="border-[1.5px] border-ink dark:border-white/10 rounded-[12px] bg-paper dark:bg-bg p-6 space-y-6">
+    <div className="border border-ink/8 dark:border-white/10 rounded-[16px] bg-paper dark:bg-bg p-6 shadow-soft dark:shadow-soft-dark space-y-6">
       <div>
         <div className="flex items-baseline justify-between">
-          <span className="disp text-[42px] text-ink leading-none">{scoreValue}%</span>
+          <span className="stat-num text-[44px] text-ink">{scoreValue}%</span>
           <span className="text-sm text-grey font-medium">{scoreLabel}</span>
         </div>
 

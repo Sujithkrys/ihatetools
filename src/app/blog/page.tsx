@@ -22,7 +22,7 @@ export default function BlogIndex() {
             <Link 
               key={post.slug} 
               href={`/blog/${post.slug}`}
-              className="block border-[1.5px] border-ink rounded-[10px] p-[26px_28px] relative bg-paper hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
+              className="block border border-ink/8 dark:border-white/10 rounded-[14px] p-[26px_28px] relative bg-paper shadow-soft dark:shadow-soft-dark hover:-translate-y-[2px] hover:shadow-soft-hover transition-all cursor-pointer no-underline group"
             >
               <h2 className="disp text-[23px] mb-2 text-ink group-hover:text-pink transition-colors">
                 {post.title}

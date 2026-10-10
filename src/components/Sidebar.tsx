@@ -5,11 +5,11 @@ import { TOOLS } from '@/lib/tools-data';
 import { Logo } from './Logo';
 
 const CATEGORY_STYLES: Record<string, { label: string; bg: string; color: string }> = {
-  pdf:   { label: 'PDF Tools',   bg: '#F5C242', color: '#2A2200' },
-  image: { label: 'Image Tools', bg: '#5BC8E8', color: '#00232B' },
-  audio: { label: 'Audio Tools', bg: '#FF8A65', color: '#3E1500' },
-  util:  { label: 'Utility',     bg: '#2DD4AC', color: '#002B21' },
-  text:  { label: 'Text & Dev',  bg: '#9B8AE6', color: '#1E1240' },
+  pdf:   { label: 'PDF Tools',   bg: 'rgba(245, 194, 66, 0.16)', color: '#F5C242' },
+  image: { label: 'Image Tools', bg: 'rgba(91, 200, 232, 0.16)', color: '#5BC8E8' },
+  audio: { label: 'Audio Tools', bg: 'rgba(255, 138, 101, 0.16)', color: '#FF8A65' },
+  util:  { label: 'Utility',     bg: 'rgba(45, 212, 172, 0.16)', color: '#2DD4AC' },
+  text:  { label: 'Text & Dev',  bg: 'rgba(155, 138, 230, 0.16)', color: '#9B8AE6' },
 };
 
 const CATEGORY_MAP: Record<string, string> = {
@@ -74,7 +74,7 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
       <div className="px-[14px] pt-[14px]">
         <input
           type="text"
-          className="block w-full border-[1.5px] border-ink rounded-[7px] px-[12px] py-[7px] text-[13px] bg-bg text-grey placeholder:text-grey focus:outline-none focus:ring-1 focus:ring-sel focus:border-sel transition-all"
+          className="block w-full border border-white/10 rounded-[9px] px-[12px] py-[8px] text-[13px] bg-white/5 text-[#F3F1ED] placeholder:text-grey focus:outline-none focus:ring-1 focus:ring-white/25 focus:border-white/25 transition-all"
           placeholder="Search tools…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

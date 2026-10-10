@@ -38,13 +38,14 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
       <h2 className="disp text-2xl text-ink mb-6">
         Frequently Asked Questions
       </h2>
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {items.map((item, index) => {
           const isOpen = openIndex === index;
           return (
             <div
               key={index}
-              className="bg-paper border-[1.5px] border-ink rounded-[8px] overflow-hidden"
+              className="bg-paper border border-ink/8 dark:border-white/10 rounded-[10px] overflow-hidden transition-shadow duration-150"
+              style={isOpen ? { boxShadow: "0 1px 2px rgba(17,18,18,0.04), 0 6px 16px rgba(17,18,18,0.06)" } : undefined}
             >
               <button
                 className="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none"

@@ -27,10 +27,11 @@ const config: Config = {
         handwriting: ["var(--font-caveat)", "cursive"],
       },
       boxShadow: {
-        hard: "none",
-        'hard-hover': "none",
-        'hard-sm': "none",
-        'hard-lg': "none",
+        soft: "0 1px 2px rgba(17,18,18,0.04), 0 6px 16px rgba(17,18,18,0.06)",
+        'soft-md': "0 2px 4px rgba(17,18,18,0.05), 0 10px 24px rgba(17,18,18,0.08)",
+        'soft-hover': "0 2px 6px rgba(17,18,18,0.06), 0 14px 32px rgba(17,18,18,0.10)",
+        'soft-dark': "0 1px 2px rgba(0,0,0,0.3), 0 6px 20px rgba(0,0,0,0.35)",
+        'soft-dark-md': "0 2px 4px rgba(0,0,0,0.35), 0 10px 28px rgba(0,0,0,0.4)",
       },
       maxWidth: {
         content: "1120px",

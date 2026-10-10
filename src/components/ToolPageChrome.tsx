@@ -6,11 +6,8 @@ interface ToolPageChromeProps {
 
 export function ToolPageChrome({ breadcrumbs }: ToolPageChromeProps) {
   return (
-    <div className="border-b-[1.5px] border-ink dark:border-white/10 px-[16px] py-[10px] flex items-center gap-[8px] bg-bg font-sans font-semibold text-[10px] uppercase tracking-[0.06em] text-grey">
-      <div className="w-[9px] h-[9px] rounded-full border-[1.5px] border-ink dark:border-white/20 bg-pink" />
-      <div className="w-[9px] h-[9px] rounded-full border-[1.5px] border-ink dark:border-white/20 bg-yellow" />
-      <div className="w-[9px] h-[9px] rounded-full border-[1.5px] border-ink dark:border-white/20 bg-green" />
-      <span className="ml-[6px]">{breadcrumbs}</span>
+    <div className="border-b border-ink/8 dark:border-white/8 px-[18px] py-[11px] bg-ink/[0.015] dark:bg-white/[0.02] font-sans font-medium text-[11px] tracking-[0.02em] text-grey">
+      {breadcrumbs}
     </div>
   );
 }
