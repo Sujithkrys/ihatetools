@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowRight,
   ShieldCheck,
@@ -14,6 +13,7 @@ import {
 import { Frame } from "@/components/Frame";
 import { SelectedText } from "@/components/SelectedText";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { HeroShowcase } from "@/components/HeroShowcase";
 import { TOOLS } from "@/lib/tools-data";
 import { getSortedPostsData } from "@/lib/blog";
 import { Footer } from "@/components/Footer";
@@ -29,7 +29,7 @@ const CATEGORY_BADGE: Record<string, string> = {
 
 export const metadata: Metadata = {
   title: "ihatetools - Free PDF, Image, Audio & Text Tools, No Sign-Up",
-  description: "60+ free online tools for PDFs, images, audio, and text. Merge PDFs, compress images, convert formats, and more, all processed locally in your browser. No sign-up, no watermark, no uploads.",
+  description: `${TOOLS.length}+ free online tools for PDFs, images, audio, and text. Merge PDFs, compress images, convert formats, and more, all processed locally in your browser. No sign-up, no watermark, no uploads.`,
 };
 
 const POPULAR_TOOL_IDS = [
@@ -62,7 +62,7 @@ const HOME_FAQ_ITEMS = [
   },
   {
     question: "What kinds of tools does ihatetools offer?",
-    answer: "Over 60 tools across five categories: PDF tools (merge, split, compress, sign, redact), image tools (compress, resize, convert, remove background), audio tools (trim, convert, compress), text and developer tools (JSON formatting, diff checking, word counts), and everyday utilities (password generators, QR codes, hashing).",
+    answer: "Over 60 tools across five categories: PDF tools (merge, split, compress, sign, redact), image tools (compress, resize, convert, remove background, QR codes), audio tools (trim, convert, compress), text and developer tools (JSON formatting, diff checking, word counts), and everyday utilities (password generators, barcodes, hashing).",
   },
   {
     question: "Will my files have a watermark on them?",
@@ -139,15 +139,15 @@ export default function Home() {
                   No watermark
                 </span>
               </div>
-              <h1 className="animate-fade-up delay-1 disp disp-lg text-[clamp(42px,6vw,76px)] lg:max-w-[11ch] text-ink leading-[0.98] tracking-[-0.03em]">
+              <h1 className="animate-fade-up delay-1 disp disp-lg text-[clamp(34px,5vw,54px)] lg:max-w-[12ch] text-ink leading-[1.05] tracking-[-0.025em]">
                 Tools that{" "}
                 <span className="relative inline-block">
                   <span className="bg-yellow/90 text-[#111212] px-[0.12em] rounded-[0.15em]">don&apos;t</span>
                 </span>{" "}
                 waste your time.
               </h1>
-              <p className="animate-fade-up delay-2 disp text-[clamp(17px,1.7vw,20px)] font-normal lg:max-w-[40ch] mx-auto lg:mx-0 mt-[22px] text-ink/65">
-                Merge, split, compress, and convert, all of it running locally in your browser.
+              <p className="animate-fade-up delay-2 disp text-[clamp(16px,1.6vw,19px)] font-normal lg:max-w-[42ch] mx-auto lg:mx-0 mt-[20px] text-ink/65">
+                {TOOLS.length}+ free tools for PDFs, images, audio, and text, all running locally in your browser.
               </p>
               <div className="animate-fade-up delay-3 flex flex-wrap justify-center lg:justify-start gap-[12px] mt-[30px]">
                 <Link
@@ -171,38 +171,9 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Product shot */}
-            <div className="animate-fade-up delay-2 relative hidden lg:block">
-              <div className="relative rounded-[16px] border border-ink/10 dark:border-white/10 bg-paper dark:bg-bg shadow-soft-hover overflow-hidden rotate-[1.2deg] hover:rotate-0 transition-transform duration-500">
-                <div className="flex items-center gap-[6px] px-[14px] py-[10px] border-b border-ink/8 dark:border-white/10 bg-ink/[0.015] dark:bg-white/[0.02]">
-                  <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
-                  <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
-                  <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
-                  <span className="ml-[8px] text-[11px] font-mono text-grey">www.ihatetools.in/tools/resume-ats-checker</span>
-                </div>
-                <Image
-                  src="/images/hero-ats-card.png"
-                  alt="ihatetools resume and job match checker showing a 67% keyword match score"
-                  width={1388}
-                  height={812}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
-              <div className="absolute -bottom-[14px] -left-[14px] -z-10 w-full h-full rounded-[16px] bg-sel/10 dark:bg-sel/15" />
-
-              {/* Floating badge chips for depth */}
-              <div className="animate-float-chip absolute -top-[18px] -left-[22px] flex items-center gap-[7px] bg-paper dark:bg-[#1A1C1E] border border-ink/10 dark:border-white/10 rounded-[11px] px-[13px] py-[9px] shadow-soft-hover">
-                <ShieldCheck className="w-[14px] h-[14px] text-sel" strokeWidth={2} />
-                <span className="text-[12px] font-semibold text-ink">100% client-side</span>
-              </div>
-              <div
-                className="animate-float-chip absolute -bottom-[16px] -right-[16px] flex items-center gap-[7px] bg-paper dark:bg-[#1A1C1E] border border-ink/10 dark:border-white/10 rounded-[11px] px-[13px] py-[9px] shadow-soft-hover"
-                style={{ animationDelay: "-2.5s" }}
-              >
-                <BadgeCheck className="w-[14px] h-[14px] text-sel" strokeWidth={2} />
-                <span className="text-[12px] font-semibold text-ink">Always free</span>
-              </div>
+            {/* Product shot carousel */}
+            <div className="animate-fade-up delay-2">
+              <HeroShowcase />
             </div>
           </div>
         </div>
@@ -310,7 +281,7 @@ export default function Home() {
               <span className="text-[11px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allAudioAndUtilityTools.length}</span>
             </div>
             <p className="text-[14px] leading-[1.55] text-grey">
-              Trim and convert audio, generate invoices, passwords, barcodes, and other everyday tools.
+              Trim and convert audio, generate passwords, hashes, and barcodes, plus other everyday utilities.
             </p>
           </Link>
         </div>
