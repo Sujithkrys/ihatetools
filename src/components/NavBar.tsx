@@ -13,7 +13,7 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
 
   const links = [
     { href: "/home", label: "Home" },
-    { href: "/tools", label: "All Tools" },
+    { href: "/", label: "All Tools" },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
   ];
@@ -37,9 +37,8 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
                 <span className="w-[16px] h-[2px] bg-ink rounded-full"></span>
               </button>
             )}
-            {links.filter(l => l.href === "/tools").map((link) => {
-              const isActive = pathname === "/" || pathname === link.href ||
-                (link.href === "/tools" && pathname.startsWith("/tools"));
+            {links.filter(l => l.href === "/").map((link) => {
+              const isActive = pathname === "/" || pathname?.startsWith("/tools");
               return (
                 <Link
                   key={link.href}
@@ -57,7 +56,7 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
           </nav>
 
           <nav className="nav-links flex items-center gap-[2px]">
-            {links.filter(l => l.href !== "/tools").map((link) => {
+            {links.filter(l => l.href !== "/").map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link

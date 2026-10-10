@@ -40,7 +40,7 @@ export default function Home() {
             Merge, split, compress, and convert, all of it running locally in your browser.
           </p>
           <Link
-            href="/tools"
+            href="/"
             className="cta browse inline-flex items-center gap-[8px] mt-[32px] bg-ink text-paper px-[24px] py-[12px] rounded-[10px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer shadow-soft dark:shadow-soft-dark hover:-translate-y-[2px] hover:shadow-soft-hover transition-all"
           >
             Browse all tools →
