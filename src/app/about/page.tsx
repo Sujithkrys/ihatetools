@@ -8,6 +8,14 @@ import { TOOLS } from "@/lib/tools-data";
 export const metadata: Metadata = {
   title: "About | ihatetools",
   description: `ihatetools is a collection of ${TOOLS.length}+ free, client-side PDF, image, audio, and text tools. No uploads, no sign-up, no watermarks.`,
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About | ihatetools",
+    description: `ihatetools is a collection of ${TOOLS.length}+ free, client-side PDF, image, audio, and text tools. No uploads, no sign-up, no watermarks.`,
+    url: "/about",
+  },
 };
 
 const PRINCIPLES = [

@@ -4,6 +4,14 @@ import { Frame } from "@/components/Frame";
 export const metadata: Metadata = {
   title: "Privacy Policy | ihatetools",
   description: "Privacy policy for ihatetools.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | ihatetools",
+    description: "Privacy policy for ihatetools.",
+    url: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

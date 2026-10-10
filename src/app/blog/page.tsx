@@ -5,6 +5,14 @@ import { getSortedPostsData } from '@/lib/blog';
 export const metadata: Metadata = {
   title: 'Blog - ihatetools',
   description: 'Learn about our free, fast, client-side tools and how they can improve your workflow. Guides, tutorials, and deep dives into PDF, image, and developer tools.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Blog - ihatetools',
+    description: 'Learn about our free, fast, client-side tools and how they can improve your workflow. Guides, tutorials, and deep dives into PDF, image, and developer tools.',
+    url: '/blog',
+  },
 };
 
 export default function BlogIndex() {

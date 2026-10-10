@@ -4,6 +4,14 @@ import { Frame } from "@/components/Frame";
 export const metadata: Metadata = {
   title: "Terms of Service | ihatetools",
   description: "Terms of Service for using ihatetools.",
+  alternates: {
+    canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms of Service | ihatetools",
+    description: "Terms of Service for using ihatetools.",
+    url: "/terms",
+  },
 };
 
 export default function TermsPage() {
