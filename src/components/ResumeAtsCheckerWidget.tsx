@@ -100,11 +100,11 @@ export function ResumeAtsCheckerWidget() {
     ];
 
     return (
-      <div className="space-y-6">
-        <div className="flex items-start gap-3 rounded-[10px] border-[1.5px] border-yellow/60 bg-yellow/10 p-4">
-          <AlertTriangle className="w-5 h-5 text-yellow shrink-0 mt-0.5" />
-          <p className="text-sm text-ink leading-relaxed">
-            <strong>This is a keyword and formatting check, not a real ATS simulation.</strong>{" "}
+      <div className="space-y-7">
+        <div className="flex items-start gap-3 rounded-[12px] border border-ink/8 dark:border-white/10 bg-ink/[0.02] dark:bg-white/[0.03] p-4">
+          <AlertTriangle className="w-4 h-4 text-sel/70 shrink-0 mt-0.5" />
+          <p className="text-sm text-ink/80 leading-[1.6]">
+            <strong className="text-ink">This is a keyword and formatting check, not a real ATS simulation.</strong>{" "}
             Every company uses different hiring software with its own private rules. Treat this
             as suggestions to review, never as a guarantee of how any specific employer will
             score your resume.
@@ -115,34 +115,34 @@ export function ResumeAtsCheckerWidget() {
           scoreLabel="Keyword Match"
           scoreValue={result.matchScore}
           segments={[
-            { label: "Matched", value: result.matched.length, color: "bg-green" },
-            { label: "Missing", value: result.missing.length, color: "bg-pink" },
+            { label: "Matched", value: result.matched.length, color: "bg-sel" },
+            { label: "Missing", value: result.missing.length, color: "bg-ink/15 dark:bg-white/20" },
           ]}
           findings={findings}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="border-[1.5px] border-ink/15 rounded-[10px] p-4">
-            <h3 className="text-sm font-semibold text-ink mb-3 flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green" /> Matched keywords ({result.matched.length})
+          <div className="border border-ink/8 dark:border-white/10 rounded-[12px] p-[18px]">
+            <h3 className="text-sm font-semibold text-ink mb-[14px] flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-sel" /> Matched keywords ({result.matched.length})
             </h3>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {result.matched.length === 0 && <p className="text-xs text-grey">None found.</p>}
               {result.matched.map((term) => (
-                <span key={term} className="text-xs px-2 py-1 rounded-full bg-green/10 text-ink border border-green/30">
+                <span key={term} className="text-xs px-2.5 py-1 rounded-full bg-sel/8 text-ink border border-sel/20">
                   {term}
                 </span>
               ))}
             </div>
           </div>
-          <div className="border-[1.5px] border-ink/15 rounded-[10px] p-4">
-            <h3 className="text-sm font-semibold text-ink mb-3 flex items-center gap-2">
-              <XCircle className="w-4 h-4 text-pink" /> Missing keywords ({result.missing.length})
+          <div className="border border-ink/8 dark:border-white/10 rounded-[12px] p-[18px]">
+            <h3 className="text-sm font-semibold text-ink mb-[14px] flex items-center gap-2">
+              <XCircle className="w-4 h-4 text-ink/30" /> Missing keywords ({result.missing.length})
             </h3>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {result.missing.length === 0 && <p className="text-xs text-grey">None, great coverage.</p>}
               {result.missing.map((term) => (
-                <span key={term} className="text-xs px-2 py-1 rounded-full bg-pink/10 text-ink border border-pink/30">
+                <span key={term} className="text-xs px-2.5 py-1 rounded-full bg-ink/[0.03] dark:bg-white/[0.05] text-ink/70 border border-ink/10 dark:border-white/10">
                   {term}
                 </span>
               ))}
@@ -152,7 +152,7 @@ export function ResumeAtsCheckerWidget() {
 
         <button
           onClick={handleReset}
-          className="w-full py-3 rounded-[8px] border-[1.5px] border-ink text-ink font-medium hover:bg-ink/5 transition-colors"
+          className="w-full py-3 rounded-[10px] border border-ink/12 dark:border-white/15 text-ink font-medium hover:bg-ink/[0.03] dark:hover:bg-white/[0.04] transition-colors"
         >
           Check another resume
         </button>
@@ -161,14 +161,14 @@ export function ResumeAtsCheckerWidget() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-7">
       <div>
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 mb-3.5">
           <button
             onClick={() => setResumeMode("paste")}
             className={cn(
-              "px-3 py-1.5 rounded-full text-sm font-medium border-[1.5px]",
-              resumeMode === "paste" ? "bg-ink text-paper border-ink" : "border-ink/20 text-grey"
+              "px-3.5 py-[7px] rounded-full text-sm font-medium border transition-colors",
+              resumeMode === "paste" ? "bg-ink text-paper border-ink" : "border-ink/12 dark:border-white/15 text-grey hover:border-ink/25 dark:hover:border-white/25"
             )}
           >
             Paste resume text
@@ -176,8 +176,8 @@ export function ResumeAtsCheckerWidget() {
           <button
             onClick={() => setResumeMode("upload")}
             className={cn(
-              "px-3 py-1.5 rounded-full text-sm font-medium border-[1.5px]",
-              resumeMode === "upload" ? "bg-ink text-paper border-ink" : "border-ink/20 text-grey"
+              "px-3.5 py-[7px] rounded-full text-sm font-medium border transition-colors",
+              resumeMode === "upload" ? "bg-ink text-paper border-ink" : "border-ink/12 dark:border-white/15 text-grey hover:border-ink/25 dark:hover:border-white/25"
             )}
           >
             Upload PDF
@@ -189,27 +189,27 @@ export function ResumeAtsCheckerWidget() {
             value={resumeText}
             onChange={(e) => setResumeText(e.target.value)}
             placeholder="Paste your resume text here..."
-            className="w-full h-48 bg-bg border border-ink/15 rounded-[8px] p-4 text-ink text-sm focus:outline-none resize-none"
+            className="w-full h-48 bg-bg border border-ink/10 dark:border-white/10 rounded-[12px] p-4 text-ink text-sm leading-[1.6] focus:outline-none focus:border-sel/40 resize-none"
           />
         ) : (
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-[10px] p-8 text-center cursor-pointer transition-colors",
-              isDragActive ? "border-ink bg-ink/5" : "border-ink/20 hover:border-ink/40"
+              "border-2 border-dashed rounded-[14px] p-8 text-center cursor-pointer transition-all",
+              isDragActive ? "border-sel/50 bg-sel/[0.03]" : "border-ink/15 dark:border-white/15 hover:border-ink/25 dark:hover:border-white/25 hover:bg-ink/[0.015] dark:hover:bg-white/[0.02]"
             )}
           >
             <input {...getInputProps()} />
             {isExtracting ? (
               <Loader2 className="w-6 h-6 text-grey animate-spin mx-auto" />
             ) : resumeText && resumeFileName ? (
-              <div className="flex flex-col items-center gap-1">
-                <FileText className="w-6 h-6 text-ink" />
+              <div className="flex flex-col items-center gap-1.5">
+                <FileText className="w-6 h-6 text-ink/70" />
                 <p className="text-sm text-ink font-medium">{resumeFileName}</p>
                 <p className="text-xs text-grey">Click or drop to replace</p>
               </div>
             ) : (
-              <div className="flex flex-col items-center gap-1">
+              <div className="flex flex-col items-center gap-1.5">
                 <UploadCloud className="w-6 h-6 text-grey" />
                 <p className="text-sm text-ink font-medium">Drag & drop your resume PDF</p>
                 <p className="text-xs text-grey">or click to browse. Have a .docx? Paste its text instead.</p>
@@ -219,30 +219,30 @@ export function ResumeAtsCheckerWidget() {
         )}
 
         {noTextWarning && (
-          <p className="mt-2 text-xs text-pink flex items-center gap-1.5">
-            <AlertTriangle className="w-3.5 h-3.5" />
+          <p className="mt-2.5 text-xs text-ink/60 leading-[1.6] flex items-start gap-1.5">
+            <AlertTriangle className="w-3.5 h-3.5 text-sel/70 shrink-0 mt-px" />
             No selectable text found in this PDF. If it is a scanned or image-based resume, most ATS
-            software cannot read it at all, try our <a href="/tools/ocr-pdf" className="underline">OCR tool</a> first.
+            software cannot read it at all, try our <a href="/tools/ocr-pdf" className="underline text-sel">OCR tool</a> first.
           </p>
         )}
       </div>
 
       <div>
-        <div className="flex items-center gap-2 mb-3 text-sm font-medium text-ink">
-          <ClipboardPaste className="w-4 h-4" /> Paste the job description
+        <div className="flex items-center gap-2 mb-3.5 text-sm font-medium text-ink">
+          <ClipboardPaste className="w-4 h-4 text-grey" /> Paste the job description
         </div>
         <textarea
           value={jobText}
           onChange={(e) => setJobText(e.target.value)}
           placeholder="Paste the full job posting here..."
-          className="w-full h-48 bg-bg border border-ink/15 rounded-[8px] p-4 text-ink text-sm focus:outline-none resize-none"
+          className="w-full h-48 bg-bg border border-ink/10 dark:border-white/10 rounded-[12px] p-4 text-ink text-sm leading-[1.6] focus:outline-none focus:border-sel/40 resize-none"
         />
       </div>
 
       <button
         onClick={handleAnalyze}
         disabled={!canAnalyze}
-        className="w-full py-3 rounded-[8px] bg-ink text-paper font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-ink/90 transition-colors"
+        className="w-full py-3 rounded-[10px] bg-ink text-paper font-medium disabled:opacity-30 disabled:cursor-not-allowed hover:bg-ink/90 shadow-soft dark:shadow-soft-dark transition-all"
       >
         Analyze match
       </button>
