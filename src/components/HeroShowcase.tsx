@@ -73,7 +73,7 @@ export function HeroShowcase() {
           <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
           <span className="ml-[8px] text-[11px] font-mono text-grey truncate">{card.path}</span>
         </div>
-        <div className="relative w-full aspect-[4/3] bg-paper dark:bg-bg">
+        <div className="relative w-full aspect-[3/2] bg-paper dark:bg-bg">
           {CARDS.map((c, i) => (
             <Image
               key={c.src}
@@ -81,7 +81,7 @@ export function HeroShowcase() {
               alt={c.alt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className={`object-cover object-top transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
+              className={`object-contain object-top transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
               priority={i === 0}
             />
           ))}
