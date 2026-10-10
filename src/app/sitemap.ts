@@ -1,15 +1,16 @@
 import { MetadataRoute } from 'next';
 import { TOOLS } from '@/lib/tools-data';
+import { getSortedPostsData } from '@/lib/blog';
+import { getBaseUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Use the canonical custom domain if available, fallback to Vercel preview URL, or localhost for dev.
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL 
-    || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+  const baseUrl = getBaseUrl();
 
-  // Static routes
+  // Static core routes
   const staticRoutes = [
     '',
     '/about',
+    '/blog',
     '/privacy',
     '/terms',
     '/tools',
@@ -22,10 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority: route === '' ? 1.0 : 0.8,
   }));
 
-  // Dynamic tool routes mapped directly from our shared data source
+  // Tool routes
   const toolRoutes = TOOLS.map((tool) => ({
     url: `${baseUrl}${tool.href}`,
     lastModified: new Date(),
@@ -33,5 +34,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...staticRoutes, ...toolRoutes];
+  // Blog posts
+  const blogPosts = getSortedPostsData();
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.date ? new Date(post.date) : new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...toolRoutes, ...blogRoutes];
 }

@@ -30,10 +30,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} | ihatetools`,
     description: post.description,
+    alternates: {
+      canonical: `/blog/${params.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
+      url: `/blog/${params.slug}`,
       publishedTime: post.date,
     },
     twitter: {
