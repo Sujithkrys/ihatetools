@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Layers } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
@@ -7,10 +7,7 @@ export function Footer() {
       <div className="max-w-[1400px] mx-auto px-8">
         <div className="flex gap-16 flex-wrap">
           <div className="flex-1 min-w-[250px]">
-            <span className="flex items-center gap-2 text-ink dark:text-white font-semibold text-[15px] mb-4">
-              <Layers size={18} />
-              ihatetools
-            </span>
+            <Logo size={18} className="text-ink dark:text-white mb-4" textClassName="font-semibold text-[15px]" />
             <p className="text-[13px] text-grey dark:text-gray-500 max-w-[34ch] leading-[1.6]">
               Fast, private, client-side tools. No tracking, no watermarks, no sign-up.
             </p>

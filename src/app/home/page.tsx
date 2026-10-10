@@ -30,6 +30,14 @@ const CATEGORY_BADGE: Record<string, string> = {
 export const metadata: Metadata = {
   title: "ihatetools - Free PDF, Image, Audio & Text Tools, No Sign-Up",
   description: `${TOOLS.length}+ free online tools for PDFs, images, audio, and text. Merge PDFs, compress images, convert formats, and more, all processed locally in your browser. No sign-up, no watermark, no uploads.`,
+  alternates: {
+    canonical: "/home",
+  },
+  openGraph: {
+    title: "ihatetools - Free PDF, Image, Audio & Text Tools, No Sign-Up",
+    description: `${TOOLS.length}+ free online tools for PDFs, images, audio, and text. Merge PDFs, compress images, convert formats, and more, all processed locally in your browser. No sign-up, no watermark, no uploads.`,
+    url: "/home",
+  },
 };
 
 const POPULAR_TOOL_IDS = [
@@ -289,31 +297,33 @@ export default function Home() {
 
       {/* ======== POPULAR TOOLS ======== */}
       <Frame label="Popular tools" labelColor="yellow">
-        <div className="flex items-baseline justify-between max-w-[920px] mx-auto mb-[18px]">
-          <h2 className="disp text-[22px] text-ink">Start with one of these</h2>
-          <Link href="/" className="text-[13px] font-medium text-grey hover:text-ink transition-colors inline-flex items-center gap-1">
-            All tools <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[14px] max-w-[920px] mx-auto">
-          {popularTools.map((tool) => {
-            const Icon = tool.icon;
-            return (
-              <Link
-                key={tool.id}
-                href={tool.href}
-                className="blk flex items-start gap-3 p-[16px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
-              >
-                <div className={`badge ${CATEGORY_BADGE[tool.category]} !mb-0 !w-9 !h-9 shrink-0`}>
-                  {Icon && <Icon size={16} strokeWidth={1.75} />}
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-[14px] font-semibold text-ink mb-[2px] leading-tight">{tool.name}</h3>
-                  <p className="text-[12.5px] leading-[1.4] text-grey line-clamp-2">{tool.description}</p>
-                </div>
-              </Link>
-            );
-          })}
+        <div className="max-w-[960px] mx-auto rounded-[20px] p-[20px] md:p-[28px]" style={{ background: "rgb(var(--color-sel) / 0.06)" }}>
+          <div className="flex items-baseline justify-between max-w-[920px] mx-auto mb-[18px]">
+            <h2 className="disp text-[22px] text-ink">Start with one of these</h2>
+            <Link href="/" className="text-[13px] font-medium text-grey hover:text-ink transition-colors inline-flex items-center gap-1">
+              All tools <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[14px] max-w-[920px] mx-auto">
+            {popularTools.map((tool) => {
+              const Icon = tool.icon;
+              return (
+                <Link
+                  key={tool.id}
+                  href={tool.href}
+                  className="blk flex items-start gap-3 p-[16px] !bg-paper dark:!bg-bg hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
+                >
+                  <div className={`badge ${CATEGORY_BADGE[tool.category]} !mb-0 !w-9 !h-9 shrink-0`}>
+                    {Icon && <Icon size={16} strokeWidth={1.75} />}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-[14px] font-semibold text-ink mb-[2px] leading-tight">{tool.name}</h3>
+                    <p className="text-[12.5px] leading-[1.4] text-grey line-clamp-2">{tool.description}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </Frame>
 

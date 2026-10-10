@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: false,
   webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
