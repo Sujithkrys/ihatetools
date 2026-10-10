@@ -1,14 +1,58 @@
+import { Metadata } from "next";
 import { Target } from "lucide-react";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 import { CompressImageTargetSizeWidget } from "@/components/CompressImageTargetSizeWidget";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Compress Image to Target Size Free | iHateTools",
   description: "Specify an exact maximum file size in KB and compress your image to fit perfectly securely in your browser.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Upload Your Image",
+    description: "Choose a JPG, PNG, or WEBP file from your device to compress.",
+  },
+  {
+    title: "Set Your Target Size",
+    description: "Enter the exact maximum file size in KB you need, for example 100KB for a form upload.",
+  },
+  {
+    title: "Binary-Search Compression",
+    description: "The tool iteratively adjusts quality using a binary-search algorithm until the output fits under your limit, then it's ready to download.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "How accurate is the final file size?",
+    answer: "The binary-search algorithm iterates on quality until the output lands at or just under your specified KB target, typically within a few percent of the exact limit.",
+  },
+  {
+    question: "Is my image uploaded anywhere?",
+    answer: "No. Compression happens entirely in your browser using the canvas API, so your image is never sent to a server.",
+  },
+  {
+    question: "Will the image quality suffer if my target size is very small?",
+    answer: "Hitting a very small target size, such as under 20KB, on a large or detailed photo may noticeably reduce sharpness, since quality has to drop further to meet the limit.",
+  },
+  {
+    question: "What file formats are supported?",
+    answer: "You can upload JPG, PNG, or WEBP images, and the compressed output is returned as a JPG or WEBP for the best size-to-quality ratio.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Image Compressor", href: "/tools/compress-image" },
+  { name: "Image Resizer", href: "/tools/resize-image" },
+  { name: "Convert Image Format", href: "/tools/convert-image" },
+];
+
 export default function CompressImageTargetSizePage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,13 +70,10 @@ export default function CompressImageTargetSizePage() {
 
       <CompressImageTargetSizeWidget />
 
-      <div className="mt-24 space-y-12">
-        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
-          <h2 className="text-2xl font-bold text-ink mb-4">Precision Iterative Compression</h2>
-          <p className="text-grey leading-relaxed mb-6">
-            Instead of guessing quality percentages, you can specify exactly how many Kilobytes your image needs to be. Our engine uses an advanced binary-search algorithm to compress your photo iteratively in the browser, finding the highest possible visual quality that still fits under your strict file size limit.
-          </p>
-        </section>
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
       </div>
     </div>
   );

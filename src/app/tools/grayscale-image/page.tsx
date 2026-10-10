@@ -1,14 +1,54 @@
+import { Metadata } from "next";
 import { Paintbrush } from "lucide-react";
 import { GrayscaleImageWidget } from "@/components/GrayscaleImageWidget";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Grayscale Image Online Free | iHateTools",
   description: "Convert colored photos to black and white or adjust grayscale intensity securely in your browser.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Upload a Photo",
+    description: "Choose a JPG, PNG, or WebP image. It loads directly in your browser, nothing touches a server.",
+  },
+  {
+    title: "Adjust the Intensity Slider",
+    description: "Drag the slider to control how much color is removed, from a subtle muted tone to a fully desaturated black and white look.",
+  },
+  {
+    title: "Download the Converted Image",
+    description: "The client-side filter engine applies the change instantly, then you save the finished image to your device.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "Can I control how strong the grayscale effect is?",
+    answer: "Yes. The intensity slider lets you blend between the original color image and a fully desaturated version, rather than only offering an all-or-nothing conversion.",
+  },
+  {
+    question: "Is my photo uploaded anywhere?",
+    answer: "No. The grayscale conversion runs entirely on your device using canvas-based filtering, so your files stay completely private.",
+  },
+  {
+    question: "Does converting to grayscale reduce image quality?",
+    answer: "No. Only the color channels are adjusted; the resolution and detail of your original image are preserved in the output.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Flip Image", href: "/tools/flip-image" },
+  { name: "Rotate Image", href: "/tools/rotate-image" },
+  { name: "Image Compressor", href: "/tools/compress-image" },
+];
+
 export default function GrayscaleImagePage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,13 +66,10 @@ export default function GrayscaleImagePage() {
 
       <GrayscaleImageWidget />
 
-      <div className="mt-24 space-y-12">
-        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
-          <h2 className="text-2xl font-bold text-ink mb-4">Black & White Filter</h2>
-          <p className="text-grey leading-relaxed mb-6">
-            Turn vibrant photos into dramatic black and white images with a simple slider. Whether you want a fully desaturated image or just a subtle muted tone, our client-side filter engine processes the transformation instantly, keeping your files completely private.
-          </p>
-        </section>
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
       </div>
     </div>
   );

@@ -1,14 +1,58 @@
+import { Metadata } from "next";
 import { EyeOff } from "lucide-react";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 import { BlurImageRegionWidget } from "@/components/BlurImageRegionWidget";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Blur & Pixelate Image Parts Online Free | iHateTools",
   description: "Easily censor sensitive information like faces, license plates, or documents by blurring or pixelating specific regions of an image.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Upload an Image",
+    description: "Drag and drop or select the image containing the sensitive area you want to hide.",
+  },
+  {
+    title: "Select the Region & Mode",
+    description: "Draw a box over the area to censor and choose between a blur or a pixelate effect, adjusting the intensity as needed.",
+  },
+  {
+    title: "Apply & Download",
+    description: "The effect is rendered using the HTML5 Canvas directly in your browser, then you download the censored image.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "Is my image uploaded to a server?",
+    answer: "No. All blurring and pixelation happens locally using native HTML5 Canvas, so the original image never leaves your device.",
+  },
+  {
+    question: "What's the difference between blur and pixelate?",
+    answer: "Blur softens the selected region with a gaussian-style blur, while pixelate breaks it into large visible blocks. Both effectively obscure details like faces, license plates, or text.",
+  },
+  {
+    question: "Can I adjust how strong the effect is?",
+    answer: "Yes. An intensity slider controls the blur radius or pixelate block size, so you can make the censoring as subtle or as strong as you need.",
+  },
+  {
+    question: "Can I censor multiple areas in one image?",
+    answer: "Yes. You can select and apply the effect to multiple regions of the same image before downloading the final result.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Add Text to Image", href: "/tools/add-text-to-image" },
+  { name: "Redact PDF", href: "/tools/redact-pdf" },
+  { name: "Image Crop", href: "/tools/crop-image" },
+];
+
 export default function BlurImageRegionPage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,13 +70,10 @@ export default function BlurImageRegionPage() {
 
       <BlurImageRegionWidget />
 
-      <div className="mt-24 space-y-12">
-        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
-          <h2 className="text-2xl font-bold text-ink mb-4">Total Privacy Guaranteed</h2>
-          <p className="text-grey leading-relaxed mb-6">
-            When you need to redact sensitive documents, hide license plates, or censor faces, the last thing you want to do is upload that unredacted image to a remote server. This tool performs all blurring and pixelation directly on your device using native HTML5 Canvas, ensuring the original image never leaves your computer.
-          </p>
-        </section>
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
       </div>
     </div>
   );

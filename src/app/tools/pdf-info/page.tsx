@@ -1,14 +1,58 @@
+import { Metadata } from "next";
 import { Info } from "lucide-react";
 import { PdfInfoWidget } from "@/components/PdfInfoWidget";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "PDF Info Viewer Free | iHateTools",
   description: "View hidden metadata, page count, PDF version, and properties of any PDF document securely in your browser.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Upload Your PDF",
+    description: "Select the PDF document whose properties and hidden details you want to inspect.",
+  },
+  {
+    title: "Automatic Property Scan",
+    description: "The tool reads the file's internal structure in your browser to surface page count, file size, PDF version, and metadata fields.",
+  },
+  {
+    title: "Review the Results",
+    description: "View everything, such as the author, creation date, and software used, in a clean, organized summary.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "Is my PDF uploaded anywhere to view its info?",
+    answer: "No. The file is read entirely in your browser, so no copy of your document is sent to a server.",
+  },
+  {
+    question: "What hidden metadata can this tool reveal?",
+    answer: "PDF files often contain invisible metadata such as the author name, creation and modification dates, and the software used to generate the file. This tool extracts and displays all standard document properties in a clean, easy-to-read format.",
+  },
+  {
+    question: "Does this tool modify my PDF?",
+    answer: "No. It only reads and displays information; your original file is left completely unchanged.",
+  },
+  {
+    question: "Can I check the PDF version and page count this way?",
+    answer: "Yes. Alongside metadata, the tool also displays the PDF version, total page count, and file size.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Edit PDF Metadata", href: "/tools/pdf-metadata" },
+  { name: "PDF Compare", href: "/tools/pdf-compare" },
+  { name: "Compress PDF", href: "/tools/compress-pdf" },
+];
+
 export default function PdfInfoPage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,13 +70,10 @@ export default function PdfInfoPage() {
 
       <PdfInfoWidget />
 
-      <div className="mt-24 space-y-12">
-        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
-          <h2 className="text-2xl font-bold text-ink mb-4">Discover Hidden Document Data</h2>
-          <p className="text-grey leading-relaxed mb-6">
-            PDF files often contain invisible metadata such as the author name, creation date, and software used to generate the file. This tool extracts and displays all standard document properties in a clean, easy-to-read format directly in your browser.
-          </p>
-        </section>
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
       </div>
     </div>
   );

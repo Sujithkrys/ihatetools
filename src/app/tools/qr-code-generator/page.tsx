@@ -1,15 +1,58 @@
 import { Metadata } from "next";
 import { QrCode } from "lucide-react";
 import { QrCodeWidget } from "@/components/QrCodeWidget";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 
 export const metadata: Metadata = {
   title: "QR Code Generator | ihatetools",
   description: "Generate high-quality QR codes from text or URLs instantly.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Enter Your Text or URL",
+    description: "Type or paste the text, link, or other content you want encoded into a QR code.",
+  },
+  {
+    title: "Generate the QR Code",
+    description: "The code is generated instantly in your browser as you type, with a live preview you can review.",
+  },
+  {
+    title: "Download Your QR Code",
+    description: "Save the finished QR code as an image, ready to print or share.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "Is the content I enter sent to a server to generate the QR code?",
+    answer: "No. The QR code is generated entirely in your browser, so whatever text or URL you enter never leaves your device.",
+  },
+  {
+    question: "Do these QR codes expire or stop working?",
+    answer: "No. The codes encode your content directly, with no third-party redirect or tracking link, so they work indefinitely as long as the encoded URL or text remains valid.",
+  },
+  {
+    question: "What file format is the downloaded QR code?",
+    answer: "QR codes can be downloaded as standard image files, making them easy to insert into documents, flyers, or websites.",
+  },
+  {
+    question: "Is there a limit to how much text a QR code can hold?",
+    answer: "QR codes can hold a few thousand characters, but shorter content such as a URL produces a cleaner, easier-to-scan code.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Barcode Generator", href: "/tools/barcode-generator" },
+  { name: "Favicon Generator", href: "/tools/favicon-generator" },
+  { name: "Image to Base64", href: "/tools/image-to-base64" },
+];
+
 export default function QrCodePage() {
   return (
-    <div className="flex flex-col items-center pt-16 pb-24 px-4 w-full max-w-content mx-auto">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,6 +69,12 @@ export default function QrCodePage() {
       </section>
 
       <QrCodeWidget />
+
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
+      </div>
     </div>
   );
 }

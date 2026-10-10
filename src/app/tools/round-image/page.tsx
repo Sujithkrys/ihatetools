@@ -1,14 +1,58 @@
+import { Metadata } from "next";
 import { CircleDashed } from "lucide-react";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 import { RoundImageWidget } from "@/components/RoundImageWidget";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Round Image Corners Online Free | iHateTools",
   description: "Apply rounded corners or circle crops to your images instantly in your browser and download as transparent PNG.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Upload Your Image",
+    description: "Select or drag in the photo you want to turn into a profile picture or icon.",
+  },
+  {
+    title: "Pick a Corner Radius or Circle Crop",
+    description: "Choose a rounded corner radius or switch to a full circle crop and preview the result live.",
+  },
+  {
+    title: "Download the Transparent PNG",
+    description: "Save the result as a PNG with the removed corners rendered fully transparent.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "Will the rounded corners actually be transparent?",
+    answer: "Yes. The areas removed by the rounded corners or circle crop become fully transparent, and the file is automatically exported as a PNG to preserve that transparency.",
+  },
+  {
+    question: "Is my image uploaded to a server?",
+    answer: "No. The rounding and cropping happens entirely in your browser, so your image is never sent anywhere during processing.",
+  },
+  {
+    question: "What output format do I get?",
+    answer: "The tool always exports a high-quality PNG, since that is the only common format that supports the transparent background created by rounding.",
+  },
+  {
+    question: "Can I use this for app icons and social media avatars?",
+    answer: "Yes, the circle crop mode is ideal for profile pictures and avatars, while the rounded corner mode suits app icons and UI thumbnails.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Image Crop", href: "/tools/crop-image" },
+  { name: "Favicon Generator", href: "/tools/favicon-generator" },
+  { name: "Image Resizer", href: "/tools/resize-image" },
+];
+
 export default function RoundImagePage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,13 +70,10 @@ export default function RoundImagePage() {
 
       <RoundImageWidget />
 
-      <div className="mt-24 space-y-12">
-        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
-          <h2 className="text-2xl font-bold text-ink mb-4">Transparent PNG Export</h2>
-          <p className="text-grey leading-relaxed mb-6">
-            When you apply a circle crop or rounded corners, the areas that are removed become completely transparent. We guarantee this transparency is preserved by automatically exporting your final image as a high-quality PNG. This happens entirely in your browser without any server uploads.
-          </p>
-        </section>
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
       </div>
     </div>
   );

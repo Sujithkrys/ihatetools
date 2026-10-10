@@ -1,14 +1,58 @@
+import { Metadata } from "next";
 import { RotateCw } from "lucide-react";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 import { RotatePdfWidget } from "@/components/RotatePdfWidget";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Rotate PDF Pages Free | iHateTools",
   description: "Rotate all pages in your PDF document instantly. Turn your pages 90 degrees or 180 degrees upside down.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Upload Your PDF",
+    description: "Select or drag in the scanned or exported PDF that has sideways or upside-down pages.",
+  },
+  {
+    title: "Choose a Rotation Angle",
+    description: "Apply a 90 degree, 180 degree, or 270 degree turn across all pages at once.",
+  },
+  {
+    title: "Download the Corrected PDF",
+    description: "Save a new PDF with every page facing the right way, ready to read or print.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "Does this rotate every page or just one?",
+    answer: "By default it applies the chosen rotation to every page in the document, so a batch of sideways scans is fixed in one pass.",
+  },
+  {
+    question: "Is my PDF uploaded to a server?",
+    answer: "No. The rotation is processed locally in your browser, so your document never leaves your device during the process.",
+  },
+  {
+    question: "Will rotating affect the PDF's text or image quality?",
+    answer: "No. Rotation only changes the page orientation metadata and layout; the underlying text, images, and resolution remain unchanged.",
+  },
+  {
+    question: "Is there a limit on file size or page count?",
+    answer: "Rotation runs in your browser's memory, so very large PDFs with hundreds of pages may take a moment longer, but there is no artificial page limit.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Organize PDF", href: "/tools/organize-pdf" },
+  { name: "Delete PDF Pages", href: "/tools/delete-pdf-pages" },
+  { name: "Merge PDF", href: "/tools/merge-pdf" },
+];
+
 export default function RotatePdfPage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,14 +70,10 @@ export default function RotatePdfPage() {
 
       <RotatePdfWidget />
 
-      <div className="mt-24 space-y-12">
-        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
-          <h2 className="text-2xl font-bold text-ink mb-4">Fix Sideways PDFs Instantly</h2>
-          <p className="text-grey leading-relaxed mb-6">
-            Scanned a document upside down or sideways? This tool allows you to apply a bulk 90-degree or 180-degree rotation to every single page in your document instantly. 
-            No more reading with a tilted head.
-          </p>
-        </section>
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
       </div>
     </div>
   );

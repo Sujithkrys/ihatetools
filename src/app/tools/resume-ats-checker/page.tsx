@@ -53,7 +53,7 @@ const RELATED_TOOLS = [
 
 export default function ResumeAtsCheckerPage() {
   return (
-    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[48px] pb-[60px]">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">

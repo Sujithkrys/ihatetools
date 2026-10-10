@@ -1,14 +1,58 @@
+import { Metadata } from "next";
 import { RotateCw } from "lucide-react";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 import { RotateImageWidget } from "@/components/RotateImageWidget";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Rotate Image Online Free | iHateTools",
   description: "Rotate your images 90 degrees left, right, or 180 degrees securely in your browser.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Upload Your Photo",
+    description: "Select or drag in the image you need to straighten or turn.",
+  },
+  {
+    title: "Rotate to the Correct Orientation",
+    description: "Click left, right, or 180 degree rotation buttons until the photo looks right.",
+  },
+  {
+    title: "Download the Fixed Image",
+    description: "Save the correctly oriented image to your device in its original format and quality.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "Will rotating my image reduce its quality?",
+    answer: "No. The rotation is a lossless transform performed on the canvas, so the pixel data and resolution stay exactly the same.",
+  },
+  {
+    question: "Are my photos uploaded to a server?",
+    answer: "No. The tool uses your browser's native canvas capabilities to rotate images locally, so files never leave your device and loading is instant.",
+  },
+  {
+    question: "What image formats are supported?",
+    answer: "You can rotate common formats such as JPG, PNG, and WEBP, and the downloaded file keeps the same format as your original upload.",
+  },
+  {
+    question: "Can I rotate by a custom angle instead of 90 or 180 degrees?",
+    answer: "This tool focuses on quick 90 and 180 degree turns for fixing sideways or upside-down shots. For fine-grained framing, pair it with the Image Crop tool.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Flip Image", href: "/tools/flip-image" },
+  { name: "Image Crop", href: "/tools/crop-image" },
+  { name: "Image Resizer", href: "/tools/resize-image" },
+];
+
 export default function RotateImagePage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,13 +70,10 @@ export default function RotateImagePage() {
 
       <RotateImageWidget />
 
-      <div className="mt-24 space-y-12">
-        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
-          <h2 className="text-2xl font-bold text-ink mb-4">Fast & Private Rotation</h2>
-          <p className="text-grey leading-relaxed mb-6">
-            Our rotate tool uses your browser&apos;s native canvas capabilities to rapidly flip and turn your photos without ever uploading them to a server. This means lightning-fast adjustments and 100% total privacy for your personal images.
-          </p>
-        </section>
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
       </div>
     </div>
   );

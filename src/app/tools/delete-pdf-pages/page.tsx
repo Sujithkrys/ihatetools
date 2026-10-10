@@ -1,14 +1,58 @@
+import { Metadata } from "next";
 import { FileMinus } from "lucide-react";
+import { HowItWorksSteps } from "@/components/HowItWorksSteps";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { RelatedTools } from "@/components/RelatedTools";
 import { DeletePdfPagesWidget } from "@/components/DeletePdfPagesWidget";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Delete PDF Pages Free | iHateTools",
   description: "Remove unwanted pages from your PDF documents securely in your browser.",
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    title: "Upload Your PDF",
+    description: "Select the PDF document you want to trim pages from.",
+  },
+  {
+    title: "Select Pages to Remove",
+    description: "Browse the visual page grid and pick the exact pages you no longer need.",
+  },
+  {
+    title: "Download the Updated PDF",
+    description: "The selected pages are stripped out and a clean, updated PDF is generated for download.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    question: "Is my PDF uploaded to a server?",
+    answer: "No. Pages are removed entirely in your browser using client-side PDF processing, so your document never leaves your device.",
+  },
+  {
+    question: "Can I delete multiple pages at once?",
+    answer: "Yes. You can select any number of pages, in any order, using the visual preview grid before generating the updated file.",
+  },
+  {
+    question: "Will the remaining pages keep their original quality?",
+    answer: "Yes. Only the selected pages are removed; the rest of the document retains its original content and resolution.",
+  },
+  {
+    question: "Does this work on password-protected PDFs?",
+    answer: "You'll need to unlock the PDF first using a password removal tool before pages can be deleted.",
+  },
+];
+
+const RELATED_TOOLS = [
+  { name: "Organize PDF", href: "/tools/organize-pdf" },
+  { name: "Split PDF", href: "/tools/split-pdf" },
+  { name: "Unlock PDF", href: "/tools/remove-password" },
+];
+
 export default function DeletePdfPagesPage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
@@ -26,13 +70,10 @@ export default function DeletePdfPagesPage() {
 
       <DeletePdfPagesWidget />
 
-      <div className="mt-24 space-y-12">
-        <section className="bg-paper rounded-2xl p-8 border border-ink/10">
-          <h2 className="text-2xl font-bold text-ink mb-4">Trim Your PDF Documents</h2>
-          <p className="text-grey leading-relaxed mb-6">
-            Instantly remove blank pages, extra forms, or unnecessary content from your PDF files. Select the exact pages you want to eliminate using our visual preview grid and download a clean, updated document.
-          </p>
-        </section>
+      <div className="mt-12 space-y-12">
+        <HowItWorksSteps steps={HOW_IT_WORKS_STEPS} />
+        <FAQAccordion items={FAQ_ITEMS} />
+        <RelatedTools tools={RELATED_TOOLS} />
       </div>
     </div>
   );
