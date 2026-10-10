@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+  <style>
+    .tb { fill: #111212; }
+    .cut { fill: #FBFAF8; }
+    @media (prefers-color-scheme: dark) {
+      .tb { fill: #E6E4DD; }
+      .cut { fill: #0D0E0F; }
+    }
+  </style>
+  <rect class="tb" x="8.3" y="5.0" width="7.4" height="1.9" rx="0.95" />
+  <rect class="tb" x="8.3" y="5.8" width="1.9" height="5.0" rx="0.95" />
+  <rect class="tb" x="13.8" y="5.8" width="1.9" height="5.0" rx="0.95" />
+  <rect class="tb" x="4.2" y="10.3" width="15.6" height="8.7" rx="2.1" />
+  <rect class="cut" x="4.2" y="13.6" width="15.6" height="2.0" />
+  <circle class="tb" cx="12" cy="14.6" r="1.0" />
+</svg>

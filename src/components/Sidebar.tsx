@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { TOOLS } from '@/lib/tools-data';
+import { Logo } from './Logo';
 
 const CATEGORY_STYLES: Record<string, { label: string; bg: string; color: string }> = {
   pdf:   { label: 'PDF Tools',   bg: '#F5C242', color: '#2A2200' },
@@ -56,7 +57,7 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
   return (
     <aside className="app-sidebar" data-open={open}>
       <div className="sb-head flex items-center justify-between">
-        <Link href="/" className="sb-logo no-underline">ihatetools</Link>
+        <Logo size={20} className="text-[#F3F1ED]" cutoutColor="#111212" textClassName="sb-logo" />
         <button
           type="button"
           onClick={onClose}
