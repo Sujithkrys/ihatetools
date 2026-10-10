@@ -1,14 +1,30 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  ShieldCheck,
+  BadgeCheck,
+  LayoutGrid as StackIcon,
+  Layers,
+  Image as ImageIcon,
+  Code2,
+  Volume2,
+} from "lucide-react";
 import { Frame } from "@/components/Frame";
 import { SelectedText } from "@/components/SelectedText";
-import { ToolCard } from "@/components/ToolCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { TOOLS } from "@/lib/tools-data";
 import { getSortedPostsData } from "@/lib/blog";
 import { Footer } from "@/components/Footer";
 import { SITE_URL } from "@/lib/site";
+
+const CATEGORY_BADGE: Record<string, string> = {
+  "PDF Tools": "badge-pdf",
+  "Image Tools": "badge-img",
+  "Text Tools": "badge-txt",
+  "Audio Tools": "badge-aud",
+  "Utility Tools": "badge-util",
+};
 
 export const metadata: Metadata = {
   title: "ihatetools - Free PDF, Image, Audio & Text Tools, No Sign-Up",
@@ -88,8 +104,13 @@ export default function Home() {
 
       {/* ======== HERO ======== */}
       <Frame showBorder={false}>
-        <div className="text-center py-[26px]">
-          <div className="inline-flex items-center gap-[14px] mb-[22px]">
+        <div className="relative text-center py-[30px] overflow-hidden">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-[120px] left-1/2 -translate-x-1/2 w-[640px] h-[420px] rounded-full opacity-[0.12] dark:opacity-[0.16] blur-[90px]"
+            style={{ background: "radial-gradient(closest-side, var(--primary, #0D99FF), transparent)" }}
+          />
+          <div className="relative inline-flex items-center gap-[14px] mb-[22px]">
             <span className="inline-flex items-center gap-[6px] text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[11px] py-[5px] rounded-full">
               No sign-up
             </span>
@@ -97,34 +118,50 @@ export default function Home() {
               No watermark
             </span>
           </div>
-          <h1 className="disp disp-lg text-[clamp(34px,5vw,54px)] max-w-[16ch] mx-auto text-ink">
+          <h1 className="relative disp disp-lg text-[clamp(34px,5vw,54px)] max-w-[16ch] mx-auto text-ink">
             Tools that <span className="bg-yellow/90 text-[#111212] px-[0.1em] rounded-[0.15em]">don&apos;t</span> waste your time.
           </h1>
-          <p className="disp text-[clamp(16px,2vw,20px)] font-normal max-w-[30ch] mx-auto mt-[22px] text-ink/65">
+          <p className="relative disp text-[clamp(16px,2vw,20px)] font-normal max-w-[30ch] mx-auto mt-[22px] text-ink/65">
             Merge, split, compress, and convert, all of it running locally in your browser.
           </p>
           <Link
             href="/"
-            className="cta browse inline-flex items-center gap-[8px] mt-[32px] bg-ink text-paper px-[24px] py-[12px] rounded-[10px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer shadow-soft dark:shadow-soft-dark hover:-translate-y-[2px] hover:shadow-soft-hover transition-all"
+            className="relative cta browse inline-flex items-center gap-[8px] mt-[32px] bg-ink text-paper px-[24px] py-[12px] rounded-[10px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer shadow-soft dark:shadow-soft-dark hover:-translate-y-[2px] hover:shadow-soft-hover transition-all"
           >
             Browse all tools →
           </Link>
+
+          <p className="relative max-w-[620px] mx-auto mt-[30px] text-[13.5px] leading-[1.7] text-grey">
+            Most online file tools make you upload your document to a server or pay a monthly fee just to merge a couple of PDFs. ihatetools does the same jobs entirely inside your browser, nothing you open is ever sent anywhere. Browse the{" "}
+            <Link href="/" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">full tool directory</Link>
+            {" "}or read how each tool works on the{" "}
+            <Link href="/blog" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">blog</Link>.
+          </p>
         </div>
       </Frame>
 
       {/* ======== WHY IT'S DIFFERENT ======== */}
       <Frame label="Why it's different" labelColor="pink">
         <div className="grid md:grid-cols-3 gap-[18px] max-w-[920px] mx-auto">
-          <div className="blk p-[26px_24px]">
-            <h3 className="disp text-[20px] mb-[9px]">Your files never leave</h3>
+          <div className="blk p-[24px]">
+            <div className="w-10 h-10 rounded-full bg-ink/5 dark:bg-white/5 flex items-center justify-center mb-[14px]">
+              <ShieldCheck className="w-[18px] h-[18px] text-ink/70" strokeWidth={1.75} />
+            </div>
+            <h3 className="disp text-[18px] mb-[8px]">Your files never leave</h3>
             <SelectedText className="mt-[6px]">Everything runs in your browser. No server, no upload, no copy of your document sitting somewhere.</SelectedText>
           </div>
-          <div className="blk p-[26px_24px]">
-            <h3 className="disp text-[20px] mb-[9px]">Free, with no asterisk</h3>
+          <div className="blk p-[24px]">
+            <div className="w-10 h-10 rounded-full bg-ink/5 dark:bg-white/5 flex items-center justify-center mb-[14px]">
+              <BadgeCheck className="w-[18px] h-[18px] text-ink/70" strokeWidth={1.75} />
+            </div>
+            <h3 className="disp text-[18px] mb-[8px]">Free, with no asterisk</h3>
             <SelectedText className="mt-[6px]">No sign-up wall, no watermark on the output, no &quot;upgrade to download&quot; at the last step.</SelectedText>
           </div>
-          <div className="blk p-[26px_24px]">
-            <h3 className="disp text-[20px] mb-[9px]">One place for all of it</h3>
+          <div className="blk p-[24px]">
+            <div className="w-10 h-10 rounded-full bg-ink/5 dark:bg-white/5 flex items-center justify-center mb-[14px]">
+              <StackIcon className="w-[18px] h-[18px] text-ink/70" strokeWidth={1.75} />
+            </div>
+            <h3 className="disp text-[18px] mb-[8px]">One place for all of it</h3>
             <SelectedText className="mt-[6px]">PDF, image, audio, utility, and text tools together, so you&apos;re not hunting for a new site every time.</SelectedText>
           </div>
         </div>
@@ -133,58 +170,57 @@ export default function Home() {
       {/* ======== CATEGORIES OVERVIEW ======== */}
       <Frame label="Categories" labelColor="cyan">
         <div className="blocks grid md:grid-cols-2 gap-[18px] max-w-[920px] mx-auto">
-          <Link href="/tools/pdf" className="blk block p-[26px_24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group">
-            <div className="flex items-center justify-between mb-[9px]">
-              <h3 className="disp text-[20px] text-ink">PDF Tools</h3>
-              <span className="text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allPdfTools.length} tools</span>
+          <Link href="/tools/pdf" className="blk block p-[24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group">
+            <div className="flex items-center gap-3 mb-[12px]">
+              <div className={`badge ${CATEGORY_BADGE["PDF Tools"]} !mb-0 !w-10 !h-10`}>
+                <Layers size={18} strokeWidth={1.75} />
+              </div>
+              <h3 className="disp text-[18px] text-ink flex-1">PDF Tools</h3>
+              <span className="text-[11px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allPdfTools.length}</span>
             </div>
-            <p className="text-[14.5px] leading-[1.55] text-grey">
+            <p className="text-[14px] leading-[1.55] text-grey">
               Merge, split, compress, sign, redact, fill forms, and more, everything for working with PDF files.
             </p>
           </Link>
 
-          <Link href="/tools/image" className="blk block p-[26px_24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group">
-            <div className="flex items-center justify-between mb-[9px]">
-              <h3 className="disp text-[20px] text-ink">Image Tools</h3>
-              <span className="text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allImageTools.length} tools</span>
+          <Link href="/tools/image" className="blk block p-[24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group">
+            <div className="flex items-center gap-3 mb-[12px]">
+              <div className={`badge ${CATEGORY_BADGE["Image Tools"]} !mb-0 !w-10 !h-10`}>
+                <ImageIcon size={18} strokeWidth={1.75} />
+              </div>
+              <h3 className="disp text-[18px] text-ink flex-1">Image Tools</h3>
+              <span className="text-[11px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allImageTools.length}</span>
             </div>
-            <p className="text-[14.5px] leading-[1.55] text-grey">
+            <p className="text-[14px] leading-[1.55] text-grey">
               Compress, resize, crop, convert formats, and touch up your photos in the browser.
             </p>
           </Link>
 
-          <Link href="/tools/text" className="blk block p-[26px_24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group">
-            <div className="flex items-center justify-between mb-[9px]">
-              <h3 className="disp text-[20px] text-ink">Text &amp; Dev Tools</h3>
-              <span className="text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allTextTools.length} tools</span>
+          <Link href="/tools/text" className="blk block p-[24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group">
+            <div className="flex items-center gap-3 mb-[12px]">
+              <div className={`badge ${CATEGORY_BADGE["Text Tools"]} !mb-0 !w-10 !h-10`}>
+                <Code2 size={18} strokeWidth={1.75} />
+              </div>
+              <h3 className="disp text-[18px] text-ink flex-1">Text &amp; Dev Tools</h3>
+              <span className="text-[11px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allTextTools.length}</span>
             </div>
-            <p className="text-[14.5px] leading-[1.55] text-grey">
+            <p className="text-[14px] leading-[1.55] text-grey">
               JSON formatting, word counts, case conversion, and diff checking, quick text utilities.
             </p>
           </Link>
 
-          <Link href="/tools/audio" className="blk block p-[26px_24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group">
-            <div className="flex items-center justify-between mb-[9px]">
-              <h3 className="disp text-[20px] text-ink">Audio &amp; Utility</h3>
-              <span className="text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allAudioAndUtilityTools.length} tools</span>
+          <Link href="/tools/audio" className="blk block p-[24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group">
+            <div className="flex items-center gap-3 mb-[12px]">
+              <div className={`badge ${CATEGORY_BADGE["Audio Tools"]} !mb-0 !w-10 !h-10`}>
+                <Volume2 size={18} strokeWidth={1.75} />
+              </div>
+              <h3 className="disp text-[18px] text-ink flex-1">Audio &amp; Utility</h3>
+              <span className="text-[11px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[9px] py-[3px] rounded-full">{allAudioAndUtilityTools.length}</span>
             </div>
-            <p className="text-[14.5px] leading-[1.55] text-grey">
+            <p className="text-[14px] leading-[1.55] text-grey">
               Trim and convert audio, generate invoices, passwords, barcodes, and other everyday tools.
             </p>
           </Link>
-        </div>
-      </Frame>
-
-      {/* ======== INTRO CONTENT (for search engines and new visitors) ======== */}
-      <Frame showBorder={false}>
-        <div className="max-w-[760px] mx-auto space-y-4">
-          <h2 className="disp text-[22px] text-ink">A free alternative to paid PDF, image, and audio tools</h2>
-          <p className="text-[14.5px] leading-[1.7] text-grey">
-            Most online file tools make you upload your document to a server, create an account, or pay a monthly fee just to merge a couple of PDFs or compress a photo. ihatetools does the same jobs, merging and splitting PDFs, compressing and converting images, trimming audio, generating passwords and QR codes, entirely inside your browser using JavaScript and WebAssembly. Nothing you upload is ever sent anywhere, so there is no privacy trade-off and no subscription to cancel later.
-          </p>
-          <p className="text-[14.5px] leading-[1.7] text-grey">
-            Browse the full <Link href="/" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">tool directory</Link>, or read how each tool works on the <Link href="/blog" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">blog</Link>.
-          </p>
         </div>
       </Frame>
 
@@ -196,10 +232,25 @@ export default function Home() {
             All tools <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-1 max-w-[920px] mx-auto">
-          {popularTools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[14px] max-w-[920px] mx-auto">
+          {popularTools.map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <Link
+                key={tool.id}
+                href={tool.href}
+                className="blk flex items-start gap-3 p-[16px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
+              >
+                <div className={`badge ${CATEGORY_BADGE[tool.category]} !mb-0 !w-9 !h-9 shrink-0`}>
+                  {Icon && <Icon size={16} strokeWidth={1.75} />}
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-[14px] font-semibold text-ink mb-[2px] leading-tight">{tool.name}</h3>
+                  <p className="text-[12.5px] leading-[1.4] text-grey line-clamp-2">{tool.description}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </Frame>
 
@@ -212,14 +263,15 @@ export default function Home() {
               View all posts <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-          <div className="grid md:grid-cols-2 gap-[18px] max-w-[920px] mx-auto">
+          <div className="grid md:grid-cols-2 gap-[14px] max-w-[920px] mx-auto">
             {recentPosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="blk block p-[22px_24px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
+                className="blk block p-[20px_22px] hover:-translate-y-[2px] transition-transform cursor-pointer no-underline group"
               >
-                <h3 className="disp text-[16px] text-ink mb-[6px] leading-[1.3]">{post.title}</h3>
+                <time className="text-[11px] font-mono text-grey/80">{post.date}</time>
+                <h3 className="disp text-[16px] text-ink mt-[4px] mb-[6px] leading-[1.3]">{post.title}</h3>
                 <p className="text-[13px] leading-[1.55] text-grey line-clamp-2">{post.description}</p>
               </Link>
             ))}

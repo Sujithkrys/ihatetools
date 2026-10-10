@@ -20,16 +20,16 @@ export function Frame({ label, labelColor = "yellow", showBorder = true, childre
 
   if (!showBorder) {
     return (
-      <section className="relative mb-[64px] md:mb-[104px]">
+      <section className="relative mb-[36px] md:mb-[56px]">
         {children}
       </section>
     );
   }
 
   return (
-    <section className="relative mb-[64px] md:mb-[104px] py-[30px] px-[20px] md:py-[44px] md:px-[40px]">
+    <section className="relative mb-[36px] md:mb-[56px] py-[22px] px-[20px] md:py-[30px] md:px-[36px]">
       {label && (
-        <span className="inline-flex items-center gap-[7px] mb-[18px] font-sans font-semibold text-[11px] uppercase tracking-[0.08em] text-grey">
+        <span className="inline-flex items-center gap-[7px] mb-[16px] font-sans font-semibold text-[11px] uppercase tracking-[0.08em] text-grey">
           <span className={`w-[7px] h-[7px] rounded-full ${dotMap[labelColor]}`} />
           {label}
         </span>
