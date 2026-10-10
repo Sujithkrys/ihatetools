@@ -39,7 +39,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     localStorage.setItem(STORAGE_KEY, 'false');
   }
 
-  const isToolsSection = pathname?.startsWith('/tools');
+  const isToolsSection = pathname === '/' || pathname?.startsWith('/tools');
   // Always keep the sidebar open on desktop when in tools section
   const sidebarOpen = isToolsSection && (mounted ? (isMobile ? open : true) : true);
 

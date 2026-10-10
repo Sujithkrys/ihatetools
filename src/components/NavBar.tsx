@@ -18,7 +18,7 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
     { href: "/about", label: "About" },
   ];
 
-  const isToolsSection = pathname?.startsWith('/tools');
+  const isToolsSection = pathname === '/' || pathname?.startsWith('/tools');
 
   return (
     <header className="site-header border-b border-ink/[0.08] bg-bg/80 backdrop-blur-sm sticky top-0 z-40">
@@ -38,12 +38,12 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
               </button>
             )}
             {links.filter(l => l.href === "/tools").map((link) => {
-              const isActive = pathname === link.href ||
+              const isActive = pathname === "/" || pathname === link.href ||
                 (link.href === "/tools" && pathname.startsWith("/tools"));
               return (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href="/"
                   className={`px-[12px] py-[7px] rounded-[8px] text-[13.5px] transition-colors whitespace-nowrap ${
                     isActive
                       ? "bg-ink/[0.06] dark:bg-white/[0.08] text-ink font-medium"
@@ -58,8 +58,7 @@ export function NavBar({ onToggleSidebar }: NavBarProps = {}) {
 
           <nav className="nav-links flex items-center gap-[2px]">
             {links.filter(l => l.href !== "/tools").map((link) => {
-              const isActive = pathname === link.href ||
-                (link.href === "/tools" && pathname.startsWith("/tools"));
+              const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
