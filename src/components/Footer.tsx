@@ -28,6 +28,7 @@ export function Footer() {
             <Link href="/privacy" className="block text-[13px] text-grey dark:text-gray-500 no-underline mb-2.5 hover:text-ink dark:hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="block text-[13px] text-grey dark:text-gray-500 no-underline mb-2.5 hover:text-ink dark:hover:text-white transition-colors">Terms</Link>
             <Link href="/about" className="block text-[13px] text-grey dark:text-gray-500 no-underline mb-2.5 hover:text-ink dark:hover:text-white transition-colors">About</Link>
+            <Link href="/blog" className="block text-[13px] text-grey dark:text-gray-500 no-underline mb-2.5 hover:text-ink dark:hover:text-white transition-colors">Blog</Link>
           </div>
         </div>
       </div>
