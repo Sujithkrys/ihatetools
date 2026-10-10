@@ -105,16 +105,33 @@ export default function Home() {
 
       {/* ======== HERO ======== */}
       <Frame showBorder={false}>
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden -mx-4 md:-mx-[34px] px-4 md:px-[34px] pt-[8px] pb-[8px]">
+          {/* Layered gradient mesh background */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -top-[160px] -right-[120px] w-[600px] h-[600px] rounded-full opacity-[0.14] dark:opacity-[0.18] blur-[100px]"
+            className="pointer-events-none absolute -top-[200px] -right-[180px] w-[680px] h-[680px] rounded-full opacity-[0.16] dark:opacity-[0.22] blur-[110px] animate-drift"
             style={{ background: "radial-gradient(closest-side, var(--primary, #0D99FF), transparent)" }}
           />
-          <div className="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-[40px] items-center py-[20px]">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-[160px] -left-[160px] w-[520px] h-[520px] rounded-full opacity-[0.10] dark:opacity-[0.14] blur-[100px] animate-drift"
+            style={{ background: "radial-gradient(closest-side, #9B8AE6, transparent)", animationDelay: "-7s" }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.5] dark:opacity-[0.6]"
+            style={{
+              backgroundImage: "radial-gradient(rgb(var(--color-ink) / 0.08) 1px, transparent 1px)",
+              backgroundSize: "22px 22px",
+              maskImage: "radial-gradient(ellipse 60% 55% at 50% 0%, black 40%, transparent 100%)",
+              WebkitMaskImage: "radial-gradient(ellipse 60% 55% at 50% 0%, black 40%, transparent 100%)",
+            }}
+          />
+
+          <div className="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-[40px] items-center py-[24px]">
             {/* Copy */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-[10px] mb-[20px]">
+              <div className="animate-fade-up inline-flex items-center gap-[10px] mb-[22px]">
                 <span className="inline-flex items-center gap-[6px] text-[12px] font-medium text-grey bg-ink/5 dark:bg-white/5 px-[11px] py-[5px] rounded-full">
                   No sign-up
                 </span>
@@ -122,27 +139,31 @@ export default function Home() {
                   No watermark
                 </span>
               </div>
-              <h1 className="disp disp-lg text-[clamp(36px,4.6vw,56px)] lg:max-w-[12ch] text-ink leading-[1.05]">
-                Tools that <span className="bg-yellow/90 text-[#111212] px-[0.1em] rounded-[0.15em]">don&apos;t</span> waste your time.
+              <h1 className="animate-fade-up delay-1 disp disp-lg text-[clamp(42px,6vw,76px)] lg:max-w-[11ch] text-ink leading-[0.98] tracking-[-0.03em]">
+                Tools that{" "}
+                <span className="relative inline-block">
+                  <span className="bg-yellow/90 text-[#111212] px-[0.12em] rounded-[0.15em]">don&apos;t</span>
+                </span>{" "}
+                waste your time.
               </h1>
-              <p className="disp text-[clamp(16px,1.6vw,19px)] font-normal lg:max-w-[38ch] mx-auto lg:mx-0 mt-[18px] text-ink/65">
+              <p className="animate-fade-up delay-2 disp text-[clamp(17px,1.7vw,20px)] font-normal lg:max-w-[40ch] mx-auto lg:mx-0 mt-[22px] text-ink/65">
                 Merge, split, compress, and convert, all of it running locally in your browser.
               </p>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-[12px] mt-[28px]">
+              <div className="animate-fade-up delay-3 flex flex-wrap justify-center lg:justify-start gap-[12px] mt-[30px]">
                 <Link
                   href="/"
-                  className="cta browse inline-flex items-center gap-[8px] bg-ink text-paper px-[22px] py-[12px] rounded-[10px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer shadow-soft dark:shadow-soft-dark hover:-translate-y-[2px] hover:shadow-soft-hover transition-all"
+                  className="cta browse inline-flex items-center gap-[8px] bg-ink text-paper px-[24px] py-[13px] rounded-[10px] font-medium text-[15px] tracking-[-0.02em] cursor-pointer shadow-soft dark:shadow-soft-dark hover:-translate-y-[2px] hover:shadow-soft-hover transition-all"
                 >
                   Browse all tools →
                 </Link>
                 <Link
                   href="/tools/resume-ats-checker"
-                  className="inline-flex items-center gap-[8px] border border-ink/12 dark:border-white/15 text-ink px-[22px] py-[12px] rounded-[10px] font-medium text-[14.5px] tracking-[-0.02em] cursor-pointer hover:bg-ink/[0.03] dark:hover:bg-white/[0.04] transition-colors"
+                  className="inline-flex items-center gap-[8px] border border-ink/12 dark:border-white/15 text-ink px-[24px] py-[13px] rounded-[10px] font-medium text-[15px] tracking-[-0.02em] cursor-pointer hover:bg-ink/[0.03] dark:hover:bg-white/[0.04] transition-colors"
                 >
                   Try a tool
                 </Link>
               </div>
-              <p className="max-w-[460px] mx-auto lg:mx-0 mt-[24px] text-[13px] leading-[1.7] text-grey">
+              <p className="animate-fade-up delay-4 max-w-[460px] mx-auto lg:mx-0 mt-[24px] text-[13px] leading-[1.7] text-grey">
                 No uploads. No subscriptions.{" "}
                 <Link href="/" className="text-ink underline underline-offset-2 hover:text-sel transition-colors">Browse every tool</Link>
                 {" "}or read the{" "}
@@ -151,7 +172,7 @@ export default function Home() {
             </div>
 
             {/* Product shot */}
-            <div className="relative hidden lg:block">
+            <div className="animate-fade-up delay-2 relative hidden lg:block">
               <div className="relative rounded-[16px] border border-ink/10 dark:border-white/10 bg-paper dark:bg-bg shadow-soft-hover overflow-hidden rotate-[1.2deg] hover:rotate-0 transition-transform duration-500">
                 <div className="flex items-center gap-[6px] px-[14px] py-[10px] border-b border-ink/8 dark:border-white/10 bg-ink/[0.015] dark:bg-white/[0.02]">
                   <span className="w-[9px] h-[9px] rounded-full bg-ink/15 dark:bg-white/20" />
@@ -169,6 +190,19 @@ export default function Home() {
                 />
               </div>
               <div className="absolute -bottom-[14px] -left-[14px] -z-10 w-full h-full rounded-[16px] bg-sel/10 dark:bg-sel/15" />
+
+              {/* Floating badge chips for depth */}
+              <div className="animate-float-chip absolute -top-[18px] -left-[22px] flex items-center gap-[7px] bg-paper dark:bg-[#1A1C1E] border border-ink/10 dark:border-white/10 rounded-[11px] px-[13px] py-[9px] shadow-soft-hover">
+                <ShieldCheck className="w-[14px] h-[14px] text-sel" strokeWidth={2} />
+                <span className="text-[12px] font-semibold text-ink">100% client-side</span>
+              </div>
+              <div
+                className="animate-float-chip absolute -bottom-[16px] -right-[16px] flex items-center gap-[7px] bg-paper dark:bg-[#1A1C1E] border border-ink/10 dark:border-white/10 rounded-[11px] px-[13px] py-[9px] shadow-soft-hover"
+                style={{ animationDelay: "-2.5s" }}
+              >
+                <BadgeCheck className="w-[14px] h-[14px] text-sel" strokeWidth={2} />
+                <span className="text-[12px] font-semibold text-ink">Always free</span>
+              </div>
             </div>
           </div>
         </div>
@@ -193,27 +227,34 @@ export default function Home() {
 
       {/* ======== WHY IT'S DIFFERENT ======== */}
       <Frame label="Why it's different" labelColor="pink">
-        <div className="grid md:grid-cols-3 gap-[18px] max-w-[920px] mx-auto">
-          <div className="blk p-[24px]">
-            <div className="w-10 h-10 rounded-full bg-ink/5 dark:bg-white/5 flex items-center justify-center mb-[14px]">
-              <ShieldCheck className="w-[18px] h-[18px] text-ink/70" strokeWidth={1.75} />
+        <div className="relative max-w-[960px] mx-auto rounded-[20px] p-[20px] md:p-[28px] overflow-hidden" style={{ background: "linear-gradient(145deg, rgb(var(--color-sel) / 0.07), rgb(155 138 230 / 0.06))" }}>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-[80px] -right-[80px] w-[280px] h-[280px] rounded-full opacity-40 blur-[70px]"
+            style={{ background: "radial-gradient(closest-side, var(--primary, #0D99FF), transparent)" }}
+          />
+          <div className="relative grid md:grid-cols-3 gap-[16px]">
+            <div className="blk p-[24px] !bg-paper dark:!bg-bg">
+              <div className="w-10 h-10 rounded-full bg-sel/10 flex items-center justify-center mb-[14px]">
+                <ShieldCheck className="w-[18px] h-[18px] text-sel" strokeWidth={1.75} />
+              </div>
+              <h3 className="disp text-[18px] mb-[8px]">Your files never leave</h3>
+              <SelectedText className="mt-[6px]">Everything runs in your browser. No server, no upload, no copy of your document sitting somewhere.</SelectedText>
             </div>
-            <h3 className="disp text-[18px] mb-[8px]">Your files never leave</h3>
-            <SelectedText className="mt-[6px]">Everything runs in your browser. No server, no upload, no copy of your document sitting somewhere.</SelectedText>
-          </div>
-          <div className="blk p-[24px]">
-            <div className="w-10 h-10 rounded-full bg-ink/5 dark:bg-white/5 flex items-center justify-center mb-[14px]">
-              <BadgeCheck className="w-[18px] h-[18px] text-ink/70" strokeWidth={1.75} />
+            <div className="blk p-[24px] !bg-paper dark:!bg-bg">
+              <div className="w-10 h-10 rounded-full bg-sel/10 flex items-center justify-center mb-[14px]">
+                <BadgeCheck className="w-[18px] h-[18px] text-sel" strokeWidth={1.75} />
+              </div>
+              <h3 className="disp text-[18px] mb-[8px]">Free, with no asterisk</h3>
+              <SelectedText className="mt-[6px]">No sign-up wall, no watermark on the output, no &quot;upgrade to download&quot; at the last step.</SelectedText>
             </div>
-            <h3 className="disp text-[18px] mb-[8px]">Free, with no asterisk</h3>
-            <SelectedText className="mt-[6px]">No sign-up wall, no watermark on the output, no &quot;upgrade to download&quot; at the last step.</SelectedText>
-          </div>
-          <div className="blk p-[24px]">
-            <div className="w-10 h-10 rounded-full bg-ink/5 dark:bg-white/5 flex items-center justify-center mb-[14px]">
-              <StackIcon className="w-[18px] h-[18px] text-ink/70" strokeWidth={1.75} />
+            <div className="blk p-[24px] !bg-paper dark:!bg-bg">
+              <div className="w-10 h-10 rounded-full bg-sel/10 flex items-center justify-center mb-[14px]">
+                <StackIcon className="w-[18px] h-[18px] text-sel" strokeWidth={1.75} />
+              </div>
+              <h3 className="disp text-[18px] mb-[8px]">One place for all of it</h3>
+              <SelectedText className="mt-[6px]">PDF, image, audio, utility, and text tools together, so you&apos;re not hunting for a new site every time.</SelectedText>
             </div>
-            <h3 className="disp text-[18px] mb-[8px]">One place for all of it</h3>
-            <SelectedText className="mt-[6px]">PDF, image, audio, utility, and text tools together, so you&apos;re not hunting for a new site every time.</SelectedText>
           </div>
         </div>
       </Frame>
