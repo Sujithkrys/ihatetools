@@ -10,6 +10,14 @@ import { PdfMergeWidget } from "@/components/PdfMergeWidget";
 export const metadata: Metadata = {
   title: "Merge PDF - Free Online PDF Merger | ihatetools",
   description: "Combine multiple PDF files into one instantly. 100% free, private, client-side merging with no watermarks.",
+  alternates: {
+    canonical: "/tools/merge-pdf",
+  },
+  openGraph: {
+    title: "Merge PDF - Free Online PDF Merger | ihatetools",
+    description: "Combine multiple PDF files into one instantly. 100% free, private, client-side merging with no watermarks.",
+    url: "/tools/merge-pdf",
+  },
 };
 
 const HOW_IT_WORKS_STEPS = [

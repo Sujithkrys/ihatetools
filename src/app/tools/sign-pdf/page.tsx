@@ -9,6 +9,14 @@ import { SignPdfWidget } from "@/components/SignPdfWidget";
 export const metadata: Metadata = {
   title: "Sign PDF - Draw or Type Signatures on PDF Online | ihatetools",
   description: "Sign any PDF document directly in your browser. Draw, type, or position your signature securely with zero server uploads.",
+  alternates: {
+    canonical: "/tools/sign-pdf",
+  },
+  openGraph: {
+    title: "Sign PDF - Draw or Type Signatures on PDF Online | ihatetools",
+    description: "Sign any PDF document directly in your browser. Draw, type, or position your signature securely with zero server uploads.",
+    url: "/tools/sign-pdf",
+  },
 };
 
 const HOW_IT_WORKS_STEPS = [

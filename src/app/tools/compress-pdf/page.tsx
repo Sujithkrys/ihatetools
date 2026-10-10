@@ -9,6 +9,14 @@ import { RelatedTools } from "@/components/RelatedTools";
 export const metadata: Metadata = {
   title: "Compress PDF - Free Online PDF Optimizer | ihatetools",
   description: "Reduce PDF file size securely and instantly. 100% free, private, client-side optimization.",
+  alternates: {
+    canonical: "/tools/compress-pdf",
+  },
+  openGraph: {
+    title: "Compress PDF - Free Online PDF Optimizer | ihatetools",
+    description: "Reduce PDF file size securely and instantly. 100% free, private, client-side optimization.",
+    url: "/tools/compress-pdf",
+  },
 };
 
 const HOW_IT_WORKS_STEPS = [
