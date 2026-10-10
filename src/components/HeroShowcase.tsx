@@ -16,6 +16,14 @@ interface ShowcaseCard {
 
 const CARDS: ShowcaseCard[] = [
   {
+    src: "/images/hero-qr-card.png",
+    alt: "ihatetools QR code generator showing a generated QR code for a URL",
+    path: "www.ihatetools.in/tools/qr-code-generator",
+    href: "/tools/qr-code-generator",
+    width: 1520,
+    height: 928,
+  },
+  {
     src: "/images/hero-ats-card.png",
     alt: "ihatetools resume and job match checker showing a 67% keyword match score",
     path: "www.ihatetools.in/tools/resume-ats-checker",
@@ -39,31 +47,38 @@ const CARDS: ShowcaseCard[] = [
     width: 1520,
     height: 840,
   },
+  {
+    src: "/images/hero-barcode-card.png",
+    alt: "ihatetools barcode generator showing a generated barcode",
+    path: "www.ihatetools.in/tools/barcode-generator",
+    href: "/tools/barcode-generator",
+    width: 1520,
+    height: 1484,
+  },
 ];
 
 export function HeroShowcase() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [interacted, setInteracted] = useState(false);
 
   useEffect(() => {
-    if (paused) return;
+    if (interacted) return;
     const id = setInterval(() => {
       setActive((i) => (i + 1) % CARDS.length);
     }, 4500);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [interacted]);
 
   const card = CARDS[active];
 
   return (
-    <div
-      className="group relative hidden lg:block"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <div className="group relative hidden lg:block">
       <button
         type="button"
-        onClick={() => setActive((i) => (i + 1) % CARDS.length)}
+        onClick={() => {
+          setInteracted(true);
+          setActive((i) => (i + 1) % CARDS.length);
+        }}
         aria-label="Show next tool preview"
         className="relative block w-full text-left rounded-[16px] border border-ink/10 dark:border-white/10 bg-paper dark:bg-bg shadow-soft-hover overflow-hidden rotate-[1.2deg] group-hover:rotate-0 transition-transform duration-500 cursor-pointer"
       >
@@ -96,6 +111,7 @@ export function HeroShowcase() {
             type="button"
             onClick={(e) => {
               e.stopPropagation();
+              setInteracted(true);
               setActive(i);
             }}
             aria-label={`Show preview ${i + 1}`}
