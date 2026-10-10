@@ -19,6 +19,15 @@ const JOB_AD_STOPWORDS = new Set([
   "opportunity", "including", "across", "environment", "environments",
   "help", "helping", "new", "join", "looking", "apply", "excellent", "good",
   "plus", "related", "similar", "etc", "within", "other", "various",
+  "deliver", "delivery", "delivering", "iterate", "iterating", "iteration",
+  "prioritise", "prioritize", "prioritizing", "prioritising", "ship", "shipping",
+  "launch", "launching", "stakeholder", "stakeholders", "drive", "driving",
+  "define", "defining", "partner", "partnering", "collaborate", "collaborating",
+  "collaboration", "cross-functional", "leadership", "lead", "leading", "leads",
+  "manage", "managing", "own", "owning", "ownership", "track", "record",
+  "comfortable", "fluent", "hands-on", "deep", "understanding", "equivalent",
+  "bachelor", "bachelors", "degree", "field", "someone", "who", "they", "their",
+  "them", "while", "where", "when", "what", "how", "why",
 ]);
 
 const SECTION_HEADERS: { label: string; pattern: RegExp }[] = [
@@ -51,16 +60,26 @@ export interface KeywordTerm {
 // Phrases that typically introduce a list of actual skills/tools, e.g.
 // "experience with React, TypeScript, and Next.js" -> ["React", "TypeScript", "Next.js"]
 const TRIGGER_PHRASES = [
-  /experience (?:with|in|using)/i,
-  /knowledge of/i,
+  /experience (?:with|in|using|building|leading|shipping|managing|driving|owning)/i,
+  /(?:deep |working |solid )?(?:knowledge|understanding) of/i,
   /proficien(?:cy|t) (?:with|in)/i,
   /familiarity with/i,
   /familiar with/i,
   /skilled in/i,
   /expertise in/i,
+  /expert (?:in|with)/i,
   /background in/i,
   /working with/i,
+  /comfortable with/i,
+  /fluent in/i,
+  /hands-on (?:with|experience)/i,
+  /exposure to/i,
+  /track record (?:of|with)/i,
 ];
+
+// Headings that introduce a dense skills/requirements list, where every subsequent
+// short line can be treated as a bare phrase list even without a trigger phrase.
+const LIST_SECTION_HEADING = /^(requirements?|qualifications?|skills?|what you(?:'|’)ll bring|what we(?:'|’)re looking for|you have|must have|nice to have|responsibilities)s?:?\s*$/i;
 
 const LEADING_STOPWORDS = /^(and|or|a|an|the|to|of|in|with|using)\s+/i;
 
@@ -72,6 +91,11 @@ function cleanPhrase(raw: string): string {
     prev = p;
     p = p.replace(LEADING_STOPWORDS, "").trim();
   } while (p !== prev);
+  // drop stray unmatched brackets left over from splitting mid-parenthetical,
+  // e.g. "equivalent)" from "...or equivalent)"
+  const opens = (p.match(/[([{]/g) ?? []).length;
+  const closes = (p.match(/[)\]}]/g) ?? []).length;
+  if (opens !== closes) return "";
   return p;
 }
 
@@ -81,17 +105,43 @@ function cleanPhrase(raw: string): string {
  *    which is how most job postings actually enumerate real skills/tools.
  * 2. Frequently repeated significant words across the whole text, as a fallback.
  */
+function addPhrase(map: Map<string, number>, part: string) {
+  const cleaned = cleanPhrase(part);
+  if (!cleaned) return;
+  const wordCount = cleaned.split(/\s+/).length;
+  if (wordCount === 0 || wordCount > 4) return;
+  if (cleaned.length < 2 || cleaned.length > 35) return;
+  const key = cleaned.toLowerCase();
+  if (GENERIC_STOPWORDS.has(key) || JOB_AD_STOPWORDS.has(key)) return;
+  map.set(cleaned, (map.get(cleaned) ?? 0) + 1);
+}
+
 export function extractKeywords(jobText: string, maxTerms = 20): KeywordTerm[] {
   const listPhrases = new Map<string, number>();
   const lines = jobText.split(/\n+/);
+
+  let inListSection = false;
 
   for (const rawLine of lines) {
     const line = rawLine.replace(/^[\s\-*•·▪]+/, "").trim();
     if (!line) continue;
 
+    if (LIST_SECTION_HEADING.test(line)) {
+      inListSection = true;
+      continue;
+    }
+    // A long, sentence-like line (ends in a period, has 15+ words) signals we've
+    // left a bullet-list section and are back in prose.
+    const wordCount = line.split(/\s+/).length;
+    if (wordCount > 18) {
+      inListSection = false;
+    }
+
+    let matchedTrigger = false;
     for (const trigger of TRIGGER_PHRASES) {
       const match = trigger.exec(line);
       if (!match) continue;
+      matchedTrigger = true;
 
       // Take the text after the trigger phrase, up to the end of the line/sentence.
       const tail = line.slice(match.index + match[0].length);
@@ -99,16 +149,15 @@ export function extractKeywords(jobText: string, maxTerms = 20): KeywordTerm[] {
       const listText = sentenceEnd === -1 ? tail : tail.slice(0, sentenceEnd);
 
       const parts = listText.split(/,|\s+\/\s+|\band\b|\bor\b/i);
-      for (const part of parts) {
-        const cleaned = cleanPhrase(part);
-        if (!cleaned) continue;
-        const wordCount = cleaned.split(/\s+/).length;
-        if (wordCount === 0 || wordCount > 3) continue;
-        if (cleaned.length < 2 || cleaned.length > 30) continue;
-        const key = cleaned.toLowerCase();
-        if (GENERIC_STOPWORDS.has(key) || JOB_AD_STOPWORDS.has(key)) continue;
-        listPhrases.set(cleaned, (listPhrases.get(cleaned) ?? 0) + 1);
-      }
+      for (const part of parts) addPhrase(listPhrases, part);
+    }
+
+    // Inside a known requirements/skills section, treat short bullet lines as a
+    // bare phrase list even without a trigger verb, this is how most postings
+    // actually format their skill lists ("- RESTful APIs, webhooks, OEM tooling").
+    if (!matchedTrigger && inListSection && wordCount <= 14) {
+      const parts = line.split(/,|\s+\/\s+|\band\b|\bor\b/i);
+      for (const part of parts) addPhrase(listPhrases, part);
     }
   }
 
@@ -180,7 +229,10 @@ export function checkSectionHeaders(resumeText: string): SectionCheckResult[] {
 }
 
 export function hasContactInfo(resumeText: string): { email: boolean; phone: boolean } {
-  const email = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i.test(resumeText);
+  // PDF text extraction sometimes inserts stray spaces around punctuation
+  // (e.g. "jane.doe @ example . com") depending on how the glyphs were laid
+  // out in the original file, so tolerate optional whitespace around @ and the dot.
+  const email = /[a-z0-9._%+-]+\s*@\s*[a-z0-9.-]+\s*\.\s*[a-z]{2,}/i.test(resumeText);
   const phone = /(\+?\d[\d\-\s().]{7,}\d)/.test(resumeText);
   return { email, phone };
 }
