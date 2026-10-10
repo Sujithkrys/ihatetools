@@ -24,9 +24,6 @@ export const metadata: Metadata = {
     template: "%s | ihatetools",
   },
   description: "Free, fast, client-side tools for developers and creators. No watermark, no sign-up required.",
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
