@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Caveat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "@/components/AppShell";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -8,12 +8,6 @@ import { SITE_URL } from "@/lib/site";
 const inter = Inter({ 
   subsets: ["latin"], 
   variable: "--font-inter",
-  display: 'swap',
-});
-
-const caveat = Caveat({ 
-  subsets: ["latin"], 
-  variable: "--font-caveat",
   display: 'swap',
 });
 
@@ -53,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${caveat.variable} min-h-screen flex flex-col bg-bg text-ink antialiased font-sans`}>
+      <body className={`${inter.variable} min-h-screen flex flex-col bg-bg text-ink antialiased font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

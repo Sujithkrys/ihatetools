@@ -1,8 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import Sidebar from './Sidebar';
+import dynamic from 'next/dynamic';
 import { NavBar } from './NavBar';
+
+const Sidebar = dynamic(() => import('./Sidebar'), { ssr: false });
 
 const STORAGE_KEY = 'ihatetools-sidebar-open';
 const BREAKPOINT = 1024;

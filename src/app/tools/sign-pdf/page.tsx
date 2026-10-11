@@ -1,10 +1,17 @@
 import { Metadata } from "next";
+import { Caveat } from "next/font/google";
 import { PenTool } from "lucide-react";
 import { ToolWidgetShell } from "@/components/ToolWidgetShell";
 import { HowItWorksSteps } from "@/components/HowItWorksSteps";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { RelatedTools } from "@/components/RelatedTools";
 import { SignPdfWidget } from "@/components/SignPdfWidget";
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Sign PDF - Draw or Type Signatures on PDF Online | ihatetools",
@@ -57,7 +64,7 @@ const RELATED_TOOLS = [
 
 export default function SignPdfPage() {
   return (
-    <div className="max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]">
+    <div className={`${caveat.variable} max-w-content mx-auto px-4 md:px-[34px] pt-[40px] pb-[60px]`}>
       <section className="max-w-2xl mb-[32px]">
         <div className="flex items-center gap-2.5 mb-4">
           <div className="w-9 h-9 rounded-[10px] bg-sel/8 flex items-center justify-center shrink-0">
