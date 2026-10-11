@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { TOOLS } from '@/lib/tools-data';
-import { Logo } from './Logo';
 
 const CATEGORY_STYLES: Record<string, { label: string; bg: string; color: string }> = {
   pdf:   { label: 'PDF Tools',   bg: 'rgba(245, 194, 66, 0.16)', color: '#F5C242' },
@@ -57,7 +57,10 @@ export default function Sidebar({ open, onClose, currentPath }: SidebarProps) {
   return (
     <aside className="app-sidebar" data-open={open}>
       <div className="sb-head flex items-center justify-between">
-        <Logo size={20} className="text-[#F3F1ED]" cutoutColor="#111212" textClassName="sb-logo" />
+        <Link href="/" className="inline-flex items-center gap-2 no-underline">
+          <Image src="/logo-dark.png" alt="ihatetools" width={26} height={26} className="rounded-[6px]" priority />
+          <span className="sb-logo">ihatetools</span>
+        </Link>
         <button
           type="button"
           onClick={onClose}
