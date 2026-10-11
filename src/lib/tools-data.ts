@@ -52,6 +52,7 @@ import {
   FileCode,
   Clock,
   ClipboardCheck,
+  Sparkles,
   LucideIcon
 } from "lucide-react";
 
@@ -556,6 +557,16 @@ export const TOOLS: ToolData[] = [
     href: "/tools/blur-image-region",
     featured: false,
     category: "Image Tools"
+  },
+  {
+    id: "ai-summarizer",
+    name: "AI Text Summarizer",
+    description: "Summarize articles, essays, and text into key points with AI.",
+    beforeText: "AI",
+    icon: Sparkles,
+    href: "/tools/ai-summarizer",
+    featured: true,
+    category: "Text Tools"
   },
   {
     id: "word-counter",

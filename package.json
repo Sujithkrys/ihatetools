@@ -21,6 +21,7 @@
     "@types/jsbarcode": "^3.11.4",
     "@types/marked": "^5.0.2",
     "@types/spark-md5": "^3.0.5",
+    "@upstash/redis": "^1.39.0",
     "boxpdf": "^1.13.0",
     "clsx": "^2.1.1",
     "diff": "^9.0.0",
