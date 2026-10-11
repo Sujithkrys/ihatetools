@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     title: "ihatetools - Free Online Tools",
     description: "100+ free online tools for PDFs, images, audio, and text — merge, compress, convert, and more. Everything runs in your browser, no sign-up, no uploads.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "ihatetools - Free Online Tools",
+    description: "100+ free online tools for PDFs, images, audio, and text — merge, compress, convert, and more. Everything runs in your browser, no sign-up, no uploads.",
+  },
 };
 
 export default function RootLayout({
