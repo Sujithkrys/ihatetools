@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { TOOLS } from "@/lib/tools-data";
 import { ToolCard } from "@/components/ToolCard";
+import { SponsorStrip } from "@/components/SponsorStrip";
 
 export const metadata: Metadata = {
   title: "ihatetools - Free Online Tools",
@@ -25,6 +26,9 @@ export default function RootToolsPage() {
 
   return (
     <div className="min-h-screen bg-bg dark:bg-black text-ink dark:text-white p-8 pb-16">
+      <div className="max-w-[1400px]">
+        <SponsorStrip />
+      </div>
       <div className="space-y-12 max-w-[1400px]">
         {categories.map(cat => {
           const catTools = TOOLS.filter(t => 
