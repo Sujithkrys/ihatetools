@@ -4,13 +4,13 @@ import { ToolCard } from "@/components/ToolCard";
 
 export const metadata: Metadata = {
   title: "ihatetools - Free Online Tools",
-  description: "Free, fast, client-side tools for developers and creators. No watermark, no sign-up required.",
+  description: "100+ free online tools for PDFs, images, audio, and text — merge, compress, convert, and more. Everything runs in your browser, no sign-up, no uploads.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "ihatetools - Free Online Tools",
-    description: "Free, fast, client-side tools for developers and creators. No watermark, no sign-up required.",
+    description: "100+ free online tools for PDFs, images, audio, and text — merge, compress, convert, and more. Everything runs in your browser, no sign-up, no uploads.",
     url: "/",
   },
 };

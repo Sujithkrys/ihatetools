@@ -23,14 +23,26 @@ export const metadata: Metadata = {
     default: "ihatetools - Free Online Tools",
     template: "%s | ihatetools",
   },
-  description: "Free, fast, client-side tools for developers and creators. No watermark, no sign-up required.",
+  description: "100+ free online tools for PDFs, images, audio, and text — merge, compress, convert, and more. Everything runs in your browser, no sign-up, no uploads.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     siteName: "ihatetools",
     title: "ihatetools - Free Online Tools",
-    description: "Free, fast, client-side tools for developers and creators. No watermark, no sign-up required.",
+    description: "100+ free online tools for PDFs, images, audio, and text — merge, compress, convert, and more. Everything runs in your browser, no sign-up, no uploads.",
   },
 };
 
